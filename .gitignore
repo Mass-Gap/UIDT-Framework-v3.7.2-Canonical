@@ -1,0 +1,118 @@
+# ============================================================================
+# CRITICAL: PROPRIETARY OPERATIONAL SYSTEM (427 FILES)
+# ============================================================================
+# MUST NEVER be uploaded to GitHub - contains research strategy, local database
+UIDT-OS/
+UIDT-OS.zip
+
+# Verify exclusion with: git ls-files | grep -i "uidt-os"
+# Expected result: (empty)
+
+# ============================================================================
+# LARGE ARCHIVES (Redundant - use GitHub Releases instead)
+# ============================================================================
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
+# Allow specific small archives if needed (uncomment case-by-case):
+# !small-dataset.zip
+
+# ============================================================================
+# COMPILED LATEX
+# ============================================================================
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# ============================================================================
+# IDE / EDITOR
+# ============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================================================
+# SENSITIVE / LOCAL CONFIGURATION
+# ============================================================================
+.env
+.env.local
+*.key
+*.pem
+credentials.json
+config.local.yaml
+
+# ============================================================================
+# TEMPORARY / CACHE
+# ============================================================================
+*.tmp
+*.bak
+*.cache
+.cache/
+tmp/
+temp/
+
+# ============================================================================
+# LARGE BINARY DATA (Use Git LFS or external storage)
+# ============================================================================
+# Uncomment if you have large datasets:
+# data/raw/*.hdf5
+# data/processed/*.nc
+
+# ============================================================================
+# SUPERSEDED VERSIONS (Move to archive/ and document)
+# ============================================================================
+*_SUPERSEDED.*
+*_WITHDRAWN.*
+*_DEPRECATED.*
