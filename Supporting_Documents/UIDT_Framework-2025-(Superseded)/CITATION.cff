@@ -1,0 +1,113 @@
+```yaml
+# Continue from previous CITATION.cff file - Extended version with complete reference list and additional metadata
+
+# Additional software-specific metadata
+type: software
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+repository-artifact: "https://osf.io/wdyxc"
+commit: "Initial release v1.0"
+
+# Contact information for technical and scientific inquiries
+contact:
+  - family-names: Rietz
+    given-names: Philipp
+    affiliation: Independent Researcher
+    email: badbugs.art@googlemail.com
+    orcid: 0009-0007-3397-1609
+
+# Funding information (if applicable)
+# funders:
+#   - name: "Example Funding Agency"
+#     award-id: "GRANT-12345"
+#     type: grant
+
+# Related identifiers and resources
+identifiers:
+  - type: doi
+    value: 10.31219/osf.io/wdyxc
+  - type: url
+    value: https://osf.io/wdyxc
+  - type: orcid
+    value: 0009-0007-3397-1609
+
+# Software requirements and dependencies
+# requirements:
+#   - name: "Python"
+#     version: ">=3.8"
+#     type: programming-language
+#   - name: "NumPy"
+#     version: ">=1.21"
+#     type: library
+#   - name: "SciPy"
+#     version: ">=1.7"
+#     type: library
+
+# Programming languages used in the implementation
+languages:
+  - "Python"
+  - "Mathematica"
+  - "C++"
+
+# Keywords for improved discoverability
+keywords:
+  - "Yang-Mills Theory"
+  - "Mass Gap"
+  - "Quantum Field Theory"
+  - "Information Theory"
+  - "Constructive QFT"
+  - "Renormalization Group"
+  - "Millennium Prize Problems"
+  - "Theoretical Physics"
+  - "Mathematical Physics"
+  - "Gauge Theory"
+  - "Quantum Chromodynamics"
+  - "Glueball Spectrum"
+  - "Asymptotic Safety"
+  - "Lattice Gauge Theory"
+  - "Wightman Axioms"
+
+
+Acknowledgements
+|
+The author acknowledges the foundational work in quantum field theory and lattice gauge theory that made this research possible. 
+
+>>>>Special thanks to the open-source scientific computing community for providing essential tools and libraries.<<<
+
+Legal information
+
+copyright: "Copyright 2025 Philipp Rietz"
+license-version: "4.0"
+license-spdx: "CC-BY-4.0"
+
+Citation metrics and impact (to be updated)
+
+citation-count: 0
+
+download-count: 0
+
+Release notes 16
+
+release-notes: (16)
+Version 76.1 (2025-10-26):
+
+· Initial release of UIDT theoretical framework
+· Complete mathematical formulation and proofs
+· Lattice implementation and numerical verification
+· Empirical validation against experimental data
+· Open-source code for reproducibility
+
+Security and maintenance information
+
+maintainer:
+
+· family-names: "Rietz"
+  given-names: "Philipp"
+  email: "badbugs.art@googlemail.com"
+
+status: "active"
+error-reporting: "https://github.com/badbugsarts-hue/UIDT-Framework-16.1/issues"
+documentation: "https://github.com/badbugsarts-hue/UIDT-Framework-16.1"
+support: "badbugs.art@googlemail.com"
+
+```
+```

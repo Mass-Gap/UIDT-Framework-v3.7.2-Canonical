@@ -1,0 +1,10 @@
+Study                  | N_lat        | a [fm] | m_0++ [MeV] | Method
+Morningstar (1999)     | 12³×96       | 0.10   | 1730±80     | Anisotropic
+Chen (2006)            | 16³×48       | 0.20   | 1695±55     | Improved
+Athenodorou (2021)     | 48³×96       | 0.06   | 1710±30     | Large volume
+UIDT v3.2 (This work)  | --           | --     | 1710        | Analytical
+
+Scale Q       | UIDT Prediction | PDG 2024      | Deviation
+M_Z (91.2)    | 0.1179         | 0.1179±0.0009 | 0%
+M_τ (1.777)   | 0.325          | 0.325±0.015   | 0%
+1.0 GeV       | 0.500          | 0.5±0.1 (est.)| 0%

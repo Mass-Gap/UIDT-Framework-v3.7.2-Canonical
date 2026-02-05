@@ -1,0 +1,67 @@
+name: Validate and Convert Metadata
+
+on:
+  push:
+    branches: [ framework ]
+    paths:
+      - 'metadata.yml'
+  pull_request:
+    branches: [ framework ]
+    paths:
+      - 'metadata.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-metadata:
+    runs-on: ubuntu-latest
+    name: Validate YAML metadata and produce JSON
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml jsonschema
+
+      - name: Validate YAML against JSON schema
+        run: |
+          echo "Validating metadata.yml..."
+          python - <<'EOF'
+          import yaml, json, jsonschema
+          from pathlib import Path
+
+          # Paths
+          meta_file = Path("metadata.yml")
+          schema_file = Path(".github/workflows/metadata-schema.json")
+
+          # Load YAML
+          with meta_file.open("r", encoding="utf-8") as f:
+              metadata = yaml.safe_load(f)
+
+          # Load JSON Schema (if exists)
+          if schema_file.exists():
+              with schema_file.open("r", encoding="utf-8") as f:
+                  schema = json.load(f)
+              jsonschema.validate(instance=metadata, schema=schema)
+              print("✅ metadata.yml validated successfully against schema")
+          else:
+              print("⚠️ No schema found, skipping JSON schema validation")
+
+          # Convert to JSON
+          json_file = meta_file.with_suffix(".json")
+          with json_file.open("w", encoding="utf-8") as f:
+              json.dump(metadata, f, indent=2)
+          print(f"✅ metadata.yml converted to {json_file}")
+          EOF
+
+      - name: Upload metadata JSON artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: metadata-json
+          path: metadata.json
