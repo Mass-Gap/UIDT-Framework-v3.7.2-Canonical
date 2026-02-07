@@ -101,6 +101,11 @@ Thumbs.db
 credentials.json
 config.local.yaml
 
+# Claude Code local configuration
+.claude/
+.mcp.json
+settings.local.json
+
 # ============================================================================
 # TEMPORARY / CACHE
 # ============================================================================
