@@ -178,14 +178,10 @@ verification/scripts/verify_template.py
 verification/data/Verification_Report_*.md
 Supplementary_Results/Verification_Report_*.md
 
-# Root Pollution & Internal Operational Data
+# ============================================================================
+# INTERNAL / LOCAL ARTIFACTS
+# ============================================================================
 web/
 LOCAL/
 .kilo/
 archives/
-.cursorrules
-.frolic-session.json
-CLAUDE.md
-*.zip
-*.bak
-*.tmp
