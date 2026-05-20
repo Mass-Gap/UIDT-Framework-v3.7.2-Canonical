@@ -1,0 +1,3 @@
+> 🚨 **FALSIFICATION TRIGGER DETECTED:** ArXiv scan identified paper [arXiv:2504.00001]. Data implies [w = -1.00 ± 0.01]. This challenges the holographic scale factor mechanism. Requesting immediate Opus 4.7 evaluation for potential downgrade of Claim [X] to Category [E-withdrawn].
+
+> 🚨 **FALSIFICATION TRIGGER DETECTED:** ArXiv scan identified paper [arXiv:2504.00002]. Data implies [mass gap != 1.710 GeV at >3σ]. This challenges Pillar I. Requesting immediate Opus 4.7 evaluation for potential downgrade of Claim [X] to Category [E-withdrawn].

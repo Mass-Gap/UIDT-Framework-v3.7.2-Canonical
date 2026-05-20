@@ -1,0 +1,16 @@
+{
+  "TKT-2026-05-20-arxiv-scan-001": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [
+      "python3 LOCAL/scripts/arxiv_scan.py (mocked API validation)"
+    ],
+    "docs": [
+      "None"
+    ],
+    "status": "Verified",
+    "timestamp": 1779288340,
+    "author": "P. Rietz"
+  }
+}
