@@ -1,0 +1,13 @@
+{
+  "TKT-2026-05-22-arxiv-scan": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py",
+      "LOCAL/pr_template.md"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "completed",
+    "timestamp": 1779460850,
+    "author": "Jules"
+  }
+}
