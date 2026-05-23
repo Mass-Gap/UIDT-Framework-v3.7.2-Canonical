@@ -1,0 +1,1 @@
+Remember: When enforcing schema rules (e.g. CLAIMS.json), ensure statistics counts are properly decremented/incremented as statuses change. For filesystem cleanups, do not just delete the generated directories, find the code emitting the files (like output_dir) and update the paths to point to the canonical destinations.
