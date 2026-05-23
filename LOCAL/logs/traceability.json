@@ -1,0 +1,17 @@
+{
+  "TKT-2024-05-23-arxiv-scan": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [
+      "python LOCAL/scripts/arxiv_scan.py --mock"
+    ],
+    "docs": [
+      "CANONICAL/FALSIFICATION.md",
+      "CANONICAL/LIMITATIONS.md"
+    ],
+    "status": "COMPLETED",
+    "timestamp": 1779545248,
+    "author": "P. Rietz"
+  }
+}
