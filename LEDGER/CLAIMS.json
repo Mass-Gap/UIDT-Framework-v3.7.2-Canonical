@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "version": "3.9.8",
-    "last_updated": "2026-04-25",
+    "version": "3.9.9-patch1",
+    "last_updated": "2026-05-24",
     "doi": "10.5281/zenodo.17835200",
-    "total_claims": 60,
-    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ)."
+    "total_claims": 65,
+    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ). | v3.9.9-patch1 (2026-05-24): Added UIDT-C-101..C-105 (TC-001..TC-005) from Patch v3.9.1 torsion-EOS coupling module. IDs assigned from C-101 (C-054/C-055 occupied). Branch: TKT-2026-05-24-torsion-eos-stratum-firewall-482."
   },
   "claims": [
     {
@@ -746,22 +746,91 @@
       ],
       "since": "v3.9.9",
       "notes": "C2-DESI: Tension to DESI 2024 (-1.05 ± 0.3) is unresolved."
+    },
+    {
+      "id": "UIDT-C-101",
+      "statement": "Torsion basis energy E_T = 2.44 MeV as ledger anchor in torsion-EOS cascade module",
+      "type": "constraint",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.80,
+      "dependencies": [
+        "UIDT-C-044",
+        "modules/torsion_eos_coupling_v3_9_corrected.py"
+      ],
+      "since": "v3.9.1",
+      "notes": "Ledger anchor in torsion-EOS module (Patch v3.9.1, PR #486). E_T modulated by dimensionless topological shift Ω_shift. Kill-switch: if E_T → 0 then torsion_energy_modulated = 0 exactly [TORSION_CONSTRAINT_FAIL]. Residual anchored at < 1e-14 per test_et_ledger_anchor.",
+      "falsification": "If E_T = 0, torsion self-energy must vanish exactly. If lattice QCD excludes 2.44 MeV bare torsion at >5σ, module anchor is refuted (see UIDT-C-044)."
+    },
+    {
+      "id": "UIDT-C-102",
+      "statement": "DESI-anchored EOS w_0 = -0.99 as macroscopic ceiling in torsion-EOS coupling module; kill-switch active if |w_0_macro − (−0.99)| > 0.05",
+      "type": "constraint",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.90,
+      "dependencies": [
+        "UIDT-C-037",
+        "arXiv:2503.14738"
+      ],
+      "since": "v3.9.1",
+      "notes": "DESI kill-switch implemented in torsion-EOS module (Patch v3.9.1, PR #486). BRST correction bounded by cascade decay q^N ~ 10^{-120} at N=99. Tolerance 0.05 is operational parameter, not a physical constant. Tests: test_desi_killswitch_inactive_for_small_shift, test_desi_killswitch_active_for_large_shift.",
+      "falsification": "DESI confirms exact w = −1.00 at >3σ → calibrated mapping [C] loses anchor; module kill-switch triggers unconditionally."
+    },
+    {
+      "id": "UIDT-C-103",
+      "statement": "Thermodynamic-limit coupling γ_∞ = 16.3437 (= γ_ref + δγ = 16.339 + 0.0047) used in torsion-EOS cascade",
+      "type": "parameter",
+      "status": "calibrated",
+      "evidence": "A-",
+      "confidence": 0.95,
+      "dependencies": [
+        "UIDT-C-002",
+        "UIDT-C-043"
+      ],
+      "since": "v3.9.1",
+      "notes": "Constructed deterministically from Ledger-canonical base components [A-] in Patch v3.9.1 (PR #486). Residual |γ_inf_computed − 16.3437| < 1e-14 verified by test_gamma_inf_construction at mp.dps=80. Replaces bare γ = 16.339 in cascade to remove systematic holographic offset (TENSION ALERT resolved for this module)."
+    },
+    {
+      "id": "UIDT-C-104",
+      "statement": "Yang-Mills spectral gap Δ = 1.710 GeV used as dimensional normalizer in torsion-EOS BRST correction (E_T / Δ)",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": [
+        "UIDT-C-001"
+      ],
+      "since": "v3.9.1",
+      "notes": "Read-only reference in Patch v3.9.1 torsion-EOS module (PR #486). No new claim on Δ; registers the dimensional role explicitly. BRST correction ∝ E_T / Δ ensures dimensionless ratio; contribution suppressed by cascade decay q^N ~ 10^{-120}. NOT a particle mass."
+    },
+    {
+      "id": "UIDT-C-105",
+      "statement": "BRST phantom pressure w_BRST = -8.12 as bounded Stratum III local model input in torsion-EOS module; stratum firewall verified",
+      "type": "interpretation",
+      "status": "conjectured",
+      "evidence": "D",
+      "confidence": 0.55,
+      "dependencies": [],
+      "since": "v3.9.1",
+      "notes": "Stratum III (UIDT mapping/interpretation) input only. NOT promoted to [C]. Bridge from w_BRST to macroscopic w_0 analytically unresolved. Contribution to w_0_macro suppressed by cascade decay factor q^N ~ 10^{-120} at N=99. Stratum firewall verified by test_w_brst_stratum_isolation: |w_BRST − w_0_macro| > 1.0 asserted. PR #486 / Patch v3.9.1.",
+      "falsification": "If independent first-principles derivation yields w_BRST within 0.1 of w_0_ledger, Stratum III isolation is breached and claim must be demoted to [E] pending review."
     }
   ],
   "statistics": {
     "category_A": 14,
-    "category_A-": 4,
+    "category_A-": 5,
     "category_B": 7,
-    "category_C": 11,
-    "category_D": 8,
+    "category_C": 13,
+    "category_D": 9,
     "category_E": 15,
     "verified": 22,
-    "calibrated": 9,
+    "calibrated": 11,
     "predicted": 10,
     "open": 6,
     "withdrawn": 2,
     "rectified": 1,
-    "conjectured": 4,
+    "conjectured": 5,
     "external": 2
   }
 }
