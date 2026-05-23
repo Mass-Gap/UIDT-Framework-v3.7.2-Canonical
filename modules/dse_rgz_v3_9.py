@@ -19,8 +19,8 @@ Kill switches:
 
 Canonical constants (UIDT v3.9 Parameter Ledger, immutable):
     Delta_star = 1.710 +/- 0.015 GeV   [B]  Yang-Mills spectral gap
-    kappa_uv   = 0.500                 [A]  UV coupling parameter
-    lambda_S   = 0.417                 [A]  scalar self-coupling
+    kappa_uv   = 0.500                 [A-] UV coupling parameter
+    lambda_S   = 0.417                 [A-] Scalar self-coupling
     N_c        = 3                         SU(3)
 
 Note on RG approximation:
@@ -87,8 +87,8 @@ class CanonicalConstants:
         _assert_precision()
         self.Delta_star  = mpf('1.710')    # GeV  [B]
         self.Delta_unc   = mpf('0.015')    # GeV  [B]
-        self.kappa_uv    = mpf('0.500')    # [A]
-        self.lambda_S    = mpf('0.417')    # [A]
+        self.kappa_uv    = mpf('0.500')    # [A-]
+        self.lambda_S    = mpf('0.417')    # [A-]
         self.C_gluon     = mpf('0.277')    # GeV^4 [A]
         self.N_c         = mpf('3')        # SU(3)
         self.Lambda_QCD  = mpf('0.340')    # GeV, quenched pure-YM
