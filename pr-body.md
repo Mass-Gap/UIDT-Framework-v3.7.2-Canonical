@@ -15,11 +15,11 @@ Vollständige Herleitung des holographischen Unterdrückungsfaktors aus ersten P
 ## Claims Table
 | Claim | Stratum | Evidenz/Quelle | Kategorie |
 |---|---|---|---|
-| $\Delta^* = 1.710 \text{ GeV}$, $\gamma = 16.339$ | I | UIDT-Ledger | A |
-| Geometrische Energie $E_{\text{geo}} = 0.10466 \text{ GeV}$ | I | Berechnet aus $\Delta^* / \gamma$ | A |
-| In RGZ entstehen Dimension-2-Kondensate ohne freie Parameter | II | RGZ-Literatur | C |
-| Produkt $\prod_{n=1}^{99} f_n = (1/\gamma)^{99} \approx 7.77 \times 10^{-121}$ | III | 80-digit-Berechnung in diesem PR | – |
-| Der verbleibende Restfaktor $\approx 1.286$ bleibt offen | III | Numerische Differenzanalyse | – |
+| $\Delta^* = 1.710 \text{ GeV}$, $\gamma = 16.339$ | I | UIDT-Ledger | [A]/[A-] |
+| Geometrische Energie $E_{\text{geo}} = 0.10466 \text{ GeV}$ | I | Berechnet aus $\Delta^* / \gamma$ | [A-] |
+| In RGZ entstehen Dimension-2-Kondensate ohne freie Parameter | II | RGZ-Literatur | [C] |
+| Produkt $\prod_{n=1}^{99} f_n = (1/\gamma)^{99} \approx 7.77 \times 10^{-121}$ | III | 80-digit-Berechnung in diesem PR | [E] |
+| Der verbleibende Restfaktor $\approx 1.286$ bleibt offen | III | Numerische Differenzanalyse | [E] |
 
 ## Aktions-Protokolle & Analysen
 
