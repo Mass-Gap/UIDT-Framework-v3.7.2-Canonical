@@ -1,10 +1,10 @@
 import pytest
-import mpmath as mp
+from mpmath import mp
 
 # Set precision locally
-mp.dps = 80
 
 def test_torsion_kill_switch_invariant():
+    mp.dps = 80  # RACE CONDITION LOCK
     """
     Test the Torsion Kill Switch formal invariant:
     If E_T = 0, then \\Sigma_T must exactly equal 0.
@@ -28,6 +28,7 @@ def test_torsion_kill_switch_invariant():
     assert residual < mp.mpf('1e-78'), f"[KILL_SWITCH_FAIL] Residual too high: {residual}"
 
 def test_torsion_kill_switch_function():
+    mp.dps = 80  # RACE CONDITION LOCK
     """
     Test the `torsion_kill_switch` function from `solve_dilaton_source.py`.
     """
