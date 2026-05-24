@@ -47,10 +47,10 @@ from mpmath import mp, mpf, pi, log, exp, fabs, nstr
 mp.dps = 80
 
 # ── Immutable Ledger constants [evidence tags from Space-Directive §2] ──
-GAMMA   = mpf("16.339")       # [A-]  γ, calibrated
-DELTA   = mpf("1.710")        # [B]   Δ*, Yang-Mills gap, GeV
-KAPPA   = mpf("0.500")        # [A]   κ
-LAMBDA_S = mpf("0.417")       # [A]   λ_S
+GAMMA    = mpf("16.339")           # [A-]  γ, calibrated
+DELTA    = mpf("1.710")            # [B]   Δ*, Yang-Mills gap, GeV
+KAPPA    = mpf("0.5")              # [A]   κ = 1/2 exact
+LAMBDA_S = mpf("5")/mpf("12")     # [A]   λ_S = 5/12 exact (PI Decision D6)
 
 # Physical constants used in manuscript Appendix J (all in GeV)
 M_W     = mpf("80.4")         # W-boson mass, GeV

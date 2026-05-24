@@ -37,10 +37,10 @@ class TestLedgerConstants:
         assert fabs(_mod.DELTA - mpf("1.710")) < mpf("1e-14"), "Δ drift"
 
     def test_kappa_value(self):
-        assert fabs(_mod.KAPPA - mpf("0.500")) < mpf("1e-14"), "κ drift"
+        assert fabs(_mod.KAPPA - mpf("0.5")) < mpf("1e-14"), "κ drift"
 
     def test_lambda_s_value(self):
-        assert fabs(_mod.LAMBDA_S - mpf("0.417")) < mpf("1e-14"), "λ_S drift"
+        assert fabs(_mod.LAMBDA_S - (mpf("5")/mpf("12"))) < mpf("1e-14"), "λ_S drift"
 
 
 class TestRGConstraint:
