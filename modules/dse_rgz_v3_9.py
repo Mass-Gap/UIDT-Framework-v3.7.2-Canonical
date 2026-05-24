@@ -18,7 +18,7 @@ Kill switches:
     [KAPPA_FAIL]      kappa_ir <= 0 (ghost sector unphysical)
 
 Canonical constants (UIDT v3.9 Parameter Ledger, immutable):
-    Delta_star = 1.710 +/- 0.015 GeV   [B]  Yang-Mills spectral gap
+    Delta_star = 1.710 +/- 0.015 GeV   [A]  Yang-Mills spectral gap
     kappa_uv   = 0.500                 [A-] UV coupling parameter
     lambda_S   = 0.417                 [A-] Scalar self-coupling
     N_c        = 3                         SU(3)
@@ -85,8 +85,8 @@ class CanonicalConstants:
 
     def __init__(self):
         _assert_precision()
-        self.Delta_star  = mpf('1.710')    # GeV  [B]
-        self.Delta_unc   = mpf('0.015')    # GeV  [B]
+        self.Delta_star  = mpf('1.710')    # GeV  [A]
+        self.Delta_unc   = mpf('0.015')    # GeV  [A]
         self.kappa_uv    = mpf('0.500')    # [A-]
         self.lambda_S    = mpf('0.417')    # [A-]
         self.C_gluon     = mpf('0.277')    # GeV^4 [A]
