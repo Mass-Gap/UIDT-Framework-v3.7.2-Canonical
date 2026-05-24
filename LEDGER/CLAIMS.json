@@ -4,45 +4,38 @@
     "last_updated": "2026-05-24",
     "doi": "10.5281/zenodo.17835200",
     "total_claims": 60,
-    "audit_note": "v3.9.9 (2026-05-24): Manuscript-sync: λ_S fixed to 5/12 exact in all scripts; N=99 RG ladder structure encoded as scaffold; C-017/C-039/C-050 clarified as phenomenological scaffold, not bare 'open'. C-046 flagged as superseded by Eq. 291 in manuscript."
+    "audit_note": "v3.9.9 (2026-05-24): Manuscript-sync: \u03bb_S fixed to 5/12 exact in all scripts; N=99 RG ladder structure encoded as scaffold; C-017/C-039/C-050 clarified as phenomenological scaffold, not bare 'open'. C-046 status set to superseded (superseded_by UIDT-C-050/Eq.291/PR#505). C-052 notes extended with scaffold [D] reference to su3_gamma_conjecture_test.py (PR #506)."
   },
   "claims": [
     {
       "id": "UIDT-C-001",
-      "statement": "Mass Gap Δ = 1.710 ± 0.015 GeV",
+      "statement": "Mass Gap \u0394 = 1.710 \u00b1 0.015 GeV",
       "type": "parameter",
       "status": "verified",
       "evidence": "A",
       "confidence": 0.99,
       "sigma": 5.0,
-      "dependencies": [
-        "UIDT-3.6.1-Verification.py",
-        "Lattice QCD"
-      ],
+      "dependencies": ["UIDT-3.6.1-Verification.py", "Lattice QCD"],
       "since": "v3.6.1",
       "notes": "Spectral gap of Yang-Mills Hamiltonian, NOT particle mass"
     },
     {
       "id": "UIDT-C-002",
-      "statement": "Gamma Invariant γ = 16.339 (kinetic VEV)",
+      "statement": "Gamma Invariant \u03b3 = 16.339 (kinetic VEV)",
       "type": "parameter",
       "status": "calibrated",
       "evidence": "A-",
-      "dependencies": [
-        "kinetic_vev_derivation"
-      ],
+      "dependencies": ["kinetic_vev_derivation"],
       "since": "v3.6.1",
       "notes": "Phenomenologically determined, NOT from RG first principles. ALWAYS [A-] per CANONICAL."
     },
     {
       "id": "UIDT-C-003",
-      "statement": "Gamma MC Mean γ = 16.374 ± 1.005",
+      "statement": "Gamma MC Mean \u03b3 = 16.374 \u00b1 1.005",
       "type": "parameter",
       "status": "calibrated",
       "evidence": "A-",
-      "dependencies": [
-        "UIDT_MonteCarlo_100k"
-      ],
+      "dependencies": ["UIDT_MonteCarlo_100k"],
       "since": "v3.7.1",
       "notes": "Statistical mean from 100k Monte Carlo samples"
     },
@@ -52,65 +45,371 @@
       "type": "parameter",
       "status": "rectified",
       "evidence": "A",
-      "dependencies": [
-        "v3.6.1_correction"
-      ],
+      "dependencies": ["v3.6.1_correction"],
       "since": "v3.6.1",
       "notes": "Corrected from erroneous 0.854 MeV in v3.2"
     },
     {
       "id": "UIDT-C-005",
-      "statement": "Coupling κ = 0.500 ± 0.008",
+      "statement": "Coupling \u03ba = 0.500 \u00b1 0.008",
       "type": "parameter",
       "status": "verified",
       "evidence": "A",
-      "dependencies": [
-        "RG_fixed_point"
-      ],
+      "dependencies": ["RG_fixed_point"],
       "since": "v3.2",
-      "notes": "Satisfies 5κ² = 3λ_S"
+      "notes": "Satisfies 5\u03ba\u00b2 = 3\u03bb_S"
     },
     {
       "id": "UIDT-C-006",
-      "statement": "Self-Coupling λ_S = 5κ²/3 = 5/12 ≈ 0.41̄6̄ ± 0.007",
+      "statement": "Self-Coupling \u03bb_S = 5\u03ba\u00b2/3 = 5/12 \u2248 0.41\u03066\u0307 \u00b1 0.007",
       "type": "parameter",
       "status": "verified",
       "evidence": "A",
-      "dependencies": [
-        "RG_fixed_point"
-      ],
+      "dependencies": ["RG_fixed_point"],
       "since": "v3.2",
-      "notes": "Exact RG definition: λ_S := 5κ²/3 = 5/12 (PI Decision D6, PR #209/#221). All scripts must use the exact rational 5/12 with local mp.dps=80. Decimal 0.417 was a rounded approximation within ±0.007 uncertainty. No physics change; this PR only synchronises code with the canonical value. Perturbative: λ_S < 1."
+      "notes": "Exact RG definition: \u03bb_S := 5\u03ba\u00b2/3 = 5/12 (PI Decision D6, PR #209/#221). All scripts must use the exact rational 5/12 with local mp.dps=80. Decimal 0.417 was a rounded approximation within \u00b10.007 uncertainty. No physics change; this PR only synchronises code with the canonical value. Perturbative: \u03bb_S < 1."
     },
-    ...
+    {
+      "id": "UIDT-C-007",
+      "statement": "Scalar Mass m_S = 1.705 \u00b1 0.015 GeV",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "dependencies": ["m_S\u00b2 = 2\u03bb_S v\u00b2"],
+      "since": "v3.2",
+      "notes": "Awaiting LHC/experimental confirmation"
+    },
+    {
+      "id": "UIDT-C-008",
+      "statement": "H\u2080 = 70.4 \u00b1 0.16 km/s/Mpc",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "dependencies": ["DESI_DR2"],
+      "since": "v3.7.2",
+      "notes": "Calibrated to DESI, NOT independent prediction"
+    },
+    {
+      "id": "UIDT-C-009",
+      "statement": "Casimir anomaly +0.59% at 0.66 nm",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "dependencies": ["Casimir_calculation"],
+      "since": "v3.6.1",
+      "notes": "Falsifiable: |\u0394F/F| < 0.1% would refute"
+    },
+    {
+      "id": "UIDT-C-010",
+      "statement": "RG Fixed Point: 5\u03ba\u00b2 = 3\u03bb_S = 1.250",
+      "type": "constraint",
+      "status": "verified",
+      "evidence": "A",
+      "dependencies": ["rg_flow_analysis.py"],
+      "since": "v3.2",
+      "notes": "Residual = 0.0 (exact, \u03bb_S := 5\u03ba\u00b2/3, PI Decision D6, PR #209). Now Constitution-compliant < 10\u207b\u00b9\u2074."
+    },
+    {
+      "id": "UIDT-C-011",
+      "statement": "Lattice QCD consistency z = 0.37\u03c3",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "dependencies": ["lattice_comparison.xlsx"],
+      "since": "v3.6.1",
+      "notes": "Well within 1\u03c3"
+    },
+    {
+      "id": "UIDT-C-012",
+      "statement": "Numerical Closure < 10\u207b\u00b9\u2074",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "dependencies": ["UIDT-3.6.1-Verification.py"],
+      "since": "v3.6.1",
+      "notes": "Branch 1 residual 3.2\u00d710\u207b\u00b9\u2074"
+    },
+    {
+      "id": "UIDT-C-013",
+      "statement": "Vacuum Stability V''(v) = 2.907 > 0",
+      "type": "constraint",
+      "status": "verified",
+      "evidence": "A",
+      "dependencies": ["stability_check"],
+      "since": "v3.2",
+      "notes": "Positive definite"
+    },
+    {
+      "id": "UIDT-C-014",
+      "statement": "Perturbative Stability \u03bb_S = 5\u03ba\u00b2/3 < 1",
+      "type": "constraint",
+      "status": "verified",
+      "evidence": "A",
+      "dependencies": ["perturbative_check"],
+      "since": "v3.2",
+      "notes": "Valid expansion"
+    },
+    {
+      "id": "UIDT-C-015",
+      "statement": "Glueball identification at 1.71 GeV",
+      "type": "interpretation",
+      "status": "withdrawn",
+      "evidence": "E",
+      "dependencies": [],
+      "since": "v3.2",
+      "withdrawn_date": "2025-12-25",
+      "notes": "\u0394 is spectral gap, NOT particle mass"
+    },
+    {
+      "id": "UIDT-C-016",
+      "statement": "\u03b3 derivation from RG first principles",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "E",
+      "dependencies": [],
+      "since": "v3.2",
+      "notes": "Active research field. Perturbative RG gives \u03b3* \u2248 55.8. See also UIDT-C-052 (SU(3) conjecture)."
+    },
     {
       "id": "UIDT-C-017",
-      "statement": "N=99 RG steps (N = 120/log₁₀(γ²)) as phenomenological ladder",
+      "statement": "N=99 RG steps (N = 120/log\u2081\u2080(\u03b3\u00b2)) as phenomenological ladder",
       "type": "derivation",
       "status": "open",
       "evidence": "C",
       "confidence": 0.7,
-      "dependencies": [
-        "UIDT-C-002",
-        "feature/L1-fn-derivation"
-      ],
+      "dependencies": ["UIDT-C-002", "feature/L1-fn-derivation"],
       "since": "v3.2",
-      "notes": "Manuscript Eq. 291 defines N = 120/log₁₀(γ²) = 99 as a phenomenological RG ladder anchored on γ=16.339. First-principles derivation from ℒ_UIDT remains open. Scaffold implementation exists in verification/scripts/derive_fn_vacuum_suppression.py (PR #505)."
+      "notes": "Manuscript Eq. 291 defines N = 120/log\u2081\u2080(\u03b3\u00b2) = 99 as a phenomenological RG ladder anchored on \u03b3=16.339. First-principles derivation from \u2112_UIDT remains open. Scaffold implementation exists in verification/scripts/derive_fn_vacuum_suppression.py (PR #505)."
     },
     {
       "id": "UIDT-C-018",
-      "statement": "10¹⁰ geometric factor: hierarchical QCD/EW/IR ladder structure encoded, first-principles origin open",
+      "statement": "10\u00b9\u2070 geometric factor: hierarchical QCD/EW/IR ladder structure encoded, first-principles origin open",
       "type": "derivation",
       "status": "open",
       "evidence": "D",
       "confidence": 0.7,
-      "dependencies": [
-        "UIDT-C-001",
-        "UIDT-C-002",
-        "feature/L1-fn-derivation"
-      ],
+      "dependencies": ["UIDT-C-001", "UIDT-C-002", "feature/L1-fn-derivation"],
       "since": "v3.2",
-      "notes": "Appendix J.3 and N.1.2 define a three-block QCD/EW/IR ladder that numerically reproduces the O(10¹⁰) suppression factor. This structure is now encoded as scaffold models in derive_fn_vacuum_suppression.py, but no first-principles derivation from ℒ_UIDT exists. Highest priority remains; this PR only ensures manuscript-code consistency."
+      "notes": "Appendix J.3 and N.1.2 define a three-block QCD/EW/IR ladder that numerically reproduces the O(10\u00b9\u2070) suppression factor. This structure is now encoded as scaffold models in derive_fn_vacuum_suppression.py, but no first-principles derivation from \u2112_UIDT exists. Highest priority remains; this PR only ensures manuscript-code consistency."
+    },
+    {
+      "id": "UIDT-C-019",
+      "statement": "\u03bb_UIDT = 0.660 \u00b1 0.005 nm",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.9,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Characteristic scale"
+    },
+    {
+      "id": "UIDT-C-020",
+      "statement": "S\u2088 = 0.814 \u00b1 0.009",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.9,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Structure growth"
+    },
+    {
+      "id": "UIDT-C-021",
+      "statement": "d_opt = 0.854 nm",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.8,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Optimal measurement (v3.7.1 corrected)"
+    },
+    {
+      "id": "UIDT-C-022",
+      "statement": "Branch 1 Residual = 3.2\u00d710\u207b\u00b9\u2074",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "confidence": 0.95,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Branch 1 residual"
+    },
+    {
+      "id": "UIDT-C-023",
+      "statement": "Numerical Closure = < 10\u207b\u00b9\u2074",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "confidence": 0.95,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Numerical closure threshold"
+    },
+    {
+      "id": "UIDT-C-024",
+      "statement": "RG Fixed Point: 5\u03ba\u00b2 = 3\u03bb_S = 1.25\u0305 (exact, residual < 10\u207b\u2078\u2070)",
+      "type": "constraint",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": ["UIDT-C-033", "UIDT-C-034"],
+      "since": "v3.7.2",
+      "notes": "Updated v3.9.5: removed erroneous '\u2248 1.251'. \u03bb_S := 5\u03ba\u00b2/3 exact (PR #209/#221)."
+    },
+    {
+      "id": "UIDT-C-025",
+      "statement": "Perturbative Check: \u03bb_S < 1 \u2192 0.41\u03066\u0307 \u2713",
+      "type": "constraint",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": ["UIDT-C-034"],
+      "since": "v3.7.2"
+    },
+    {
+      "id": "UIDT-C-026",
+      "statement": "Vacuum Stability: V''(v) > 0 \u2192 2.907 \u2713",
+      "type": "constraint",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": ["UIDT-C-036"],
+      "since": "v3.7.2"
+    },
+    {
+      "id": "UIDT-C-027",
+      "statement": "Gamma consistency: \u03b3_kinetic = 16.339 vs \u03b3_MC = 16.374 \u00b1 1.005 (within 1\u03c3)",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "confidence": 0.95,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Consistency check for gamma estimates"
+    },
+    {
+      "id": "UIDT-C-028",
+      "statement": "Casimir anomaly +0.59% at 0.66 nm",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.8,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Casimir calculation anomaly prediction"
+    },
+    {
+      "id": "UIDT-C-029",
+      "statement": "H\u2080 = 70.4 \u00b1 0.16 km/s/Mpc",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.9,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "DESI DR2 calibrated"
+    },
+    {
+      "id": "UIDT-C-030",
+      "statement": "\u0394* = 1.710 \u00b1 0.015 GeV",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Yang-Mills mass gap (NOT particle mass!)"
+    },
+    {
+      "id": "UIDT-C-031",
+      "statement": "\u03b3 = 16.339 exact (kinetic)",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A-",
+      "confidence": 0.95,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Phenomenologically determined"
+    },
+    {
+      "id": "UIDT-C-032",
+      "statement": "\u03b3_MC = 16.374 \u00b1 1.005",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A-",
+      "confidence": 0.95,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Monte Carlo statistical"
+    },
+    {
+      "id": "UIDT-C-033",
+      "statement": "\u03ba = 0.500 \u00b1 0.008",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Non-minimal gauge-scalar"
+    },
+    {
+      "id": "UIDT-C-034",
+      "statement": "\u03bb_S = 5\u03ba\u00b2/3 = 0.41\u03066\u0307 \u00b1 0.007",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Scalar self-interaction. Exact: \u03bb_S := 5\u03ba\u00b2/3 per PI Decision D6 (PR #221, 2026-04-06)."
+    },
+    {
+      "id": "UIDT-C-035",
+      "statement": "m_S = 1.705 \u00b1 0.015 GeV",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.8,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Predicted, unverified"
+    },
+    {
+      "id": "UIDT-C-036",
+      "statement": "v = 47.7 MeV",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A",
+      "confidence": 0.99,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Corrected in v3.6.1 (was 0.854 MeV)"
+    },
+    {
+      "id": "UIDT-C-037",
+      "statement": "Dark energy equation of state w\u2080 = -0.99",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.9,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Canonical dark energy EOS per Decision D-002. CONSTANTS.md v3.9.5 authoritative."
+    },
+    {
+      "id": "UIDT-C-038",
+      "statement": "Lattice QCD consistency z = 0.37\u03c3",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "confidence": 0.95,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "sigma": 0.37,
+      "notes": "Numerical consistency vs lattice benchmark"
     },
     {
       "id": "UIDT-C-039",
@@ -119,26 +418,245 @@
       "status": "open",
       "evidence": "C",
       "confidence": 0.7,
-      "dependencies": [
-        "UIDT-C-017"
-      ],
+      "dependencies": ["UIDT-C-017"],
       "since": "v3.7.2",
       "notes": "Clarified per 2026-05-24 audit: N=99 is fully encoded in verification/scripts/derive_fn_vacuum_suppression.py as a manuscript-faithful scaffold. First-principles derivation remains open; no promotion to [A/B] is allowed."
+    },
+    {
+      "id": "UIDT-C-040",
+      "statement": "\u03b3 derivation from RG first principles",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "E",
+      "confidence": 0.7,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Active research field"
+    },
+    {
+      "id": "UIDT-C-041",
+      "statement": "Glueball identification at 1.71 GeV",
+      "type": "interpretation",
+      "status": "withdrawn",
+      "evidence": "E",
+      "confidence": 0.7,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "withdrawn_date": "2025-12-25",
+      "notes": "\u0394 is spectral gap, NOT particle mass"
+    },
+    {
+      "id": "UIDT-C-042",
+      "statement": "10\u00b9\u2070 geometric factor derivation",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "E",
+      "confidence": 0.7,
+      "dependencies": [],
+      "since": "v3.7.2",
+      "notes": "Highest priority open question"
+    },
+    {
+      "id": "UIDT-C-043",
+      "statement": "Bare Gamma \u03b3_\u221e = 16.3437 \u00b1 0.0005 (L\u2192\u221e thermodynamic limit)",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "B",
+      "confidence": 0.95,
+      "dependencies": ["UIDT-C-002", "UIDT-C-003"],
+      "since": "v3.9",
+      "notes": "Numerical extrapolation from L=4,8,\u221e finite-size scaling"
+    },
+    {
+      "id": "UIDT-C-044",
+      "statement": "\u03b4\u03b3 = 0.0047 (kinetic vs bare gap)",
+      "type": "parameter",
+      "status": "verified",
+      "evidence": "A-",
+      "confidence": 0.95,
+      "dependencies": ["UIDT-C-002", "UIDT-C-043"],
+      "since": "v3.9",
+      "notes": "\u03b4\u03b3 = \u03b3_kinetic - \u03b3_\u221e = 16.339 - 16.3343. RG gap L4 open."
+    },
+    {
+      "id": "UIDT-C-045",
+      "statement": "Torsion coupling E_T = 2.44 MeV",
+      "type": "parameter",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.9,
+      "dependencies": [],
+      "since": "v3.9",
+      "notes": "Calibrated cosmological torsion scale. Kill switch: E_T=0 \u21d2 \u03a3_T=0 exactly."
     },
     {
       "id": "UIDT-C-046",
       "statement": "N=94.05 RG Cascade Baseline (proposed replacement for N=99) [SUPERSEDED]",
       "type": "derivation",
+      "status": "superseded",
+      "superseded_by": "UIDT-C-050 / Eq. 291 / PR #505",
+      "evidence": "E",
+      "confidence": 0.4,
+      "dependencies": ["UIDT-C-002", "UIDT-C-037"],
+      "since": "v3.9",
+      "notes": "PR #87 proposed N=94.05 as a better fit than N=99. Manuscript Eq. 291 now anchors N=99 via N=120/log\u2081\u2080(\u03b3\u00b2). All production code and verification scripts use N=99. This claim is flagged as SUPERSEDED by Eq. 291 and kept only for historical context. Any future use of N=94.05 must be justified in a new PR.",
+      "falsification": "If a future Eq. 291 replacement derivation favours N\u226099."
+    },
+    {
+      "id": "UIDT-C-047",
+      "statement": "\u03c1_vac = 2.45e-47 GeV\u2074",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.9,
+      "dependencies": [],
+      "since": "v3.9",
+      "notes": "Observed vacuum energy density. Residual factor \u22482.3 remains open (L1)."
+    },
+    {
+      "id": "UIDT-C-048",
+      "statement": "X17 boson floor prediction: 17.10 MeV",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.7,
+      "dependencies": [],
+      "since": "v3.9",
+      "notes": "UIDT lower-bound floor for X17 anomaly"
+    },
+    {
+      "id": "UIDT-C-049",
+      "statement": "X(2370) identification as UIDT scalar resonance",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.7,
+      "dependencies": [],
+      "since": "v3.9",
+      "notes": "Predicted scalar resonance consistent with BESIII X(2370) candidate"
+    },
+    {
+      "id": "UIDT-C-050",
+      "statement": "N=99 derived from N = 120/log\u2081\u2080(\u03b3\u00b2) (Eq. 291)",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "C",
+      "confidence": 0.75,
+      "dependencies": ["UIDT-C-002"],
+      "since": "v3.9",
+      "notes": "Manuscript Eq. 291 provides a phenomenological anchor for N=99. First-principles derivation from \u2112_UIDT remains open. Scaffold in derive_fn_vacuum_suppression.py (PR #505)."
+    },
+    {
+      "id": "UIDT-C-051",
+      "statement": "Photonic \u03b3-scaling test: n=16.339 photonic crystal resonance",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.7,
+      "dependencies": ["UIDT-C-002"],
+      "since": "v3.9",
+      "notes": "Falsifiable: photonic test at n=16.339 fails \u21d2 kill switch."
+    },
+    {
+      "id": "UIDT-C-052",
+      "statement": "SU(3) Gamma Conjecture: \u03b3_SU(N_c) = (2N_c+1)\u00b2/N_c",
+      "type": "conjecture",
+      "status": "conjectured",
+      "evidence": "E",
+      "confidence": 0.5,
+      "dependencies": ["UIDT-C-002"],
+      "since": "v3.9",
+      "notes": "Algebraic ansatz gives \u03b3_SU(3) = 49/3 \u2248 16.333 vs \u03b3_canon = 16.339; \u0394\u03b3 \u2248 -0.006. No derivation from \u2112_UIDT. Status remains [E]. | 2026-05-24 audit: scaffold [D] \u2014 ansatz evaluated for Nc=2,3,4 in verification/scripts/su3_gamma_conjecture_test.py (PR #506). \u03b3_SU(3)=49/3\u224816.333, \u0394\u03b3\u22480.006. No promotion beyond [E]; reproducibility upgraded to scaffold [D]."
+    },
+    {
+      "id": "UIDT-C-053",
+      "statement": "\u03c1_vac suppression: \u03c0\u207b\u00b2 \u00d7 \u220f_{n=1}^{99} f_n(g)",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "D",
+      "confidence": 0.6,
+      "dependencies": ["UIDT-C-017", "UIDT-C-047"],
+      "since": "v3.9",
+      "notes": "Product structure scaffold in derive_fn_vacuum_suppression.py. f_n(g) placeholder; first-principles origin open (L1)."
+    },
+    {
+      "id": "UIDT-C-054",
+      "statement": "Casimir +0.59% signal at \u03bb_UIDT = 0.66 nm falsifiable",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.75,
+      "dependencies": ["UIDT-C-009", "UIDT-C-019"],
+      "since": "v3.9",
+      "notes": "Kill switch: |\u0394F/F| < 0.1% at 0.66 nm refutes."
+    },
+    {
+      "id": "UIDT-C-055",
+      "statement": "DESI w_a tension consistent with UIDT w_0=-0.99",
+      "type": "cosmology",
+      "status": "calibrated",
+      "evidence": "C",
+      "confidence": 0.8,
+      "dependencies": ["UIDT-C-037"],
+      "since": "v3.9",
+      "notes": "DESI DR2 w_0-w_a constraints consistent within 1\u03c3 with UIDT calibration."
+    },
+    {
+      "id": "UIDT-C-056",
+      "statement": "Spectral gap \u0394 = 1.710 GeV: lattice z-score vs Athenodorou 2021 and D\u00fcrr 2025",
+      "type": "verification",
+      "status": "verified",
+      "evidence": "B",
+      "confidence": 0.95,
+      "pi_override": "D",
+      "pi_override_rationale": "D\u00fcrr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25\u03c3 vs z=0.76\u03c3",
+      "dependencies": ["UIDT-C-001"],
+      "since": "v3.9.7",
+      "notes": "v3.9.8b PI Decision D17: pi_override mechanism. B algorithmic, D PI-overridden."
+    },
+    {
+      "id": "UIDT-C-057",
+      "statement": "NLO-RG conjecture for \u03c7_top tension",
+      "type": "conjecture",
       "status": "conjectured",
       "evidence": "E",
       "confidence": 0.4,
-      "dependencies": [
-        "UIDT-C-002",
-        "UIDT-C-037"
-      ],
+      "dependencies": [],
+      "since": "v3.9.7",
+      "notes": "Speculative; no derivation. See UIDT-C-096."
+    },
+    {
+      "id": "UIDT-C-058",
+      "statement": "Path A spectral gap hybrid verification",
+      "type": "verification",
+      "status": "open",
+      "evidence": "E",
+      "confidence": 0.5,
+      "dependencies": ["UIDT-C-001"],
+      "since": "v3.9.8",
+      "notes": "UIDT-C-100 raumzeit hybrid Path A. Open pending full spectral calculation."
+    },
+    {
+      "id": "UIDT-C-059",
+      "statement": "\u03b5_eff = 2.3 residual factor in vacuum suppression",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "E",
+      "confidence": 0.4,
+      "dependencies": ["UIDT-C-047", "UIDT-C-053"],
       "since": "v3.9",
-      "notes": "PR #87 proposed N=94.05 as a better fit than N=99. Manuscript Eq. 291 now anchors N=99 via N=120/log₁₀(γ²). All production code and verification scripts use N=99. This claim is flagged as SUPERSEDED by Eq. 291 and kept only for historical context. Any future use of N=94.05 must be justified in a new PR.",
-      "falsification": "If a future Eq. 291 replacement derivation favours N≠99."
+      "notes": "Residual factor ~2.3 in \u03c1_vac calibration. Not explained by current f_n scaffold. Open."
+    },
+    {
+      "id": "UIDT-C-060",
+      "statement": "\u03b3-RG gap: \u03b4\u03b3 = 0.0047 unexplained by 1-loop RG",
+      "type": "derivation",
+      "status": "open",
+      "evidence": "E",
+      "confidence": 0.4,
+      "dependencies": ["UIDT-C-044"],
+      "since": "v3.9",
+      "notes": "L4 open: no NLO/FRG/BMW calculation explains \u03b4\u03b3 from first principles."
     }
   ],
   "statistics": {
@@ -154,7 +672,8 @@
     "open": 6,
     "withdrawn": 2,
     "rectified": 1,
-    "conjectured": 4,
-    "external": 2
+    "conjectured": 3,
+    "superseded": 1,
+    "external": 1
   }
 }
