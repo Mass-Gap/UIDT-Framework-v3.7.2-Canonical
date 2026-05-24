@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "version": "3.9.8",
-    "last_updated": "2026-04-25",
+    "version": "3.9.9",
+    "last_updated": "2026-05-24",
     "doi": "10.5281/zenodo.17835200",
     "total_claims": 60,
-    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ)."
+    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ). | v3.9.9 (2026-05-24): Ledger/manuscript sync PR #507. N=99 vs N=94.05 contradiction resolved: C-046 superseded by Eq. 291 / N=99 scaffold (PR #505/#506). C-017/C-039/C-050 notes updated. C-018/C-042 reference new scaffold scripts. C-052 gains scaffold [D] tag via su3_gamma_conjecture_test.py (PR #506). No Category-A/B/C/D values changed."
   },
   "claims": [
     {
@@ -80,7 +80,7 @@
         "RG_fixed_point"
       ],
       "since": "v3.2",
-      "notes": "Exact RG definition: λ_S := 5κ²/3 = 0.41̄6̄ (PI Decision D6, PR #209/#221). Value 0.417 was rounded decimal approximation. No physics change: |0.41̄6̄ − 0.417| < ±0.007 uncertainty. Perturbative: λ_S < 1."
+      "notes": "Exact RG definition: λ_S := 5κ²/3 = 0.41̄6̄ (PI Decision D6, PR #209/#221). Value 0.417 was rounded decimal approximation. No physics change: |0.41̄6̄ − 0.417| < ±0.007 uncertainty. Perturbative: λ_S < 1. All scripts now use mpf('5')/mpf('12') exact (PR #505/#506, v3.9.9)."
     },
     {
       "id": "UIDT-C-007",
@@ -197,7 +197,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "Active research field. Perturbative RG gives γ* ≈ 55.8. See also UIDT-C-052 (SU(3) conjecture)."
+      "notes": "Active research field. Perturbative RG gives γ* ≈ 55.8. See also UIDT-C-052 (SU(3) conjecture, scaffold [D] available since PR #506)."
     },
     {
       "id": "UIDT-C-017",
@@ -207,7 +207,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "Empirically chosen, no theoretical derivation. PR #87 proposed N=94.05 as replacement (UIDT-C-046). N=99 remains in production code and verification scripts. Self-contradiction unresolved — see UIDT-C-046, UIDT-C-050."
+      "notes": "Empirically chosen via N = 120/log₁₀(γ²) (manuscript Eq. 291, Appendix N.1.1). N=99 is now encoded as a manuscript-faithful scaffold in verification/scripts/derive_fn_vacuum_suppression.py (PR #505). N=94.05 alternative [C-046] formally superseded by Eq. 291 (PR #505/#506, v3.9.9). Self-contradiction resolved. First-principles derivation from ℒ_UIDT remains open [E]. See UIDT-C-050."
     },
     {
       "id": "UIDT-C-018",
@@ -217,7 +217,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "HIGHEST PRIORITY open question"
+      "notes": "HIGHEST PRIORITY open question (L1). Three-block QCD/EW/IR ladder structure from manuscript Appendix J.3 / N.1.2 is encoded as scaffold Models A/B/C in verification/scripts/derive_fn_vacuum_suppression.py (PR #505). Scaffold shows g≈1.5 brings ρ_vac within 8 orders of magnitude of ρ_obs [D]. First-principles derivation of f_n(g) from ℒ_UIDT remains open. See also UIDT-C-042 (duplicate tracker)."
     },
     {
       "id": "UIDT-C-019",
@@ -454,7 +454,7 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Open derivation question. See UIDT-C-017, UIDT-C-046, UIDT-C-050."
+      "notes": "Open derivation question. N=99 now manuscript-faithful scaffold in derive_fn_vacuum_suppression.py (PR #505, manuscript Eq. 291). N=94.05 alternative [C-046] formally superseded (PR #506, v3.9.9). Self-contradiction with C-046 resolved. First-principles justification from ℒ_UIDT remains open. See UIDT-C-017, UIDT-C-050."
     },
     {
       "id": "UIDT-C-040",
@@ -488,7 +488,7 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Highest priority open question"
+      "notes": "Highest priority open question (L1, duplicate tracker for C-018). Scaffold models A/B/C for f_n(g) encoded in verification/scripts/derive_fn_vacuum_suppression.py (PR #505, manuscript Appendix J.3/N.1.2). Three-block QCD/EW/IR structure documented. First-principles derivation of f_n(g) from ℒ_UIDT remains open."
     },
     {
       "id": "UIDT-C-043",
@@ -537,18 +537,20 @@
     },
     {
       "id": "UIDT-C-046",
-      "statement": "N=94.05 RG Cascade Baseline (proposed replacement for N=99)",
+      "statement": "N=94.05 RG Cascade Baseline (proposed replacement for N=99) — SUPERSEDED",
       "type": "derivation",
-      "status": "conjectured",
+      "status": "superseded",
       "evidence": "E",
-      "confidence": 0.6,
+      "confidence": 0.0,
+      "superseded_by": "UIDT-C-050 / manuscript Eq. 291 (N=99) / PR #505 / PR #506",
+      "superseded_date": "2026-05-24",
       "dependencies": [
         "UIDT-C-002",
         "UIDT-C-037"
       ],
       "since": "v3.9",
-      "notes": "PR #87: N=99 'falsified', N=94.05 proposed. BUT: N=99 in covariant_unification.py:27, limitations.md, all verification scripts. Self-contradiction unresolved. Category [E] until all code updated and independently verified. Source: theoretical_notes.md §12.",
-      "falsification": "If ρ_vac with N=94.05 deviates from ρ_obs by >1 order of magnitude."
+      "notes": "SUPERSEDED (v3.9.9, 2026-05-24). PR #87 proposed N=94.05 as replacement for N=99. However, manuscript Eq. 291 fixes N = 120/log₁₀(γ²) = 99, and this formula is now the production scaffold (PR #505, derive_fn_vacuum_suppression.py). All production code uses N=99. N=94.05 is retained ONLY as historical context; no scripts or analyses may use N=94.05 without a new PI-approved derivation PR. Self-contradiction with C-017/C-039 resolved by this supersession.",
+      "falsification": "No longer active — any future proposal to revive N=94.05 requires a new derivation PR with full PR-Gate review."
     },
     {
       "id": "UIDT-C-047",
@@ -608,8 +610,8 @@
         "UIDT-C-017"
       ],
       "since": "v3.9",
-      "notes": "Referenced in CHANGELOG.md and covariant_unification.py:27 but was never formally registered (phantom claim). N=99 phenomenologically chosen to match ρ_vac. See also UIDT-C-046 (N=94.05 proposed replacement).",
-      "falsification": "If N≠99 yields better ρ_vac match (as proposed by N=94.05)."
+      "notes": "N=99 is the production value used throughout UIDT (covariant_unification.py:27, all verification scripts). Encoded as manuscript-faithful scaffold via N = 120/log₁₀(γ²) (Eq. 291, Appendix N.1.1) in derive_fn_vacuum_suppression.py (PR #505). Self-contradiction with C-046 (N=94.05) resolved by supersession of C-046 (PR #506, v3.9.9). First-principles derivation from ℒ_UIDT remains open.",
+      "falsification": "If a first-principles derivation from ℒ_UIDT yields N ≠ 99 with residual < 10⁻¹⁴."
     },
     {
       "id": "UIDT-C-051",
@@ -630,14 +632,14 @@
       "statement": "SU(3) Gamma Conjecture: γ_SU(3) = (2Nc+1)²/Nc |_{Nc=3} = 49/3 ≈ 16.333",
       "type": "hypothesis",
       "status": "conjectured",
-      "evidence": "E",
+      "evidence": "E (scaffold [D])",
       "confidence": 0.55,
       "dependencies": [
         "UIDT-C-002",
         "UIDT-C-016"
       ],
       "since": "v3.9",
-      "notes": "0.037% match to canonical γ=16.339 but within MC uncertainty. Document titled 'Theorem' but content says 'Conjecture'. Category [E]: no proof that VEV yields this coefficient. Would address L4 if proven. Source: su3_gamma_conjecture_audit.md (renamed per PI Decision D2, PR #220, 2026-04-06; previously su3_gamma_theorem.md PR #15).",
+      "notes": "0.037% match to canonical γ=16.339 but within MC uncertainty. Document titled 'Theorem' but content says 'Conjecture'. Category [E]: no proof that VEV yields this coefficient. Would address L4 if proven. Scaffold script verification/scripts/su3_gamma_conjecture_test.py added in PR #506 (v3.9.9): algebraically implements (2Nc+1)²/Nc for Nc=2,3,4 at mp.dps=80. Script raises reproducibility to [D]-level scaffold; narrative evidence remains [E] until analytical proof from ℒ_UIDT. Source: su3_gamma_conjecture_audit.md (renamed per PI Decision D2, PR #220, 2026-04-06).",
       "falsification": "If analytical derivation from UIDT Lagrangian yields γ ≠ 49/3."
     },
     {
@@ -754,14 +756,15 @@
     "category_B": 7,
     "category_C": 11,
     "category_D": 8,
-    "category_E": 15,
+    "category_E": 14,
     "verified": 22,
     "calibrated": 9,
     "predicted": 10,
     "open": 6,
     "withdrawn": 2,
     "rectified": 1,
-    "conjectured": 4,
+    "conjectured": 3,
+    "superseded": 1,
     "external": 2
   }
 }
