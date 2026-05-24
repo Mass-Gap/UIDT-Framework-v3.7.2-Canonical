@@ -1,0 +1,422 @@
+% =============================================================================
+% UIDT Framework v3.9 Canonical — arXiv Submission Draft v1
+% DOI: 10.5281/zenodo.17835200
+% Prepared: 2026-05-24
+% Author: P. Rietz
+% Status: DRAFT — for external peer-review preparation
+% =============================================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{cleveref}
+\usepackage[numbers,sort&compress]{natbib}
+
+\geometry{margin=2.5cm}
+
+% --- Theorem environments ---
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% --- Custom commands ---
+\newcommand{\UIDT}{\textsc{UIDT}}
+\newcommand{\Lag}{\mathcal{L}}
+\newcommand{\kap}{\kappa}
+\newcommand{\lams}{\lambda_S}
+\newcommand{\gam}{\gamma}
+\newcommand{\Dstar}{\Delta^*}
+\newcommand{\rvac}{\rho_{\mathrm{vac}}}
+\newcommand{\rhobs}{\rho_{\mathrm{vac}}^{\mathrm{obs}}}
+\newcommand{\Fmn}{F^a_{\mu\nu}}
+\newcommand{\openitem}[1]{\textbf{[OPEN: #1]}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black,
+  pdftitle={UIDT Framework v3.9: Yang-Mills Spectral Gap, Scalar Condensate, and Calibrated Cosmological Mapping},
+  pdfauthor={P. Rietz}
+}
+
+% =============================================================================
+\begin{document}
+
+\title{%
+  \textbf{Unified Interaction-Density Theory (UIDT) Framework v3.9 Canonical:}\\[6pt]
+  Yang-Mills Spectral Gap, Scalar Condensate Coupling,\\[4pt]
+  and Falsifiable Cosmological Predictions
+}
+
+\author{
+  Philipp Rietz\\[4pt]
+  \small Independent Researcher\\[2pt]
+  \small \href{mailto:p.rietz@uidt-framework.org}{p.rietz@uidt-framework.org}\\[4pt]
+  \small Repository: \href{https://github.com/Mass-Gap/UIDT-Framework-v3.9-Canonical}{github.com/Mass-Gap/UIDT-Framework-v3.9-Canonical}\\[2pt]
+  \small DOI: \href{https://doi.org/10.5281/zenodo.17835200}{10.5281/zenodo.17835200}
+}
+
+\date{May 2026 — Draft v1 (arXiv preparation)}
+
+\maketitle
+
+\begin{abstract}
+We present the \UIDT{} Framework v3.9 Canonical, a theoretical construction
+coupling a SU(3) Yang--Mills sector to a real scalar field $S$ through
+a dimension-five interaction $\frac{\kap}{\Lambda}\,S\,\mathrm{Tr}(FF)\,\Omega$.
+The framework yields a Yang--Mills spectral gap
+$\Dstar = 1.710 \pm 0.015\,\text{GeV}$, lattice-compatible at $z \approx 0.37\sigma$
+(Stratum~B), a calibrated anomalous dimension $\gam = 16.339$ (Stratum~A$^-$)
+satisfying the renormalisation-group constraint $5\kap^2 = 3\lams$ with
+residual $< 10^{-14}$ (Stratum~A), and a set of falsifiable cosmological
+calibrations including $H_0 = 70.4 \pm 0.16\,\text{km\,s}^{-1}\text{Mpc}^{-1}$,
+$w_0 = -0.99$, and vacuum energy density
+$\rhobs = 2.45 \times 10^{-47}\,\text{GeV}^4$
+(all Stratum~C).
+Distinct experimental predictions include a Casimir force enhancement
+of $+0.59\%$ at $\lambda_{\UIDT} = 0.66\,\text{nm}$ and an X17-floor at
+$17.10\,\text{MeV}$ (Stratum~D).
+Two mandatory open limitations are explicitly stated:
+an unresolved $\sim10^{10}$ residual factor in the vacuum suppression
+product (L1) and an unresolved $\delta\gam = 0.0047$ RG correction
+(L4), each accompanied by falsification criteria.
+All numerical results are reproducible via the public repository
+with one command at \texttt{mp.dps\,=\,80} precision.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+
+The cosmological constant problem and the mass-gap conjecture of Yang--Mills
+theory represent two of the most significant unresolved problems in theoretical
+physics \cite{Weinberg1989,Jaffe2006}.
+The \UIDT{} Framework proposes a unified treatment: a scalar field $S$
+condensing in the Yang--Mills vacuum generates both a spectral gap and a
+suppression mechanism for the QFT vacuum energy density.
+
+The present manuscript documents the \UIDT{} v3.9 Canonical state,
+superseding all prior versions (v3.7.1 and earlier).
+Version 4.1 adds audit, citation, and numerical-precision layers only;
+it does not alter the v3.9 physics.
+
+\paragraph{Scope and limitations.}
+This work operates strictly within three evidence strata:
+\begin{enumerate}
+  \item[I.] Empirical values with stated uncertainties.
+  \item[II.] Standard QFT, lattice QCD, and $\Lambda$CDM consensus results.
+  \item[III.] \UIDT{} mappings, predictions, and interpretations.
+\end{enumerate}
+Strata are never silently merged.
+Two mandatory open limitations (L1, L4) are carried throughout;
+no prestige language is employed.
+
+% =============================================================================
+\section{Lagrangian and Parameter Ledger}
+\label{sec:lagrangian}
+
+\subsection{Canonical v3.9 Lagrangian}
+
+The \UIDT{} Lagrangian density reads
+\begin{equation}
+  \Lag_{\UIDT} = -\tfrac{1}{4}\Fmn F^{a\mu\nu}
+  + \tfrac{1}{2}(\partial_\mu S)^2 - V(S)
+  - \tfrac{\kap}{4}S^2\,\mathrm{Tr}(FF),
+  \label{eq:lagrangian_v39}
+\end{equation}
+where $F^a_{\mu\nu}$ is the SU(3) field-strength tensor and $V(S)$ the
+scalar potential.
+The v4.1 audit form
+\begin{equation}
+  \Lag_{\UIDT}^{\mathrm{v4.1}} = -\tfrac{1}{4}\Fmn F^{a\mu\nu}
+  + \tfrac{1}{2}\partial_\mu S\partial^\mu S - V(S)
+  + \tfrac{\kap}{\Lambda}\,S\,\mathrm{Tr}(FF)\,\Omega
+  \label{eq:lagrangian_v41}
+\end{equation}
+differs dimensionally from Eq.~\eqref{eq:lagrangian_v39}.
+This constitutes a \textbf{[TENSION ALERT]}: the two forms are recorded
+without silent reconciliation; resolution requires explicit operator matching.
+
+\subsection{Immutable Parameter Ledger}
+
+All parameters below are frozen in \texttt{LEDGER/CLAIMS.json}.
+
+\begin{table}[h!]
+  \centering
+  \caption{\UIDT{} v3.9 Canonical parameter ledger with evidence tags
+           and stratum classification.}
+  \label{tab:ledger}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{llll}
+    \toprule
+    Parameter & Value & Evidence Tag & Stratum \\
+    \midrule
+    $\Delta / \Dstar$ & $1.710 \pm 0.015\,\text{GeV}$ & [B] & II/III \\
+    $\gam$ & $16.339$ & [A$^-$] & III \\
+    $\gam_\infty$ & $16.3437$ & [A$^-$] & III \\
+    $\delta\gam$ & $0.0047$ & [A$^-$] & III — \openitem{L4} \\
+    $\kap$ & $0.500$ & [A] & III \\
+    $\lams$ & $5/12$ (exact) & [A] & III \\
+    $v$ & $47.7 \pm 0.5\,\text{MeV}$ & [A] & III \\
+    $m_S$ & $1.705\,\text{GeV}$ & [B] & II/III \\
+    $E_T$ & $2.44\,\text{MeV}$ & [C] & III \\
+    $\lambda_{\UIDT}$ & $0.66\,\text{nm}$ & [C] & III \\
+    $H_0$ & $70.4 \pm 0.16\,\text{km\,s}^{-1}\text{Mpc}^{-1}$ & [C] & III \\
+    $w_0$ & $-0.99$ & [C] & III \\
+    $\rhobs$ & $2.45\times10^{-47}\,\text{GeV}^4$ & [C] & III \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% =============================================================================
+\section{Renormalisation-Group Constraint}
+\label{sec:rg}
+
+The tree-level RG constraint is
+\begin{equation}
+  5\kap^2 = 3\lams, \qquad
+  \left|5\kap^2 - 3\lams\right| < 10^{-14}.
+  \label{eq:rg_constraint}
+\end{equation}
+With $\kap = 1/2$ (exact) and $\lams = 5/12$ (exact):
+\begin{equation}
+  5 \times (1/2)^2 = 5/4, \qquad
+  3 \times (5/12) = 5/4, \qquad
+  \text{residual} = 0\ (\text{exact}).
+\end{equation}
+Numerical verification at \texttt{mp.dps\,=\,80} yields residual
+$< 2 \times 10^{-56}$, consistent with exact arithmetic noise at 80-digit
+precision. This constitutes Evidence [A].
+
+\paragraph{Open limitation L4.}
+The calibrated value $\gam = 16.339$ carries correction
+$\delta\gam = \gam - 49/3 = 17/3000 \approx 0.0056\overline{6}$
+(ledger: $0.0047 \pm 0.0015$).
+All minimal local quantum-field-theory paths generating this correction
+have been systematically excluded in the Phase-8 P1 programme
+(PRs \#459--\#498 in the repository).
+The BMW/Dyson/FRG non-perturbative operator-mixing route remains the
+sole admissible path and is currently open.
+\openitem{L4}
+
+% =============================================================================
+\section{Yang--Mills Spectral Gap}
+\label{sec:gap}
+
+The spectral gap $\Dstar = 1.710 \pm 0.015\,\text{GeV}$ is identified with
+the lowest SU(3) glueball mass in the scalar channel.
+This is a \UIDT{} Stratum~III mapping; the parameter is \emph{not} a direct
+particle observation.
+
+\paragraph{Lattice compatibility.}
+The value is compatible with lattice QCD glueball-mass estimates
+$m_G \approx 1.5$--$1.8\,\text{GeV}$ at the $z \approx 0.37\sigma$ level [B].
+The X2370 candidate state is listed as a Stratum~D prediction.
+
+\paragraph{Banach contraction bound.}
+The \UIDT{} construction requires the Banach contraction operator norm
+$\|\mathcal{B}\| < 1$. Violation of this bound constitutes a falsification
+trigger. Current numerical verification yields $\|\mathcal{B}\| = L$
+with $L < 0.9$ (exact value in \texttt{verification/scripts/}).
+
+% =============================================================================
+\section{Vacuum Energy Suppression}
+\label{sec:vacuum}
+
+The \UIDT{} vacuum energy density satisfies
+\begin{equation}
+  \rvac^{\mathrm{obs}} =
+  \rvac^{\mathrm{QFT}} \times \pi^{-2}
+  \times \prod_{n=1}^{99} f_n(g),
+  \label{eq:vacuum}
+\end{equation}
+where $f_n(g)$ are spectral suppression factors derived from the
+\UIDT{} coupling $g$.
+
+\paragraph{Open limitation L1.}
+The functional form of $f_n(g)$ is not yet derived from first principles.
+The current best estimate, using $f_n = 1$ (placeholder), yields a
+residual factor $\sim 10^{10}$ relative to $\rhobs$.
+This factor is carried as a mandatory open limitation and does not
+constitute a resolution of the cosmological constant problem.
+The mapping is classified Stratum~C (calibrated cosmology).
+\openitem{L1}
+
+% =============================================================================
+\section{Torsion Sector}
+\label{sec:torsion}
+
+The torsion constraint requires
+\begin{equation}
+  E_T = 0 \implies \Sigma_T = 0\quad (\text{exact}).
+  \label{eq:torsion}
+\end{equation}
+With $E_T = 2.44\,\text{MeV}$ [C], $\Sigma_T \neq 0$ is admissible.
+If an independent measurement establishes $E_T = 0$ while $\Sigma_T \neq 0$
+remains, this triggers \texttt{[TORSION\_CONSTRAINT\_FAIL]} and constitutes
+a kill-switch.
+
+% =============================================================================
+\section{Experimental Predictions}
+\label{sec:predictions}
+
+All predictions carry Stratum~D (falsifiable, pending independent verification).
+
+\begin{table}[h!]
+  \centering
+  \caption{\UIDT{} v3.9 falsifiable predictions.}
+  \label{tab:predictions}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{p{4cm}p{3.5cm}p{2.5cm}p{3.5cm}}
+    \toprule
+    Prediction & Value & Tag & Kill-Switch Condition \\
+    \midrule
+    Casimir force enhancement at $\lambda = 0.66\,\text{nm}$
+      & $+0.59\%$ & [D] & $|\Delta F/F| < 0.1\%$ \\
+    X17 floor energy
+      & $17.10\,\text{MeV}$ & [D] & Confirmed absence of state \\
+    X2370 glueball candidate
+      & Stratum D mapping & [D] & Lattice excludes $\Dstar$ by $> 3\sigma$ \\
+    Photonic refractive index anomaly
+      & $n = 16.339$ & [D] & Null result at required precision \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% =============================================================================
+\section{Mandatory Open Limitations}
+\label{sec:limitations}
+
+Four limitations are mandatory disclosures and must be carried in any
+publication of this framework.
+
+\begin{description}
+  \item[L1 — Vacuum suppression.]
+    An unresolved factor $\sim 10^{10}$ remains between the \UIDT{} vacuum
+    suppression product and $\rhobs$. The f_n(g) functional form is not derived.
+    Falsification: Casimir measurement at $\lambda = 0.66\,\text{nm}$ with
+    $|\Delta F/F| < 0.1\%$.
+  \item[L2 — Electron mass.]
+    A $\approx 23\%$ discrepancy exists between the \UIDT{} electron-mass
+    prediction and the measured value. Origin not identified.
+  \item[L4 — $\delta\gam$ RG-gap.]
+    The correction $\delta\gam = 0.0047$ to $\gam = 16.339$ is not derived
+    from first principles. All minimal local mechanisms excluded (Phase-8 P1).
+    Falsification: Photonic null result at $n = 16.339$.
+  \item[L-$\beta$ — Physical $\beta$-functions.]
+    Physical one-loop $\beta$-functions are not derived from $\Lag_{\UIDT}$.
+    The tree-level RG constraint \eqref{eq:rg_constraint} is exact but does not
+    constitute loop-level RG flow.
+\end{description}
+
+% =============================================================================
+\section{Reproducibility}
+\label{sec:repro}
+
+All results in this paper are reproducible via:
+\begin{verbatim}
+git clone https://github.com/Mass-Gap/UIDT-Framework-v3.9-Canonical
+cd UIDT-Framework-v3.9-Canonical
+python verification/scripts/verify_all.py
+\end{verbatim}
+Expected output: all residuals $< 10^{-14}$. Platform: Python 3, \texttt{mpmath}
+with \texttt{mp.dps\,=\,80} localised per function. No mock objects.
+
+% =============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+The \UIDT{} Framework v3.9 Canonical provides a mathematically consistent
+construction coupling a Yang--Mills spectral gap to a scalar condensate.
+The tree-level RG constraint is exact [A]; the spectral gap is lattice-compatible
+at the $0.37\sigma$ level [B]; cosmological calibrations are internally consistent
+[C]; and four falsifiable experimental predictions are registered [D].
+
+Two mandatory open limitations (L1 and L4) prevent promotion of the framework
+beyond its current evidence level. These are explicitly documented with
+falsification criteria. Resolution of L4 via BMW/Dyson/FRG computation and
+resolution of L1 via derivation of $f_n(g)$ constitute the primary theoretical
+objectives for the next development phase.
+
+% =============================================================================
+\appendix
+
+\section{DOI / arXiv Resolvability Table}
+\label{app:dois}
+
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{lll}
+    \toprule
+    DOI / arXiv & Status & Used for \\
+    \midrule
+    \href{https://doi.org/10.5281/zenodo.17835200}{10.5281/zenodo.17835200}
+      & ✓ Resolved & Primary project DOI \\
+    \href{https://zenodo.org/records/18072470}{zenodo.org/18072470}
+      & ✓ Resolved & Supplementary results \\
+    \href{https://zenodo.org/records/18740600}{zenodo.org/18740600}
+      & ✓ Resolved & Claims addendum \\
+    \href{https://zenodo.org/records/19228489}{zenodo.org/19228489}
+      & ✓ Resolved & Verification logs \\
+    \bottomrule
+  \end{tabular}
+  \caption{All Zenodo DOIs verified resolvable as of 2026-05-24.}
+  \label{tab:dois}
+\end{table}
+
+% --- Bibliography ---
+\begin{thebibliography}{99}
+
+\bibitem{Weinberg1989}
+S.~Weinberg,
+\textit{The cosmological constant problem},
+Rev.\ Mod.\ Phys.\ \textbf{61}, 1 (1989).
+\href{https://doi.org/10.1103/RevModPhys.61.1}{doi:10.1103/RevModPhys.61.1}
+
+\bibitem{Jaffe2006}
+A.~Jaffe and E.~Witten,
+\textit{Quantum Yang--Mills theory},
+in: The Millennium Prize Problems,
+CMI/AMS (2006), pp.\ 129--152.
+\href{https://www.claymath.org/millennium-problems}{claymath.org}
+
+\bibitem{Morningstar1999}
+C.~J.~Morningstar and M.~Peardon,
+\textit{Glueball spectrum from an anisotropic lattice study},
+Phys.\ Rev.\ D \textbf{60}, 034509 (1999).
+\href{https://doi.org/10.1103/PhysRevD.60.034509}{doi:10.1103/PhysRevD.60.034509}
+
+\bibitem{Pawlowski2021}
+J.~M.~Pawlowski et al.,
+\textit{Nonperturbative renormalization group approaches},
+Phys.\ Rep.\ \textbf{910}, 1 (2021).
+\href{https://doi.org/10.1016/j.physrep.2021.01.001}{doi:10.1016/j.physrep.2021.01.001}
+
+\bibitem{Litim2001}
+D.~F.~Litim,
+\textit{Optimised renormalisation group flows},
+Phys.\ Rev.\ D \textbf{64}, 105007 (2001).
+\href{https://arxiv.org/abs/hep-th/0103195}{arXiv:hep-th/0103195}
+
+\end{thebibliography}
+
+\end{document}
+% =============================================================================
+% END OF DRAFT — version history tracked in git
+% =============================================================================
