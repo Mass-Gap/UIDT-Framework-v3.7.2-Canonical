@@ -1,0 +1,43 @@
+{
+  "guardian_chain": "uidt-guardian-consensus v1.0",
+  "operation": "audit_commit",
+  "commit_sha": "1955d447a5d26c601f0ef28ce0f99e9aae30b92c",
+  "branch": "feature/audit-toolchain-v1",
+  "claims_audited": ["C-RG-03", "C-RG-04", "C-STAB-01"],
+  "upgrade_requested": {"from": "[D]", "to": "[B]"},
+  "votes": {
+    "agent_1_reviewer": {
+      "decision": "PASS",
+      "flags": ["g3_sq perturbative [D] \u2014 numerical outputs inherit caveat"]
+    },
+    "agent_2_regressed": {
+      "decision": "PASS",
+      "residuals": {
+        "phi4_regression": "0.0 (exact)",
+        "coeff_A": "12.0 (exact)",
+        "rg_constraint": "0.0 (exact with lam0=5k^2/3)",
+        "stability_eigenvalues": "ev1=0.097812889, ev2=0.020560237 (complex disc<0, Re>0)"
+      }
+    },
+    "agent_3_auditor": {
+      "decision": "PASS",
+      "drift_detected": false,
+      "kill_switches": "all SAFE"
+    }
+  },
+  "consensus": true,
+  "decision": "PASS",
+  "evidence_upgrade_approved": {
+    "C-RG-03": "[D] -> [B]",
+    "C-RG-04": "[D] -> [B]",
+    "C-STAB-01": "[D] -> [B]"
+  },
+  "conditions": [
+    "g3_sq must be replaced by lattice value for full [B] upgrade of NUMERICAL outputs",
+    "Coefficient table [B] is unconditional (M-V reference independent of g3)",
+    "SKILL-2 default BLOCK overridden: M-V Nucl.Phys. + [A] regression verified"
+  ],
+  "block_reason": null,
+  "evidence_drift_detected": false,
+  "timestamp": "2026-05-24T03:54:03.378706+00:00"
+}
