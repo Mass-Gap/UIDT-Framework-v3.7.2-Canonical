@@ -62,7 +62,7 @@ These are standard group-theory quantities. Their use here is a scale audit, not
 
 ### Stratum III — UIDT Interpretation
 
-All candidate mappings from these factors to `Delta_gamma_required` are [D] or [E] until an explicit `Pi_S(p^2)` derivation exists.
+All candidate mappings from these factors to `Delta_gamma_required` are [D]/[E] until an explicit `Pi_S(p^2)` derivation exists.
 
 ---
 
@@ -249,7 +249,7 @@ No external source is used to promote the P1 result. The present PR is an intern
 | Failure mode | Check |
 |---|---|
 | Citation hallucination | No DOI invented; only project DOI and verified arXiv IDs used. |
-| Evidence inflation | All new physics claims remain [D] or [E]. |
+| Evidence inflation | All new physics claims remain [D]/[E]. |
 | Proof-language overreach | No result is called a proof or derivation. |
 | Hidden fitting | `d_A+1/2` explicitly marked fit-risk / not promotable. |
 | Numerical brittleness | Uses `from mpmath import mp`; local `mp.dps = 80`; residual gates. |

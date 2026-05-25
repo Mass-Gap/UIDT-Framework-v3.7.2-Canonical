@@ -205,7 +205,7 @@ Any next derivation PR must include:
 | Reproduction Note | one command under `verification/scripts/` |
 | Numerical policy | `from mpmath import mp`; local `mp.dps = 80`; no `float()`, no `round()` |
 | Source policy | verified DOI/arXiv only; no fabricated citations |
-| Evidence policy | [D] or [E] until independently validated |
+| Evidence policy | [D]/[E] until independently validated |
 | Kill-switch | `E_T=0 => Sigma_T=0` wherever torsion is used |
 | No-go honesty | failed paths must be documented, not hidden |
 
