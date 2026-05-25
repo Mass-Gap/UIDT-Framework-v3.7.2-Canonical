@@ -31,8 +31,8 @@ Script aborts with KILL_SWITCH_FAIL if f_1 >= 1 (must be a damping, not amplific
 
 Evidence Tags
 -------------
-  [A-]  gamma = 16.339 (calibrated, frozen)
-  [B]   Delta_star = 1.710 +/- 0.015 GeV (lattice-compatible)
+  [C]   gamma = 16.339 (calibrated, frozen)
+  [A]   Delta_star = 1.710 GeV (Yang-Mills spectral gap)
   [C]   rho_vac_obs = 2.45e-47 GeV^4 (calibrated cosmology)
   [D]   p_BRST = -1.484 GeV^4 (from dse_rgz_v3_9.py)
   [D]   f_1, orders_closed (this module — testable, not fitted)
@@ -66,14 +66,14 @@ from mpmath import mp, mpf, nstr, pi, log, fabs, power
 mp.dps = 80          # local precision block; no global override
 
 # ── Immutable Parameter Ledger (v3.9 Canonical) ─────────────────────────────
-DELTA_STAR  = mpf('1.710')          # GeV  [B]   Yang-Mills spectral gap
-GAMMA       = mpf('16.339')         # [A-] geometric coupling (frozen)
+DELTA_STAR  = mpf('1.710')          # GeV  [A]   Yang-Mills spectral gap
+GAMMA       = mpf('16.339')         # [C]  geometric coupling (frozen)
 RHO_VAC_OBS = mpf('2.45e-47')       # GeV^4 [C]  observed vacuum energy density
 P_BRST      = mpf('-1.484')         # GeV^4 [D]  RGZ-DSE vacuum pressure (dse_rgz_v3_9)
 M_PLANCK    = mpf('1.2209e19')      # GeV   PDG 2023 reduced Planck mass
 
 # ── Derived quantity ─────────────────────────────────────────────────────────
-E_GEO = DELTA_STAR / GAMMA          # GeV [A-] first geometric resonance = 104.66 MeV
+E_GEO = DELTA_STAR / GAMMA          # GeV [C] first geometric resonance = 104.66 MeV
 
 
 def compute_f1() -> dict:
@@ -123,9 +123,9 @@ def print_report(r: dict) -> None:
     print(line)
     print("  UIDT v3.9 — Holographic Cascade: f_1(g)  [mp.dps=80]")
     print(line)
-    print(f"  E_geo = Delta_star / gamma        = {nstr(r['E_geo_GeV'], 30)} GeV  [A-]")
-    print(f"  f1 (IR, 1/gamma^2)                = {nstr(r['f1_ir'], 30)}        [A-]")
-    print(f"  f1 (UV, (E_geo/M_P)^2)            = {nstr(r['f1_uv'], 30)}        [A/C]")
+    print(f"  E_geo = Delta_star / gamma        = {nstr(r['E_geo_GeV'], 30)} GeV  [C]")
+    print(f"  f1 (IR, 1/gamma^2)                = {nstr(r['f1_ir'], 30)}        [C]")
+    print(f"  f1 (UV, (E_geo/M_P)^2)            = {nstr(r['f1_uv'], 30)}        [C]")
     print(f"  f1 (combined)                     = {nstr(r['f1_combined'], 30)}        [D]")
     print(f"  f1 < 1 (kill switch OK)           : True")
     print()
