@@ -3,7 +3,7 @@ UIDT VERIFICATION SCRIPT: GAUGE-CONSISTENT MANIFOLD TRANSPORT
 ==============================================================
 Author: P. Rietz (ORCID: 0009-0007-4307-1609)
 DOI: 10.5281/zenodo.17835200
-Evidence Category: A
+Evidence Category: [A]
 
 Standalone verification script for modules/gauge_projection.py.
 Runs all formal consistency checks and prints structured evidence report.
@@ -34,7 +34,7 @@ from modules.gauge_projection import (
 )
 
 
-def section(title, category="A"):
+def section(title, category="[A]"):
     print(f"\n{'='*70}")
     print(f"  [{category}] {title}")
     print(f"{'='*70}")
@@ -53,7 +53,7 @@ def main():
     print("=" * 70)
     print("  UIDT GAUGE PROJECTION VERIFICATION SUITE")
     print("  Module: modules/gauge_projection.py")
-    print("  Evidence Category: A (mathematical core)")
+    print("  Evidence Category: [A] (mathematical core)")
     print("  DOI: 10.5281/zenodo.17835200")
     print("=" * 70)
 
@@ -251,7 +251,7 @@ def main():
     # =========================================================================
     # SECTION 7: Topological Charge Bias
     # =========================================================================
-    section("Topological Charge Bias Detection", "B")
+    section("Topological Charge Bias Detection", "[B]")
 
     q_hist = [mpf('1'), mpf('-1'), mpf('0'), mpf('1'), mpf('-1'),
               mpf('0'), mpf('1'), mpf('-1'), mpf('0'), mpf('0')]
@@ -267,7 +267,7 @@ def main():
     print("\n" + "=" * 70)
     if all_passed:
         print("  VERIFICATION RESULT: ALL CHECKS PASSED")
-        print("  Evidence Category: A (mathematical core)")
+        print("  Evidence Category: [A] (mathematical core)")
     else:
         print("  VERIFICATION RESULT: *** FAILURES DETECTED ***")
         print("  Review output above for failing tests.")

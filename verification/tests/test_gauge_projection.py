@@ -3,7 +3,7 @@ UIDT VERIFICATION TESTS: GAUGE-CONSISTENT MANIFOLD TRANSPORT
 =============================================================
 Author: P. Rietz (ORCID: 0009-0007-4307-1609)
 DOI: 10.5281/zenodo.17835200
-Evidence Category: A
+Evidence Category: [A]
 
 Tests for modules/gauge_projection.py — the SU(3) manifold transport
 gatekeeper. All tests use native mpmath at 80-digit precision (no mocks).
@@ -90,10 +90,12 @@ class TestGellMannBasis:
 
     def test_generator_count(self):
         """Exactly 8 generators for su(3). [A]"""
+        mp.dps = 80
         assert len(self.basis.all) == 8
 
     def test_generator_dimension(self):
         """Each generator is 3x3. [A]"""
+        mp.dps = 80
         for a in range(8):
             Ta = self.basis.get(a)
             assert Ta.rows == 3 and Ta.cols == 3

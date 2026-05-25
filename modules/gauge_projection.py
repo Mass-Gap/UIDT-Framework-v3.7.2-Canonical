@@ -4,7 +4,7 @@ UIDT MODULE: GAUGE-CONSISTENT MANIFOLD TRANSPORT (Phase 0)
 Version: 3.9.2
 Author: P. Rietz (ORCID: 0009-0007-4307-1609)
 DOI: 10.5281/zenodo.17835200
-Evidence Category: A (mathematical core)
+Evidence Category: [A] (mathematical core)
 Stratum: I (empirical/algebraic)
 
 Purpose:
@@ -62,7 +62,7 @@ class GellMannBasis:
     Normalization: Tr(T^a T^b) = delta^{ab} / 2
     Property: Each T^a is traceless and Hermitian; i*T^a is in su(3).
 
-    Evidence Category: A (algebraic identity, exact)
+    Evidence Category: [A] (algebraic identity, exact)
     """
 
     def __init__(self):
@@ -154,6 +154,7 @@ class GellMannBasis:
         Returns:
             mpmath.matrix: 3x3 complex matrix T^a = lambda^{a+1} / 2
         """
+        mp.dps = 80
         if not (0 <= a <= 7):
             raise IndexError(f"Generator index must be 0-7, got {a}")
         return self._generators[a]
@@ -161,6 +162,7 @@ class GellMannBasis:
     @property
     def all(self):
         """Return list of all 8 generators."""
+        mp.dps = 80
         return list(self._generators)
 
     def verify_orthonormality(self):
@@ -222,7 +224,7 @@ def lie_algebra_inject(U, delta_coeffs, coupling_ag=None):
     Returns:
         mpmath.matrix: U' = exp(i * ag * delta_A^a T^a) . U
 
-    Evidence Category: A (algebraic construction, exact by definition)
+    Evidence Category: [A] (algebraic construction, exact by definition)
     """
     mp.dps = 80
     from mpmath import mpc
@@ -286,7 +288,7 @@ def project_to_su3(W, max_iter=200, tol=None):
         RuntimeError: If convergence fails after max_iter iterations.
         RuntimeError: If post-conditions are violated.
 
-    Evidence Category: A (constructive, residual < 10^{-70})
+    Evidence Category: [A] (constructive, residual < 10^{-70})
     """
     mp.dps = 80
     if tol is None:
@@ -379,7 +381,7 @@ def svd_condition_check(perturbation_matrix, threshold=None):
             - kappa: The condition number sigma_max / sigma_min
             - sigmas: Sorted list of singular values (descending)
 
-    Evidence Category: A (numerical diagnostic, exact computation)
+    Evidence Category: [A] (numerical diagnostic, exact computation)
     """
     mp.dps = 80
     if threshold is None:
@@ -439,7 +441,7 @@ class MetropolisDetailedBalanceGuard:
     For symmetric proposals (standard HMC with Gaussian momenta),
     Q(U->U') = Q(U'->U) and this reduces to the standard form.
 
-    Evidence Category: A (mathematical identity)
+    Evidence Category: [A] (mathematical identity)
     """
 
     def __init__(self):
@@ -484,7 +486,7 @@ class MetropolisDetailedBalanceGuard:
         Returns:
             tuple: (passed: bool, violation: mpf)
 
-        Evidence Category: A (mathematical verification)
+        Evidence Category: [A] (mathematical verification)
         """
         mp.dps = 80
         from mpmath import exp as mp_exp
@@ -522,6 +524,7 @@ class MetropolisDetailedBalanceGuard:
     @property
     def max_violation(self):
         """Return maximum detailed balance violation observed."""
+        mp.dps = 80
         if not self._violation_history:
             return mpf('0')
         return max(self._violation_history)
@@ -545,7 +548,7 @@ def haar_measure_drift(link_matrices):
     Returns:
         tuple: (passed: bool, max_drift: mpf, mean_drift: mpf)
 
-    Evidence Category: A (numerical diagnostic)
+    Evidence Category: [A] (numerical diagnostic)
     """
     mp.dps = 80
     threshold = mpf('1e-10')
@@ -594,7 +597,7 @@ def topological_charge_clover(plaquettes_munu, plaquettes_munu_dual):
     Returns:
         mpf: Q_top (should be near-integer for smooth configurations)
 
-    Evidence Category: B (lattice discretization artifact)
+    Evidence Category: [B] (lattice discretization artifact)
     """
     mp.dps = 80
 
@@ -623,7 +626,7 @@ def topological_charge_bias(q_history):
     Returns:
         tuple: (passed: bool, mean_Q: mpf, sigma_Q: mpf, ratio: mpf)
 
-    Evidence Category: B (statistical test)
+    Evidence Category: [B] (statistical test)
     """
     mp.dps = 80
 
@@ -696,7 +699,7 @@ if __name__ == "__main__":
     mp.dps = 80
     print("=" * 70)
     print("  UIDT GAUGE-CONSISTENT MANIFOLD TRANSPORT v3.9.2")
-    print("  Evidence Category: A (mathematical core)")
+    print("  Evidence Category: [A] (mathematical core)")
     print("=" * 70)
 
     # Test 1: Gell-Mann basis
