@@ -21,9 +21,10 @@ The hybrid UIDT construction is scientifically useful only if this boundary is k
 
 1. `docs/theory/effective_gap_derivation.md`
 2. `clay-submission/GAP_ANALYSIS_CLAY.md`
-3. `docs/predictions/glueball_spectrum.md`
-4. `docs/predictions/thermal_vacuum.md`
-5. `verification/scripts/verify_effective_gap_predictions.py`
+3. `clay-submission/effective-gap-derivation/phenomenological_prediction_dossier.md`
+4. `docs/predictions/glueball_spectrum.md`
+5. `docs/predictions/thermal_vacuum.md`
+6. `verification/scripts/verify_effective_gap_predictions.py`
 
 ---
 
@@ -36,6 +37,15 @@ The hybrid UIDT construction is scientifically useful only if this boundary is k
 | GAP-GAMMA-001 | `gamma = 16.339` enters as calibrated kinetic invariant | [A-] | III | calibrated |
 | PRED-GB-001 | Tensor-glueball Regge estimate | [D] | III | falsifiable prediction |
 | PRED-TH-001 | Thermal screening ansatz | [D] | III | falsifiable prediction |
+
+---
+
+## Directory Files
+
+| File | Purpose | Evidence posture |
+|---|---|---:|
+| `README.md` | Boundary and reading order | [E]/[D] |
+| `phenomenological_prediction_dossier.md` | Reviewer-facing synthesis of tensor-glueball and thermal predictions | [D] |
 
 ---
 
