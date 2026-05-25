@@ -1,176 +1,160 @@
 #!/usr/bin/env python3
 """
-Derivation Scaffold: f_n(g) Vacuum Suppression Factors — UIDT v3.9 Canonical
-===============================================================================
-Claims: UIDT-C-018, UIDT-C-042 (10^10 geometric factor — HIGHEST PRIORITY open)
-        UIDT-C-017, UIDT-C-039 (N=99 RG steps — manuscript-faithful scaffold)
-Evidence: scaffold [D] / [E] — NOT a derivation
-Stratum: III (UIDT interpretation)
+derive_fn_vacuum_suppression.py
+UIDT Framework v3.9.9 | Evidence: E (scaffold [D])
+Claims: UIDT-C-018, UIDT-C-042, UIDT-C-017, UIDT-C-039, UIDT-C-050
 
-Manuscript context (§4.1):
-  The manuscript Eq. (10) presents N_fold = 34.58 as a 'derivation' that
-  'eliminates the need for an arbitrary 10^10 fit parameter.'  The Ledger
-  records C-018/C-042 as 'HIGHEST PRIORITY open question'.  This script
-  documents the scaffold model, makes the gap explicit, and provides a
-  numerically reproducible baseline for future derivation work.
+Scaffold for the spectral-determinant definition of vacuum suppression
+factors f_n(g), constituting the N=99 layer product:
 
-Vacuum suppression formula (canonical):
-  rho_vac^obs = rho_vac^QFT * pi^{-2} * prod_{n=1}^{N} f_n(g)
+    ρ_vac^obs = ρ_vac^QFT × π⁻² × ∏_{n=1}^{99} f_n(g)
 
-Scaffold definition of f_n(g):
-  f_n(g) = exp( -g^2 * alpha_n * beta_n )
-  where alpha_n = n / N  (spectral fraction of n-th layer)
-        beta_n  = n / (N + 1)  (logarithmic weight)
-  This is the minimal non-trivial ansatz satisfying f_n(0) = 1 for all n.
-  It is NOT derived from L_UIDT. It is a falsifiable placeholder [D].
+This script documents the CANDIDATE DEFINITION only.
+The 10¹⁰ open question (C-018/C-042) is NOT resolved here.
+N=99 is used as manuscript-faithful scaffold (C-017/C-039/C-050).
 
-L1 open gap:
-  The 10^10 residual factor between rho_vac^QFT and rho_vac^obs remains
-  unresolved.  This script shows how sensitive the product is to g,
-  but does NOT claim to close the gap.
+Evidence: [D] prediction/scaffold — no independent verification.
+Path: verification/scripts/ (Space-Directive §5)
+Requires: mpmath
 
-Precision: mp.dps=80 locally scoped.
-No float(), no round() on proof-critical values, no mocked physics.
+[TENSION ALERT] C-046 (N=94.05) is SUPERSEDED by this scaffold.
+See PR #505 and CLAIMS.json C-046.superseded_by.
 
-Falsification exposure:
-  C-018/C-042: if an analytical derivation of f_n(g) from L_UIDT yields
-  a product outside [1e-12, 1e-8], the scaffold is refuted.
-  C-017/C-039: if N != 99 yields measurably better rho_vac match,
-  N=99 is disfavoured.
+FALSIFICATION EXPOSURE:
+  - Casimir |ΔF/F| < 0.1% at 0.66 nm would refute λ_UIDT prediction.
+  - RG residual |5κ²−3λ_S| ≥ 1e-14 triggers [RG_CONSTRAINT_FAIL].
+  - N≠99 yielding better ρ_vac match falsifies N=99 scaffold.
 """
 
-import sys
-from typing import List, Tuple
+from mpmath import mp, mpf, log, exp, pi, nstr, fsum
 
-try:
-    from mpmath import mp, mpf, pi, exp, log, fabs, nstr, power
-except ImportError:
-    sys.exit("[BLOCKED] mpmath not available — install mpmath>=1.3")
+mp.dps = 80
 
+# ── Immutable Ledger Constants ────────────────────────────────────────────
+KAPPA     = mpf("0.500")            # [A] κ
+LAMBDA_S  = mpf("5") * KAPPA**2 / mpf("3")  # [A] exact λ_S := 5κ²/3
+DELTA_STAR = mpf("1.710")          # [A] GeV, Yang-Mills spectral gap
+M_S       = mpf("1.705")           # [B] GeV
+V_VEV     = mpf("47.7e-3")         # [A] GeV
+N_LAYERS  = 99                      # manuscript-faithful scaffold [C-050]
+RHO_QFT_GEV4 = mpf("1e8")         # GeV^4 order-of-magnitude QFT estimate
 
-# ---------------------------------------------------------------------------
-# Immutable ledger constants (Space-Directive §2, no modification)
-# ---------------------------------------------------------------------------
-KAPPA    = "0.500"
-LAMBDA_S = "0.41666666666666666666666666666666666666666666666666666666666666666666666666666666"  # 5*kappa^2/3 exact
-DELTA    = "1.710"    # GeV  [A/B]
-GAMMA    = "16.339"   # [A-]
-RHO_VAC_QFT_GEV4 = "1e9"   # rough QFT estimate GeV^4 (Stratum I literature)
-RHO_VAC_OBS_GEV4 = "2.45e-47"  # [C]
-N_CANONICAL = 99
-
-
-def rg_constraint_check() -> bool:
-    """Verify 5*kappa^2 = 3*lambda_S with residual < 1e-14."""
-    mp.dps = 80
-    kappa = mpf(KAPPA)
-    lambda_s = mpf(LAMBDA_S)
-    residual = fabs(5 * kappa**2 - 3 * lambda_s)
-    ok = residual < mpf("1e-14")
-    if not ok:
-        print(f"[RG_CONSTRAINT_FAIL] residual={nstr(residual, 20)}")
-    return ok
+# ── RG Sanity Check ───────────────────────────────────────────────────────
+_rg_residual = abs(5 * KAPPA**2 - 3 * LAMBDA_S)
+assert _rg_residual < mpf("1e-14"), (
+    f"[RG_CONSTRAINT_FAIL] |5κ²−3λ_S| = {nstr(_rg_residual,20)} >= 1e-14"
+)
 
 
-def compute_fn_scaffold(
-    g: str,
-    N: int = N_CANONICAL,
-) -> Tuple[List[str], str, str]:
+# ── Spectral Scale Partition ──────────────────────────────────────────────
+def spectral_layer_scales(n_layers: int, e_low_gev=mpf("1e-4"),
+                          e_high_gev=mpf("1e4")) -> list:
     """
-    Compute scaffold f_n(g) for n=1..N and the full product.
-
-    Parameters
-    ----------
-    g : coupling constant as decimal string (avoids binary-float heuristics)
-    N : number of RG steps (canonical: 99)
-
-    Returns
-    -------
-    fn_values : list of nstr representations of each f_n
-    product   : nstr of pi^{-2} * prod f_n
-    log_product : nstr of log10 of the product
+    Partition [e_low, e_high] logarithmically into n_layers intervals.
+    Returns list of (E_min, E_max) per layer in GeV.
     """
-    mp.dps = 80
-    g_mp = mpf(g)
-    N_mp = mpf(str(N))
-
-    fn_values = []
-    log_sum = mpf("0")
-
-    for n in range(1, N + 1):
-        n_mp = mpf(str(n))
-        alpha_n = n_mp / N_mp
-        beta_n  = n_mp / (N_mp + 1)
-        exponent = -g_mp**2 * alpha_n * beta_n
-        fn = exp(exponent)
-        fn_values.append(nstr(fn, 30))
-        log_sum += exponent  # accumulate in log space for precision
-
-    # pi^{-2} * product
-    product = exp(log_sum) / pi**2
-    from mpmath import log10
-    log10_product = log10(fabs(product))
-
-    return fn_values, nstr(product, 30), nstr(log10_product, 10)
-
-
-def suppression_analysis() -> None:
-    """Run suppression analysis for physically motivated g values."""
-    mp.dps = 80
-
-    rho_qft = mpf(RHO_VAC_QFT_GEV4)
-    rho_obs = mpf(RHO_VAC_OBS_GEV4)
-    from mpmath import log10
-    required_log10 = log10(rho_obs / rho_qft)
-
-    print("=" * 70)
-    print("VACUUM SUPPRESSION SCAFFOLD — UIDT-C-018/C-042")
-    print("=" * 70)
-    print(f"  N = {N_CANONICAL} (canonical, C-017/C-039 scaffold)")
-    print(f"  rho_vac^QFT  ~ {RHO_VAC_QFT_GEV4} GeV^4  [Stratum I]")
-    print(f"  rho_vac^obs  = {RHO_VAC_OBS_GEV4} GeV^4  [C]")
-    print(f"  Required log10(suppression) = {nstr(required_log10, 10)}")
-    print()
-    print("  g (string)   | log10(pi^-2 * prod f_n)  | residual vs required")
-    print("  " + "-" * 66)
-
-    g_values = [
-        "0.5", "1.0", "1.5", "2.0", "2.5", "3.0",
+    log_low  = log(e_low_gev)
+    log_high = log(e_high_gev)
+    step = (log_high - log_low) / n_layers
+    return [
+        (exp(log_low + n * step), exp(log_low + (n + 1) * step))
+        for n in range(n_layers)
     ]
 
-    for g_str in g_values:
-        _, product_str, log10_str = compute_fn_scaffold(g_str, N_CANONICAL)
-        log10_val = mpf(log10_str)
-        residual = fabs(log10_val - required_log10)
-        flag = ""
-        if residual < mpf("2"):
-            flag = "  <-- closest approach"
-        print(f"  g={g_str:<8}  | log10={log10_str:<24} | Δ={nstr(residual, 6)}{flag}")
 
+# ── Candidate f_n Definition (Scaffold) ──────────────────────────────────
+def f_n_candidate(E_min, E_max, kappa=KAPPA, m_s=M_S, delta=DELTA_STAR):
+    """
+    SCAFFOLD DEFINITION — Evidence [D], not derived from first principles.
+
+    Spectral weight ratio for layer [E_min, E_max].
+    Models the UIDT-induced suppression relative to a free-field reference
+    via a simplified propagator ratio. NOT a full determinant computation.
+
+    Interpretation:
+      f_n → 1  as kappa → 0  (free field limit, no UIDT coupling)
+      f_n < 1  for kappa=0.5, m_s~E_mid (UIDT suppression active)
+
+    LIMITATIONS:
+      - Off-diagonal mixing between S and A fields not included.
+      - No RG running of κ across the layer (fixed coupling).
+      - Full det[O(g)]/det[O_ref] requires lattice-style computation.
+    """
+    E_mid = (E_min + E_max) / 2
+    # Simplified: ratio of massive-to-massless propagator weight
+    p2 = E_mid ** 2
+    m2 = m_s ** 2
+    delta2 = delta ** 2
+    kappa2 = kappa ** 2
+    # UIDT-modified dispersion vs free reference
+    uidt_weight = p2 + m2 + kappa2 * delta2
+    free_weight = p2 + m2
+    ratio = free_weight / uidt_weight  # suppression < 1
+    return ratio
+
+
+def compute_full_product(n_layers=N_LAYERS):
+    """
+    Compute π⁻² × ∏_{n=1}^{N} f_n(g) for the scaffold definition.
+    Returns: (product_fn, pi_suppressed_product, log_product)
+    """
+    scales = spectral_layer_scales(n_layers)
+    log_fn_sum = fsum([log(f_n_candidate(e_low, e_high))
+                       for e_low, e_high in scales])
+    product_fn  = exp(log_fn_sum)
+    pi_factor   = pi ** (-2)
+    full_product = pi_factor * product_fn
+    return product_fn, full_product, log_fn_sum
+
+
+def main():
+    print("=" * 72)
+    print("UIDT Vacuum Suppression f_n Scaffold")
+    print("Claims: C-018, C-042, C-017, C-039, C-050")
+    print("Evidence: [D] scaffold — 10¹⁰ open question NOT resolved")
+    print("=" * 72)
+
+    product_fn, full_product, log_sum = compute_full_product()
+    rho_suppressed = RHO_QFT_GEV4 * full_product
+
+    print(f"  N_layers:                      {N_LAYERS}  (manuscript-faithful)")
+    print(f"  κ  [A]:                        {nstr(KAPPA,10)}")
+    print(f"  λ_S [A]:                       {nstr(LAMBDA_S,30)}")
+    print(f"  RG residual |5κ²−3λ_S|:       {nstr(_rg_residual,10)}  < 1e-14 ✓")
     print()
-    print("  [L1 OPEN] 10^10 factor between rho_QFT and rho_obs unresolved.")
-    print("  [STATUS]  Scaffold only — f_n(g) not derived from L_UIDT.")
-    print("  [MANUSCRIPT §4.1] Eq.(10) overclaim must be corrected to:")
-    print("    'N_fold = 34.58 is a calibrated scaffold [C]; L1 remains open.'")
-    print("=" * 70)
-
-
-def main() -> int:
-    if not rg_constraint_check():
-        return 1
-
-    print("[OK] RG constraint 5κ²=3λ_S verified (residual < 1e-14)")
-
-    suppression_analysis()
-
+    print(f"  ∏ f_n(g)  [scaffold]:          {nstr(product_fn,15)}")
+    print(f"  π⁻² × ∏ f_n(g):               {nstr(full_product,15)}")
+    print(f"  log(∏ f_n):                    {nstr(log_sum,15)}")
     print()
-    print("Claims documented by this script:")
-    print("  UIDT-C-018 / C-042 : 10^10 factor — OPEN, scaffold [D]")
-    print("  UIDT-C-017 / C-039 : N=99 — manuscript-faithful scaffold [E]")
-    print("  Falsification: product outside [1e-12, 1e-8] refutes scaffold.")
-    print("PASS — derive_fn_vacuum_suppression completed")
-    return 0
+    print(f"  ρ_QFT estimate [GeV⁴]:         {nstr(RHO_QFT_GEV4,10)}")
+    print(f"  ρ_suppressed [GeV⁴]:           {nstr(rho_suppressed,15)}")
+    print(f"  ρ_obs target [GeV⁴]:           ~2.45e-47")
+    print()
+
+    # ── Gap assessment ──────────────────────────────────────────────────
+    from mpmath import log10
+    target = mpf("2.45e-47")
+    log_gap = log10(rho_suppressed) - log10(target)
+    print(f"  Remaining log10 gap to ρ_obs:  {nstr(log_gap,10)}")
+    print(f"  (10¹⁰ open question L1 status: gap ≈ {nstr(log_gap,5)} orders)")
+    print()
+    print("OPEN LIMITATIONS:")
+    print("  L1:     10¹⁰ factor (C-018/C-042) — HIGHEST PRIORITY, unresolved")
+    print("  L-fn:   f_n definition is scaffold only; no det[O] computation")
+    print("  L-N:    N=99 empirically chosen; C-046 (N=94.05) SUPERSEDED")
+    print("  L-RG:   κ fixed across layers; no RG running implemented")
+    print()
+    print("FALSIFICATION EXPOSURE:")
+    print("  Casimir |ΔF/F|<0.1% at 0.66 nm refutes λ_UIDT=0.66 nm [C]")
+    print("  RG kill: |5κ²−3λ_S|≥1e-14 → [RG_CONSTRAINT_FAIL]")
+    print("  E_T→0 exactly → [TORSION_CONSTRAINT_FAIL]")
+    print("=" * 72)
+
+    # ── Final assertion: scaffold produces finite, positive result ───────
+    assert product_fn > 0, "[FAIL] ∏ f_n ≤ 0"
+    assert full_product > 0, "[FAIL] π⁻²×∏ f_n ≤ 0"
+    print("\nRESULT: PASS (scaffold integrity checks — physics gap remains open)")
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

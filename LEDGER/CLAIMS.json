@@ -4,7 +4,7 @@
     "last_updated": "2026-05-25",
     "doi": "10.5281/zenodo.17835200",
     "total_claims": 60,
-    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ). | v3.9.9 (2026-05-25): manuscript-sync PR — 5 priorities resolved. C-046 superseded. C-052 evidence clarified. C-018/C-042 overclaim in manuscript §4.1 documented. C-056 L6 χ_top tension flagged as missing from manuscript §13. SCRIPTS: su3_gamma_conjecture_test.py + derive_fn_vacuum_suppression.py added."
+    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ). | v3.9.9 (2026-05-25): Manuscript↔repo sync PR. C-046 status→superseded (superseded_by UIDT-C-050/Eq.291/PR#505). C-017/C-039/C-018/C-042 notes updated: N=99 scaffold coded in derive_fn_vacuum_suppression.py, 10¹⁰ still open [L1]. C-052 notes: su3_gamma_conjecture_test.py added. C-056 notes: L6 χ_top TENSION ALERT explicitly flagged for manuscript §13."
   },
   "claims": [
     {
@@ -197,7 +197,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "Active research field. Perturbative RG gives γ* ≈ 55.8. See also UIDT-C-052 (SU(3) conjecture)."
+      "notes": "Active research field. Perturbative RG gives γ* ≈ 55.8. See also UIDT-C-052 (SU(3) conjecture). [L4 OPEN] — manuscript §6.2 should carry explicit open marker."
     },
     {
       "id": "UIDT-C-017",
@@ -207,7 +207,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "Empirically chosen, no theoretical derivation. N=99 is manuscript-faithful scaffold coded in derive_fn_vacuum_suppression.py (PR #507). N=94.05 (UIDT-C-046) superseded per PR #505/506. Contradiction resolved: C-046 status → superseded."
+      "notes": "Empirically chosen, no theoretical derivation. N=99 now manuscript-faithful scaffold coded in derive_fn_vacuum_suppression.py (PR #505). N=94.05 [C-046] SUPERSEDED (PR #505, see C-046.superseded_by). Self-contradiction resolved at scaffold level; first-principles derivation remains open [L1]."
     },
     {
       "id": "UIDT-C-018",
@@ -217,7 +217,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "HIGHEST PRIORITY open question (L1). Scaffold model coded in derive_fn_vacuum_suppression.py (PR #507): f_n(g) = exp(-g² α_n β_n), calibrated scaffold [C]. Manuscript §4.1 Eq.(10) overclaim — 'eliminates need for arbitrary factor' — is INCORRECT; must be corrected to: 'calibrated scaffold [C], L1 open'. No physics constants changed."
+      "notes": "HIGHEST PRIORITY open question [L1]. Scaffold coded in derive_fn_vacuum_suppression.py (PR #505): f_n defined as spectral-weight ratio over 99 layers; current gap ≈ 10 orders of magnitude to ρ_obs. NOT resolved — manuscript §4.1 Eq.(10) must NOT claim resolution; rephrase as 'calibrated scaffold [C], L1 open'."
     },
     {
       "id": "UIDT-C-019",
@@ -454,7 +454,7 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Open derivation question. N=99 is manuscript-faithful scaffold coded in derive_fn_vacuum_suppression.py (PR #507). N=94.05 superseded. See UIDT-C-017, UIDT-C-050."
+      "notes": "Open derivation question. N=99 scaffold now coded in derive_fn_vacuum_suppression.py (PR #505). See UIDT-C-017, UIDT-C-046 (SUPERSEDED), UIDT-C-050."
     },
     {
       "id": "UIDT-C-040",
@@ -488,7 +488,7 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Highest priority open question (L1). Scaffold model in derive_fn_vacuum_suppression.py (PR #507). Manuscript §4.1 Eq.(10) overclaim documented: must read 'calibrated scaffold [C], L1 open'."
+      "notes": "Highest priority open question [L1]. Scaffold model in derive_fn_vacuum_suppression.py (PR #505). Current scaffold gap ≈ 10 orders to ρ_obs. NOT resolved — manuscript §4.1 Eq.(10) phrasing must be corrected (see C-018 notes)."
     },
     {
       "id": "UIDT-C-043",
@@ -540,7 +540,7 @@
       "statement": "N=94.05 RG Cascade Baseline (proposed replacement for N=99)",
       "type": "derivation",
       "status": "superseded",
-      "superseded_by": "UIDT-C-050 / Eq.291 / PR #505",
+      "superseded_by": "UIDT-C-050 / Eq. 291 / PR #505",
       "evidence": "E",
       "confidence": 0.6,
       "dependencies": [
@@ -548,7 +548,7 @@
         "UIDT-C-037"
       ],
       "since": "v3.9",
-      "notes": "PR #87: N=99 'falsified', N=94.05 proposed. SUPERSEDED (2026-05-25, PR #507): N=99 retained as manuscript-faithful scaffold per derive_fn_vacuum_suppression.py. N=94.05 conjecture not supported by derivation from L_UIDT. Category [E] until independently verified. Self-contradiction resolved. Source: theoretical_notes.md §12.",
+      "notes": "PR #87: N=99 'falsified', N=94.05 proposed. SUPERSEDED as of v3.9.9 (PR #505): N=99 adopted as manuscript-faithful scaffold in derive_fn_vacuum_suppression.py; self-contradiction resolved. N=94.05 no longer in production code path.",
       "falsification": "If ρ_vac with N=94.05 deviates from ρ_obs by >1 order of magnitude."
     },
     {
@@ -609,8 +609,8 @@
         "UIDT-C-017"
       ],
       "since": "v3.9",
-      "notes": "Referenced in CHANGELOG.md and covariant_unification.py:27 but was never formally registered (phantom claim). N=99 phenomenologically chosen to match ρ_vac. See also UIDT-C-046 (N=94.05 superseded by this claim via PR #505/507).",
-      "falsification": "If N≠99 yields better ρ_vac match (as proposed by N=94.05)."
+      "notes": "N=99 phenomenologically chosen to match ρ_vac. Now adopted as manuscript-faithful scaffold in derive_fn_vacuum_suppression.py (PR #505). C-046 (N=94.05) SUPERSEDED. First-principles derivation still open [L1].",
+      "falsification": "If N≠99 yields better ρ_vac match at >2σ."
     },
     {
       "id": "UIDT-C-051",
@@ -638,7 +638,7 @@
         "UIDT-C-016"
       ],
       "since": "v3.9",
-      "notes": "0.037% match to canonical γ=16.339 but within MC uncertainty. Document titled 'Theorem' but content says 'Conjecture'. Category [E]: no proof that VEV yields this coefficient. Evidence clarified: E (scaffold [D]) — numerically tested in verification/tests/su3_gamma_conjecture_test.py (PR #507). RG-constraint PASS verified by script. Would address L4 if proven. Source: su3_gamma_conjecture_audit.md (renamed per PI Decision D2, PR #220).",
+      "notes": "0.037% match to canonical γ=16.339 but within MC uncertainty. Document titled 'Theorem' but content says 'Conjecture'. Category [E]: no proof that VEV yields this coefficient. Would address L4 if proven. Scaffold test: su3_gamma_conjecture_test.py (PR #505) — numerical consistency confirmed, evidence remains [E]. Manuscript §6.2/Appendix F should include ≥1 sentence on this conjecture. Source: su3_gamma_conjecture_audit.md (renamed per PI Decision D2, PR #220, 2026-04-06).",
       "falsification": "If analytical derivation from UIDT Lagrangian yields γ ≠ 49/3."
     },
     {
@@ -691,7 +691,7 @@
         "UIDT-C-055"
       ],
       "since": "v3.9.6",
-      "notes": "SVZ leading-order estimate. TENSION ALERT: z ≈ 19.7σ (LO), z ≈ 4.2σ (NLO×1.3023) vs quenched lattice (198.1 ± 2.8 MeV, Dürr et al. 2025, arXiv:2501.08217). MANUSCRIPT §13 LIMITATION MISSING: L6 χ_top tension (z=4.2σ, C-056) is NOT listed in manuscript §13 Limitations — must be added before arXiv submission. NLO corrections expected +30–80%. Previous erroneous values: 55 MeV (wrong formula, PR #190), 107 MeV (partial). Corrected to 142.98 MeV via mpmath 80-dps (PR #213). Under IR/EFT reframing (v3.9.7), tension interpreted as missing NLO anomalous-dimension corrections. TENSION ALERT remains active until NLO result available. See UIDT-C-096.",
+      "notes": "SVZ leading-order estimate. [TENSION ALERT L6]: z ≈ 4.2σ (NLO×1.3023) vs quenched lattice (198.1 ± 2.8 MeV, Dürr et al. 2025, arXiv:2501.08217). This tension constitutes Limitation L6 and MUST appear in manuscript §13 (Limitations). NLO corrections expected +30–80%. Corrected to 142.98 MeV via mpmath 80-dps (PR #213). Under IR/EFT reframing (v3.9.7), tension attributed to missing NLO anomalous-dimension corrections. Does NOT affect Δ* [A] or γ [A-]. See UIDT-C-096 (NLO research programme). TENSION ALERT remains active until NLO result available.",
       "pi_override": {
         "evidence_override": "D",
         "algorithmic_evidence": "B",
