@@ -5,7 +5,7 @@ This script does not derive gamma. It tests whether simple perturbative
 coefficient structures can reproduce the required correction
 Delta_gamma_required = 17/3000 from gamma_bare = 49/3 to gamma = 16.339.
 
-Evidence status: [D] or [E] only. No [A] promotion.
+Evidence status: [D]/[E] only. No [A] promotion.
 """
 
 from __future__ import annotations
