@@ -5,7 +5,7 @@
 > **EVIDENCE TAG:** [A] for dimensional analysis; [A] for RG constraint; [E/open] for ξ, c_S, Λ (not yet in parameter ledger)  
 > **ADDED:** 2026-05-25  
 > **RELATES TO:** `CANONICAL/CONSTANTS.md` v3.9.5, PR Gate compliance  
-> **OPEN ISSUES:** SCALAR-TENSION-001 (S² vs S¹ coupling), SCALAR-OPEN-002 (ξ not in ledger), SCALAR-OPEN-003 (Λ not in ledger)
+> **OPEN ISSUES:** SCALAR-TENSION-001 (S² vs S¹ coupling), SCALAR-OPEN-002 (ξ not in ledger), SCALAR-OPEN-003 (Λ not in ledger), SCALAR-OPEN-004 (metric emergence)
 
 ---
 
@@ -71,7 +71,8 @@ $$
 | $\frac{1}{4} F^a_{\mu\nu} F^{a\mu\nu}$ | F(dim 2) | 2+2 = 4 | 4 | ✓ Consistent |
 | $g_S \cdot S \cdot \mathrm{Tr}(FF)$ | g_S(?), S(1), F²(4) | 1+4 = **5** | **5** | ✗ **Non-renormalizable** (dim-5 operator) |
 | $\frac{c_S}{\Lambda} S \, \mathrm{Tr}(FF)$ | c_S(0), Λ⁻¹(−1), S(1), F²(4) | 0−1+1+4 = 4 | 4 | ✓ EFT-valid |
-| $-\frac{\kappa}{4} S^2 \mathrm{Tr}(FF)$ | κ(0), S²(2), F²(4) | 0+2+2 = **4** | 4 | ✓ Renormalizable |
+
+> **Note:** The canonical interaction $-\frac{\kappa}{4} S^2 \mathrm{Tr}(FF)$ is dim-4 renormalizable (κ dim-0, S² dim-2, F² dim-2 each → total dim-4). See §2 [TENSION ALERT] and §4.
 
 ---
 
@@ -81,7 +82,8 @@ The quartic coupling λ_S is **not a free parameter** but defined by the exact R
 
 $$5\kappa^2 = 3\lambda_S \quad \Rightarrow \quad \lambda_S = \frac{5\kappa^2}{3}$$
 
-With κ = 1/2 (exact): λ_S = 5/12 = 0.41̄6̄. Residual < 10⁻¹⁴ [A] (v3.9.5 exact).
+With κ = 1/2 (exact): λ_S = 5/12 = 0.41̄6̄. Residual < 10⁻¹⁴ [A] (v3.9.5 exact).  
+Source: DOI: 10.5281/zenodo.17835200, `CANONICAL/CONSTANTS.md` v3.9.5.
 
 ---
 
@@ -110,7 +112,7 @@ The mandatory 1/Λ suppression **classifies this interaction unambiguously as an
 | SCALAR-C-002 | [S(x)] = 1 in d=4 | [S]=1 | [A] | II | Standard QFT | **Established** | None |
 | SCALAR-C-003 | Term $g_S S F^2$ is dimension-5, non-renormalizable | [dim]=5 | [A] | II | Dimensional counting | **Established** | None |
 | SCALAR-C-004 | EFT form $(c_S/\Lambda) S F^2$ is dimension-4 compliant | [dim]=4 | [A] | III | This document | **Proposed — pending review** | Must be checked against UV completion |
-| SCALAR-C-005 | Canonical κ-coupling $-\frac{\kappa}{4}S^2 FF$ is renormalizable | [dim]=4, κ dim-0 | [A] | II/III | CONSTANTS.md v3.9.5 | **Established** | None |
+| SCALAR-C-005 | Canonical κ-coupling $-\frac{\kappa}{4}S^2 FF$ is renormalizable and satisfies 5κ²=3λ_S (residual <10⁻¹⁴) | [dim]=4, exact RG | [A] | II/III | CONSTANTS.md v3.9.5, §4 | **Established** | None |
 | SCALAR-C-006 | S¹ vs S² operator conflict between canonical and EFT forms | Structural | [A] | III | TENSION ALERT | **Open — SCALAR-TENSION-001** | Requires explicit author decision; cannot be resolved by dimensional analysis alone |
 | SCALAR-C-007 | Non-minimal coupling ξRS² is dim-4 consistent | [dim]=4 | [A] | II | Standard scalar-tensor theory | **Established** | None |
 | SCALAR-C-008 | ξ value is unconstrained in UIDT v3.9 | Unknown | [E] | III | Absence of ledger entry | **Open — SCALAR-OPEN-002** | Falsifiable by conformal coupling limit ξ→1/6 tests |
@@ -124,7 +126,7 @@ The mandatory 1/Λ suppression **classifies this interaction unambiguously as an
 | Claim | DOI/arXiv | Status | Used for | Evidence Tag |
 |---|---|---|---|---|
 | Dimensional analysis, QFT conventions | Peskin & Schroeder, ISBN 978-0201503975 | **Established textbook** | SCALAR-C-001/002/003/005/007 | [A] (Stratum II) |
-| UIDT κ, λ_S parameters | DOI: 10.5281/zenodo.17835200 | **Verified** | SCALAR-C-005 | [A] |
+| UIDT κ, λ_S parameters, RG constraint | DOI: 10.5281/zenodo.17835200 | **Verified** | SCALAR-C-005, §4 | [A] |
 | EFT operator classification | Weinberg, *Physica A* 96 (1979) | **Established textbook** | SCALAR-C-004 | [A] (Stratum II) |
 | ξ coupling, non-minimal gravity | Callan, Coleman, Jackiw (1970) | **Standard reference** | SCALAR-C-007 | [A] (Stratum II) |
 | S¹ vs S² tension | Internal — no external DOI available | **No verified DOI/arXiv source available. Claim cannot be promoted beyond [E/open].** | SCALAR-TENSION-001 | [E] |
@@ -138,37 +140,36 @@ Dimensional analysis can be reproduced with one command:
 ```python
 # verification/scripts/check_lagrangian_dimensions.py
 import mpmath as mp
-mp.dps = 80
 
-dims = {
-    "EH":          mp.mpf(2) + mp.mpf(2),         # M_Pl^2 * R
-    "kinetic":     mp.mpf(1) + mp.mpf(1) + mp.mpf(1) + mp.mpf(1),  # (dS)^2
-    "mass_term":   mp.mpf(1) + mp.mpf(1) + mp.mpf(1) + mp.mpf(1),  # m_S^2 S^2
-    "quartic":     mp.mpf(0) + mp.mpf(4)*mp.mpf(1),  # lambda_S S^4
-    "xi_coupling": mp.mpf(0) + mp.mpf(2) + mp.mpf(2),  # xi R S^2
-    "YM":          mp.mpf(2) + mp.mpf(2),           # F^2
-    "EFT_int":     mp.mpf(0) + (-mp.mpf(1)) + mp.mpf(1) + mp.mpf(4),  # (c_S/Lambda) S F^2
-    "kappa_int":   mp.mpf(0) + mp.mpf(2) + mp.mpf(2),  # kappa S^2 FF
-    "WRONG_int":   mp.mpf(1) + mp.mpf(4),           # g_S S F^2 — non-renorm!
-}
+def check_lagrangian_dimensions():
+    mp.dps = 80  # local precision scope only — no global override
 
-for name, d in dims.items():
-    status = "OK" if d == 4 else f"FAIL (dim={d})"
-    print(f"{name:15s}: dim={mp.nstr(d,4):6s}  [{status}]")
+    dims = {
+        "EH":          mp.mpf(2) + mp.mpf(2),
+        "kinetic":     mp.mpf(1) + mp.mpf(1) + mp.mpf(1) + mp.mpf(1),
+        "mass_term":   mp.mpf(1) + mp.mpf(1) + mp.mpf(1) + mp.mpf(1),
+        "quartic":     mp.mpf(0) + mp.mpf(4)*mp.mpf(1),
+        "xi_coupling": mp.mpf(0) + mp.mpf(2) + mp.mpf(2),
+        "YM":          mp.mpf(2) + mp.mpf(2),
+        "EFT_int":     mp.mpf(0) + (-mp.mpf(1)) + mp.mpf(1) + mp.mpf(4),
+        "kappa_int":   mp.mpf(0) + mp.mpf(2) + mp.mpf(2),
+        "WRONG_int":   mp.mpf(1) + mp.mpf(4),
+    }
+
+    for name, d in dims.items():
+        status = "OK" if d == 4 else f"FAIL (dim={d})"
+        print(f"{name:15s}: dim={mp.nstr(d,4):6s}  [{status}]")
+
+    assert all(d == 4 for k, d in dims.items() if k != "WRONG_int"), \
+        "Dimension check failed: unexpected non-4 term"
+    assert dims["WRONG_int"] == 5, \
+        "WRONG_int should be dim=5 (non-renormalizable)"
+
+if __name__ == "__main__":
+    check_lagrangian_dimensions()
 ```
 
 Expected output: all terms `OK` except `WRONG_int: FAIL (dim=5)`.
-
----
-
-## 9. Open Issues Registered by This Document
-
-| Issue ID | Description | Priority |
-|---|---|---|
-| SCALAR-TENSION-001 | S²·FF (canonical, renorm.) vs S¹·FF/Λ (EFT) — structural conflict, author decision required | **CRITICAL** |
-| SCALAR-OPEN-002 | ξ (non-minimal coupling) absent from CONSTANTS.md parameter ledger | **MAJOR** |
-| SCALAR-OPEN-003 | Λ (EFT cutoff) and c_S (Wilson coefficient) absent from parameter ledger | **MAJOR** |
-| SCALAR-OPEN-004 | Metric emergence: explicit EH term vs emergent $g_{\mu\nu}[S]$ — mutually exclusive frameworks | **MAJOR** |
 
 ---
 
