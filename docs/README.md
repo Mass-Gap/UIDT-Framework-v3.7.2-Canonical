@@ -24,6 +24,7 @@ This directory contains supporting technical documentation, audits, and archival
 - [`predictions/glueball_spectrum.md`](./predictions/glueball_spectrum.md)
 - [`predictions/thermal_vacuum.md`](./predictions/thermal_vacuum.md)
 - [`predictions/qgp_viscosity.md`](./predictions/qgp_viscosity.md)
+- [`predictions/unquenched_qcd.md`](./predictions/unquenched_qcd.md)
 
 ### Governance and review
 - [`governance/PR_Review_Protocol_v2.0.md`](./governance/PR_Review_Protocol_v2.0.md)
