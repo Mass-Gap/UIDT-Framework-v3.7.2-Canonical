@@ -33,7 +33,7 @@ python verification/scripts/verify_phase8_delta_gamma_su4_audit.py
 
 from __future__ import annotations
 
-import mpmath as mp
+from mpmath import mp
 
 
 def nstr(value: mp.mpf) -> str:
@@ -61,7 +61,8 @@ def main() -> None:
 
     assert gamma_bare_su3 == mp.mpf(49) / mp.mpf(3)
     assert wrong_gamma_bare_su3 == mp.mpf(49) / mp.mpf(9)
-    assert delta_gamma_required == mp.mpf(17) / mp.mpf(3000)
+    expected_delta_gamma = mp.mpf(17) / mp.mpf(3000)
+    assert abs(delta_gamma_required - expected_delta_gamma) < mp.mpf("1e-75")
     assert delta_gamma_required > 0
 
     print("[P1a] gamma_bare_SU3:", nstr(gamma_bare_su3))

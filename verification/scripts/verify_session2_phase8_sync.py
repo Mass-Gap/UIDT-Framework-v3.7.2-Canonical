@@ -23,7 +23,7 @@ python verification/scripts/verify_session2_phase8_sync.py
 
 from __future__ import annotations
 
-import mpmath as mp
+from mpmath import mp
 
 
 def main() -> None:
@@ -57,7 +57,8 @@ def main() -> None:
     assert gamma_wrong_denominator != gamma_bare
     print("[PASS] rejected wrong denominator:", mp.nstr(gamma_wrong_denominator, 80))
 
-    assert delta_gamma_required == mp.mpf(17) / mp.mpf(3000), mp.nstr(
+    expected_delta_gamma = mp.mpf(17) / mp.mpf(3000)
+    assert abs(delta_gamma_required - expected_delta_gamma) < mp.mpf("1e-75"), mp.nstr(
         delta_gamma_required, 80
     )
     assert delta_gamma_required > 0
