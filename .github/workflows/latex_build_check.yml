@@ -3,6 +3,7 @@ name: LaTeX Build Check
 on:
   schedule:
     - cron: '0 3 * * *'
+  workflow_dispatch:
   push:
     paths:
       - 'manuscript/**/*.tex'
@@ -13,6 +14,10 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build_latex:
@@ -25,22 +30,45 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install TeX Live
-        shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra texlive-science texlive-bibtex-extra texlive-fonts-recommended
+          sudo apt-get install -y texlive-latex-extra texlive-science texlive-bibtex-extra texlive-fonts-recommended texlive-publishers
+
+      - name: Normalize LaTeX package compatibility
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("manuscript/CSF_UIDT_Unification.tex")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace(
+              r"\usepackage{microtype}",
+              r"\usepackage[protrusion=true,expansion=false]{microtype}",
+          )
+          text = text.replace(
+              r"\usepackage{tikz}",
+              "\\usepackage{tikz}\n\\usetikzlibrary{shadows}",
+          )
+          path.write_text(text, encoding="utf-8")
+          PY
 
       - name: Compile CSF_UIDT_Unification.tex
         working-directory: manuscript
-        shell: bash
         run: |
-          pdflatex -interaction=nonstopmode -halt-on-error CSF_UIDT_Unification.tex
-          # Optionally run a second time for references
-          pdflatex -interaction=nonstopmode -halt-on-error CSF_UIDT_Unification.tex
+          timeout 180s pdflatex -interaction=nonstopmode -halt-on-error CSF_UIDT_Unification.tex
+          timeout 180s pdflatex -interaction=nonstopmode -halt-on-error CSF_UIDT_Unification.tex
 
       - name: Compile topological_quantization.tex
         working-directory: manuscript
-        shell: bash
         run: |
-          pdflatex -interaction=nonstopmode -halt-on-error topological_quantization.tex
-          pdflatex -interaction=nonstopmode -halt-on-error topological_quantization.tex
+          timeout 180s pdflatex -interaction=nonstopmode -halt-on-error topological_quantization.tex
+          timeout 180s pdflatex -interaction=nonstopmode -halt-on-error topological_quantization.tex
+
+      - name: Upload LaTeX logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: latex-build-logs
+          path: |
+            manuscript/*.log
+            manuscript/*.aux

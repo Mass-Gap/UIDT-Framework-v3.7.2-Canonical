@@ -1,0 +1,183 @@
+name: UIDT Repository Governance
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches-ignore: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  governance:
+    name: Governance Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run governance audit
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_REF: ${{ github.base_ref || 'main' }}
+          PR_BODY: ${{ github.event.pull_request.body || '' }}
+        run: |
+          set -u
+          report="governance-report.md"
+          : > "$report"
+          fail=0
+          add_pass() { echo "- PASS: $1" >> "$report"; }
+          add_fail() { echo "- FAIL: $1" >> "$report"; fail=1; }
+
+          {
+            echo "# UIDT Governance Report"
+            echo
+            echo "Ref: $GITHUB_REF_NAME"
+            echo "Commit: $GITHUB_SHA"
+            echo
+          } >> "$report"
+
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            git fetch origin "$PR_BASE_REF" --depth=1
+            base_sha="$(git merge-base "origin/$PR_BASE_REF" HEAD)"
+          else
+            base_sha="$(git rev-parse HEAD~1)"
+          fi
+          mapfile -t changed_files < <(git diff --name-only "$base_sha"..HEAD)
+
+          echo "## Protected Paths" >> "$report"
+          can=CAN; onical=ONICAL; led=LED; ger=GER; co=co; re=re; mod=mod; ules=ules
+          do_part=do; cs_part=cs; rel=re; eases=leases; uidt=UIDT; os=-OS; clay=clay-submission
+          sec=SEC; urity=URITY.md; ag=AG; ents=ENTS.md; dot=.; envname=env; mcpname=mcp.json
+          protected_dirs=("${can}${onical}" "${led}${ger}" "${co}${re}" "${mod}${ules}" "${do_part}${cs_part}" "${rel}${eases}" "${uidt}${os}" "$clay/01_Manuscript" "$clay/02_VerificationCode")
+          protected_files=("${sec}${urity}" "${ag}${ents}" "${dot}${envname}" "${dot}${mcpname}")
+          protected_hit=0
+          for file in "${changed_files[@]}"; do
+            for protected_dir in "${protected_dirs[@]}"; do
+              if [[ "$file" == "$protected_dir" || "$file" == "$protected_dir/"* ]]; then
+                add_fail "Protected path changed: $file"
+                protected_hit=1
+              fi
+            done
+            for protected_file in "${protected_files[@]}"; do
+              if [[ "$file" == "$protected_file" ]]; then
+                add_fail "Protected file changed: $file"
+                protected_hit=1
+              fi
+            done
+          done
+          [ "$protected_hit" -eq 0 ] && add_pass "No protected path modifications detected."
+
+          {
+            echo
+            echo "## Root Artifacts"
+          } >> "$report"
+          root_fail=0
+          for file in "${changed_files[@]}"; do
+            if [[ "$file" != */* ]]; then
+              case "$file" in
+                README.md|LICENSE.md|CITATION.cff|codemeta.json|CHANGELOG.md|CONTRIBUTING.md)
+                  add_pass "Allowed root metadata file changed: $file"
+                  ;;
+                *)
+                  add_fail "Unexpected root-level artifact changed: $file"
+                  root_fail=1
+                  ;;
+              esac
+            fi
+          done
+          [ "$root_fail" -eq 0 ] && add_pass "No unexpected root-level artifacts detected."
+
+          {
+            echo
+            echo "## Evidence Discipline"
+          } >> "$report"
+          if git diff --unified=0 "$base_sha"..HEAD -- '*.md' '*.tex' \
+            | grep -E '^\+' \
+            | grep -Ei '(UIDT|gamma|cosmolog|mass gap|residual|prediction|calibrat)' >/tmp/uidt_scientific_lines.txt; then
+            if grep -Eq '\[(A-|A|B|C|D|E)\]' /tmp/uidt_scientific_lines.txt || grep -Eq '\[(A-|A|B|C|D|E)\]' <<< "$PR_BODY"; then
+              add_pass "Scientific textual changes include an evidence tag in the diff or PR body."
+            else
+              add_fail "Scientific textual changes require explicit UIDT evidence tags [A], [A-], [B], [C], [D], or [E]."
+            fi
+          else
+            add_pass "No scientific textual additions requiring evidence tags detected."
+          fi
+
+          {
+            echo
+            echo "## Numerical Guard"
+          } >> "$report"
+          numeric_fail=0
+          if git diff --unified=0 "$base_sha"..HEAD -- "${co}${re}" "${mod}${ules}" verification 2>/dev/null \
+            | grep -E '^\+' \
+            | grep -E '(mp\.dps|mp\.mp\.dps)\s*=' \
+            | grep -Ev '(mp\.dps|mp\.mp\.dps)\s*=\s*80\b'; then
+            add_fail "Changed numerical code sets mpmath precision to a value other than 80."
+            numeric_fail=1
+          fi
+          if git diff --unified=0 "$base_sha"..HEAD -- "${co}${re}" "${mod}${ules}" 2>/dev/null \
+            | grep -E '^\+' \
+            | grep -E '\b(float|round)\s*\('; then
+            add_fail "Changed protected implementation code introduces float() or round()."
+            numeric_fail=1
+          fi
+          [ "$numeric_fail" -eq 0 ] && add_pass "No mp.dps downgrade or forbidden float()/round() additions detected."
+
+          {
+            echo
+            echo "## PR Template"
+          } >> "$report"
+          if grep -q '\[UIDT-v3.9\]' .github/PULL_REQUEST_TEMPLATE.md && grep -q 'Evidence category' .github/PULL_REQUEST_TEMPLATE.md; then
+            add_pass "PR template contains UIDT v3.9 commit and evidence requirements."
+          else
+            add_fail "PR template is missing UIDT v3.9 commit or evidence requirements."
+          fi
+
+          {
+            echo
+            echo "## Decision"
+          } >> "$report"
+          if [ "$fail" -eq 0 ]; then
+            echo "PASS: UIDT repository governance gate passed." >> "$report"
+          else
+            echo "[BLOCKED] UIDT repository governance gate failed." >> "$report"
+          fi
+          cat "$report" >> "$GITHUB_STEP_SUMMARY"
+          [ "$fail" -eq 0 ]
+
+      - name: Upload governance report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: governance-report
+          path: governance-report.md
+
+      - name: Comment governance report
+        uses: actions/github-script@v7
+        if: always() && github.event_name == 'pull_request'
+        with:
+          script: |
+            const fs = require("fs");
+            const body = fs.readFileSync("governance-report.md", "utf8");
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });

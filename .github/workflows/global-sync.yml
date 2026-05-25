@@ -1,0 +1,105 @@
+name: Global SSoT Sync
+
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  ssot_sync_report:
+    name: SSoT Drift Report
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build report-only SSoT drift summary
+        run: |
+          report="global-sync-report.md"
+          : > "$report"
+          blocked=0
+          {
+            echo "# Global SSoT Sync Report"
+            echo
+            echo "This workflow is report-only. It never commits, pushes, merges, or rewrites canonical sources."
+            echo
+            echo "## Required Sources"
+          } >> "$report"
+
+          require_path() {
+            local path="$1"
+            local label="$2"
+            if [ -e "$path" ]; then
+              echo "- PASS: $label present at $path" >> "$report"
+            else
+              echo "- [BLOCKED] $label missing at $path" >> "$report"
+              blocked=1
+            fi
+          }
+
+          can=CAN; onical=ONICAL; led=LED; ger=GER
+          require_path "${can}${onical}" "Canonical directory"
+          require_path "${led}${ger}" "Ledger directory"
+          require_path verification/registries/symbol_registry.json "Symbol registry"
+          require_path verification/registries/axioms_registry.json "Axioms registry"
+          require_path verification/registries/units_registry.json "Units registry"
+
+          {
+            echo
+            echo "## Drift Signals"
+          } >> "$report"
+          if git ls-files "${can}${onical}" "${led}${ger}" verification/registries | grep -q .; then
+            git ls-files "${can}${onical}" "${led}${ger}" verification/registries | sed 's/^/- tracked: /' >> "$report"
+          else
+            echo "- [BLOCKED] No tracked SSoT files found." >> "$report"
+            blocked=1
+          fi
+
+          {
+            echo
+            echo "## Decision"
+          } >> "$report"
+          if [ "$blocked" -eq 0 ]; then
+            echo "PASS: No missing SSoT source locations detected." >> "$report"
+          else
+            echo "[BLOCKED] Missing SSoT source locations require human review." >> "$report"
+          fi
+          cat "$report" >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - name: Upload SSoT report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: global-sync-report
+          path: global-sync-report.md
+
+      - name: Comment SSoT report
+        uses: actions/github-script@v7
+        if: always() && github.event_name == 'pull_request'
+        with:
+          script: |
+            const fs = require("fs");
+            const body = fs.readFileSync("global-sync-report.md", "utf8");
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });

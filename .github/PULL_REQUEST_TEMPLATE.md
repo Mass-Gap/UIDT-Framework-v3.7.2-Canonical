@@ -7,10 +7,11 @@
 ## ✅ Pre-Submission Checklist
 
 ### Commit Message Format
-- [ ] Commit message follows format: `[UIDT] <type>: <summary>`
-  - Types: `fix`, `docs`, `test`, `check`, `classify`, `placeholder`
-  - Example: `[UIDT] docs: update falsification criteria for F2`
+- [ ] Commit message follows format: `[UIDT-v3.9] <component>: <summary>`
+  - Components: `ci`, `docs`, `verification`, `manuscript`, `governance`, `numerics`, `citation`
+  - Example: `[UIDT-v3.9] docs: update falsification criteria`
 - [ ] Evidence category tag included: `[A]`, `[A-]`, `[B]`, `[C]`, `[D]`, or `[E]`
+- [ ] DOI included where relevant: `10.5281/zenodo.17835200`
 - [ ] Limitation impact documented if applicable: `L1`, `L2`, `L3`, `L4`, `L5`, `L6`, `L7`
 
 ### Code Changes

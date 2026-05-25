@@ -1,0 +1,153 @@
+name: Citation Check
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "**/*.md"
+      - "**/*.tex"
+      - "**/*.bib"
+      - ".github/workflows/citation-check.yml"
+  push:
+    branches-ignore: [ main ]
+    paths:
+      - "**/*.md"
+      - "**/*.tex"
+      - "**/*.bib"
+      - ".github/workflows/citation-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  citation_check:
+    name: Citation Resolution
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve changed DOI and arXiv references
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
+          PUSH_BEFORE_SHA: ${{ github.event.before || '' }}
+        run: |
+          set -u
+          if [ "$EVENT_NAME" = "pull_request" ] && [ -n "$PR_BASE_SHA" ]; then
+            base_sha="$PR_BASE_SHA"
+          elif [ -n "$PUSH_BEFORE_SHA" ] && ! grep -Eq '^0+$' <<< "$PUSH_BEFORE_SHA"; then
+            base_sha="$PUSH_BEFORE_SHA"
+          else
+            base_sha="$(git rev-parse HEAD~1)"
+          fi
+
+          git diff --name-only "$base_sha"..HEAD -- '*.md' '*.tex' '*.bib' > citation-files.txt || true
+
+          python - <<'PY'
+          import re
+          import sys
+          import urllib.error
+          import urllib.request
+          from pathlib import Path
+
+          files = [Path(line.strip()) for line in Path("citation-files.txt").read_text().splitlines() if line.strip()]
+          doi_re = re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE)
+          arxiv_re = re.compile(r"\barXiv:?\s*(\d{4}\.\d{4,5}(?:v\d+)?|[a-z-]+(?:\.[A-Z]{2})?/\d{7}(?:v\d+)?)", re.IGNORECASE)
+
+          dois = set()
+          arxivs = set()
+          for path in files:
+              if not path.exists() or path.is_dir():
+                  continue
+              text = path.read_text(encoding="utf-8", errors="ignore")
+              dois.update(match.group(0).rstrip(".,;)") for match in doi_re.finditer(text))
+              arxivs.update(match.group(1).rstrip(".,;)") for match in arxiv_re.finditer(text))
+
+          report = ["# Citation Check Report", ""]
+          failures = []
+
+          def probe(url):
+              request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "UIDT-CI/1.0"})
+              try:
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      return response.status < 400
+              except urllib.error.HTTPError as exc:
+                  if exc.code == 405:
+                      request_get = urllib.request.Request(url, headers={"User-Agent": "UIDT-CI/1.0"})
+                      with urllib.request.urlopen(request_get, timeout=20) as response:
+                          return response.status < 400
+                  return False
+              except Exception:
+                  return False
+
+          report.append("## DOI References")
+          if not dois:
+              report.append("- No changed DOI references detected.")
+          for doi in sorted(dois):
+              ok = probe(f"https://doi.org/{doi}")
+              report.append(f"- {'PASS' if ok else 'FAIL'}: {doi}")
+              if not ok:
+                  failures.append(f"Unresolved DOI: {doi}")
+
+          report.append("")
+          report.append("## arXiv References")
+          if not arxivs:
+              report.append("- No changed arXiv references detected.")
+          for arxiv_id in sorted(arxivs):
+              ok = probe(f"https://arxiv.org/abs/{arxiv_id}")
+              report.append(f"- {'PASS' if ok else 'FAIL'}: {arxiv_id}")
+              if not ok:
+                  failures.append(f"Unresolved arXiv reference: {arxiv_id}")
+
+          Path("citation-report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
+          if failures:
+              print("[BLOCKED] Citation resolution failed:")
+              for failure in failures:
+                  print(f"- {failure}")
+              sys.exit(1)
+          PY
+
+          cat citation-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload citation report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: citation-check-report
+          path: |
+            citation-files.txt
+            citation-report.md
+
+      - name: Comment citation report
+        uses: actions/github-script@v7
+        if: always() && github.event_name == 'pull_request'
+        with:
+          script: |
+            const fs = require("fs");
+            const body = fs.readFileSync("citation-report.md", "utf8");
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
