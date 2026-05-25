@@ -43,7 +43,7 @@
 \usepackage{xcolor}
 
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows,positioning,shadows}
+\usetikzlibrary{shapes,arrows,positioning}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{skins,breakable}
 
@@ -198,7 +198,6 @@
   title={Kill-Switch Criterion},
   boxrule=0pt, arc=0pt,
   left=8pt, right=8pt, top=6pt, bottom=6pt,
-  drop shadow
 }
 
 \newtcolorbox{axiombox}[1][]{%
@@ -208,7 +207,6 @@
   title={#1},
   boxrule=1pt, arc=0pt,
   left=8pt, right=8pt, top=6pt, bottom=6pt,
-  drop shadow
 }
 
 \newtcolorbox{probbox}[2][]{%
@@ -218,7 +216,6 @@
   title={#1 \hfill #2},
   boxrule=1pt, arc=0pt,
   left=8pt, right=8pt, top=6pt, bottom=6pt,
-  drop shadow
 }
 
 %=============================================================================
@@ -1393,65 +1390,6 @@ categories.
 
 
 %=============================================================================
-\newpage
-\subsection{Claim-to-Evidence Matrix}
-\label{subsec:claim-evidence-matrix}
-
-Table~\ref{tab:claim_evidence_matrix} consolidates the principal quantitative
-and proof-status claims in the manuscript. It is an audit index, not a source
-of new claims; each entry points back to the relevant limitation or
-falsification exposure.
-
-\begin{table}[H]
-\centering
-\scriptsize
-\caption{Claim-to-evidence matrix for the UIDT Ontology manuscript.}
-\label{tab:claim_evidence_matrix}
-{\setlength{\tabcolsep}{1.35pt}%
-\renewcommand{\arraystretch}{0.76}%
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{0.50cm}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{2.05cm}>{\centering\arraybackslash}p{0.70cm}>{\centering\arraybackslash}p{0.70cm}>{\raggedright\arraybackslash}p{2.50cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.55cm}@{}}
-\toprule
-\textbf{ID} & \textbf{Claim} & \textbf{Value} & \textbf{Tag} &
-\textbf{Str.} & \textbf{Source / basis} & \textbf{Limit.} &
-\textbf{Kill-switch} \\
-\midrule
-C1 & Spectral-gap mapping & $\Delta^*=\DeltaGap$ & \catmark{A-} &
-I/III & Theorem~\ref{thm:massgap}; Chen et al. lattice comparison &
-L6, L8 & F1 \\
-\midrule
-C2 & Geometric coupling & $\gamma=\GammaGeom$ & \catmark{A-} &
-III & Kinetic-VEV matching; $\gamma_\infty$ cross-check & L4 & F4 / L4 \\
-\midrule
-C3 & RG coupling & $\kappa=\kappaVal\pm0.008$ & \catmark{A} &
-I/III & RG fixed-point relation & L7 & RG residual \\
-\midrule
-C4 & Scalar self-coupling & $\lambda_S\equiv5\kappa^2/3=5/12$ & \catmark{A} &
-III & $5\kappa^2=3\lambda_S$ & L7 & RG residual \\
-\midrule
-C5 & Vacuum scale & $v=\vVEV$ & \catmark{A} &
-III & Canonical UIDT ledger & L1, L4 & Ledger audit \\
-\midrule
-C6 & Cosmology calibration & $H_0=70.4\pm0.16\kms$, $w_0=-0.99$ &
-\catmark{C} & I/III & UIDT calibration; Planck/DESI baseline tension &
-L1 & F3 \\
-\midrule
-C7 & Casimir anomaly & $+0.59\%$ at $\LambdaGrid$ & \catmark{D} &
-III & Laboratory prediction & L5 & Laboratory null \\
-\midrule
-C8 & Scalar resonance & $m_S=1.705\pm0.015\GeV$ & \catmark{D} &
-III & Particle-channel prediction above spectral gap & L6 & F5 \\
-\midrule
-C9 & Born-rule program & Quadratic measure from lattice amplitudes &
-\catmark{E} & III & Theorem-target program, not proof closure & L11 & T1--T3 \\
-\midrule
-C10 & Clay/OS status & Not a Clay-level solution & \catmark{E} &
-II/III & Jaffe--Witten; OS constructive-QFT requirements & L8 & OS proof gap \\
-\bottomrule
-\end{tabular*}
-}
-\end{table}
-
-
 \newpage
 \section{Epistemological Position: Mathematical Realism Without Omniscience}
 \label{sec:epistemology}
