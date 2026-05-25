@@ -7,6 +7,7 @@ from mpmath import mp
 
 
 def assert_residual(label: str, value: mp.mpf, expected: mp.mpf, tol: mp.mpf) -> mp.mpf:
+    mp.dps = 80
     residual = abs(value - expected)
     assert residual < tol, (
         f"{label} residual {mp.nstr(residual, 80)} exceeds {mp.nstr(tol, 20)}"
