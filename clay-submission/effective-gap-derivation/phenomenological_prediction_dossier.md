@@ -19,7 +19,7 @@ This change is not cosmetic. It separates three statements that must never be me
 | `gamma = 16.339` calibrates the kinetic vacuum sector. | [A-] | III | calibrated |
 | The reduced model is equivalent to the full pure Yang--Mills path integral. | [E] | III | open |
 
-The predictive use of the model is allowed only after this separation is explicit. The two predictions below are therefore [D], not [A].
+The predictive use of the model is allowed only after this separation is explicit. The predictions below are therefore [D], not [A].
 
 ---
 
@@ -115,7 +115,52 @@ within documented uncertainties for `T < T_c`.
 
 ---
 
-## 4. External Baselines
+## 4. Prediction III: Effective QGP Shear Viscosity Ansatz
+
+### 4.1 Physical idea
+
+The same confined-phase effective scale can be used to generate a transport ansatz for the shear-viscosity-to-entropy-density ratio `eta/s`. This is not a first-principles transport calculation. It is a phenomenological bridge between the UIDT thermal gap ansatz and real-time transport observables.
+
+The reference value
+
+```tex
+(eta/s)_{KSS} = 1/(4 pi)
+```
+
+is used as a holographic comparison scale, not as a proven universal theorem for QCD.
+
+### 4.2 Formula
+
+For `T <= T_c`, define
+
+```tex
+eta/s(T) = 1/(4 pi) + K [Delta_eff(T)/T]^alpha,
+```
+
+with positive phenomenological parameters:
+
+```tex
+K > 0,
+alpha > 0.
+```
+
+The limiting behavior inside this ansatz is
+
+```tex
+lim_{T -> T_c^-} eta/s(T) = 1/(4 pi).
+```
+
+This is a statement about the ansatz only. It is not a claim that pure SU(3) has a continuous transition, and it is not a full-QCD heavy-ion prediction.
+
+### 4.3 Falsification
+
+The ansatz is falsified or demoted if matched transport reconstructions show that no positive-parameter expression of the above form can describe the relevant channel below `T_c`, or if the transport channel is demonstrably decoupled from the confined-phase screening scale.
+
+A full-QCD heavy-ion comparison requires a separate unquenched UIDT extension.
+
+---
+
+## 5. External Baselines
 
 | DOI/arXiv | Status | Used for | Evidence |
 |---|---|---|---|
@@ -125,17 +170,23 @@ within documented uncertainties for `T < T_c`.
 | DOI:10.1007/JHEP12(2021)082 | resolvable | journal version of Athenodorou--Teper | [B] |
 | arXiv:hep-lat/9602007 | resolvable | pure SU(3) thermodynamic scale | [B] |
 | DOI:10.1016/0550-3213(96)00170-8 | resolvable | journal version of Boyd et al. | [B] |
+| arXiv:hep-th/0405231 | resolvable | KSS reference scale | [B-context] |
+| arXiv:0704.1801 | resolvable | SU(3) gluodynamics viscosity baseline | [B] |
+| arXiv:1804.06469 | resolvable | Bayesian full-QCD heavy-ion transport context | [B-context] |
+| arXiv:2106.05019 | resolvable | later Bayesian QGP transport context | [B-context] |
 
 ---
 
-## 5. Reproduction Note
+## 6. Reproduction Note
 
 ```bash
 python verification/scripts/verify_effective_gap_predictions.py
 ```
 
+This verifies the reduced-model RG closure, tensor prediction, and thermal input. No first-principles transport solver is introduced by the QGP viscosity note.
+
 ---
 
-## 6. Non-Inflation Rule
+## 7. Non-Inflation Rule
 
 These predictions can strengthen UIDT only as falsifiable phenomenology. They do not convert the hybrid effective method into a Clay-level proof. The missing proof remains the equivalence between the reduced effective projection and the full pure Yang--Mills path integral.
