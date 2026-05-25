@@ -30,13 +30,13 @@
 
 ---
 
-**Central Result:** Analytical derivation of Yang-Mills mass gap Δ* ≈ 1.710 GeV (spectral gap) through information-geometric coupling, achieving mathematical closure with residuals < 10⁻⁴⁰.
+**Central Result:** Effective phenomenological derivation of a Yang-Mills spectral scale Δ* ≈ 1.710 GeV [A, internal reduced-model closure] through information-geometric coupling. The Banach contraction and residual closure apply to the reduced algebraic model; the projection to the full pure Yang-Mills functional integral remains an open Stratum III assumption [E].
 
-**Physical Significance:** Addresses the 10¹²⁰ vacuum energy hierarchy via γ⁻¹² suppression mechanism combined with holographic normalization (π⁻²), reducing the cosmological constant problem to 3.3% precision *within the UIDT model*. Introduces the Lattice Torsion Binding Energy (2.44 MeV) to stabilize the discrete vacuum structure.
+**Physical Significance:** Provides an evidence-tagged mapping between the reduced UIDT scale, calibrated γ-sector, lattice-compatible Yang-Mills observables, and calibrated cosmological parameters. The framework does not claim to solve the cosmological constant problem or the Clay Yang-Mills problem.
 
 **Falsification Threshold:** Five independent experimental pathways with specific numerical predictions:
 - Casimir anomaly +0.59% at 0.66 nm (Category D: **predicted, unverified**)
-- Glueball resonance at 1.705 ± 0.015 GeV (Category B: lattice-consistent)
+- Yang-Mills spectral scale Δ* = 1.710 ± 0.015 GeV [A/B-context] and tensor-glueball hierarchy m₂⁺⁺/m₀⁺⁺ = 1.354 [D]
 - Absence of Torsion Energy (E_T → 0) in precision hadron spectroscopy (Category A)
 - DESI dark energy evolution w₀ = −0.99 [C] (Canonical per Decision D-002, DESI-calibrated)
 - Photonic isomorphism transition at n_critical = γ ≈ 16.339 (Category D: analog verification)
@@ -54,8 +54,11 @@
 - [`verification/`](./verification) — reproducibility and verification scripts
 
 ### Recommended technical documents
+- [`docs/theory/effective_gap_derivation.md`](./docs/theory/effective_gap_derivation.md)
 - [`docs/theory/bare_gamma_theorem.md`](./docs/theory/bare_gamma_theorem.md)
 - [`docs/theory/cosmological_implications_v3.9.md`](./docs/theory/cosmological_implications_v3.9.md)
+- [`docs/predictions/glueball_spectrum.md`](./docs/predictions/glueball_spectrum.md)
+- [`docs/predictions/thermal_vacuum.md`](./docs/predictions/thermal_vacuum.md)
 - [`docs/evidence/falsification-criteria.md`](./docs/evidence/falsification-criteria.md)
 - [`docs/evidence/evidence-classification.md`](./docs/evidence/evidence-classification.md)
 - [`docs/research/experimental_roadmap.md`](./docs/research/experimental_roadmap.md)
@@ -77,15 +80,15 @@
 
 **UIDT v3.9 presents a constructive, high-precision framework for the information-geometric coupling of QFT-sector observables and gravitational parameters.**
 
-By introducing vacuum information density as a fundamental scalar field $S(x)$, the theory derives the Yang-Mills Mass Gap and constrains the vacuum energy hierarchy. This **Complete Manuscript** establishes the **Four-Pillar Architecture** and synthesizes the framework with the **Covariant Scalar-Field (CSF)** formalism, a topological Lattice Torsion model, and a photonic analog platform.
+By introducing vacuum information density as an effective scalar field $S(x)$, the framework documents a reduced-model Yang-Mills spectral scale and constrains the vacuum energy hierarchy inside the UIDT model. This **Complete Manuscript** establishes the **Four-Pillar Architecture** and synthesizes the framework with the **Covariant Scalar-Field (CSF)** formalism, a topological Lattice Torsion model, and a photonic analog platform.
 
-Canonical parameters are derived self-consistently via the **Extended Functional Renormalization Group (FRG)** and the **Banach Fixed-Point Theorem**. The solution yields the unique stable vacuum state at **$\Delta = 1.710$ GeV**, demonstrating numerical closure with residuals $< 10^{-40}$.
+Canonical parameters are organized self-consistently via the **Extended Functional Renormalization Group (FRG)** and a **Banach Fixed-Point closure** of the reduced algebraic gap equation. The reduced solution yields a stable effective spectral scale at **$\Delta = 1.710$ GeV** [A, internal reduced-model closure], while the mapping to pure Yang-Mills remains an open Stratum III assumption [E].
 
 ### 🔬 Core Derived Constants (Immutable)
 
 | Constant | Value | Evidence | Status |
 |----------|-------|----------|--------|
-| **Yang-Mills Mass Gap (Δ)** | 1.710 ± 0.015 GeV | A | Internal mathematical consistency |
+| **Yang-Mills spectral scale (Δ)** | 1.710 ± 0.015 GeV | A | Internal reduced-model consistency |
 | **Universal Gamma Invariant (γ)** | 16.339 (exact) | A− | Calibrated via Kinetic VEV |
 | **Lattice Torsion Binding Energy (E_T)** | 2.44 MeV | C | DESI-calibrated; L2 open |
 | **Holographic Length (λ)** | 0.66 nm | C | DESI-calibrated |
@@ -118,9 +121,9 @@ Canonical parameters are derived self-consistently via the **Extended Functional
 } }%%
 graph LR
 
-  subgraph LEVEL_0_1 ["Level 0: Axiom & Level 1: Core Theorem"]
+  subgraph LEVEL_0_1 ["Level 0: Axiom & Level 1: Reduced-Model Closure"]
     S["Vacuum Scalar Field S(x)"]
-    Banach["Banach Fixed Point"]
+    Banach["Reduced Banach Fixed Point"]
     Delta["Delta* = 1.710 ± 0.015 GeV [A]"]
     RG["5κ² = 3λ_S [A]"]
     Res["Residuals < 1e-14 [A]"]
@@ -131,7 +134,7 @@ graph LR
   end
 
   S -->|Coupling κ| Banach
-  Banach -->|Proof| Delta
+  Banach -->|Closure| Delta
   Banach -->|Verification| Res
   Delta -->|Constraint| RG
   RG --> Kappa
@@ -173,7 +176,7 @@ graph LR
     X17["X17 Noise Floor = 17.10 MeV [D]"]
     X2370["X2370 Resonance = 2.370 GeV [D]"]
     Casimir["Casimir +0.59% at 0.66 nm [D]"]
-    GlueTensor["Glueball Tensor = 2.418 GeV [D]"]
+    GlueTensor["Glueball Tensor = 2.3145 GeV [D]"]
   end
 
   subgraph PILLAR_IV ["🏛 Pillar IV: Photonic Isomorphism [D]"]
@@ -264,9 +267,9 @@ graph LR
 
 ### Pillar I: QFT Foundation (The Mathematical Core)
 
-* **Achievement:** Constructive proof of the Yang-Mills Mass Gap via non-minimal coupling
-* **Result:** Δ = 1.710 GeV (self-consistent solution)
-* **Verification:** Validated by the **Banach Fixed-Point Theorem** (Contraction mapping)
+* **Achievement:** Constructive framework for an effective Yang-Mills spectral scale via non-minimal coupling
+* **Result:** Δ = 1.710 GeV (reduced-model self-consistent solution)
+* **Verification:** Validated internally by the **Banach Fixed-Point Theorem** applied to the reduced algebraic map
 * **Status:** **Category A (Internal Mathematical Consistency)**
 
 > [!NOTE]
@@ -278,22 +281,22 @@ graph LR
 Three-Equation System Closure:
   Residuals: < 10⁻⁴⁰ (machine precision)
   Monte Carlo validation: 100,000 samples, all posteriors Gaussian
-  Lattice QCD agreement: z-score ≈ 0 (exact match with Chen et al. 2006)
+  Lattice QCD comparison: compatible scale within documented uncertainty conventions
 ```
 
 ### Pillar II: Lattice Topology & The Missing Link
 
 * **Achievement:** Replaces phenomenological vacuum-frequency constraints with thermodynamic derivations.
 * **Mechanism:** Derives the **Lattice Torsion Binding Energy (E_T = 2.44 MeV)**, mathematically bridging the purely geometric QFT resonance (104.7 MeV) to the observed stable vacuum frequency (107.1 MeV) required to prevent discrete lattice collapse.
-* **Vacuum Energy:** Addresses the 10¹²⁰ catastrophe via a 99-Step RG Cascade (γ⁻¹² scaling) and Holographic Normalization (π⁻²) — *within the UIDT model; external verification pending.*
+* **Vacuum Energy:** Models the 10¹²⁰ hierarchy via a 99-Step RG Cascade (γ⁻¹² scaling) and Holographic Normalization (π⁻²) within the UIDT model; external verification remains open.
 * **Status:** **Category A/C**
 
 ### Pillar III: Spectral Expansion & Thermodynamic Censorship
 
 * **Achievement:** Falsifiable predictions for precision and collider experiments.
 * **Predictions:**
-* **Thermodynamic Censorship (Wolpert Limit):** Formalizes the fundamental noise floor at **17.10 MeV**, providing an analytical origin for the **X17 anomaly**.
-* **Blind Resonances:** Predicts the BESIII **X2370 resonance** as a harmonic overtone, alongside higher glueball states (Tensor at 2.418 GeV).
+* **Thermodynamic Censorship (Wolpert Limit):** Formalizes the fundamental noise floor at **17.10 MeV**, providing a proposed analytical origin for the **X17 anomaly**.
+* **Resonance Sector:** Predicts the BESIII **X2370 resonance** as a harmonic overtone, alongside higher glueball-sector states (effective tensor estimate at 2.3145 GeV [D]).
 * **Casimir Anomaly:** +0.59% deviation at 0.66 nm (**Category D**).
 * **Status:** **Category D (Prediction Awaiting Verification)**
 
@@ -313,7 +316,7 @@ All claims are strictly classified by evidence strength:
 | Category | Description | Example |
 | --- | --- | --- |
 | **A (Internal Theorem)** | Mathematical self-consistency verified at 80-digit precision | Three-equation closure (residuals < 10⁻⁴⁰) |
-| **B (Lattice Consistent)** | Agreement with independent QCD simulations | Δ = 1.710 GeV (z-score ≈ 0 vs. lattice) |
+| **B (Lattice Consistent)** | Agreement with independent QCD simulations | Δ = 1.710 GeV as lattice-compatible scale |
 | **C (Calibrated Model)** | Dependent on DESI/JWST calibration | H₀, λ_UIDT from global fit |
 | **D (Unverified Prediction)** | Awaiting experimental confirmation | **X17 origin, X2370 resonance, Casimir anomaly** |
 
@@ -409,7 +412,7 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 
 | Component | Status | Evidence | Note |
 |---|---|---|---|
-| Yang-Mills Mass Gap derivation | Internal proof complete | A | Independent peer review and Clay evaluation pending |
+| Yang-Mills effective gap derivation | Reduced-model closure | A | Pure-theory equivalence and Clay evaluation remain open |
 | Lattice Torsion Binding Energy (2.44 MeV) | Calibrated | C | "Missing Link" — DESI-anchored |
 | X17 Anomaly origin | Unverified prediction | D | Consistent with Thermodynamic Censorship at 17.10 MeV |
 | CSF-UIDT Unification | Covariant path defined | D | Formal synthesis in progress |
