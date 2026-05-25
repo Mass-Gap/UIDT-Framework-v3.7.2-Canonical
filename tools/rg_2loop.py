@@ -127,6 +127,7 @@ try:
 except ImportError:
     sys.exit('[BLOCKED] mpmath required: pip install mpmath')
 
+mp.dps = 80
 
 def _p(dps: int = 80) -> None:
     mp.dps = dps
