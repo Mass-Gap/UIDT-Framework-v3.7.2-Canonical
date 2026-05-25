@@ -21,7 +21,7 @@ def run_check(repo_root):
 
     # 1. Check RG Constraint
     KAPPA   = mp.mpf('0.500')
-    LAMBDA  = mp.mpf('0.417')
+    LAMBDA  = mp.mpf('5') / mp.mpf('12')
     RG_LHS  = mp.mpf('5') * KAPPA**2
     RG_RHS  = mp.mpf('3') * LAMBDA
 

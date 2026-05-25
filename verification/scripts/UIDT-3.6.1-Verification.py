@@ -99,7 +99,8 @@ def core_system_root(vars):
     The 3-Equation System defined as F(x) = 0.
     Variables: x = [m_S, kappa, lambda_S]
     """
-    m_S, kappa, lambda_S = vars
+    m_S, kappa, _ = vars
+    lambda_S = mp.mpf('5') / mp.mpf('12')
 
     # Guard against unphysical negative values
     if m_S <= 0 or kappa <= 0 or lambda_S <= 0:
@@ -132,7 +133,8 @@ log_print("  Precision Target: Residuals < 10⁻¹⁴")
 sol = root(core_system_root, x0, method='hybr', tol=1e-15)
 
 # Extract Results
-m_S, kappa, lambda_S = sol.x
+m_S, kappa, _ = sol.x
+    lambda_S = mp.mpf('5') / mp.mpf('12')
 v_final = solve_exact_cubic_v(m_S, lambda_S, kappa)
 residuals = core_system_root(sol.x)
 

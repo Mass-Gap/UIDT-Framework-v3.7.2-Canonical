@@ -1,3 +1,4 @@
+import mpmath as mp
 #!/usr/bin/env python3
 """
 UIDT v3.6.1 Visualization Engine (Canonical Clean State Edition)
@@ -41,7 +42,7 @@ DELTA_STAR = 1.710035    # GeV (Yang-Mills Mass Gap)
 GAMMA_STAR = 16.339      # Universal Scaling Invariant
 VEV_PHYS   = 0.0477      # GeV (Rectified VEV: 47.7 MeV)
 KAPPA_C    = 0.50060     # Coupling Constant
-LAMBDA_S   = 0.41766     # Self-Coupling
+LAMBDA_S   = mp.mpf('5') / mp.mpf('12')     # Self-Coupling
 
 # Visualization Settings
 DPI_SETTING = 300
