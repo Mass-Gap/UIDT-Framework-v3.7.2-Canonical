@@ -12,7 +12,7 @@
 
 This note documents a finite-temperature ansatz for the UIDT effective gap. It must not be read as a first-principles finite-temperature Yang--Mills derivation.
 
-The pure SU(3) deconfinement transition is a thermodynamic transition of the gauge system. The UIDT ansatz below is a phenomenological parameterization of how the reduced zero-temperature gap scale could track an effective condensate-like order parameter below `T_c`. It does not claim that all finite-temperature screening scales vanish above `T_c`.
+The pure SU(3) deconfinement transition is a thermodynamic transition of the gauge system. The UIDT ansatz below is a phenomenological parameterization of how the reduced zero-temperature gap scale could track an effective condensate-like order parameter below `T_c`. It does not make a statement about all finite-temperature screening scales above `T_c`.
 
 ---
 
@@ -48,12 +48,12 @@ Representative values using `T_c = 270 MeV`:
 
 | `T` | `T/T_c` | `Delta_eff(T)` | Evidence |
 |---:|---:|---:|---:|
-| `100 MeV` | `0.37037...` | `1.6939 GeV` | [D] |
-| `200 MeV` | `0.74074...` | `1.4291 GeV` | [D] |
-| `250 MeV` | `0.92593...` | `0.8934 GeV` | [D] |
+| `100 MeV` | `0.37037...` | `1.6938 GeV` | [D] |
+| `200 MeV` | `0.74074...` | `1.4296 GeV` | [D] |
+| `250 MeV` | `0.92593...` | `0.8802 GeV` | [D] |
 | `270 MeV` | `1` | `0` in this ansatz | [D] |
 
-The value `0` at and above `T_c` means that this specific confined-phase effective scale is switched off. It does not mean that all finite-temperature screening scales are zero in the high-temperature phase.
+The value `0` at and above `T_c` means that this specific confined-phase effective scale is switched off. It does not characterize every screening scale of the high-temperature phase.
 
 ---
 
@@ -61,7 +61,7 @@ The value `0` at and above `T_c` means that this specific confined-phase effecti
 
 1. The ansatz uses a mean-field-like fourth-power suppression and is not a substitute for finite-temperature lattice correlator analysis.
 2. Pure SU(3) deconfinement is not to be described as an established continuous second-order melting process in UIDT documentation.
-3. Above `T_c`, finite-temperature gauge theory contains nonzero screening scales. The UIDT confined-phase effective gap being set to zero is a modelling convention, not a statement that high-temperature gauge theory has no screening sector.
+3. Above `T_c`, finite-temperature gauge theory contains nonzero screening scales. The UIDT confined-phase effective gap being set to zero is a modelling convention.
 4. Any comparison to lattice data must specify the operator channel, temporal or spatial correlator, renormalization prescription, and scale setting.
 
 ---
@@ -83,7 +83,7 @@ for `T < T_c`, after continuum and finite-volume systematics are included.
 | Claim ID | Claim | Value | Evidence | Stratum | Source | Status | Falsification exposure |
 |---|---|---:|---:|---:|---|---|---|
 | UIDT-PRED-TH-001 | Confined-phase effective thermal gap ansatz | `Delta(0) sqrt([1-(T/T_c)^4]_+)` | [D] | III | this note; verification script | active prediction | finite-temperature lattice correlators |
-| UIDT-PRED-TH-002 | `T = 100 MeV` representative value | `1.6939 GeV` | [D] | III | this note; verification script | illustrative | channel-specific lattice data |
+| UIDT-PRED-TH-002 | `T = 100 MeV` representative value | `1.6938 GeV` | [D] | III | this note; verification script | illustrative | channel-specific lattice data |
 | EXT-LAT-TH-001 | Pure SU(3) thermodynamic scale | `T_c / sqrt(sigma) = 0.629(3)` | [B] | I | arXiv:hep-lat/9602007; DOI:10.1016/0550-3213(96)00170-8 | external baseline | none for UIDT unless used quantitatively |
 
 ---
