@@ -90,9 +90,9 @@ class CanonicalConstants:
         self.kappa_uv    = mpf('0.500')    # [A-]
         self.lambda_S    = mpf('0.417')    # [A-]
         self.C_gluon     = mpf('0.277')    # GeV^4 [A]
-        self.N_c         = mpf('3')        # SU(3)
-        self.Lambda_QCD  = mpf('0.340')    # GeV, quenched pure-YM
-        self.b0          = mpf('11')       # 1-loop beta, n_f=0
+        self.N_c         = mpf('3')        # SU(3) [A]
+        self.Lambda_QCD  = mpf('0.340')    # GeV, quenched pure-YM [C]
+        self.b0          = mpf('11')       # 1-loop beta, n_f=0 [A]
 
     def rg_approximation_residual(self):
         """
