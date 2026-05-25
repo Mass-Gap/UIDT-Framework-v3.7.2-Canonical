@@ -223,7 +223,7 @@ relative difference:
 | P8-P1C-001 | Corrected S4-P1 \(\Delta\gamma_{NP}\) | \(0.0056291063\ldots\) | [D] | III | script | PARTIAL HIT | Fails if full Wetterich flow does not reproduce shift. |
 | P8-P1C-002 | Corrected S4-P1 \(\gamma_{pred}\) | \(16.338962439648224\ldots\) | [D] | III | script | PARTIAL HIT | Not [A]; residual > \(10^{-14}\). |
 | P8-P5-001 | SU(4) bare-gamma prediction | \(81/4=20.25\) | [D] | III | script | PASS | Fails if SU(4) lattice observable contradicts scaling. |
-| P8-P5-002 | SU(4) N-definition conflict | 176 vs 704/3 | [E]/TENSION | III | script + standard beta coefficient | OPEN | Must resolve before SU(4) is used for promotion. |
+| P8-P5-002 | SU(4) N-definition conflict | 176 vs 704/3 | [E] | III | script + standard beta coefficient | OPEN | Must resolve before SU(4) is used for promotion. |
 
 ---
 
@@ -248,11 +248,11 @@ ALL PHASE-8 DELTA-GAMMA / SU4 AUDIT CHECKS PASSED
 | DOI/arXiv/PR | Status | Used for | Evidence Tag |
 |---|---|---|---|
 | DOI `10.5281/zenodo.17835200` | project DOI | UIDT canonical identity | n/a |
-| PR #459 | open / draft | corrected Phase-8 assumptions | [D] context |
+| PR #459 | open / draft | corrected Phase-8 assumptions | [D] |
 | PR #367 | merged repository PR | Session-2 γ_bare context | [D] |
 | PR #369 | merged repository PR | S4-P1 tachyon chain | [D] |
 | PR #362 | merged repository PR | `[NO-GO-STEP5]` | [D] |
-| PR #358 | merged repository PR | L1/L4/L5 no-go constraints | [D/E] context |
+| PR #358 | merged repository PR | L1/L4/L5 no-go constraints | [E] |
 | JHEP 06 (2004) 012 / arXiv:hep-lat/0404008 | identified in RAG pass | future SU(N)/SU(4) glueball extraction | no promotion |
 | JHEP 12 (2021) 082 / arXiv:2106.00364 | identified in RAG pass | future modern SU(N) benchmark extraction | no promotion |
 

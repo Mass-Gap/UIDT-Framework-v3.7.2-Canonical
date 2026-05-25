@@ -205,7 +205,7 @@ ALL SESSION-2 PHASE-8 SYNC CHECKS PASSED
 | PR #367 | Repository-internal merged PR | γ_bare Session-2 derivation context | [D] |
 | PR #369 | Repository-internal merged PR | S4-P1 tachyon-threshold chain | [D] |
 | PR #362 | Repository-internal merged PR | `[NO-GO-STEP5]` | [D] |
-| PR #358 | Repository-internal merged PR | L1/L4/L5 formal no-go context | [D/E context] |
+| PR #358 | Repository-internal merged PR | L1/L4/L5 formal no-go context | [E] |
 
 No new external DOI/arXiv source is required for these staged claims. No claim is promoted to [B] or [C].
 
