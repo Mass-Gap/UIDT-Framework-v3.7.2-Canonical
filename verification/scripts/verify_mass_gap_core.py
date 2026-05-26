@@ -15,9 +15,8 @@ sys.path.append(repo_root)
 import mpmath as mp
 from core.banach_proof import BanachMassGap
 
-mp.dps = 80
-
 def verify_mass_gap():
+    mp.dps = 80
     print("======================================================================")
     print("UIDT VERIFICATION SUITE: MASS GAP CORE [A]")
     print("======================================================================")
