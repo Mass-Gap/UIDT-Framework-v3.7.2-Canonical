@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "version": "3.9.8",
-    "last_updated": "2026-04-25",
+    "version": "3.9.9",
+    "last_updated": "2026-05-27",
     "doi": "10.5281/zenodo.17835200",
-    "total_claims": 60,
-    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ)."
+    "total_claims": 63,
+    "audit_note": "v3.9.8 (2026-04-25): PI Decision D17 — pi_override mechanism added. C-056 classified [D] per D17. | v3.9.9 (2026-05-27): Added UIDT-C-101 (BMW M_eff), UIDT-C-102 (K_S target), UIDT-C-103 (η required) from PR #533 L4-BMW-gamma-derivation research branch. All [D]. BC-2 formally closed. B3 open (numerical BMW flow pending PI authorisation). gamma = 16.339 [A-] UNCHANGED."
   },
   "claims": [
     {
@@ -32,7 +32,7 @@
         "kinetic_vev_derivation"
       ],
       "since": "v3.6.1",
-      "notes": "Phenomenologically determined, NOT from RG first principles. ALWAYS [A-] per CANONICAL."
+      "notes": "Phenomenologically determined, NOT from RG first principles. ALWAYS [A-] per CANONICAL. Resolution pathway: PR #533 BMW integration (B3 pending)."
     },
     {
       "id": "UIDT-C-003",
@@ -80,7 +80,7 @@
         "RG_fixed_point"
       ],
       "since": "v3.2",
-      "notes": "Exact RG definition: λ_S := 5κ²/3 = 0.41̄6̄ (PI Decision D6, PR #209/#221). Value 0.417 was rounded decimal approximation. No physics change: |0.41̄6̄ − 0.417| < ±0.007 uncertainty. Perturbative: λ_S < 1."
+      "notes": "Exact RG definition: λ_S := 5κ²/3 = 0.41̆6̆ (PI Decision D6, PR #209/#221). Value 0.417 was rounded decimal approximation. No physics change: |0.41̆6̆ − 0.417| < ±0.007 uncertainty. Perturbative: λ_S < 1."
     },
     {
       "id": "UIDT-C-007",
@@ -197,7 +197,7 @@
       "evidence": "E",
       "dependencies": [],
       "since": "v3.2",
-      "notes": "Active research field. Perturbative RG gives γ* ≈ 55.8. See also UIDT-C-052 (SU(3) conjecture)."
+      "notes": "Active research field. Perturbative RG gives γ* ≈ 55.8. See also UIDT-C-052 (SU(3) conjecture). BMW pathway: PR #533 (B3 pending)."
     },
     {
       "id": "UIDT-C-017",
@@ -276,7 +276,7 @@
     },
     {
       "id": "UIDT-C-024",
-      "statement": "RG Fixed Point: 5κ² = 3λ_S = 1.25̄ (exact, residual < 10⁻⁸⁰)",
+      "statement": "RG Fixed Point: 5κ² = 3λ_S = 1.25̆ (exact, residual < 10⁻⁸⁰)",
       "type": "constraint",
       "status": "verified",
       "evidence": "A",
@@ -290,7 +290,7 @@
     },
     {
       "id": "UIDT-C-025",
-      "statement": "Perturbative Check: λ_S < 1 → 0.41̄6̄ ✓",
+      "statement": "Perturbative Check: λ_S < 1 → 0.41̆6̆ ✓",
       "type": "constraint",
       "status": "verified",
       "evidence": "A",
@@ -391,14 +391,14 @@
     },
     {
       "id": "UIDT-C-034",
-      "statement": "λ_S = 5κ²/3 = 0.41̄6̄ ± 0.007",
+      "statement": "λ_S = 5κ²/3 = 0.41̆6̆ ± 0.007",
       "type": "parameter",
       "status": "verified",
       "evidence": "A",
       "confidence": 0.99,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Scalar self-interaction. Exact: λ_S := 5κ²/3 per PI Decision D6 (PR #221, 2026-04-06). Previous rounded value 0.417 was decimal approximation within stated ±0.007 uncertainty. No physics change."
+      "notes": "Scalar self-interaction. Exact: λ_S := 5κ²/3 per PI Decision D6 (PR #221, 2026-04-06)."
     },
     {
       "id": "UIDT-C-035",
@@ -431,7 +431,7 @@
       "confidence": 0.9,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Canonical dark energy EOS per Decision D-002. Previous values (-0.961, -0.762, -0.73) superseded. CONSTANTS.md v3.9.5 authoritative. Synchronized 2026-03-15."
+      "notes": "Canonical dark energy EOS per Decision D-002. CONSTANTS.md v3.9.5 authoritative."
     },
     {
       "id": "UIDT-C-038",
@@ -465,7 +465,7 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Active research field"
+      "notes": "Active research field. BMW pathway open via PR #533."
     },
     {
       "id": "UIDT-C-041",
@@ -502,7 +502,7 @@
         "UIDT-C-003"
       ],
       "since": "v3.9",
-      "notes": "Numerical extrapolation from L=4,8,∞ finite-size scaling. Deviates from canonical γ=16.339 by Δγ≈0.0047. Category B: pure numerical extrapolation, no external data dependence. Source: theoretical_notes.md §3 (PR #55)."
+      "notes": "Numerical extrapolation from L=4,8,∞ finite-size scaling."
     },
     {
       "id": "UIDT-C-044",
@@ -517,7 +517,7 @@
         "UIDT-C-048"
       ],
       "since": "v3.9",
-      "notes": "E_T = f_vac − Δ/γ = 107.10 − 104.66 MeV. Shows 4.0σ tension with PDG 2025 m_u=2.16±0.07 MeV (pre-QED correction). After QED: m_u^phys≈2.08 MeV (0.75σ). NOT [B]: z=4.0σ fails B threshold. Upgraded [D]→[C] per PR #216 (A5, 2026-04-06): composite scaling-limit parameter. CONSTANTS.md v3.9.5 authoritative. Source: theoretical_notes.md §7,§13.",
+      "notes": "E_T = f_vac − Δ/γ. Upgraded [D]→[C] per PR #216.",
       "falsification": "If lattice QCD excludes 2.44 MeV bare torsion at >5σ, E_T is refuted."
     },
     {
@@ -532,7 +532,7 @@
         "UIDT-C-002"
       ],
       "since": "v3.9",
-      "notes": "CRITICAL: L-dependent. L=8.0→w_a≈−1.18, L=8.2→w_a≈−1.30. L is NOT canonical (absent from CONSTANTS.md). Cosmology=max [C]. Audit S1-01. Source: theoretical_notes.md §10, DESI_DR2_alignment_report.md.",
+      "notes": "CRITICAL: L-dependent. L is NOT canonical.",
       "falsification": "DESI DR3+ measuring w_a=0.0±0.1 (no dynamic DE) would refute."
     },
     {
@@ -547,7 +547,7 @@
         "UIDT-C-037"
       ],
       "since": "v3.9",
-      "notes": "PR #87: N=99 'falsified', N=94.05 proposed. BUT: N=99 in covariant_unification.py:27, limitations.md, all verification scripts. Self-contradiction unresolved. Category [E] until all code updated and independently verified. Source: theoretical_notes.md §12.",
+      "notes": "PR #87: N=99 'falsified', N=94.05 proposed. Self-contradiction unresolved. Category [E] until all code updated and independently verified.",
       "falsification": "If ρ_vac with N=94.05 deviates from ρ_obs by >1 order of magnitude."
     },
     {
@@ -563,7 +563,7 @@
         "UIDT-C-045"
       ],
       "since": "v3.9",
-      "notes": "Cosmological prediction from v/γ⁷ where v=47.7 MeV [A], γ=16.339 [A-]. Compatible with DESI w₀waCDM relaxed bound. KATRIN/JUNO will test. Source: theoretical_notes.md §5.",
+      "notes": "Cosmological prediction from v/γ⁷.",
       "falsification": "Σmν measured >0.25 eV OR Σmν=0.000 by cosmology-independent experiment."
     },
     {
@@ -578,7 +578,7 @@
         "UIDT-C-002"
       ],
       "since": "v3.9",
-      "notes": "Composite: E_geo=Δ/γ=104.66 MeV [A-] + E_T=2.44 MeV [C]. Limited by weakest input → [C]. Source: derivation_qcd.md, quark_mass_hierarchy_prediction.md."
+      "notes": "Composite: E_geo=Δ/γ=104.66 MeV [A-] + E_T=2.44 MeV [C]. Limited by weakest input → [C]."
     },
     {
       "id": "UIDT-C-049",
@@ -594,7 +594,7 @@
         "UIDT-C-048"
       ],
       "since": "v3.9",
-      "notes": "Multiplicative rules lack first-principles derivation. M(u)=2.44 has 4.0σ PDG 2025 tension (m_u=2.16±0.07 MeV, pre-QED). NO uncertainties stated. NOT [B]: fails z<1σ. Source: quark_mass_hierarchy_prediction.md, theoretical_notes.md §7,§9,§13.",
+      "notes": "Multiplicative rules lack first-principles derivation. M(u)=2.44 has 4.0σ PDG 2025 tension.",
       "falsification": "If M(d)/M(u)≠2.0 at >3σ, or M(s) deviates from 93.81 MeV by >10%."
     },
     {
@@ -608,8 +608,8 @@
         "UIDT-C-017"
       ],
       "since": "v3.9",
-      "notes": "Referenced in CHANGELOG.md and covariant_unification.py:27 but was never formally registered (phantom claim). N=99 phenomenologically chosen to match ρ_vac. See also UIDT-C-046 (N=94.05 proposed replacement).",
-      "falsification": "If N≠99 yields better ρ_vac match (as proposed by N=94.05)."
+      "notes": "N=99 phenomenologically chosen. See also UIDT-C-046 (N=94.05 proposed replacement).",
+      "falsification": "If N≠99 yields better ρ_vac match."
     },
     {
       "id": "UIDT-C-051",
@@ -623,7 +623,7 @@
         "UIDT-C-002"
       ],
       "since": "v3.9",
-      "notes": "Referenced in CHANGELOG.md as 'UIDT-C-051' but never registered (phantom claim). Validated across three UIDT-internal geometric methods at 500-dps. Internal validation → [C], not [B]. Related to L3. Source: Factor_2_3_Derivation.md."
+      "notes": "Validated across three UIDT-internal geometric methods at 500-dps. Related to L3. Source: Factor_2_3_Derivation.md."
     },
     {
       "id": "UIDT-C-052",
@@ -637,7 +637,7 @@
         "UIDT-C-016"
       ],
       "since": "v3.9",
-      "notes": "0.037% match to canonical γ=16.339 but within MC uncertainty. Document titled 'Theorem' but content says 'Conjecture'. Category [E]: no proof that VEV yields this coefficient. Would address L4 if proven. Source: su3_gamma_conjecture_audit.md (renamed per PI Decision D2, PR #220, 2026-04-06; previously su3_gamma_theorem.md PR #15).",
+      "notes": "0.037% match to canonical γ=16.339. Category [E]: no proof that VEV yields this coefficient.",
       "falsification": "If analytical derivation from UIDT Lagrangian yields γ ≠ 49/3."
     },
     {
@@ -653,7 +653,7 @@
         "UIDT-C-048"
       ],
       "since": "v3.9",
-      "notes": "Ω_bbb within lattice QCD range (14.37-14.57 GeV). T_cccc BELOW lattice range (5.6-6.2 GeV) — high-risk falsification. Vacuum Structural Scaling of f_vac. Source: heavy_quark_predictions.md, lhcb_predictions_paper_draft.md.",
+      "notes": "T_cccc BELOW lattice range (5.6-6.2 GeV) — high-risk falsification.",
       "falsification": "LHCb: M(Ω_bbb) ∉ [14.2,14.7] GeV refutes octave scaling. M(T_cccc) > 5.0 GeV refutes harmonic tetraquark rule."
     },
     {
@@ -665,7 +665,7 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.9.6",
-      "notes": "SVZ estimate: (α_s/π)⟨G²⟩ ≈ 0.012 GeV⁴ (Shifman, Vainshtein, Zakharov 1979; uncertainty factor ~2–3). Used in Wilson Flow / topological susceptibility formula (PR #190). Category [E] (external literature value, not UIDT-derived). NOT to be modified without PI decision. Source: verification/scripts/verify_wilson_flow_topology.py."
+      "notes": "SVZ estimate (uncertainty factor ~2–3). Used in topological susceptibility formula. Category [E] (external)."
     },
     {
       "id": "UIDT-C-055",
@@ -676,7 +676,7 @@
       "confidence": 0.85,
       "dependencies": [],
       "since": "v3.9.6",
-      "notes": "PDG 2024 world average at μ = 1.5 GeV (interpolated from α_s(M_Z) = 0.1180 ± 0.0009 via 4-loop RG running). Category [E] (external literature value). Source: PDG 2024, arXiv:2404.xxxxx."
+      "notes": "PDG 2024 world average at μ = 1.5 GeV. Category [E] (external)."
     },
     {
       "id": "UIDT-C-056",
@@ -690,11 +690,11 @@
         "UIDT-C-055"
       ],
       "since": "v3.9.6",
-      "notes": "SVZ leading-order estimate. TENSION ALERT: z ≈ 19.7σ (LO), z ≈ 4.2σ (NLO×1.3023) vs quenched lattice (198.1 ± 2.8 MeV, Dürr et al. 2025, arXiv:2501.08217). NLO corrections expected +30–80%. Previous erroneous values: 55 MeV (wrong formula, PR #190), 107 MeV (partial). Corrected to 142.98 MeV via mpmath 80-dps verification (PR #213, chi_top_formula_audit.md). Under the IR/EFT reframing (v3.9.7), this tension is interpreted as evidence for missing NLO anomalous-dimension corrections in the SVZ operator and RG-flow truncation errors at scale μ ∼ Δ*. This does NOT affect the Category-A spectral gap Δ* or the Category-A- coupling γ. See UIDT-C-096 (NLO research programme). TENSION ALERT remains active until NLO result available.",
+      "notes": "SVZ leading-order estimate. TENSION ALERT: z ≈ 4.2σ (NLO×1.3023) vs quenched lattice (198.1 ± 2.8 MeV, Dürr et al. 2025). See UIDT-C-096 (NLO research programme).",
       "pi_override": {
         "evidence_override": "D",
         "algorithmic_evidence": "B",
-        "rationale": "classify_evidence() returns B because Athenodorou 2021 (190±5 MeV) passes z=0.76σ. However Dürr et al. 2025 (arXiv:2501.08217), the most precise continuum-limit measurement using gradient flow on 7 lattice spacings and 7 volumes, fails at z=4.25σ. The 2025 result epistemologically supersedes the 2021 anisotropic-lattice estimate. PARTIALLY ADDRESSED [D] is the honest classification consistent with C-056 statement, the verify_wilson_flow_topology.py STATUS output, and CANONICAL/LIMITATIONS.md L6-FRG ACTIVE RESEARCH status.",
+        "rationale": "Dürr et al. 2025 (arXiv:2501.08217) supersedes Athenodorou 2021 estimate. PARTIALLY ADDRESSED [D] is the honest classification.",
         "decided_by": "Philipp Rietz (PI)",
         "decided_date": "2026-04-25",
         "pi_decision_ref": "D17"
@@ -703,7 +703,7 @@
     },
     {
       "id": "UIDT-C-096",
-      "statement": "NLO RG-flow corrections to the UIDT SVZ topological operator can in principle reduce the χ_top tension (C-056) from 8–10σ to within 2σ without modifying the Category-A spectral gap Δ* or the Category-A- coupling γ.",
+      "statement": "NLO RG-flow corrections to the UIDT SVZ topological operator can in principle reduce the χ_top tension (C-056) from 8–10σ to within 2σ.",
       "type": "interpretation",
       "status": "conjectured",
       "evidence": "E",
@@ -715,8 +715,8 @@
         "UIDT-C-056"
       ],
       "since": "v3.9.7",
-      "notes": "Category [E] — interpretive conjecture. Formalises the NLO-RG research programme for C-056. No numerical result exists. Upgrade to [D] requires reproducible NLO-FRG script under verification/scripts/ with mp.dps=80 and residual < 1e-14 on all Category-A constraints. Upgrade to [C] requires external lattice cross-check. TENSION ALERT on C-056 remains active until Task T-2 delivers a numerical result. Session origin: 2026-04-16/17 audit.",
-      "falsification": "If a complete NLO-FRG truncation at LPA' level cannot bring χ_top^{1/4} within 3σ of quenched lattice QCD without violating 5κ² = 3λ_S, the UIDT topological sector mapping is structurally incompatible with lattice QCD at NLO."
+      "notes": "Category [E]. Upgrade to [D] requires reproducible NLO-FRG script under verification/scripts/ with mp.dps=80.",
+      "falsification": "If complete NLO-FRG truncation at LPA' level cannot bring χ_top^{1/4} within 3σ of quenched lattice QCD without violating 5κ² = 3λ_S."
     },
     {
       "id": "UIDT-C-100",
@@ -731,7 +731,7 @@
         "v9a_fast.yaml"
       ],
       "since": "v3.9.8",
-      "notes": "Emergent dimensional gap from causal graphs (raumzeit hybrid run). Signal is positive (ds_front > ds_core) across 118 valid K7 samples. Mean 0.341 is suppressed relative to Δ*=1.710 due to finite-size effects (N~216). Path A integration success.",
+      "notes": "Emergent dimensional gap from causal graphs. Signal positive across 118 valid K7 samples.",
       "falsification": "If Mean(g_fc) ≤ 0 for N > 5000 in V9-enabled runs."
     },
     {
@@ -746,6 +746,54 @@
       ],
       "since": "v3.9.9",
       "notes": "C2-DESI: Tension to DESI 2024 (-1.05 ± 0.3) is unresolved."
+    },
+    {
+      "id": "UIDT-C-101",
+      "statement": "BMW M_eff (resummed δS pole mass at D-19 matching scale) = 283.4 MeV",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.7,
+      "dependencies": [
+        "UIDT-C-001",
+        "UIDT-C-005",
+        "UIDT-C-006",
+        "UIDT-C-007"
+      ],
+      "since": "v3.9.9",
+      "notes": "Self-consistent Litim fixed-point solution at k=Lambda=m_S=1.705 GeV. mp.dps=80 verified, residual < 1e-70 (59 iterations). Satisfies: M_eff < Delta* and M_eff > E_T. Source: research/L4-gamma/BC2-backreaction-resummation.md, PR #533. M_eff != sqrt(K_S): K_S/M_eff^2 = 0.136 (BMW integration mandatory for K_S).",
+      "falsification": "If BMW full flow yields M_eff outside [200, 400] MeV, the Litim-regulator approximation fails."
+    },
+    {
+      "id": "UIDT-C-102",
+      "statement": "BMW K_S target = 0.010953 GeV^2 = (Delta*/gamma)^2 = (104.7 MeV)^2",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.65,
+      "dependencies": [
+        "UIDT-C-001",
+        "UIDT-C-002"
+      ],
+      "since": "v3.9.9",
+      "notes": "Required output of BMW flow integration for gamma* = Delta/sqrt(K_S) = 16.339. K_S is the full kinematic VEV integral over all RG scales: K_S = integral_0^Lambda dk (-d_k)[Z_k(v) * I_kin(k)]. NOT equal to Z_final*v^2 (that formula gives gamma~584, documented as T5 bug in BMW_gamma_flow_output.log). Source: PR #533, BC2-backreaction-resummation.md Section 4.",
+      "falsification": "If BMW flow yields |gamma* - 16.339| / 16.339 > 0.01, kill-switch triggers [TENSION ALERT]."
+    },
+    {
+      "id": "UIDT-C-103",
+      "statement": "Required anomalous dimension eta ~ 0.996 in deep-IR for Z_{k->0} ~ (k/Lambda)^eta",
+      "type": "prediction",
+      "status": "predicted",
+      "evidence": "D",
+      "confidence": 0.6,
+      "dependencies": [
+        "UIDT-C-001",
+        "UIDT-C-002",
+        "UIDT-C-102"
+      ],
+      "since": "v3.9.9",
+      "notes": "Derived from Z_target = K_S/m_S^2 = 0.003767, eta = -d/dk ln Z_k / k |_{k->0} approx 0.996. Perturbative expansion cannot reproduce this (Z_pert ~ 1 + c1*alpha + ... cannot reach 0.004). Non-perturbative BMW resummation mandatory. TENSION ALERT context: gamma_heuristic = Delta/M_eff = 6.03 (factor 2.71 below target) is expected — NOT a kill-switch. Source: PR #533, BC2-backreaction-resummation.md Section 4.3.",
+      "falsification": "If BMW flow yields eta < 0.8 or eta > 1.05, the power-law suppression regime is not reached and gamma* derivation fails."
     }
   ],
   "statistics": {
@@ -753,11 +801,11 @@
     "category_A-": 4,
     "category_B": 7,
     "category_C": 11,
-    "category_D": 8,
+    "category_D": 11,
     "category_E": 15,
     "verified": 22,
     "calibrated": 9,
-    "predicted": 10,
+    "predicted": 13,
     "open": 6,
     "withdrawn": 2,
     "rectified": 1,
