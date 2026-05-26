@@ -189,3 +189,11 @@ CLAUDE.md
 *.zip
 *.bak
 *.tmp
+# UIDT-OS protected paths (Pillar IV governance)
+UIDT-OS/
+LOCAL/
+.claude/
+.trae/
+.kiro/
+.mcp.json
+AGENTS.md
