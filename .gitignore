@@ -189,3 +189,5 @@ CLAUDE.md
 *.zip
 *.bak
 *.tmp
+# UIDT-OS protected paths (Pillar IV governance)
+LOCAL/
