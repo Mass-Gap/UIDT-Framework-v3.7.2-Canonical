@@ -2,7 +2,7 @@
 
 **UIDT Framework:** v3.9 Canonical  
 **Location:** `clay-submission/effective-gap-derivation/`  
-**Evidence posture:** [D] predictions built on [A] reduced-model closure and [A-] calibration  
+**Evidence posture:** [D] predictions built on [A] reduced-model closure and [A-] calibration; [E] interpretive mappings where stated  
 **Status:** Draft dossier for reviewer-facing epistemic separation
 
 ---
@@ -19,7 +19,7 @@ This change is not cosmetic. It separates three statements that must never be me
 | `gamma = 16.339` calibrates the kinetic vacuum sector. | [A-] | III | calibrated |
 | The reduced model is equivalent to the full pure Yang--Mills path integral. | [E] | III | open |
 
-The predictive use of the model is allowed only after this separation is explicit. The predictions below are therefore [D], not [A].
+The predictive use of the model is allowed only after this separation is explicit. Predictions below are [D] unless explicitly demoted to [E].
 
 ---
 
@@ -201,7 +201,70 @@ This ansatz is falsified or demoted if unquenched lattice calculations show that
 
 ---
 
-## 6. External Baselines
+## 6. Mapping V: Tetraquark `T_cc+` Binding-Energy Diagnostic
+
+### 6.1 Physical idea
+
+The exotic open-charm tetraquark `T_cc+` is a boundary test for overextending the unquenched UIDT scale. It lies close to the `D^0D*+` threshold, where long-range pion exchange, coupled-channel effects, and heavy-quark symmetry are essential.
+
+This item is therefore [E], not [D]. It is an interpretive mapping designed to expose where the gluonic-sector ansatz stops being sufficient.
+
+### 6.2 Formula
+
+A crude heavy-light core-separation diagnostic is
+
+```tex
+M_raw(T_cc+) = 2 m_c + 2 m_q + g_eff [Delta*(3) - delta_core].
+```
+
+Using the benchmark values
+
+```tex
+Delta*(3) = 1.546753197683927... GeV,
+m_c = 1.275 GeV,
+m_q = 0.005 GeV,
+delta_core = 0.200 GeV,
+g_eff = 1.000,
+```
+
+the raw mapping gives
+
+```tex
+M_raw = 3.90675319768... GeV  [E].
+```
+
+Against the rounded threshold
+
+```tex
+M(D^0) + M(D*+) = 1.8648 GeV + 2.0102 GeV = 3.8750 GeV,
+```
+
+the raw excess is
+
+```tex
+M_raw - E_thr = 31.75319768... MeV  [E].
+```
+
+Thus the raw UIDT-inspired mapping is above threshold. It does not reproduce the observed near-threshold binding.
+
+### 6.3 Diagnostic fitted couplings
+
+Holding all other benchmark inputs fixed:
+
+```tex
+g_eff(threshold) = 0.9764224078037944...,
+g_eff(-273 keV) = 0.9762196980567751....
+```
+
+These are fitted diagnostics, not predictions.
+
+### 6.4 Falsification
+
+This mapping is falsified or abandoned if the heavy-light string tension shows no monotonic relation to the unquenched beta0-screening factor, if the `cc` diquark cannot be isolated in a stable operator basis, or if coupled-channel calculations show that the near-threshold binding is fully controlled by pion-exchange dynamics with no residual gluonic-scale sensitivity.
+
+---
+
+## 7. External Baselines
 
 | DOI/arXiv | Status | Used for | Evidence |
 |---|---|---|---|
@@ -219,20 +282,25 @@ This ansatz is falsified or demoted if unquenched lattice calculations show that
 | arXiv:1208.1858 | resolvable | `2+1` unquenched glueball spectrum context | [B] |
 | arXiv:1702.08174 | resolvable | `N_f=2` unquenched glueball spectrum and mixing context | [B] |
 | arXiv:1406.4987 | resolvable | chiral symmetry breaking and condensate context | [B] |
+| arXiv:2109.01038 | resolvable | LHCb `T_cc+` observation context | [B] |
+| arXiv:2109.01056 | resolvable | LHCb `T_cc+` threshold/pole-parameter context | [B] |
+| arXiv:0805.2999 | resolvable | charm-quark MS-bar mass context | [B-context] |
+| arXiv:2108.04785 | resolvable | near-threshold molecular interpretation context | [B-context] |
 
 ---
 
-## 7. Reproduction Note
+## 8. Reproduction Note
 
 ```bash
 python verification/scripts/verify_effective_gap_predictions.py
 python verification/scripts/verify_unquenched_qcd_ansatz.py
+python verification/scripts/verify_tetraquark_binding_mapping.py
 ```
 
-The first command verifies the reduced-model RG closure, tensor prediction, and thermal input. The second command verifies the unquenched-QCD screening ansatz numerics. Neither command proves the physical validity of the phenomenological mappings.
+The first command verifies the reduced-model RG closure, tensor prediction, and thermal input. The second command verifies the unquenched-QCD screening ansatz numerics. The third command verifies only the tetraquark mapping arithmetic. None of these commands proves the physical validity of the phenomenological mappings.
 
 ---
 
-## 8. Non-Inflation Rule
+## 9. Non-Inflation Rule
 
 These predictions can strengthen UIDT only as falsifiable phenomenology. They do not convert the hybrid effective method into a Clay-level proof. The missing proof remains the equivalence between the reduced effective projection and the full pure Yang--Mills path integral.
