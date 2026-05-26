@@ -1,7 +1,7 @@
 # L4: 2-Loop β-Funktion & Fixpunkt-Analyse — UIDT v3.9
 
 **Datum:** 2026-04-30  
-**Status:** [D] Prediction / [D→A] Roadmap  
+**Status:** [D] Prediction  
 **Autor:** UIDT Research Engine (Session 3)
 
 ---
