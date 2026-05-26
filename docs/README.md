@@ -20,11 +20,12 @@ This directory contains supporting technical documentation, audits, and archival
 - [`evidence/evidence-classification.md`](./evidence/evidence-classification.md)
 - [`research/experimental_roadmap.md`](./research/experimental_roadmap.md)
 
-### Predictions
+### Predictions and interpretive mappings
 - [`predictions/glueball_spectrum.md`](./predictions/glueball_spectrum.md)
 - [`predictions/thermal_vacuum.md`](./predictions/thermal_vacuum.md)
 - [`predictions/qgp_viscosity.md`](./predictions/qgp_viscosity.md)
 - [`predictions/unquenched_qcd.md`](./predictions/unquenched_qcd.md)
+- [`predictions/tetraquark_binding.md`](./predictions/tetraquark_binding.md)
 
 ### Governance and review
 - [`governance/PR_Review_Protocol_v2.0.md`](./governance/PR_Review_Protocol_v2.0.md)
