@@ -160,7 +160,48 @@ A full-QCD heavy-ion comparison requires a separate unquenched UIDT extension.
 
 ---
 
-## 5. External Baselines
+## 5. Prediction IV: Unquenched-QCD Screening Ansatz
+
+### 5.1 Physical idea
+
+Dynamical fermions modify the running of the QCD coupling through the flavor-dependent beta-function coefficient. UIDT uses this standard QCD fact only as a phenomenological screening input for an effective gluonic-sector scale.
+
+This is not a physical mass-gap claim for full QCD. Light pseudoscalar mesons, chiral symmetry breaking, and operator mixing dominate the deep infrared. The ansatz applies only to a specified gluonic operator sector and only after the unquenched lattice extraction protocol is defined.
+
+### 5.2 Formula
+
+For `SU(3)`, the leading beta-function coefficient is
+
+```tex
+beta0(N_f) = 11 - (2/3) N_f = (33 - 2 N_f)/3.
+```
+
+The UIDT screening ansatz is
+
+```tex
+Delta*(N_f) = Delta*(0) sqrt((33 - 2 N_f)/33),
+Delta*(0) = 1.710 GeV.
+```
+
+Representative values:
+
+| `N_f` | Interpretation | `Delta*(N_f)` | Evidence |
+|---:|---|---:|---:|
+| 0 | pure Yang--Mills anchor | `1.7100 GeV` | [A] internal anchor |
+| 2 | dynamical `u,d` proxy | `1.6027 GeV` | [D] |
+| 3 | dynamical `u,d,s` proxy | `1.5469 GeV` | [D] |
+
+### 5.3 Chiral boundary
+
+The pion mass and pion decay constant belong to the light-quark chiral sector. They must not be treated as the screened pure-glue mass scale. In full QCD, scalar and pseudoscalar channels mix gluonic and quark-bilinear operators; therefore a direct one-number identification with `Delta*(N_f)` is not justified without a matched operator analysis.
+
+### 5.4 Falsification
+
+This ansatz is falsified or demoted if unquenched lattice calculations show that the effective gluonic-sector scale does not decrease with active light flavors, that the square-root `beta0` response fails against a better-supported scaling law, or that operator mixing prevents a stable gluonic-sector scale from being defined.
+
+---
+
+## 6. External Baselines
 
 | DOI/arXiv | Status | Used for | Evidence |
 |---|---|---|---|
@@ -174,19 +215,24 @@ A full-QCD heavy-ion comparison requires a separate unquenched UIDT extension.
 | arXiv:0704.1801 | resolvable | SU(3) gluodynamics viscosity baseline | [B] |
 | arXiv:1804.06469 | resolvable | Bayesian full-QCD heavy-ion transport context | [B-context] |
 | arXiv:2106.05019 | resolvable | later Bayesian QGP transport context | [B-context] |
+| arXiv:1701.01404 | resolvable | high-order QCD beta-function context | [B] |
+| arXiv:1208.1858 | resolvable | `2+1` unquenched glueball spectrum context | [B] |
+| arXiv:1702.08174 | resolvable | `N_f=2` unquenched glueball spectrum and mixing context | [B] |
+| arXiv:1406.4987 | resolvable | chiral symmetry breaking and condensate context | [B] |
 
 ---
 
-## 6. Reproduction Note
+## 7. Reproduction Note
 
 ```bash
 python verification/scripts/verify_effective_gap_predictions.py
+python verification/scripts/verify_unquenched_qcd_ansatz.py
 ```
 
-This verifies the reduced-model RG closure, tensor prediction, and thermal input. No first-principles transport solver is introduced by the QGP viscosity note.
+The first command verifies the reduced-model RG closure, tensor prediction, and thermal input. The second command verifies the unquenched-QCD screening ansatz numerics. Neither command proves the physical validity of the phenomenological mappings.
 
 ---
 
-## 7. Non-Inflation Rule
+## 8. Non-Inflation Rule
 
 These predictions can strengthen UIDT only as falsifiable phenomenology. They do not convert the hybrid effective method into a Clay-level proof. The missing proof remains the equivalence between the reduced effective projection and the full pure Yang--Mills path integral.
