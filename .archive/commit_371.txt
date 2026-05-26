@@ -1,0 +1,5 @@
+[UIDT-v3.9] fix: Remove LOCAL/ leak per Rule 18 (Pillar IV)
+
+Evidence category: N/A (governance fix)
+Limitation impact: none
+DOI: 10.5281/zenodo.17835200
