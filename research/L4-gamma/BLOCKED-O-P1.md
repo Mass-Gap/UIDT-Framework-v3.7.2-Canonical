@@ -1,64 +1,42 @@
 # BLOCKED: O-P1 — Finiteness of δS One-Loop Coupling Integral
 
-**Object:** O-P1 (Endlichkeit der effektiven Kopplung g²_eff)  
+**Object:** O-P1 (finiteness of effective coupling g²_eff)  
 **Integration claim:** O-GI-C (δS Gaussian integral / one-loop)  
 **Lemma dependency:** Lemma C Step L3 (independent, not affected)  
 **Claim dependency:** C-102 [E→D promotion pending]  
 **Blocker filed:** 2026-05-26  
-**Status:** [BLOCKED] — promotion from [E] to [D] suspended pending resolution
+**Last updated:** 2026-05-27  
+**Status:** [BLOCKED] — promotion from [E] to [D] suspended pending B3
 
 ---
 
-## Blocking Conditions
+## Blocking Conditions — Current Status
 
-Three independent blocking conditions must be resolved before the δS
-one-loop integral can be evaluated analytically:
+| BC | Description | Status | Resolved by |
+|---|---|---|---|
+| BC-1 | Renormalisation scheme undefined | ✅ CLOSED | D-19-renormalisation-scheme.md |
+| BC-2 | Backreaction order not established | ✅ CLOSED | BC2-backreaction-resummation.md |
+| BC-3 | γ as geometric operator — circular | ✅ CLOSED | vertex-Gamma4-SSAA.md |
+| B3 | BMW flow integration code not written | ⏳ OPEN | verification/scripts/BMW_gamma_flow.py (pending PI authorisation) |
 
-### BC-1: Renormalisation Scheme Undefined
+**All three original Blocking Conditions are closed.**  
+**The sole remaining block is B3: numerical execution of the BMW flow.**
 
-The Gaussian integral
+---
 
-```
-g²_eff = ∫ D(δS) |δS|² exp(i S_UIDT[v + δS])
-         × (κ̄/Λ_UIDT)² Π(Δ*, μ)
-```
+## BC-2 Closure Summary (2026-05-27)
 
-requires a renormalisation condition at a fixed scale μ. Without this,
-the UV-divergent self-energy term Π(Δ*, μ) is scheme-dependent and
-cannot be evaluated to a definite number.
+BC-2 is closed with the following verified findings [D]:
 
-**Required decision:** D-19 — renormalisation scheme at μ = m_S = 1.705 GeV.
-**Governance:** Requires PI authorisation before implementation.
+- Perturbative expansion invalid: ε = κ̄²⟨F²⟩/(Λ² m²_δS) = 4.885 >> 1
+- Self-consistent pole mass: M_eff = 283.4 MeV (mpmath 80-digit verified)
+- K_S ≠ M²_eff: the ratio sqrt(K_S)/M_eff is a non-trivial output of
+  the full BMW flow and cannot be pre-estimated by naive scaling
+- Required anomalous dimension: η ≈ 0.996 (large-η, non-perturbative regime)
+- [TENSION ALERT] γ_heuristic = 6.03 vs target 16.339 — this is a
+  statement about heuristic insufficiency, NOT a kill-switch event
 
-### BC-2: Backreaction Order Not Established
-
-Numerical estimate of the coupling backreaction (UIDT Framework v3.9,
-Appendix F.3.3):
-
-```
-κ̄² ⟨F²⟩ / Λ²  ≈  (0.5)² × 0.3 GeV⁴ / (1.0 GeV)²  ≈  0.075 GeV²
-m²_δS          =  V''(v) = 2 λ_S v²  ≈  0.018 GeV²
-```
-
-Ratio: backreaction / free mass ≈ 4.2  →  perturbative expansion invalid.
-The Gaussian integral is NOT self-consistent in the free-field limit.
-
-**Resolution path:** Either (a) non-perturbative treatment via BMW (see
-BMW-truncation-roadmap.md), or (b) demonstrate that the backreaction
-contribution is suppressed by a symmetry argument not yet identified.
-
-### BC-3: γ as Geometric Operator — Not Applicable at This Stage
-
-The formulation of γ = 16.339 as a "geometric operator acting on the
-integrand" lacks structural anchoring in the current UIDT Lagrangian.
-γ is the kinematic VEV ratio (Definition 6.2, Framework v3.9); it is
-not a regularisation operator. Any attempt to introduce γ as an IR
-regulator would create a circular dependency:
-
-```
-[CIRCULAR]: γ is defined via K_S (which depends on the vacuum); using γ
-to regularise the integral that determines K_S is not self-consistent.
-```
+Full derivation and proof: BC2-backreaction-resummation.md (this directory)
 
 ---
 
@@ -76,19 +54,20 @@ The following results are independent of O-P1 and remain valid:
 
 ---
 
-## Resolution Criteria
+## Remaining Resolution Criterion
 
-This BLOCKED marker is lifted when ALL of the following are satisfied:
+This BLOCKED marker is lifted when B3 is satisfied:
 
-1. Decision D-19 (renormalisation scheme) issued and ledger-committed
-2. Backreaction order analysis complete: either perturbative validity
-   demonstrated, or non-perturbative BMW result available
-3. Γ^(4)_k derived for UIDT (see BMW-truncation-roadmap.md, Step 1)
-4. Integral analytically evaluated with residual < 1e-6 relative to
-   canonical g²_eff value
+- BMW flow script `verification/scripts/BMW_gamma_flow.py` written,
+  executed with mp.dps=80, and reproduces Z_{k→0}(v) = 0.00377 ± tol
+- γ* = Δ*/sqrt(K_S) extracted from flow output
+- If |γ* − 16.339|/16.339 < 0.01: promote C-102 from [E] to [D],
+  remove this file, commit CLAIMS.json change via PR with full
+  Claims Table per 07-pr-commit-protocol.md
+- If |γ* − 16.339|/16.339 > 0.01: file [TENSION ALERT], keep [E]
+- If |γ* − 16.339|/16.339 > 3σ: formal review required
 
-Upon resolution: update C-102 from [E] to [D], remove this file,
-commit CLAIMS.json change via PR with full Claims Table per 07-pr-commit-protocol.md.
+**PI authorisation required before committing to verification/scripts/**
 
 ---
 
@@ -96,7 +75,7 @@ commit CLAIMS.json change via PR with full Claims Table per 07-pr-commit-protoco
 
 ```
 C-102 current:  [E]  — hypothetical / analytical draft
-C-102 target:   [D]  — analytical projection (pending BC-1, BC-2, BC-3)
+C-102 target:   [D]  — analytical projection (B3 pending)
 C-102 max:      [A-] — only if BMW fixed point confirms O-P1
 ```
 
@@ -104,8 +83,11 @@ C-102 max:      [A-] — only if BMW fixed point confirms O-P1
 
 ## Cross-References
 
-- BMW-truncation-roadmap.md (this directory) — primary resolution path
-- UIDT Framework v3.9, Appendix F.3.3 — source of BC-2 numerical estimate
-- UIDT Ontology v3.9, L4, L8 — governance limitations
-- LEDGER/CLAIMS.json — C-102 entry
-- 07-pr-commit-protocol.md — PR gate for promotion
+- D-19-renormalisation-scheme.md    — BC-1 closure
+- BC2-backreaction-resummation.md   — BC-2 closure (this directory)
+- vertex-Gamma4-SSAA.md             — BC-3 closure, Γ^(4)_SSAA derivation
+- BMW-truncation-roadmap.md         — primary resolution roadmap
+- UIDT Framework v3.9, Appendix F   — source of backreaction estimate
+- UIDT Ontology v3.9, L4, L8        — governance limitations
+- LEDGER/CLAIMS.json                — C-102 entry
+- 07-pr-commit-protocol.md          — PR gate for promotion
