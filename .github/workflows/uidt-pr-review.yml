@@ -1,9 +1,5 @@
 name: UIDT PR Review
 
-permissions:
-  pull-requests: write
-  contents: read
-
 on:
   pull_request:
     branches: [ main ]
