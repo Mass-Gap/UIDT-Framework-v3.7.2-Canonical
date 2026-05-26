@@ -57,20 +57,20 @@
 - [`verification/`](./verification) — reproducibility and verification scripts
 
 ### Recommended technical documents
-- [`docs/bare_gamma_theorem.md`](./docs/bare_gamma_theorem.md)
-- [`docs/cosmological_implications_v3.9.md`](./docs/cosmological_implications_v3.9.md)
-- [`docs/falsification-criteria.md`](./docs/falsification-criteria.md)
-- [`docs/evidence-classification.md`](./docs/evidence-classification.md)
-- [`docs/experimental_roadmap.md`](./docs/experimental_roadmap.md)
-- [`docs/PR_Review_Protocol_v2.0.md`](./docs/PR_Review_Protocol_v2.0.md)
-- [`docs/citation-guide.md`](./docs/citation-guide.md)
-- [`docs/data-availability.md`](./docs/data-availability.md)
+- [`docs/theory/bare_gamma_theorem.md`](./docs/theory/bare_gamma_theorem.md)
+- [`docs/theory/cosmological_implications_v3.9.md`](./docs/theory/cosmological_implications_v3.9.md)
+- [`docs/evidence/falsification-criteria.md`](./docs/evidence/falsification-criteria.md)
+- [`docs/evidence/evidence-classification.md`](./docs/evidence/evidence-classification.md)
+- [`docs/research/experimental_roadmap.md`](./docs/research/experimental_roadmap.md)
+- [`docs/governance/PR_Review_Protocol_v2.0.md`](./docs/governance/PR_Review_Protocol_v2.0.md)
+- [`docs/guides/citation-guide.md`](./docs/guides/citation-guide.md)
+- [`docs/guides/data-availability.md`](./docs/guides/data-availability.md)
 - [`docs/README.md`](./docs/README.md) — documentation landing page
 
 ### Audit trail
-- [`docs/critical_review_2025.md`](./docs/critical_review_2025.md)
-- [`docs/epistemic_audit_2026-03-30.md`](./docs/epistemic_audit_2026-03-30.md)
-- [`docs/first_principles_evidence_audit_2026-03-30.md`](./docs/first_principles_evidence_audit_2026-03-30.md)
+- [`docs/audits/critical_review_2025.md`](./docs/audits/critical_review_2025.md)
+- [`docs/audits/epistemic_audit_2026-03-30.md`](./docs/audits/epistemic_audit_2026-03-30.md)
+- [`docs/audits/first_principles_evidence_audit_2026-03-30.md`](./docs/audits/first_principles_evidence_audit_2026-03-30.md)
 - [`docs/archive/`](./docs/archive)
 - [`docs/archival-notes/`](./docs/archival-notes)
 
@@ -425,13 +425,16 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 
 ## 🔍 Known Limitations (Summary)
 
-| ID | Issue | Discrepancy | Status |
-| --- | --- | --- | --- |
-| L1 | Electron mass prediction | 23% | Open Question |
-| L2 | Holographic scale hierarchy | 10¹⁰ factor | Open Question |
-| L3 | Vacuum energy residual | Factor 2.3 | Under study |
-| L4 | RG gamma vs. kinetic VEV | Factor 3.4 | Candidate Solution Identified |
-| L5 | Casimir experimental status | No peer-reviewed data | Corrected / Category D |
+| ID | Issue | Discrepancy | Evidence | Status |
+| --- | --- | --- | --- | --- |
+| L1 | 10¹⁰ geometric scale factor | ~10⁶·⁵ ill-defined | [D] | Open — N⁵≈10¹⁰ suggestive |
+| L2 | Electron mass prediction | 23% residual | — | Open Question |
+| L3 | Vacuum energy residual | Factor 2.3 | [C] | Accepted |
+| L4 | γ not derived from RG | γ_bare=49/3 proven [A], gap open | [A]/[D] | Active — BMW-FRG required |
+| L5 | N=99 RG steps unjustified | Empirical | [D] | Open — Kill-switch proven [A] |
+| L6-FRG | FRG minimal truncation | η*≈0.072 truncation-dependent | [D] | Active Research |
+
+> **Research Status (2026-05-08):** Color algebra identity γ_bare = 49/3 formally proven [A]. Kill-switch Σ_T(E_T=0)=0 formally proven [A]. 10/10 cross-constraints verified. See [`docs/research/L1_L4_L5_roadmap_2026-05-08.md`](./docs/research/L1_L4_L5_roadmap_2026-05-08.md) for the current master roadmap.
 
 ---
 
