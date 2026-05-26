@@ -28,6 +28,11 @@
 >
 > UIDT is an **active research framework**, not established or peer-reviewed physics. Its central results have not yet been evaluated by an independent external body (e.g., Clay Mathematics Institute). Category A designations refer to **internal mathematical consistency** (Banach fixed-point closure, 80-digit residuals < 10⁻¹⁴), not to external validation. Cosmological parameters (Pillars II–IV) are calibrated against DESI/JWST data and carry Category C or D status. Known open problems are documented in the Limitations section below. The framework is designed to be falsifiable; the Kill-Switch matrix defines explicit refutation thresholds.
 
+> [!CAUTION]
+> **Numerical Transparency Statement**
+>
+> UIDT verification scripts use high-precision arithmetic to enforce reproducibility of the stated algebraic systems. An 80-digit calculation is a numerical integrity control, not a claim that the corresponding physical observable is known to 80-digit experimental accuracy. Category [A] claims are restricted to internally specified mathematical subsystems, such as reduced-model residual closure or exact algebraic constraints. Category [D] predictions remain unverified until independently measured. Category [E] interpretive mappings remain model hypotheses, especially when fitted parameters are required. The repository therefore treats high-precision numerics as a controlled mathematical clean room: deviations between the reduced model and empirical systems must be reported rather than absorbed by undocumented tuning.
+
 ---
 
 **Central Result:** Effective phenomenological derivation of a Yang-Mills spectral scale Δ* ≈ 1.710 GeV [A, internal reduced-model closure] through information-geometric coupling. The Banach contraction and residual closure apply to the reduced algebraic model; the projection to the full pure Yang-Mills functional integral remains an open Stratum III assumption [E].
