@@ -1,8 +1,4 @@
-[UIDT-v3.9] Monitoring: ArXiv Scan 2026-05-03
-
-Evidence category: [B]
-Limitation impact: none
-DOI: 10.5281/zenodo.17835200
+## PR Template: [UIDT-v3.9] Monitoring: ArXiv Scan 2026-05-03
 
 ### Task Reference
 - Task ID: ALPHA-02
