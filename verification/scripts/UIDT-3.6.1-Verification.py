@@ -134,7 +134,7 @@ sol = root(core_system_root, x0, method='hybr', tol=1e-15)
 
 # Extract Results
 m_S, kappa, _ = sol.x
-    lambda_S = mp.mpf('5') / mp.mpf('12')
+lambda_S = mp.mpf('5') / mp.mpf('12')
 v_final = solve_exact_cubic_v(m_S, lambda_S, kappa)
 residuals = core_system_root(sol.x)
 
