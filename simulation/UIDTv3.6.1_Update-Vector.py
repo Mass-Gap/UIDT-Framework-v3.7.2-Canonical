@@ -181,3 +181,7 @@ class UIDTLatticeOptimized:
     def update_U_vectorized(self, Pu, step_size):
         """
         Fully vectorized Link Update using Cayley-Hamilton.
+        """
+        raise NotImplementedError(
+            "Vectorized link update body is absent in this archival v3.6.1 script."
+        )
