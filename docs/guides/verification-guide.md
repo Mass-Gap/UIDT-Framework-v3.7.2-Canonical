@@ -150,7 +150,7 @@ python verification/scripts/UIDT-3.6.1-Verification-visual.py
 **Verification:**
 Open generated PNG files and verify:
 - Banach convergence: Rapid approach to Δ* = 1.710 GeV
-- Stability landscape: Deep minimum at (κ, λ_S) = (0.5, 0.417)
+- Stability landscape: Deep minimum at (κ, λ_S) = (0.5, 5/12)
 - Gamma scaling: Linear relationships across scales
 
 ---
@@ -215,7 +215,7 @@ Anomalous Dimension:
   Literature (FRG): 0.50 ± 0.02 ✅
 
 Perturbative Validity:
-  λ_S = 0.417 < 1 ✅ PASS
+  λ_S = 5/12 < 1 ✅ PASS
 ```
 
 ---

@@ -12,7 +12,7 @@
 | $\gamma$ | 16.339 | — | Lattice-MC calibration [A-] |
 | $\gamma_\infty$ | 16.3437 | — | Holographic limit [A-] |
 | $\delta\gamma$ | 0.0047 | — | Running correction [A-] |
-| $\lambda_S$ | 0.417 | — | RG fixed point [A] |
+| $\lambda_S$ | 5/12 | — | RG fixed point [A] |
 | $\kappa$ | 0.500 | — | RG fixed point [A] |
 | $\gamma_{\text{coupling}}$ | 0.2778 | ±0.0021 | MCMC, pymc3 [A-] |
 
@@ -39,14 +39,14 @@ The reference Bayesian calibration from UIDT VI uses:
 ```python
 import mpmath as mp
 
-def verify_rg_constraint(kappa_val='0.500', lambda_val='0.417'):
+def verify_rg_constraint(kappa_val='0.500', lambda_val='5/12'):
     """
     Verify the RG fixed-point constraint 5κ² = 3λ_S.
 
     Threshold note:
     - Analytical (Category A): residual < 1e-14 (exact symbolic relation)
     - Phenomenological (calibrated values): residual < 1e-2
-    With κ=0.500 and λ_S=0.417, the residual is 0.001 — within
+    With κ=0.500 and λ_S=5/12, the residual is 0.001 — within
     phenomenological tolerance but above analytical precision.
     The constraint is EXACT as a mathematical identity; the finite
     residual reflects calibration rounding of κ and λ_S.

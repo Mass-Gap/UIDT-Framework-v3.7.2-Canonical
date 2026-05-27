@@ -1,7 +1,7 @@
 ---
 title: "UIDT Verification Report: Canonical v3.6.1 (Clean State)"
 author: "Automated Verification Pipeline (AVP)"
-date: "2026-04-28 17:52:56 UTC"
+date: "2026-05-27 16:01:22 UTC"
 version: "3.6.1"
 status: "PASSED"
 signature: "SHA256:13e9f5e4a7c629d2..."
@@ -19,7 +19,7 @@ corrections: "VEV corrected to 47.7 MeV; Casimir reclassified to Category D"
 
 | Metric | Measured Value |
 | :--- | :--- |
-| **Execution Time** | 2026-04-28 17:52:56 UTC |
+| **Execution Time** | 2026-05-27 16:01:22 UTC |
 | **Hardware** | x86_64 |
 | **OS / Kernel** | Linux 6.8.0 |
 | **Python Version** | 3.12.13 |
@@ -38,17 +38,17 @@ corrections: "VEV corrected to 47.7 MeV; Casimir reclassified to Category D"
   Precision Target: Residuals < 10⁻¹⁴
 
 [1] PILLAR I: QFT FOUNDATION (Mathematically Closed)
-  Scalar Mass (m_S) : 1.704962587 GeV
-  Coupling (kappa)  : 0.500102702
-  Self-Cpl (lambda) : 0.416837855
-  VEV (v)           : 47.7 MeV  ← CORRECTED in v3.6.1
+  Scalar Mass (m_S) : 1.704964659 GeV
+  Coupling (kappa)  : 0.500000004
+  Self-Cpl (lambda) : 0.416666673
+  VEV (v)           : 47.6 MeV  ← CORRECTED in v3.6.1
   System Residuals  : ['0.0e+00', '0.0e+00', '0.0e+00']
   Solver Status     : ✅ CONVERGED (Residuals Verified)
   --> STATUS        : ✅ VALID
 
 [2] UNIVERSAL INVARIANT (The Unifier)
-  Kinetic VEV       : 0.011023744 GeV^2
-  GAMMA (derived)   : 16.286642263
+  Kinetic VEV       : 0.011021480 GeV^2
+  GAMMA (derived)   : 16.288314794
   GAMMA (AXIOM)     : 16.339 (Used for calculation)
 
 [3] THE HOLOGRAPHIC VACUUM (Hierarchy Resolution)
