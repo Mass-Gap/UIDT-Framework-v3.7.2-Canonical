@@ -9,7 +9,7 @@ from mpmath import mp
 mp.dps = 80
 
 def compute_theoretical_bounds():
-    # Category B: Ab-initio derivation of w_a
+    # Category C: Ab-initio derivation of w_a
     # gamma_infty = 16.3437 (Bare-Faktor)
     # gamma_phys = 16.339 (Dressed)
     gamma_infty = mp.mpf('16.3437')
@@ -55,7 +55,7 @@ def write_results_log(results, log_path="verification/scripts/sigma8_results.txt
         f.write(f"gamma_phys (Dressed)      [C] : {mp.nstr(results['gamma_phys'], 80)}\n")
         f.write(f"delta_gamma                   : {mp.nstr(results['delta_gamma'], 80)}\n\n")
 
-        f.write("--- 2. Analytical w_a Derivation [B] ---\n")
+        f.write("--- 2. Analytical w_a Derivation [C] ---\n")
         f.write("Formula: w_a(L) = - (delta_gamma / gamma_infty) * L^4\n")
         f.write(f"w_a(L=8.15)                   : {mp.nstr(results['wa_L_min'], 80)}\n")
         f.write(f"w_a(L=8.25)                   : {mp.nstr(results['wa_L_max'], 80)}\n\n")

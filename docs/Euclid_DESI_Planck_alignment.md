@@ -39,7 +39,7 @@ $\gamma_{\infty} = 16.3437$ [B]
 The variance driving this dark energy evolution is the topological shift:
 $\delta\gamma = \gamma_{\infty} - \gamma_{phys} = 0.0047$
 
-### Holographic Scaling: The Derivation of $w_a$ [Evidence Category: B]
+### Holographic Scaling: The Derivation of $w_a$ [Evidence Category: C]
 The evolving equation of state parameter $w_a$ is driven dynamically by the ratio of this topological variance relative to the bare scale across holographic length modes ($L$):
 
 $$ w_a(L) = - \left( \frac{\delta\gamma}{\gamma_{\infty}} \right) \times L^4 $$
@@ -67,6 +67,6 @@ The shift from the $\Lambda$CDM prediction ($\sigma_8 \approx 0.81$) to the Eucl
 
 *   **Planck Baseline Data:** Evidence Category **C** (Cosmological Observables are maximally Category C, never A).
 *   **DESI / Euclid Growth Data:** Evidence Category **C**.
-*   **Ab-initio derivation of $w_a \approx -1.300$:** Evidence Category **B**.
+*   **Ab-initio derivation of $w_a \approx -1.300$:** Evidence Category **C**.
 
 By identifying $\gamma_{\infty} = 16.3437$ as the underlying bare topological parameter, the framework successfully unifies early-universe (Planck) measurements with emerging late-universe dynamical signatures (Euclid Q1).
