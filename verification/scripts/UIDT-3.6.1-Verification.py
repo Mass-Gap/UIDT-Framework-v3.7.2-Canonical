@@ -124,7 +124,7 @@ def core_system_root(vars):
     return [eq1_val, eq2_val, eq3_val]
 
 # Initial Guess (Canonical Region)
-x0 = [1.705, 0.500, 5/12]
+x0 = [mpmath.mpf('1.705'), mpmath.mpf('0.500'), mpmath.mpf('5')/mpmath.mpf('12')]
 
 # Solve using Powell Hybrid Method
 log_print("  Solver: scipy.optimize.root (method='hybr')")
