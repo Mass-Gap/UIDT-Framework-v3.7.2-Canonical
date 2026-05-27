@@ -10,7 +10,7 @@ Operator: Jules (ALPHA-03)
 - Status: ✅ PASS
 
 ## Source Scan Results
-- grep "0.417": 0 matches ✅
+- grep "0.417": 7 matches ❌
 - grep "float(kappa": 0 matches ✅
 
 ## Files Checked

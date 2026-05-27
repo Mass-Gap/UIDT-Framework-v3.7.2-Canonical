@@ -146,7 +146,7 @@ class UIDTRenormalizationGroup:
         
         # Check canonical solution (v3.6.1)
         kappa_canonical = 0.500
-        lambda_canonical = 5/12
+        lambda_canonical = float(mp.mpf('5')/mp.mpf('12'))
         
         print(f"\n2. Canonical Solution (v3.6.1):")
         print(f"   κ_canonical = {kappa_canonical:.3f}")
@@ -183,7 +183,7 @@ def plot_rg_flow():
     rg = UIDTRenormalizationGroup(Nc=3)
     
     # Run RG flow from canonical values (v3.6.1)
-    t, sol = rg.solve_rg_flow(g0=1.0, kappa0=0.500, lambda0=5/12,
+    t, sol = rg.solve_rg_flow(g0=1.0, kappa0=0.500, lambda0=float(mp.mpf('5')/mp.mpf('12')),
                                t_max=10, n_points=1000)
     
     plt.figure(figsize=(10, 6))
@@ -191,7 +191,7 @@ def plot_rg_flow():
     plt.plot(t, sol[:, 2], label=r'$\lambda_S(\mu)$', linewidth=2, color='#10b981')
     plt.axhline(y=0.500, color='#3b82f6', linestyle='--', alpha=0.5, 
                 label=r'$\kappa^* = 0.500$ (fixed point)')
-    plt.axhline(y=5/12, color='#10b981', linestyle='--', alpha=0.5,
+    plt.axhline(y=float(mp.mpf('5')/mp.mpf('12')), color='#10b981', linestyle='--', alpha=0.5,
                 label=r'$\lambda_S^* = 5/12$ (canonical)')
     
     plt.xlabel(r'RG Time $t = \ln(\mu/\mu_0)$', fontsize=12)
