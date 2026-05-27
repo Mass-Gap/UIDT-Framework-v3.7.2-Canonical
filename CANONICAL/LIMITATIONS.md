@@ -134,7 +134,7 @@ self-consistent Dyson resummation in the full (S, A) propagator matrix.
 
 **Description:**
 The pure γ⁻¹² suppression model (without the 99-step
-RG cascade) shows a significant discrepancy relative
+RG cascade) shows a discrepancy relative
 to the empirical cosmological constant:
 
 - ρ_DE = (1/π²)·Δ⁴·γ⁻¹² = 2.393×10⁻¹⁵ GeV⁴ [E]
@@ -149,9 +149,9 @@ UV Hierarchy test (Planck scale):
 - Relative ρ_DE variation: 0.345% [A-]
 
 **Impact:**
-- γ⁻¹² alone is NOT sufficient to resolve the
+- γ⁻¹² alone is NOT sufficient to address the
   cosmological constant problem
-- The 99-step RG cascade (L5) is load-bearing for
+- The 99-step RG cascade (L5) is required for
   cosmological calibration — removing it exposes
   a ~31 OOM gap
 - The perturbation test (ε = 10⁻²⁰ GeV) confirms
@@ -162,13 +162,13 @@ L3 documents the residual factor ~2.3 WITH the
 full 99-step RG cascade. L8 documents the gap
 WITHOUT the cascade. Both are valid statements
 about different model configurations.
-L5 (N=99 unjustified) is the mechanistic root cause
+L5 (N=99 unjustified) is the root cause
 of this limitation.
 
 **Condition for Resolution:**
 First-principles derivation of the RG cascade
 depth N=99 from the Yang-Mills spectrum (→ L5).
-Until L5 is resolved, cosmological calibration
+Until L5 is addressed, cosmological calibration
 remains at maximum Evidence [C].
 
 **[TENSION ALERT]:** ρ_DE(pure γ⁻¹²) vs. ρ_vac:
