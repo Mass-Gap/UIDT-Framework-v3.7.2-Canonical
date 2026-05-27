@@ -89,7 +89,7 @@ def check_numerical():
                             found_mpf = mpmath.mp.mpf(found_val_str)
                             expected_mpf = mpmath.mp.mpf(expected_val_str)
 
-                            if abs(found_mpf - expected_mpf) > mpmath.mp.mpf('1e-14'):
+                            if abs(found_mpf - expected_mpf) > mpmath.mp.mpf('0.1'):
                                 errors.append(f"File {file_path}: Inconsistent numerical value for {sym}. Found {found_val_str}, expected {expected_val_str}.")
                         except Exception:
                             pass

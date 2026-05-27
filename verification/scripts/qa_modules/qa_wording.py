@@ -40,7 +40,7 @@ def check_wording():
                     end = min(len(content), match.end() + 30)
                     context = content[start:end].replace('\n', ' ')
 
-                    if "[A]" not in context and "[A-]" not in context and "Category A" not in context and "PROVEN MASS GAP" not in context:
+                    if "[A]" not in context and "[A-]" not in context:
                         errors.append(f"File {file_path}: Found forbidden word '{match.group()}' without [A]/[A-] context -> \"...{context}...\"")
         except Exception as e:
             pass
