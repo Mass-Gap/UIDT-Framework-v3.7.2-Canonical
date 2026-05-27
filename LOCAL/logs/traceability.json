@@ -70,3 +70,4 @@
     "by_status": {"verified": 23, "calibrated": 9, "predicted": 9, "open": 6, "withdrawn": 2, "rectified": 1, "conjectured": 3}
   }
 }
+{"timestamp": "2026-05-09T12:00:00Z", "action": "Documented topological correction term Delta_beta_lambda_S in docs/topological_correction_s3.md", "evidence": "[E]"}

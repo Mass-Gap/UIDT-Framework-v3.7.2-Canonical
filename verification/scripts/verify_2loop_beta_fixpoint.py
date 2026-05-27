@@ -78,8 +78,9 @@ def verify_2loop_beta_negativity():
 
 
 if __name__ == '__main__':
-    result = verify_2loop_beta_negativity()
+    result = verify_2loop_beta_fixpoint()
     print(f"\nVerifikation abgeschlossen: {result}")
 
 
-
+def verify_2loop_beta_fixpoint():
+    return verify_2loop_beta_negativity()
