@@ -142,7 +142,7 @@ def test_b0_c2fund_lower_bound():
 
 def test_l4_status_unchanged():
     """
-    Confirm that no path in this audit resolves L4.
+    Confirm that no path in this audit suggests L4.
     The best rational approximation 49/3 has delta > 0.005.
     L4 status must remain OPEN [D/E].
     """
