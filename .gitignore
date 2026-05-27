@@ -177,3 +177,12 @@ verification/scripts/verify_template.py
 verification/data/Verification_Report_*.md
 Supplementary_Results/Verification_Report_*.md
 LOCAL/
+
+# UIDT-OS protected paths (Pillar IV governance)
+UIDT-OS/
+LOCAL/
+.claude/
+.trae/
+.kiro/
+.mcp.json
+AGENTS.md
