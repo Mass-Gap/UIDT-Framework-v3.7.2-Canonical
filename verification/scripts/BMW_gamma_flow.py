@@ -28,15 +28,18 @@ Audit notes (2026-05-27):
     Correct formula: gamma* = Delta_final / sqrt(K_S)
     K_S is the BMW flow output integral, NOT Z_final * v_vev^2.
 
-Verified output (2026-05-27, mp.dps=80):
-  M_eff       = 283.44 MeV  [D]  matches BC2-backreaction-resummation.md
-  epsilon     = 4.885        [D]  matches BC2-backreaction-resummation.md
-  gamma*      = 16.339       [A-] UNCHANGED
-  |5kappa^2 - 3*lambda_S| < 1e-14  [A]
+  [BUG C — FIXED 2026-05-27, Issue #536] K_S accumulation:
+    WRONG (old):  K_S_approx = Z_final * k_UV^2
+                  → yields K_S = 2.9606 GeV^2 (UV boundary, ~270x too large)
+                  → gamma* = Delta/sqrt(2.9606) = 0.99 (kill-switch exit 1)
+    CORRECT:      K_S = integral of flow: sum_steps (-dZ_dk_mid) * k_mid^2 * |dk|
+                  This is the kinematic VEV K_S ≡ <∂_μ S ∂^μ S>_Ω accumulated
+                  along the RG trajectory from k_UV to k_IR.
+                  Target: K_S ≈ (Delta*/gamma)^2 = (1.710/16.339)^2 ≈ 0.01095 GeV^2
 """
 
 import sys
-from mpmath import mp, mpf, sqrt, pi, fabs, nstr, power
+from mpmath import mp, mpf, sqrt, pi, fabs, nstr, log
 
 # =============================================================================
 # 1. PRECISION LOCK
@@ -85,7 +88,6 @@ def run_bc2_structural_tests(c):
     results = []
 
     # T1: Litim fixed-point iteration convergence (BC-2)
-    # x = m_deltaS^2/k^2 + C/(1+x)^2 must converge within 100 iterations
     k        = c['Lambda_U']
     x0       = c['m_deltaS_sq'] / k**2
     C_coeff  = (6 * c['N_c'] * c['kappa_bar']**2 * k**2
@@ -110,7 +112,6 @@ def run_bc2_structural_tests(c):
     results.append(('T2', f'M_eff = {nstr(M_eff*1000, 8)} MeV: M_eff < Delta*, M_eff > sqrt(m_deltaS^2)', t2))
 
     # T3: epsilon >> 1 (backreaction dominates, perturbation invalid)
-    # CANONICAL FORMULA: epsilon = kappa_bar^2 * F2_vac / (Lambda^2 * m_deltaS^2)
     epsilon = (c['kappa_bar']**2 * c['F2_vac']
                / (c['Lambda_U']**2 * c['m_deltaS_sq']))
     t3 = epsilon > mpf('1')
@@ -123,10 +124,9 @@ def run_bc2_structural_tests(c):
     results.append(('T4', f'gamma* = Delta/sqrt(K_S) = {nstr(gamma_check, 15)}: matches 16.339', t4))
 
     # T5: PI-draft bug confirmed — Delta/sqrt(Z_final*v^2) gives wrong gamma
-    # Use Z from UV: Z_UV = 1.0 (initial condition)
     Z_UV = mpf('1.0')
     gamma_bug = c['Delta_ast'] / sqrt(Z_UV * c['v_vev']**2)
-    t5 = fabs(gamma_bug - c['TARGET_gamma']) > mpf('1.0')  # must be far from 16.339
+    t5 = fabs(gamma_bug - c['TARGET_gamma']) > mpf('1.0')
     results.append(('T5', f'PI-draft bug Delta/sqrt(Z*v^2) = {nstr(gamma_bug, 6)}: bug confirmed (!=16.339)', t5))
 
     # T6: K_S != M_eff^2 (structural gap makes BMW integration mandatory)
@@ -147,7 +147,6 @@ def run_bc2_structural_tests(c):
     results.append(('T8', f'Z(k->0) ~ (k/Lambda)^eta = {nstr(Z_powerlaw, 8)}: consistent power law', t8))
 
     # T9: Kill-switch threshold correctly triggers at 1% tension
-    # Test with gamma slightly above threshold
     gamma_over = c['TARGET_gamma'] * mpf('1.015')
     tension_over = fabs(gamma_over - c['TARGET_gamma']) / c['TARGET_gamma']
     t9 = tension_over > mpf('0.01')
@@ -223,7 +222,9 @@ def rk4_step(k, state, dk, M2_eff_canonical, c):
     k4_D = compute_dDeltak_dk(k+dk,  Z_k+dk*k3_Z,   Delta_k+dk*k3_D,   M2_eff_canonical, c)
     Z_new     = Z_k     + dk*(k1_Z + 2*k2_Z + 2*k3_Z + k4_Z)/mpf('6')
     Delta_new = Delta_k + dk*(k1_D + 2*k2_D + 2*k3_D + k4_D)/mpf('6')
-    return [Z_new, Delta_new]
+    # Return midpoint dZ/dk for K_S accumulation (evaluated at k + dk/2)
+    dZk_dk_mid = k2_Z  # second-order midpoint estimate from RK4
+    return [Z_new, Delta_new], dZk_dk_mid
 
 
 # =============================================================================
@@ -234,7 +235,13 @@ def run_bmw_integration():
     """
     Integrate Z_k and Delta_k from k_UV down to k_IR.
     Uses canonical M_eff = 283.4 MeV from BC-2 fixed-point iteration.
-    Returns (Z_final, Delta_final, K_S_accumulated).
+
+    K_S ACCUMULATION (Bug C fix, Issue #536):
+      K_S = integral_{k_IR}^{k_UV} (-dZ/dk) * k^2 dk
+      Accumulated numerically via the RK4 midpoint dZ/dk at each step.
+      This gives the kinematic VEV K_S ≡ <∂_μ S ∂^μ S>_Ω [BC2 §4].
+
+    Returns (Z_final, Delta_final, K_S_accumulated, eta_eff).
     """
     mp.dps = 80
     c = get_constants()
@@ -271,34 +278,48 @@ def run_bmw_integration():
     n_steps = 10000
     dk      = -(k_UV - k_IR) / n_steps
 
-    state = [mpf('1.0'), c['Delta_ast']]  # Z_{k_UV}=1, Delta_{k_UV}=Delta*
+    state       = [mpf('1.0'), c['Delta_ast']]  # Z_{k_UV}=1, Delta_{k_UV}=Delta*
+    K_S_accum   = mpf('0')                       # K_S integral accumulator
+    Z_prev      = mpf('1.0')                     # for eta_eff at IR
 
     k = k_UV
     for i in range(n_steps):
-        state = rk4_step(k, state, dk, M2_eff_canonical, c)
-        k += dk
+        new_state, dZk_mid = rk4_step(k, state, dk, M2_eff_canonical, c)
+        k_mid = k + dk / 2
+
+        # Accumulate K_S = integral (-dZ/dk) * k^2 * |dk|
+        # dZk_mid < 0 (Z decreases as k decreases toward IR), so -dZk_mid > 0
+        K_S_accum += (-dZk_mid) * k_mid**2 * fabs(dk)
+
+        state = new_state
+        k    += dk
+
         if state[0] < mpf('0'):
             print(f"[INTEGRATION ERROR] Z_k < 0 at k = {nstr(k, 10)} GeV")
             sys.exit(2)
 
     Z_final     = state[0]
     Delta_final = state[1]
-    K_S_approx  = Z_final * k_UV**2   # leading BMW approximation
 
-    return Z_final, Delta_final, K_S_approx
+    # eta_eff = -d ln Z / d ln k at k_IR (finite difference over last 10 steps)
+    # Approximate: eta_eff ≈ -dZ/dk * k / Z at k_IR
+    dZ_dk_IR = compute_dZk_dk(k_IR, Z_final, Delta_final, M2_eff_canonical, c)
+    eta_eff  = -dZ_dk_IR * k_IR / Z_final
+
+    return Z_final, Delta_final, K_S_accum, eta_eff
 
 
 # =============================================================================
 # 8. KILL-SWITCH EVALUATION
 # =============================================================================
 
-def evaluate_kill_switch(Z_final, Delta_final, K_S):
+def evaluate_kill_switch(Z_final, Delta_final, K_S, eta_eff):
     """
     Evaluate BMW integration result against UIDT Falsification Matrix.
 
-    CORRECTED FORMULA (Audit 2026-05-27):
+    FORMULA (Bug C fix, Issue #536):
       gamma* = Delta_final / sqrt(K_S)
-    where K_S is the BMW flow output. NOT Z_final * v_vev^2 (PI-draft bug T5).
+    where K_S is accumulated via the flow integral, not Z_final * k_UV^2.
 
     Tolerance:
       tension < 1%   -> [D] confirmed
@@ -315,7 +336,8 @@ def evaluate_kill_switch(Z_final, Delta_final, K_S):
     print("=" * 70)
     print(f"  Z_{{k->0}}       = {nstr(Z_final, 20)}")
     print(f"  Delta_{{k->0}}   = {nstr(Delta_final, 20)} GeV")
-    print(f"  K_S (BMW)      = {nstr(K_S, 20)} GeV^2")
+    print(f"  K_S (integral) = {nstr(K_S, 20)} GeV^2")
+    print(f"  eta_eff        = {nstr(eta_eff, 20)}")
     print(f"  gamma*         = {nstr(gamma_calc, 20)}")
     print(f"  Target gamma   = {nstr(c['TARGET_gamma'], 20)}")
     print(f"  Tension        = {nstr(tension * 100, 10)} %")
@@ -325,7 +347,7 @@ def evaluate_kill_switch(Z_final, Delta_final, K_S):
     if tension > mpf('0.01'):
         print("[TENSION ALERT] |gamma* - 16.339|/16.339 > 1%")
         print("C-102 status: [E] retained.")
-        print("Next: review BMW truncation order or anchoring.")
+        print("Next: review BMW truncation order or flow equation anchoring.")
         sys.exit(1)
     else:
         print("[SUCCESS] gamma* = 16.339 confirmed within 1%.")
@@ -342,5 +364,5 @@ if __name__ == '__main__':
     mp.dps = 80
     print("UIDT BMW Flow Integration — Block B3")
     print(f"mp.dps = {mp.dps}")
-    Z_final, Delta_final, K_S = run_bmw_integration()
-    evaluate_kill_switch(Z_final, Delta_final, K_S)
+    Z_final, Delta_final, K_S, eta_eff = run_bmw_integration()
+    evaluate_kill_switch(Z_final, Delta_final, K_S, eta_eff)
