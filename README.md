@@ -30,13 +30,13 @@
 
 ---
 
-**Central Result:** Analytical derivation of Yang-Mills mass gap Δ* ≈ 1.710 GeV (spectral gap) through information-geometric coupling, achieving mathematical closure with residuals < 10⁻⁴⁰.
+**Central Result:** Internally consistent construction of a Yang-Mills spectral gap Δ* ≈ 1.710 GeV through information-geometric coupling, achieving mathematical closure with residuals < 10⁻⁴⁰.
 
-**Physical Significance:** Addresses the 10¹²⁰ vacuum energy hierarchy via γ⁻¹² suppression mechanism combined with holographic normalization (π⁻²), reducing the cosmological constant problem to 3.3% precision *within the UIDT model*. Introduces the Lattice Torsion Binding Energy (2.44 MeV) to stabilize the discrete vacuum structure.
+**Physical Significance:** Addresses the 10¹²⁰ vacuum energy hierarchy via γ⁻¹² suppression mechanism combined with holographic normalization (π⁻²), producing a residual factor of 2.3 against the observed cosmological constant (Λ-hierarchy "solution" not supported as stated; UIDT-C-051; see CANONICAL/LIMITATIONS.md L1 and historical_heuristics.md §3). Introduces the Lattice Torsion Binding Energy (2.44 MeV) to stabilize the discrete vacuum structure.
 
 **Falsification Threshold:** Five independent experimental pathways with specific numerical predictions:
 - Casimir anomaly +0.59% at 0.66 nm (Category D: **predicted, unverified**)
-- Glueball resonance at 1.705 ± 0.015 GeV (Category B: lattice-consistent)
+- Glueball identification at 1.71 GeV — WITHDRAWN [E] since 2025-12-25 (Δ is a spectral gap, not a particle mass; see UIDT-C-015/041 and historical_heuristics.md §5)
 - Absence of Torsion Energy (E_T → 0) in precision hadron spectroscopy (Category A)
 - DESI dark energy evolution w₀ = −0.99 [C] (Canonical per Decision D-002, DESI-calibrated)
 - Photonic isomorphism transition at n_critical = γ ≈ 16.339 (Category D: analog verification)
@@ -77,7 +77,7 @@
 
 **UIDT v3.9 presents a constructive, high-precision framework for the information-geometric coupling of QFT-sector observables and gravitational parameters.**
 
-By introducing vacuum information density as a fundamental scalar field $S(x)$, the theory derives the Yang-Mills Mass Gap and constrains the vacuum energy hierarchy. This **Complete Manuscript** establishes the **Four-Pillar Architecture** and synthesizes the framework with the **Covariant Scalar-Field (CSF)** formalism, a topological Lattice Torsion model, and a photonic analog platform.
+By introducing vacuum information density as a fundamental scalar field $S(x)$, the theory constructs an internally consistent solution for the Yang-Mills spectral gap and constrains the vacuum energy hierarchy. This **Complete Manuscript** establishes the **Four-Pillar Architecture** and synthesizes the framework with the **Covariant Scalar-Field (CSF)** formalism, a topological Lattice Torsion model, and a photonic analog platform.
 
 Canonical parameters are derived self-consistently via the **Extended Functional Renormalization Group (FRG)** and the **Banach Fixed-Point Theorem**. The solution yields the unique stable vacuum state at **$\Delta = 1.710$ GeV**, demonstrating numerical closure with residuals $< 10^{-40}$.
 
@@ -90,7 +90,7 @@ Canonical parameters are derived self-consistently via the **Extended Functional
 | **Lattice Torsion Binding Energy (E_T)** | 2.44 MeV | C | DESI-calibrated; L2 open |
 | **Holographic Length (λ)** | 0.66 nm | C | DESI-calibrated |
 | **Hubble Constant (H₀)** | 70.4 km/s/Mpc | C | Intermediate calibrated value; does **not** close the H₀ tension |
-| **Scalar Mass (mₛ)** | 1.705 ± 0.015 GeV | B | Self-consistent solution |
+| **Scalar Mass (mₛ)** | 1.705 ± 0.015 GeV | D | Predicted, unverified (per LEDGER UIDT-C-007/035) |
 | **Vacuum Expectation (v)** | **47.7 ± 0.5 MeV** | A | Clean State |
 
 ---
@@ -281,7 +281,7 @@ Three-Equation System Closure:
   Lattice QCD agreement: z-score ≈ 0 (exact match with Chen et al. 2006)
 ```
 
-### Pillar II: Lattice Topology & The Missing Link
+### Pillar II: Lattice Topology & The Torsion Component
 
 * **Achievement:** Replaces phenomenological vacuum-frequency constraints with thermodynamic derivations.
 * **Mechanism:** Derives the **Lattice Torsion Binding Energy (E_T = 2.44 MeV)**, mathematically bridging the purely geometric QFT resonance (104.7 MeV) to the observed stable vacuum frequency (107.1 MeV) required to prevent discrete lattice collapse.
@@ -387,7 +387,7 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 
 ```bibtex
 @article{Rietz2026_UIDT_v39,
-  title       = {Vacuum Information Density as the Fundamental Geometric Scalar: The Geometric Operator and the Lattice Torsion Missing Link in the X17/X(2370) Energy Window (UIDT v3.9)},
+  title       = {Vacuum Information Density as the Fundamental Geometric Scalar: The Geometric Operator and the Lattice Torsion Component in the X17/X(2370) Energy Window (UIDT v3.9)},
   author      = {Rietz, Philipp},
   year        = {2026},
   month       = {February},
@@ -410,7 +410,7 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 | Component | Status | Evidence | Note |
 |---|---|---|---|
 | Yang-Mills Mass Gap derivation | Internal proof complete | A | Independent peer review and Clay evaluation pending |
-| Lattice Torsion Binding Energy (2.44 MeV) | Calibrated | C | "Missing Link" — DESI-anchored |
+| Lattice Torsion Binding Energy (2.44 MeV) | Calibrated | C | Torsion component — DESI-anchored |
 | X17 Anomaly origin | Unverified prediction | D | Consistent with Thermodynamic Censorship at 17.10 MeV |
 | CSF-UIDT Unification | Covariant path defined | D | Formal synthesis in progress |
 | H₀ Tension | **Open Question** | C | Intermediate calibrated value only |
@@ -427,11 +427,11 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 | L1 | 10¹⁰ geometric scale factor | ~10⁶·⁵ ill-defined | [D] | Open — N⁵≈10¹⁰ suggestive |
 | L2 | Electron mass prediction | 23% residual | — | Open Question |
 | L3 | Vacuum energy residual | Factor 2.3 | [C] | Accepted |
-| L4 | γ not derived from RG | γ_bare=49/3 proven [A], gap open | [A]/[D] | Active — BMW-FRG required |
+| L4 | γ not derived from RG | γ_bare=49/3 algebraic ansatz [E], no derivation | [E]/[D] | Active — BMW-FRG required |
 | L5 | N=99 RG steps unjustified | Empirical | [D] | Open — Kill-switch proven [A] |
 | L6-FRG | FRG minimal truncation | η*≈0.072 truncation-dependent | [D] | Active Research |
 
-> **Research Status (2026-05-08):** Color algebra identity γ_bare = 49/3 formally proven [A]. Kill-switch Σ_T(E_T=0)=0 formally proven [A]. 10/10 cross-constraints verified. See [`docs/research/L1_L4_L5_roadmap_2026-05-08.md`](./docs/research/L1_L4_L5_roadmap_2026-05-08.md) for the current master roadmap.
+> **Research Status (2026-05-08):** Color algebra identity γ_bare = 49/3 remains [E] conjectured per LEDGER UIDT-C-052; forward checks failed (PR #367, see historical_heuristics.md §1). Kill-switch Σ_T(E_T=0)=0 is an algebraic identity, retained as a definition. 10/10 cross-constraints verified. See [`docs/research/L1_L4_L5_roadmap_2026-05-08.md`](./docs/research/L1_L4_L5_roadmap_2026-05-08.md) for the current master roadmap.
 
 ---
 

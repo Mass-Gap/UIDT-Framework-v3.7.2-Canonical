@@ -1,0 +1,24 @@
+name: scientific-integrity
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  ai-audit-policy-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: check_protected_paths
+        run: python verification/scripts/check_protected_paths.py
+      - name: check_evidence_tags
+        run: python verification/scripts/check_evidence_tags.py
+      - name: check_no_gamma_targeting
+        run: python verification/scripts/check_no_gamma_targeting.py
+      - name: check_merge_requirements
+        run: python verification/scripts/check_merge_requirements.py
