@@ -264,7 +264,7 @@ graph LR
 
 ### Pillar I: QFT Foundation (The Mathematical Core)
 
-* **Achievement:** Constructive proof of the Yang-Mills Mass Gap via non-minimal coupling
+* **Achievement:** Constructive internal-consistency result for the Yang-Mills spectral gap via non-minimal coupling (not an external proof — see Note below; AI_AUDIT_POLICY.md §5)
 * **Result:** Δ = 1.710 GeV (self-consistent solution)
 * **Verification:** Validated by the **Banach Fixed-Point Theorem** (Contraction mapping)
 * **Status:** **Category A (Internal Mathematical Consistency)**
@@ -409,7 +409,7 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 
 | Component | Status | Evidence | Note |
 |---|---|---|---|
-| Yang-Mills Mass Gap derivation | Internal proof complete | A | Independent peer review and Clay evaluation pending |
+| Yang-Mills Mass Gap (spectral gap result) | Internal consistency closed | A | Internal mathematical consistency only — not an external proof; peer review pending |
 | Lattice Torsion Binding Energy (2.44 MeV) | Calibrated | C | Torsion component — DESI-anchored |
 | X17 Anomaly origin | Unverified prediction | D | Consistent with Thermodynamic Censorship at 17.10 MeV |
 | CSF-UIDT Unification | Covariant path defined | D | Formal synthesis in progress |
@@ -428,7 +428,7 @@ UIDT v3.9 is strictly falsifiable. The theory is considered refuted if:
 | L2 | Electron mass prediction | 23% residual | — | Open Question |
 | L3 | Vacuum energy residual | Factor 2.3 | [C] | Accepted |
 | L4 | γ not derived from RG | γ_bare=49/3 algebraic ansatz [E], no derivation | [E]/[D] | Active — BMW-FRG required |
-| L5 | N=99 RG steps unjustified | Empirical | [D] | Open — Kill-switch proven [A] |
+| L5 | N=99 RG steps unjustified | Empirical | [D] | Open — Kill-switch identity Σ_T(E_T=0)=0 (algebraic; historical_heuristics.md §7) |
 | L6-FRG | FRG minimal truncation | η*≈0.072 truncation-dependent | [D] | Active Research |
 
 > **Research Status (2026-05-08):** Color algebra identity γ_bare = 49/3 remains [E] conjectured per LEDGER UIDT-C-052; forward checks failed (PR #367, see historical_heuristics.md §1). Kill-switch Σ_T(E_T=0)=0 is an algebraic identity, retained as a definition. 10/10 cross-constraints verified. See [`docs/research/L1_L4_L5_roadmap_2026-05-08.md`](./docs/research/L1_L4_L5_roadmap_2026-05-08.md) for the current master roadmap.
