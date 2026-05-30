@@ -1,0 +1,12 @@
+{
+  "TKT-AUTO-FALSIFICATION-RADAR": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "applied",
+    "timestamp": "2026-05-30T14:13:55.799344Z",
+    "author": "Jules (Agent)"
+  }
+}
