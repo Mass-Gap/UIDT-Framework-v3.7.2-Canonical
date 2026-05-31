@@ -1,4 +1,11 @@
 from mpmath import mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star
+# @Graph-Node: verify_glueball_lhc3.py
+# =====================================================================
 mp.dps = 80
 
 def verify_glueball_masses():

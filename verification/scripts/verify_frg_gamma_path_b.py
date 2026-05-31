@@ -46,6 +46,13 @@ DOI: 10.5281/zenodo.17835200
 import sys
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_frg_gamma_path_b.py
+# =====================================================================
 # -----------------------------------------------------------------------
 # RACE CONDITION LOCK: mp.dps declared locally, NOT in global config
 # -----------------------------------------------------------------------

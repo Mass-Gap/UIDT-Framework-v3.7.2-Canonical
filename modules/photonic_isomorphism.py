@@ -17,6 +17,13 @@ Official Reference:
 
 from mpmath import mp, mpf, nstr
 
+# =====================================================================
+# @UIDT-Entity: Module_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: gamma
+# @Graph-Node: photonic_isomorphism.py
+# =====================================================================
 mp.dps = 80
 
 

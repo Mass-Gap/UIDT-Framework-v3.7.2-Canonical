@@ -4,6 +4,13 @@
 # Constitution: mpmath dps=80, no float(), no round()
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-06
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_gz_flow.py
+# =====================================================================
 mp.dps = 80
 
 

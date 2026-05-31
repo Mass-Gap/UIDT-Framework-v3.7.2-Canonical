@@ -16,6 +16,13 @@ UIDT-Constitution:
 import mpmath as mp
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_gribov_torsion_kcrit.py
+# =====================================================================
 def run_gribov_torsion_verification():
     # RACE CONDITION LOCK: mp.dps lokal, nicht global
     mp.dps = 80

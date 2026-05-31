@@ -27,6 +27,13 @@ Pre-flight:
 import mpmath as mp
 import sys
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: frg_tachyon_s2a.py
+# =====================================================================
 # ────────────────────────────────────────────────────────────────────────────
 # IMMUTABLE LEDGER (read-only, never modified)
 # ────────────────────────────────────────────────────────────────────────────

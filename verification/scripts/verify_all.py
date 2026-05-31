@@ -2,6 +2,13 @@ import subprocess
 import sys
 import os
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: None
+# @Graph-Node: verify_all.py
+# =====================================================================
 def run_script(script_path):
     print(f"========================================")
     print(f"Running {script_path}...")

@@ -18,6 +18,13 @@ Precision: 80 digits (mpmath)
 import sys
 import os
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: check_operator_unitarity.py
+# =====================================================================
 # Ensure modules are importable
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 

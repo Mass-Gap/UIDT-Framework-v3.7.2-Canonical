@@ -26,6 +26,13 @@ Returns:
 import sys
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa
+# @Graph-Node: gamma_constraint_test.py
+# =====================================================================
 # ----------------------------------------------------------------
 # LOCAL PRECISION — Race Condition Lock (UIDT Constitution)
 # MUST remain here. Never move to config.py or global scope.

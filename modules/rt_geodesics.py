@@ -26,6 +26,13 @@
 from typing import Any, Dict, List
 
 
+# =====================================================================
+# @UIDT-Entity: Module_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: rt_geodesics.py
+# =====================================================================
 def _init_mp() -> Any:
     """
     Return an mpmath module object with local 80-digit precision.

@@ -44,6 +44,13 @@ from typing import NamedTuple, Optional
 # =====================================================================
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: E
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: hybrid_uidt_raumzeit_spectral_gap.py
+# =====================================================================
 mp.dps = 80  # Constitution §3: local precision — do NOT centralize
 
 DELTA_STAR_GEV = mp.mpf("1.710")      # +/- 0.015  [A]

@@ -36,6 +36,13 @@ import sys
 # ⚙️ CONFIGURATION (CLEAN STATE PARAMETERS v3.6.1)
 # =============================================================================
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: UIDT-3.6.1-Verification-visual.py
+# =====================================================================
 # Canonical Constants (Fixed Points)
 DELTA_STAR = 1.710035    # GeV (Yang-Mills Mass Gap)
 GAMMA_STAR = 16.339      # Universal Scaling Invariant

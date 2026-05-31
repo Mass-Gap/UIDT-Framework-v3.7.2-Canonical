@@ -93,6 +93,13 @@ Required packages: mpmath >= 1.3.0
 
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_wilson_flow_topology.py
+# =====================================================================
 # -- Race Condition Lock: precision is LOCAL to this module -----------------
 mp.dps = 80
 # ---------------------------------------------------------------------------

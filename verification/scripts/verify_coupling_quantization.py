@@ -1,6 +1,13 @@
 import sys
 from mpmath import mp, mpf, nstr
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: kappa, lambda_s
+# @Graph-Node: verify_coupling_quantization.py
+# =====================================================================
 # AGENTS.md Anti-Centralization Rule: Local precision declaration
 mp.dps = 80
 

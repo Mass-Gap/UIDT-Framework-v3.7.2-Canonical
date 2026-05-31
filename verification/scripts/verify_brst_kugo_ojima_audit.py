@@ -10,6 +10,13 @@ Author: Jules (Research Agent)
 
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: None
+# @Graph-Node: verify_brst_kugo_ojima_audit.py
+# =====================================================================
 def audit_kugo_ojima_and_brst():
     # Numerical determinism requirement (MUST BE LOCAL)
     mp.dps = 80

@@ -1,5 +1,12 @@
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: None
+# @Graph-Node: verify_BETA_W10.py
+# =====================================================================
 def run():
     mp.dps = 80
 

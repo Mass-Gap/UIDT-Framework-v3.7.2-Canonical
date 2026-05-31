@@ -1,5 +1,12 @@
 from mpmath import mp, mpf, pi
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: verify_kissing_number_suppression.py
+# =====================================================================
 # AGENTS.md Anti-Centralization Rule: Local precision declaration
 mp.dps = 80
 

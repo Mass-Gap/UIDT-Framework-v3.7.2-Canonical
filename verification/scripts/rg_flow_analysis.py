@@ -16,6 +16,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma, kappa, lambda_s
+# @Graph-Node: rg_flow_analysis.py
+# =====================================================================
 class UIDTRenormalizationGroup:
     """
     Renormalization Group analysis for UIDT v3.6.1

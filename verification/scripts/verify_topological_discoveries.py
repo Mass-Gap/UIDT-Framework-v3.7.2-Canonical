@@ -12,6 +12,13 @@ import sys
 import os
 from mpmath import mp, mpf, log, nstr
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: None
+# @Graph-Node: verify_topological_discoveries.py
+# =====================================================================
 # Windows UTF-8 console support
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding='utf-8')

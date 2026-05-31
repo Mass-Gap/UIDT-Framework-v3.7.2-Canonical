@@ -42,6 +42,13 @@ import mpmath as mp
 import numpy as np
 import pandas as pd
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_monte_carlo_research_notes.py
+# =====================================================================
 # ── NUMERICAL PRECISION (local — RACE CONDITION LOCK) ───────────────────────
 mp.dps = 80
 _TOLERANCE_RG   = mp.mpf("1e-14")

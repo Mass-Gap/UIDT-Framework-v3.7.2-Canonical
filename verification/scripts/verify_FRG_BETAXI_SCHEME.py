@@ -8,6 +8,13 @@ No float(), no round(), no centralized precision control.
 """
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_FRG_BETAXI_SCHEME.py
+# =====================================================================
 mp.dps = 80  # RACE CONDITION LOCK: local only
 
 # ── Immutable Ledger Constants [DO NOT MODIFY] ───────────────────────────

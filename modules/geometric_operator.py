@@ -23,6 +23,13 @@ A full operator construction and spectral analysis remain open."
 
 from mpmath import mp, mpf, nstr
 
+# =====================================================================
+# @UIDT-Entity: Module_Script
+# @Proves-Claim: UIDT-C-049
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: geometric_operator.py
+# =====================================================================
 # Set precision sufficient for Banach Fixed Point Verification
 # mp.dps MUST remain local per UIDT Constitution (Race Condition Lock)
 mp.dps = 80

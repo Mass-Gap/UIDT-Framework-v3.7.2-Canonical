@@ -31,6 +31,13 @@ import inspect
 import mpmath
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: UIDT-3.6.1-Verification.py
+# =====================================================================
 # Set global precision for Axioms
 mp.dps = 80
 

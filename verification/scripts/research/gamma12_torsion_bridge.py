@@ -2,6 +2,13 @@
 Gamma-12 Torsion Bridge Verification (TKT-017)
 """
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: gamma12_torsion_bridge.py
+# =====================================================================
 mp.dps = 80
 
 def verify_bridge():

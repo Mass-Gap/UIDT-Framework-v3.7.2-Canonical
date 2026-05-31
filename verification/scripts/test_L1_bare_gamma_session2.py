@@ -11,6 +11,13 @@ Requirements: mpmath
 Run: python3 verification/scripts/test_L1_bare_gamma_session2.py
 """
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: test_L1_bare_gamma_session2.py
+# =====================================================================
 mp.dps = 80
 
 RESIDUAL_TOL = mp.mpf('1e-14')

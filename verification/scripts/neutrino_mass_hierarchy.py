@@ -1,6 +1,13 @@
 import mpmath
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star
+# @Graph-Node: neutrino_mass_hierarchy.py
+# =====================================================================
 # Set precision
 mp.dps = 50
 

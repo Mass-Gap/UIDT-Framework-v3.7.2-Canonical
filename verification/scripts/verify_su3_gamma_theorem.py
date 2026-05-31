@@ -1,5 +1,12 @@
 from mpmath import mp, mpf, fabs, nstr
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma
+# @Graph-Node: verify_su3_gamma_theorem.py
+# =====================================================================
 # UIDT v3.9: Native Precision Enforcement
 mp.dps = 80
 

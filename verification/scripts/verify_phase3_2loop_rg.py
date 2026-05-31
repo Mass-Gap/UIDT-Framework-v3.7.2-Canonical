@@ -16,6 +16,13 @@ UIDT Constitution compliance:
 
 import sys
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_phase3_2loop_rg.py
+# =====================================================================
 mp.dps = 80  # RACE CONDITION LOCK: local
 
 # ── Ledger constants (LINTER PROTECTION) ──

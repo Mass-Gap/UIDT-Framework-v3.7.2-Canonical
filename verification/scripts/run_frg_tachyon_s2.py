@@ -18,6 +18,13 @@ UIDT-Constitution:
 import mpmath as mp
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: run_frg_tachyon_s2.py
+# =====================================================================
 def frg_flow_step(kappa, lam, g2, dt, Nc=None, v=None, ET=None):
     """
     Einzelner RG-Fluss-Schritt für (kappa, lambda, g^2).

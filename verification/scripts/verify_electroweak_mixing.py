@@ -16,6 +16,13 @@ Refactored for UIDT v3.9 Compliance:
 import sys
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: verify_electroweak_mixing.py
+# =====================================================================
 # --- Anti-Tampering Rule: Local Precision ---
 mp.dps = 80
 

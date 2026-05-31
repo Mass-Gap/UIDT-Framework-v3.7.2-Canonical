@@ -9,6 +9,13 @@ Calculates the conformal mappings between the UIDT QFT foundation (Gamma Invaria
 
 from mpmath import mp, mpf, pi, sqrt, log
 
+# =====================================================================
+# @UIDT-Entity: Module_Script
+# @Proves-Claim: UIDT-C-051, UIDT-C-039, UIDT-C-046, UIDT-C-047, UIDT-C-050, UIDT-C-017
+# @Evidence-Tier: A-
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: covariant_unification.py
+# =====================================================================
 # ABSOLUTE DIRECTIVE: Local precision initialization (Do not move to config)
 mp.dps = 80
 

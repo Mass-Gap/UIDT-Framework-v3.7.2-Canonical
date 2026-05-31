@@ -18,6 +18,13 @@ Integrator: RK4 (Manual Implementation)
 import sys
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: C
+# @Requires-Constant: gamma
+# @Graph-Node: euclid_q1_radar.py
+# =====================================================================
 # --- Anti-Tampering Rule: Local Precision ---
 mp.dps = 80
 

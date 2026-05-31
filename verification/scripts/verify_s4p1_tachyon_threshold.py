@@ -10,6 +10,13 @@ Benötigt: mpmath (pip install mpmath)
 
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa
+# @Graph-Node: verify_s4p1_tachyon_threshold.py
+# =====================================================================
 mp.dps = 80
 
 # --- Ledger-Konstanten ---

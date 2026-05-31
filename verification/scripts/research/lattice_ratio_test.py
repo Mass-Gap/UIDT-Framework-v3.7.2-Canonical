@@ -2,6 +2,13 @@
 Lattice Ratio Test (TKT-016)
 """
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: lattice_ratio_test.py
+# =====================================================================
 mp.dps = 80
 
 def check_ratio():

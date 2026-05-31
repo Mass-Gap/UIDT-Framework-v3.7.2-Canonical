@@ -7,6 +7,13 @@ Constructive proof via Banach Fixed-Point Theorem on metric space I=[1.6, 1.8].
 from mpmath import mp, mpf
 
 
+# =====================================================================
+# @UIDT-Entity: Core_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, kappa
+# @Graph-Node: banach_proof.py
+# =====================================================================
 class BanachMassGap:
     def __init__(self):
         # Precision is declared locally — RACE CONDITION LOCK (Directive v4.1)
