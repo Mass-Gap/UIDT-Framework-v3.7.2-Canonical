@@ -1,0 +1,16 @@
+{
+  "TKT-2026-06-02-daily-audit-jules": {
+    "files": [
+      "LOCAL/logs/daily_pr_audit_20260602.md",
+      "LOCAL/logs/findings.json",
+      "LOCAL/logs/metrics.json",
+      "LOCAL/logs/epistemic_risk_map.json",
+      "LOCAL/logs/integrity_reports/2026-03-12_audit-qa-v3.0.md"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "verified",
+    "timestamp": "2026-06-02T14:26:15.587938Z",
+    "author": "Jules"
+  }
+}
