@@ -1,0 +1,11 @@
+[
+  {
+    "task_id": "TKT-2026-04-16-arxiv-scan-1",
+    "files": ["LOCAL/scripts/arxiv_scan.py", "LOCAL/pr_template.md"],
+    "tests": [],
+    "docs": [],
+    "status": "completed",
+    "timestamp": "2026-04-16T12:00:00Z",
+    "author": "Jules"
+  }
+]
