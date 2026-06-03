@@ -51,6 +51,7 @@
 
 % TikZ & TColorBox
 \usepackage{tikz}
+\usetikzlibrary{shadows}
 \usetikzlibrary{shapes,arrows,positioning,shadows}
 \usepackage{pgffor}
 \usepackage[most]{tcolorbox}
@@ -306,7 +307,7 @@ CSF-UIDT Synthesis; Falsification Matrix; Osterwalder--Schrader axioms; UIDT
     frame hidden,
     boxrule=0pt,
     arc=1pt, outer arc=1pt,
-    drop shadow={opacity=0.04, shadowxshift=1.5pt, shadowyshift=1.5pt},
+    drop shadow={opacity=0.04, shadow xshift=1.5pt, shadow yshift=1.5pt},
     top=20pt, bottom=20pt, left=10pt, right=10pt,
     width=\textwidth
 ]
@@ -337,7 +338,7 @@ CSF-UIDT Synthesis; Falsification Matrix; Osterwalder--Schrader axioms; UIDT
     enhanced,
     colback=gray!6,
     frame hidden, boxrule=0pt, arc=2pt,
-    drop shadow={opacity=0.08, shadowxshift=1.5pt, shadowyshift=-1.5pt},
+    drop shadow={opacity=0.08, shadow xshift=1.5pt, shadow yshift=-1.5pt},
     left=15pt, right=15pt, top=10pt, bottom=10pt,
     width=\linewidth,
     nobeforeafter
@@ -375,7 +376,7 @@ CSF-UIDT Synthesis; Falsification Matrix; Osterwalder--Schrader axioms; UIDT
 \noindent
 \begin{tcolorbox}[
     enhanced, colback=gray!6, frame hidden, boxrule=0pt, arc=1pt,
-    drop shadow={opacity=0.04, shadowxshift=1.5pt, shadowyshift=1.5pt},
+    drop shadow={opacity=0.04, shadow xshift=1.5pt, shadow yshift=1.5pt},
     left=20pt, right=20pt, top=12pt, bottom=12pt,
     fontupper=\rmfamily, nobeforeafter
 ]
@@ -401,7 +402,7 @@ CSF-UIDT Synthesis; Falsification Matrix; Osterwalder--Schrader axioms; UIDT
     enhanced,
     colback=gray!6,
     frame hidden, boxrule=0pt, arc=2pt,
-    drop shadow={opacity=0.08, shadowxshift=1.5pt, shadowyshift=-1.5pt},
+    drop shadow={opacity=0.08, shadow xshift=1.5pt, shadow yshift=-1.5pt},
     left=15pt, right=15pt, top=10pt, bottom=10pt,
     width=\linewidth,
     nobeforeafter
@@ -1155,7 +1156,7 @@ lacks rigorous derivation. Possible explanations include:
     \item Holographic projection from higher-dimensional bulk
     \item Modified Planck length effective in information geometry
 \end{itemize}
-Until resolved, $\lambda_{\text{UIDT}} = 0.66\,\text{nm}$ should be understood 
+Until addressed, $\lambda_{\text{UIDT}} = 0.66\,\text{nm}$ should be understood
 as an \emph{observational calibration} rather than theoretical prediction.
 \end{limitation}
 
