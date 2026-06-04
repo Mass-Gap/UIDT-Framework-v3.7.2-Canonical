@@ -1,4 +1,4 @@
-# UIDT Framework v3.9 — Minimal Hardened Dependencies
+# UIDT Framework verification dependencies
 # Maintainer: P. Rietz
 # Last audit: 2026-04-16
 # Anti-Tampering: mpmath and pytest MUST NOT be removed.
@@ -7,6 +7,7 @@
 
 mpmath==1.3.0
 pytest==8.2.2
+sympy==1.14.0
 numpy==2.4.2
 scipy==1.17.0
 matplotlib==3.10.8

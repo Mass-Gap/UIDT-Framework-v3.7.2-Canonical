@@ -1,0 +1,63 @@
+name: scientific-integrity
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  # Allow manual re-run for debugging
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ai-audit-policy-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # need history for diff against origin/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install verification dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r verification/requirements.txt
+
+      - name: Fetch main for diff base
+        run: git fetch origin main:refs/remotes/origin/main
+
+      - name: check_rg_constraint
+        run: python verification/scripts/check_rg_constraint.py
+
+      - name: check_d2_obstruction
+        run: python verification/scripts/check_d2_obstruction.py
+
+      - name: check_lambda_s_exact
+        run: python verification/scripts/check_lambda_s_exact.py
+
+      - name: check_protected_paths
+        run: python verification/scripts/check_protected_paths.py
+
+      - name: check_evidence_tags
+        run: python verification/scripts/check_evidence_tags.py
+
+      - name: check_no_gamma_targeting
+        run: python verification/scripts/check_no_gamma_targeting.py
+
+      - name: check_cosmology_cap
+        run: python verification/scripts/check_cosmology_cap.py
+
+      - name: verification script tests
+        run: pytest verification/tests/test_check_scripts.py -q
+
+      - name: check_merge_requirements
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: python verification/scripts/check_merge_requirements.py
+        # Only required on PR, not on push (push has no PR body)
+        if: github.event_name == 'pull_request'
