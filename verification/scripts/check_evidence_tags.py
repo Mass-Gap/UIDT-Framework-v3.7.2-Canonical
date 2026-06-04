@@ -20,6 +20,7 @@ ALLOWLIST_FILES = {
     "historical_heuristics.md",
     "AI_AUDIT_POLICY.md",
     "verification/scripts/check_evidence_tags.py",
+    "verification/tests/test_check_scripts.py",
     "scripts/epistemic_gatekeeper.py",
     ".antigravity/Plan_v-wave0-1___Repository_Honesty_Pass.md",
     ".antigravity/Plan_v-wave0-2___Ledger_Hygiene.md",

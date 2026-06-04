@@ -14,6 +14,7 @@ SKIP_DIRS = {".git", "node_modules", "__pycache__"}
 ALLOWLIST_FILES = {
     "AI_AUDIT_POLICY.md",
     "verification/scripts/check_cosmology_cap.py",
+    "verification/tests/test_check_scripts.py",
 }
 
 COSMOLOGICAL_PARAMETER = re.compile(

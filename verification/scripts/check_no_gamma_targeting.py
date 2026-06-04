@@ -25,6 +25,7 @@ ALLOWLIST_FILES = {
     "AI_AUDIT_POLICY.md",
     "verification/scripts/check_no_gamma_targeting.py",
     "verification/scripts/check_evidence_tags.py",
+    "verification/tests/test_check_scripts.py",
     "scripts/epistemic_gatekeeper.py",
 }
 
