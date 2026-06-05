@@ -7,7 +7,6 @@ import sys
 from mpmath import mp, mpf
 
 # Local precision initialization
-mp.dps = 80
 
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))

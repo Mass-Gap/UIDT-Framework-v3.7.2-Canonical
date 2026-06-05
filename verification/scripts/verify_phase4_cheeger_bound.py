@@ -16,8 +16,7 @@ UIDT Constitution compliance:
 """
 
 import sys
-import mpmath as mp
-mp.dps = 80  # RACE CONDITION LOCK: local
+from mpmath import mp
 
 # ── Ledger constants (LINTER PROTECTION) ──
 KAPPA      = mp.mpf('1') / mp.mpf('2')

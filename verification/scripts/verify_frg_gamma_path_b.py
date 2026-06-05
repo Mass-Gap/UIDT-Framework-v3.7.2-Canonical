@@ -44,12 +44,11 @@ DOI: 10.5281/zenodo.17835200
 """
 
 import sys
-import mpmath as mp
+from mpmath import mp
 
 # -----------------------------------------------------------------------
 # RACE CONDITION LOCK: mp.dps declared locally, NOT in global config
 # -----------------------------------------------------------------------
-mp.dps = 80
 
 # -----------------------------------------------------------------------
 # IMMUTABLE PARAMETER LEDGER (read-only reference, never modified)

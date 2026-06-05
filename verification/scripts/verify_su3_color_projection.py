@@ -6,7 +6,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 from modules.covariant_unification import CovariantUnification
 
 # AGENTS.md Anti-Centralization Rule: Local precision declaration
-mp.dps = 80
 
 def verify_su3_color_projection():
     print("="*70)

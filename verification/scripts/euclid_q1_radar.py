@@ -19,7 +19,6 @@ import sys
 from mpmath import mp
 
 # --- Anti-Tampering Rule: Local Precision ---
-mp.dps = 80
 
 # --- Constants ---
 # Cosmology (Planck 2018 + DESI Baseline)

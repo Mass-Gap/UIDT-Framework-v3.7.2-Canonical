@@ -17,7 +17,6 @@ if PROJECT_ROOT not in sys.path:
 from core.banach_proof import BanachMassGap
 from core.rg_closure import RGFixedPoint
 
-mp.dps = 80
 
 def test_banach_convergence():
     """Banach Fixed Point must converge to Δ* within 1e-14"""

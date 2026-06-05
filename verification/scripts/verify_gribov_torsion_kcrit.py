@@ -13,7 +13,7 @@ UIDT-Constitution:
 - Ledger-Konstanten NICHT modifizieren
 """
 
-import mpmath as mp
+from mpmath import mp
 
 
 def run_gribov_torsion_verification():

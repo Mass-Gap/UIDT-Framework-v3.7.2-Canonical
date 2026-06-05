@@ -30,9 +30,9 @@ import os
 import inspect
 import mpmath
 from mpmath import mp
+from mpmath import mp
 
 # Set global precision for Axioms
-mp.dps = 80
 
 # ==============================================================================
 # 1. CONSTANTS & INPUTS (STANDARD MODEL ANCHORS)

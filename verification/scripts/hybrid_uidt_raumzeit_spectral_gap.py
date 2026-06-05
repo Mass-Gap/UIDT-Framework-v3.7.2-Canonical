@@ -43,8 +43,7 @@ from typing import NamedTuple, Optional
 # Canonical constants (read-only -- rule 03-canonical-constants.md)
 # =====================================================================
 
-import mpmath as mp
-mp.dps = 80  # Constitution §3: local precision — do NOT centralize
+from mpmath import mp
 
 DELTA_STAR_GEV = mp.mpf("1.710")      # +/- 0.015  [A]
 DELTA_TOLERANCE = mp.mpf("0.015")     # 1-sigma canonical tolerance

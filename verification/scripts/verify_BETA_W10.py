@@ -1,4 +1,4 @@
-import mpmath as mp
+from mpmath import mp
 
 def run():
     mp.dps = 80

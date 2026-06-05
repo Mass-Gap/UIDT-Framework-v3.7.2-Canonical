@@ -4,6 +4,7 @@ Task 20: Cross-Generational Torsion Scaling
 """
 import sys
 import mpmath
+from mpmath import mp
 from datetime import datetime
 
 # Enforce 80-digit precision locally

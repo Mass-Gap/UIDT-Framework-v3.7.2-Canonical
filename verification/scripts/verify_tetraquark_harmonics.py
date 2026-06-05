@@ -8,7 +8,6 @@ Purpose: 80-Digit computation of the fully-heavy tetraquark X(6900) harmonic res
 from mpmath import mp, mpf, nstr, factorial
 
 # Strikte 80-Digit Determinismus-Sperre (Lokal)
-mp.dps = 80
 
 # 1. Konstanten-Definition
 # Delta: Fundamentaler Spektralabstand des topologischen Vakuums (keine Masse!)

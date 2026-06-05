@@ -24,7 +24,7 @@ Pre-flight:
 - [TENSION ALERT] wenn |γ_emergent − γ_ledger| > δγ
 """
 
-import mpmath as mp
+from mpmath import mp
 import sys
 
 # ────────────────────────────────────────────────────────────────────────────

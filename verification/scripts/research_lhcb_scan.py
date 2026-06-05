@@ -2,7 +2,6 @@
 from mpmath import mp, mpf
 
 # Local precision initialization
-mp.dps = 80
 
 def run_lhcb_scan():
     # UIDT Constants

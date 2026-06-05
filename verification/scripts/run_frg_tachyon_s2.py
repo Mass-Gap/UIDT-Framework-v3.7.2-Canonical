@@ -15,7 +15,7 @@ UIDT-Constitution:
 - Ledger-Konstanten NICHT modifizieren
 """
 
-import mpmath as mp
+from mpmath import mp
 
 
 def frg_flow_step(kappa, lam, g2, dt, Nc=None, v=None, ET=None):

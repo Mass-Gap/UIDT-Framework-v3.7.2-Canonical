@@ -1,7 +1,6 @@
 from mpmath import mp, mpf, pi
 
 # AGENTS.md Anti-Centralization Rule: Local precision declaration
-mp.dps = 80
 
 def verify_kissing_number_suppression():
     print("="*70)

@@ -18,7 +18,6 @@ import sys
 from mpmath import mp
 
 # Precision Setup (Anti-Tampering Rule: High Precision Required)
-mp.dps = 80
 
 def calculate_gamma_shift():
     """

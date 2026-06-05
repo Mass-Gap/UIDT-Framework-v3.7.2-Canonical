@@ -17,8 +17,7 @@ UIDT Constitution:
   - No external data access
 """
 
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 # Ledger constants (LINTER PROTECTION)
 DELTA_STAR = mp.mpf('1.710')   # GeV [A]

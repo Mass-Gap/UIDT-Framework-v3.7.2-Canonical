@@ -8,9 +8,8 @@ Aufruf: python verification/scripts/verify_s4p1_tachyon_threshold.py
 Benötigt: mpmath (pip install mpmath)
 """
 
-import mpmath as mp
+from mpmath import mp
 
-mp.dps = 80
 
 # --- Ledger-Konstanten ---
 Nc       = mp.mpf('3')

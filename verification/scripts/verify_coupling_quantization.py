@@ -2,7 +2,6 @@ import sys
 from mpmath import mp, mpf, nstr
 
 # AGENTS.md Anti-Centralization Rule: Local precision declaration
-mp.dps = 80
 
 def verify_coupling_quantization():
     print("="*70)

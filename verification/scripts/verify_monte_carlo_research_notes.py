@@ -38,12 +38,11 @@ import json
 import sys
 from pathlib import Path
 
-import mpmath as mp
+from mpmath import mp
 import numpy as np
 import pandas as pd
 
 # ── NUMERICAL PRECISION (local — RACE CONDITION LOCK) ───────────────────────
-mp.dps = 80
 _TOLERANCE_RG   = mp.mpf("1e-14")
 _TOLERANCE_CORR = mp.mpf("0.05")   # [TENSION ALERT] threshold
 # ─────────────────────────────────────────────────────────────────────────────

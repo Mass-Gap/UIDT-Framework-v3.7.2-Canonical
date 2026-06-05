@@ -5,8 +5,7 @@
 # Usage: python verification/scripts/s4_p4_p5_p6_torsion_verification.py
 # Expected: All assertions PASS, RG_CONSTRAINT OK
 
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 # ── LEDGER (immutable) ────────────────────────────────────────────────────────
 Nc    = mp.mpf('3')

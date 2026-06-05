@@ -1,5 +1,4 @@
 from mpmath import mp
-mp.dps = 80
 
 def verify_glueball_masses():
     # Glueball mass from UIDT: m_G ~ 2*Δ*

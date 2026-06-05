@@ -15,9 +15,8 @@ Evidence categories:
 """
 import os
 import csv
-import mpmath as mp
+from mpmath import mp
 
-mp.dps = 80
 
 # -----------------------------------------------------------------------
 # IMMUTABLE LEDGER CONSTANTS (UIDT Constitution - do not modify)
@@ -85,6 +84,7 @@ def _load_correlation_csv():
 # TEST 1: LEDGER consistency (Delta*)
 # -----------------------------------------------------------------------
 def test_delta_ledger_consistency():
+    mp.dps = 80
     """MC mean must be within LEDGER uncertainty band."""
     residual = mp.fabs(DELTA_MC_MEAN - DELTA_STAR_LEDGER)
     assert residual < DELTA_STAR_UNC, (
@@ -98,6 +98,7 @@ def test_delta_ledger_consistency():
 # TEST 2: LEDGER consistency (gamma)
 # -----------------------------------------------------------------------
 def test_gamma_ledger_consistency():
+    mp.dps = 80
     """MC mean for gamma must be within 1-sigma of LEDGER value."""
     residual = mp.fabs(GAMMA_MC_MEAN - GAMMA_LEDGER)
     assert residual < GAMMA_MC_STD, (
@@ -111,6 +112,7 @@ def test_gamma_ledger_consistency():
 # TEST 3: High-precision mpmath baseline (Delta)
 # -----------------------------------------------------------------------
 def test_delta_hp_precision():
+    mp.dps = 80
     """HP mean must match embedded baseline to 1e-6 (CSV precision limit)."""
     residual = mp.fabs(DELTA_MP - mp.mpf("1.71003523579090"))
     assert residual < mp.mpf("1e-14"), (
@@ -122,6 +124,7 @@ def test_delta_hp_precision():
 # TEST 4: High-precision mpmath baseline (gamma)
 # -----------------------------------------------------------------------
 def test_gamma_hp_precision():
+    mp.dps = 80
     """HP mean must match embedded baseline to 1e-14."""
     residual = mp.fabs(GAMMA_MP - mp.mpf("16.2886504876551"))
     assert residual < mp.mpf("1e-13"), (
@@ -133,6 +136,7 @@ def test_gamma_hp_precision():
 # TEST 5: CSV round-trip (if file available)
 # -----------------------------------------------------------------------
 def test_csv_delta_mean():
+    mp.dps = 80
     """If summary CSV is present, verify Delta mean matches embedded constant."""
     data = _load_summary_csv()
     if data is None:
@@ -147,6 +151,7 @@ def test_csv_delta_mean():
 
 
 def test_csv_gamma_mean():
+    mp.dps = 80
     """If summary CSV is present, verify gamma mean matches embedded constant."""
     data = _load_summary_csv()
     if data is None:
@@ -160,6 +165,7 @@ def test_csv_gamma_mean():
 
 
 def test_csv_psi_mean():
+    mp.dps = 80
     """If summary CSV is present, verify Psi mean matches embedded constant."""
     data = _load_summary_csv()
     if data is None:
@@ -176,6 +182,7 @@ def test_csv_psi_mean():
 # TEST 6: Correlation matrix - gamma/Psi near-perfect correlation
 # -----------------------------------------------------------------------
 def test_gamma_psi_correlation():
+    mp.dps = 80
     """r(gamma, Psi) must exceed 0.999 - confirms near-exact linear relation."""
     corr = _load_correlation_csv()
     if corr is None:
@@ -193,6 +200,7 @@ def test_gamma_psi_correlation():
 # Ledger: kappa=0.5, lambda_S = 5*0.5^2/3 = 5/12
 # -----------------------------------------------------------------------
 def test_rg_constraint():
+    mp.dps = 80
     """5*kappa^2 = 3*lambda_S must hold to 1e-14 [RG_CONSTRAINT_FAIL if not]."""
     mp.dps = 80
     kappa    = mp.mpf("0.5")
@@ -211,6 +219,7 @@ def test_rg_constraint():
 # TEST 8: Torsion kill switch (ET=0 => Sigma_T=0)
 # -----------------------------------------------------------------------
 def test_torsion_kill_switch():
+    mp.dps = 80
     """If ET=0 then Sigma_T must be exactly 0 (Torsion Kill Switch)."""
     ET = mp.mpf("0")
     Sigma_T = ET * mp.mpf("1")  # proportional to ET by definition

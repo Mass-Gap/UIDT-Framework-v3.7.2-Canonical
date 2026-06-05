@@ -5,8 +5,7 @@
 # Evidence: E-open throughout
 # RACE CONDITION LOCK: mp.dps = 80 LOCAL
 
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 
 def verify_rg_constraint() -> None:

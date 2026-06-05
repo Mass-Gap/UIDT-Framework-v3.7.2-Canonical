@@ -25,7 +25,6 @@ from mpmath import mp
 from modules.geometric_operator import GeometricOperator
 
 # --- Anti-Tampering Rule: Local Precision ---
-mp.dps = 80
 
 def check_operator_unitarity():
     print("=== PR #48: Operator Unitarity Check (Non-Unitarity Proof) ===")

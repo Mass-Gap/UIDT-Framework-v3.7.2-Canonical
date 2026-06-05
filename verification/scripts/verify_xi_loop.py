@@ -3,8 +3,7 @@
 # Author: P. Rietz | Date: 2026-04-16
 # Constitution: mpmath dps=80, no float(), no round()
 
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 
 def verify_xi_loop():

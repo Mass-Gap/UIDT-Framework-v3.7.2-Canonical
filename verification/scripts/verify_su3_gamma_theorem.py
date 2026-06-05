@@ -1,7 +1,6 @@
 from mpmath import mp, mpf, fabs, nstr
 
 # UIDT v3.9: Native Precision Enforcement
-mp.dps = 80
 
 def verify_gamma_theorem():
     """

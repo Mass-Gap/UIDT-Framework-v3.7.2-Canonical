@@ -1,0 +1,10 @@
+{}{
+  "TKT-2026-06-05-jules-123": {
+    "files": ["LOCAL/scripts/ralph_wiggum_loop.py", "LOCAL/scripts/integrity_scan.sh", "verification/tests/*"],
+    "tests": ["pytest verification/tests/ -v"],
+    "docs": ["LOCAL/logs/daily_pr_audit_YYYYMMDD.md"],
+    "status": "Auto-Fix applied: mp.dps properly localized and ralph_wiggum_loop.py implemented.",
+    "timestamp": "2026-06-05T12:00:00Z",
+    "author": "Jules"
+  }
+}

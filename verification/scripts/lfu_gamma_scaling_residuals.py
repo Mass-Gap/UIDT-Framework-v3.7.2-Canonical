@@ -15,8 +15,7 @@ Residual tolerance: < 1e-14 for arithmetic checks
 No float(), no round(), no math module.
 """
 
-import mpmath as mp
-mp.dps = 80  # LOCAL — do not centralize per UIDT Constitution
+from mpmath import mp
 
 # ================================================================
 # SECTION 1: UIDT LEDGER CONSTANTS (IMMUTABLE)
