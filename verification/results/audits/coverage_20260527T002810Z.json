@@ -1,0 +1,129 @@
+{
+  "coverage_ratio": 0.21428571428571427,
+  "test_scripts": [
+    "verify_2loop_beta_fixpoint.py",
+    "verify_all.py",
+    "verify_bare_gamma.py",
+    "verify_BETA_W10.py",
+    "verify_brst_dof_reduction.py",
+    "verify_brst_kugo_ojima_audit.py",
+    "verify_confinement.py",
+    "verify_coupling_quantization.py",
+    "verify_csf_unification.py",
+    "verify_desi_dr2_integration.py",
+    "verify_electroweak_mixing.py",
+    "verify_FRG_BETAXI_SCHEME.py",
+    "verify_frg_gamma_path_b.py",
+    "verify_generation_scaling.py",
+    "verify_geometric_operator.py",
+    "verify_glueball_lhc3.py",
+    "verify_gribov_torsion_kcrit.py",
+    "verify_gz_flow.py",
+    "verify_heavy_quark_predictions.py",
+    "verify_ir_fixpoint_stability.py",
+    "verify_kissing_number_suppression.py",
+    "verify_L1L4L5_analysis.py",
+    "verify_L1L4L5_phase2.py",
+    "verify_L1_L4_L5_first_principles.py",
+    "verify_light_quark_masses.py",
+    "verify_monte_carlo_research_notes.py",
+    "verify_p7a_brst_algebraic.py",
+    "verify_phase2_large_N_scan.py",
+    "verify_phase3_2loop_rg.py",
+    "verify_phase3_FRG_NLO.py",
+    "verify_phase4_cheeger_bound.py",
+    "verify_phase7_FRG_gamma_observable.py",
+    "verify_phase7_lattice_N99_observable.py",
+    "verify_phase7_LSI_CA_bridge.py",
+    "verify_rg_fixed_point.py",
+    "verify_rg_flow_gamma.py",
+    "verify_rt_geodesics_gamma.py",
+    "verify_s4p1_onset_attractor.py",
+    "verify_s4p1_tachyon_threshold.py",
+    "verify_session_checks_v39.py",
+    "verify_su3_color_projection.py",
+    "verify_su3_gamma_theorem.py",
+    "verify_template.py",
+    "verify_tetraquark_harmonics.py",
+    "verify_topological_discoveries.py",
+    "verify_wilson_flow_topology.py",
+    "verify_xi_loop.py"
+  ],
+  "tested_axioms": [
+    {
+      "category": "A",
+      "id": "AX-005",
+      "statement": "RG Fixed Point Constraint: 5\u03ba^2 = 3\u03bb_S..."
+    },
+    {
+      "category": "A",
+      "id": "AX-008",
+      "statement": "Spectral Gap: \u0394 = \u03b3 \u00b7 \u039b_QCD..."
+    },
+    {
+      "category": "A",
+      "id": "AX-010",
+      "statement": "Scalar Mass: m_S^2 = 2\u03bb_S v^2..."
+    }
+  ],
+  "timestamp": "20260527T002810Z",
+  "total_axioms": 14,
+  "total_test_scripts": 47,
+  "untested_axioms": [
+    {
+      "category": "A",
+      "id": "AX-001",
+      "statement": "Yang-Mills Lagrangian: L_YM = -1/4 F^a_\u03bc\u03bd F^{a\u03bc\u03bd}..."
+    },
+    {
+      "category": "A",
+      "id": "AX-002",
+      "statement": "Scalar Lagrangian: L_S = 1/2 \u2202_\u03bc S \u2202^\u03bc S - V(S)..."
+    },
+    {
+      "category": "A",
+      "id": "AX-003",
+      "statement": "Scalar Potential: V(S) = \u03bb_S/4 (S^2 - v^2)^2..."
+    },
+    {
+      "category": "A",
+      "id": "AX-004",
+      "statement": "Non-Minimal Coupling: L_int = -\u03ba/4 S^2 F^a_\u03bc\u03bd F^{a\u03bc\u03bd}..."
+    },
+    {
+      "category": "A",
+      "id": "AX-006",
+      "statement": "Vacuum Expectation: <S> = v = 47.7 MeV..."
+    },
+    {
+      "category": "A",
+      "id": "AX-007",
+      "statement": "Schwinger-Dyson Equation: \u25a1S + \u03bb_S S(S^2 - v^2) + \u03ba/2 S F^2 = 0..."
+    },
+    {
+      "category": "A-",
+      "id": "AX-009",
+      "statement": "Kinetic VEV: \u03b3 = 16.339 (phenomenologically calibrated)..."
+    },
+    {
+      "category": "A",
+      "id": "AX-011",
+      "statement": "Perturbative Stability: \u03bb_S < 1..."
+    },
+    {
+      "category": "A",
+      "id": "AX-012",
+      "statement": "Vacuum Stability: V''(v) = 2\u03bb_S v^2 > 0..."
+    },
+    {
+      "category": "A",
+      "id": "AX-013",
+      "statement": "Numerical Precision: mpmath.mp.dps = 80 (local declaration required)..."
+    },
+    {
+      "category": "A",
+      "id": "AX-014",
+      "statement": "Residual Threshold: |residual| < 10^-14 for Category A claims..."
+    }
+  ]
+}

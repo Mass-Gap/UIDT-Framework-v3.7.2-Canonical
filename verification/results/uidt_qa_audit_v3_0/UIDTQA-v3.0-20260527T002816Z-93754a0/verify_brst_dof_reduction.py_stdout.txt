@@ -1,0 +1,18 @@
+Standard Model Raw DoF: 118
+------------------------------
+Fermions (90):
+  - quarks: 72
+  - charged_leptons: 12
+  - neutrinos: 6
+Bosons (28):
+  - gluons: 16
+  - photon: 2
+  - W_bosons: 6
+  - Z_boson: 3
+  - Higgs_physical: 1
+==============================
+Hypothesis Testing for N=99 Target:
+Hypothesis 1: Subtract ('ghosts_su3', 'goldstones_electroweak')
+  -> 118 - 19 = 99
+Hypothesis 2: Subtract ('ghosts_su3', 'ghosts_u1', 'higgs_vev')
+  -> 118 - 19 = 99

@@ -1,0 +1,46 @@
+{
+  "consistent": [
+    {
+      "dimension": "[Energy]",
+      "param": "\u0394",
+      "unit": "GeV"
+    },
+    {
+      "dimension": "[Energy]",
+      "param": "v",
+      "unit": "MeV"
+    },
+    {
+      "dimension": "[1/Time]",
+      "param": "H\u2080",
+      "unit": "km/s/Mpc"
+    },
+    {
+      "dimension": "[Energy]",
+      "param": "m_S",
+      "unit": "GeV"
+    },
+    {
+      "dimension": "[Energy]",
+      "param": "\u039b_QCD",
+      "unit": "GeV"
+    },
+    {
+      "dimension": "[Length]",
+      "param": "\u03bb_UIDT",
+      "unit": "nm"
+    },
+    {
+      "dimension": "[Energy]",
+      "param": "E_T",
+      "unit": "MeV"
+    }
+  ],
+  "dimensionless": [
+    "\u03b3",
+    "\u03ba",
+    "\u03bb_S",
+    "S\u2088"
+  ],
+  "inconsistent": []
+}

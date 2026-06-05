@@ -1,0 +1,31 @@
+{
+  "falsification_criteria": [
+    {
+      "falsifiable": true,
+      "parameter": "m_S",
+      "status": "awaiting_experimental_test",
+      "type": "prediction"
+    },
+    {
+      "constraint": "5\u03ba\u00b2 = 3\u03bb_S",
+      "falsifiable": true,
+      "status": "verified",
+      "threshold": 0.01,
+      "type": "mathematical"
+    }
+  ],
+  "kill_switches": [
+    {
+      "condition": "E_T = 0",
+      "consequence": "\u03a3_T = 0 (discrete lattice hypothesis falsified)",
+      "note": "NOT derived from Dyson loop integral; kill-switch: if E_T=0 then \u03a3_T=0",
+      "parameter": "E_T"
+    }
+  ],
+  "residual_thresholds": {
+    "category_a": 1e-14,
+    "category_a_minus": 0.01,
+    "category_b": 1e-12
+  },
+  "timestamp": "20260527T002812Z"
+}

@@ -1,0 +1,61 @@
+{
+  "drifted": [],
+  "new": [],
+  "stable": [
+    {
+      "category": "A",
+      "symbol": "\u0394",
+      "value": "1.710 \u00b1 0.015"
+    },
+    {
+      "category": "A-",
+      "symbol": "\u03b3",
+      "value": "16.339"
+    },
+    {
+      "category": "A",
+      "symbol": "\u03ba",
+      "value": "0.500 \u00b1 0.008"
+    },
+    {
+      "category": "A",
+      "symbol": "\u03bb_S",
+      "value": "5\u03ba\u00b2/3 (exact)"
+    },
+    {
+      "category": "A",
+      "symbol": "v",
+      "value": "47.7"
+    },
+    {
+      "category": "C",
+      "symbol": "H\u2080",
+      "value": "70.4 \u00b1 0.16"
+    },
+    {
+      "category": "D",
+      "symbol": "m_S",
+      "value": "1.705 \u00b1 0.015"
+    },
+    {
+      "category": "A",
+      "symbol": "\u039b_QCD",
+      "value": "0.1046"
+    },
+    {
+      "category": "C",
+      "symbol": "\u03bb_UIDT",
+      "value": "0.660 \u00b1 0.005"
+    },
+    {
+      "category": "C",
+      "symbol": "E_T",
+      "value": "2.44"
+    },
+    {
+      "category": "C",
+      "symbol": "S\u2088",
+      "value": "0.814 \u00b1 0.009"
+    }
+  ]
+}

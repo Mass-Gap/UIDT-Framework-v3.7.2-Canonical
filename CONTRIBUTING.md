@@ -30,3 +30,7 @@ The values for $\Delta$ (1.710 GeV) and $\gamma$ (16.339) are analytically deriv
 
 ---
 *By contributing, you agree that your code will be licensed under CC BY 4.0.*
+
+## Git Hooks
+
+Please review [.githooks/README.md](.githooks/README.md) for information regarding the required git hooks (pre-commit, commit-msg, pre-push) that enforce AI audit policies and commit standards in this repository.

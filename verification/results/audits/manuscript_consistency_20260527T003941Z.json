@@ -1,0 +1,91 @@
+{
+  "consistent": [
+    {
+      "category": "A",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "\u0394"
+    },
+    {
+      "category": "A-",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/EVIDENCE.md"
+      ],
+      "symbol": "\u03b3"
+    },
+    {
+      "category": "A",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "\u03ba"
+    },
+    {
+      "category": "A",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "\u03bb_S"
+    },
+    {
+      "category": "A",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "v"
+    },
+    {
+      "category": "C",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "H\u2080"
+    },
+    {
+      "category": "D",
+      "refs": [
+        "AGENTS.md",
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "m_S"
+    },
+    {
+      "category": "A",
+      "refs": [
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "\u039b_QCD"
+    },
+    {
+      "category": "C",
+      "refs": [
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "\u03bb_UIDT"
+    },
+    {
+      "category": "C",
+      "refs": [
+        ".kiro/steering/uidt-framework-constitution.md"
+      ],
+      "symbol": "E_T"
+    },
+    {
+      "category": "C",
+      "refs": [
+        "UIDT-OS/CANONICAL/FORMALISM.md"
+      ],
+      "symbol": "S\u2088"
+    }
+  ],
+  "inconsistent": [],
+  "missing_manuscript_refs": [],
+  "timestamp": "20260527T003941Z"
+}

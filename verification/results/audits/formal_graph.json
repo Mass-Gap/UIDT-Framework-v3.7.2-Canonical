@@ -1,0 +1,151 @@
+{
+  "edges": [
+    {
+      "from": "AX-002",
+      "to": "AX-003",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-001",
+      "to": "AX-004",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-002",
+      "to": "AX-004",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-004",
+      "to": "AX-005",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-003",
+      "to": "AX-006",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-002",
+      "to": "AX-007",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-003",
+      "to": "AX-007",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-004",
+      "to": "AX-007",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-009",
+      "to": "AX-008",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-003",
+      "to": "AX-010",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-006",
+      "to": "AX-010",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-003",
+      "to": "AX-011",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-003",
+      "to": "AX-012",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-006",
+      "to": "AX-012",
+      "type": "depends_on"
+    },
+    {
+      "from": "AX-013",
+      "to": "AX-014",
+      "type": "depends_on"
+    }
+  ],
+  "nodes": [
+    {
+      "category": "A",
+      "id": "AX-001",
+      "statement": "Yang-Mills Lagrangian: L_YM = -1/4 F^a_\u03bc\u03bd F^{a\u03bc\u03bd}"
+    },
+    {
+      "category": "A",
+      "id": "AX-002",
+      "statement": "Scalar Lagrangian: L_S = 1/2 \u2202_\u03bc S \u2202^\u03bc S - V(S)"
+    },
+    {
+      "category": "A",
+      "id": "AX-003",
+      "statement": "Scalar Potential: V(S) = \u03bb_S/4 (S^2 - v^2)^2"
+    },
+    {
+      "category": "A",
+      "id": "AX-004",
+      "statement": "Non-Minimal Coupling: L_int = -\u03ba/4 S^2 F^a_\u03bc\u03bd F^{a\u03bc\u03bd}"
+    },
+    {
+      "category": "A",
+      "id": "AX-005",
+      "statement": "RG Fixed Point Constraint: 5\u03ba^2 = 3\u03bb_S"
+    },
+    {
+      "category": "A",
+      "id": "AX-006",
+      "statement": "Vacuum Expectation: <S> = v = 47.7 MeV"
+    },
+    {
+      "category": "A",
+      "id": "AX-007",
+      "statement": "Schwinger-Dyson Equation: \u25a1S + \u03bb_S S(S^2 - v^2) + \u03ba/2 S F^2 = 0"
+    },
+    {
+      "category": "A",
+      "id": "AX-008",
+      "statement": "Spectral Gap: \u0394 = \u03b3 \u00b7 \u039b_QCD"
+    },
+    {
+      "category": "A-",
+      "id": "AX-009",
+      "statement": "Kinetic VEV: \u03b3 = 16.339 (phenomenologically calibrated)"
+    },
+    {
+      "category": "A",
+      "id": "AX-010",
+      "statement": "Scalar Mass: m_S^2 = 2\u03bb_S v^2"
+    },
+    {
+      "category": "A",
+      "id": "AX-011",
+      "statement": "Perturbative Stability: \u03bb_S < 1"
+    },
+    {
+      "category": "A",
+      "id": "AX-012",
+      "statement": "Vacuum Stability: V''(v) = 2\u03bb_S v^2 > 0"
+    },
+    {
+      "category": "A",
+      "id": "AX-013",
+      "statement": "Numerical Precision: mpmath.mp.dps = 80 (local declaration required)"
+    },
+    {
+      "category": "A",
+      "id": "AX-014",
+      "statement": "Residual Threshold: |residual| < 10^-14 for Category A claims"
+    }
+  ]
+}
