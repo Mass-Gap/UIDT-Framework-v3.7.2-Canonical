@@ -1,0 +1,3 @@
+#!/bin/sh
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:/Users/badbu/.codex/tools/uidt_pre_commit_guard.ps1"
+exit $?

@@ -1,0 +1,22 @@
+{
+  "framework_version": "3.9",
+  "gate_e_status": "PASS",
+  "regressions": [],
+  "stable_parameters": [
+    {
+      "constraint": "5\u03ba\u00b2 = 3\u03bb_S",
+      "lhs": "1.25",
+      "residual": "0.0",
+      "rhs": "1.25",
+      "status": "STABLE",
+      "threshold": "1e-14"
+    },
+    {
+      "category": "A",
+      "parameter": "\u0394",
+      "status": "STABLE",
+      "value": "1.710 \u00b1 0.015"
+    }
+  ],
+  "timestamp": "20260527T010419Z"
+}

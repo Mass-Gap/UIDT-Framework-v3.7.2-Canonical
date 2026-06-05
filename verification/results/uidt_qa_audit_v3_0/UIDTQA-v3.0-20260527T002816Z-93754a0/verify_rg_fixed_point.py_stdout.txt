@@ -1,0 +1,14 @@
+================================================================
+UIDT v3.9 RG FIXED POINT CONSTRAINT VERIFICATION
+================================================================
+
+[1] Verifying RG Fixed Point Constraint:
+    Target: |5*kappa^2 - 3*lambda_S| < 1e-14
+    kappa        = 0.5
+    lambda_S     = 0.41666666666666666667  (5*kappa^2/3 = 5/12)
+    5 * kappa^2  = 1.25
+    3 * lambda_S = 1.25
+    Residual     = 0.0
+
+PASS: RG FIXED POINT CONSTRAINT STRICTLY SATISFIED.
+      Category [A] - Residual < 1e-14 (actual: 0.0)

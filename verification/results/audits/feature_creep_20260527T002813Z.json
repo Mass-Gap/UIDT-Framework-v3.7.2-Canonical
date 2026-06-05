@@ -1,0 +1,16 @@
+{
+  "complexity_metrics": {
+    "module_to_script_ratio": 0.13924050632911392,
+    "total_modules": 11,
+    "total_scripts": 79
+  },
+  "creep_detected": false,
+  "module_counts": {
+    "core": 4,
+    "modules": 7
+  },
+  "script_counts": {
+    "verification": 79
+  },
+  "timestamp": "20260527T002813Z"
+}

@@ -1,0 +1,68 @@
+{
+  "core_parameters": [
+    {
+      "category": "A",
+      "scope": "core",
+      "symbol": "\u0394"
+    },
+    {
+      "category": "A",
+      "scope": "core",
+      "symbol": "\u03ba"
+    },
+    {
+      "category": "A",
+      "scope": "core",
+      "symbol": "\u03bb_S"
+    },
+    {
+      "category": "A",
+      "scope": "core",
+      "symbol": "v"
+    },
+    {
+      "category": "A",
+      "scope": "core",
+      "symbol": "\u039b_QCD"
+    }
+  ],
+  "core_problem": "Yang-Mills mass gap (Clay Millennium Problem)",
+  "core_ratio": 0.45454545454545453,
+  "extended_parameters": [
+    {
+      "category": "A-",
+      "scope": "extended",
+      "symbol": "\u03b3"
+    },
+    {
+      "category": "C",
+      "note": "Extension beyond core problem",
+      "scope": "cosmology",
+      "symbol": "H\u2080"
+    },
+    {
+      "category": "D",
+      "scope": "extended",
+      "symbol": "m_S"
+    },
+    {
+      "category": "C",
+      "note": "Extension beyond core problem",
+      "scope": "cosmology",
+      "symbol": "\u03bb_UIDT"
+    },
+    {
+      "category": "C",
+      "scope": "extended",
+      "symbol": "E_T"
+    },
+    {
+      "category": "C",
+      "note": "Extension beyond core problem",
+      "scope": "cosmology",
+      "symbol": "S\u2088"
+    }
+  ],
+  "scope_drift_detected": false,
+  "timestamp": "20260527T004014Z"
+}

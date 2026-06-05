@@ -1,12 +1,29 @@
-# Document History & External Contributions (UIDT Framework v3.9)
+# External peer counter-signatures (AI_AUDIT_POLICY §2.3)
 
-## 1. Internal Derivations
-The geometric base frequency ($104.66 \text{ MeV}$) and the vacuum resonance frequency ($107.10 \text{ MeV}$) were independently derived by Philipp Rietz within the UIDT framework (Banach Fixed-Point and Lattice Torsion formalism). These values are foundational to the UIDT derivation chain.
+Per AI_AUDIT_POLICY.md §2.3, any PR that introduces, modifies, or upgrades a claim with
+evidence class [A], [A-], or [B] requires a counter-signature from an externally peer-reviewed
+physicist who is not the PI and who is not an AI agent.
 
-## 2. External Validation & Acknowledgments
-In February 2026, the UIDT Zenodo research group received an independent theoretical document by Baddewithana (referred to as the "3-6-9 Octave Scaling Model"). 
-While the Baddewithana framework and the UIDT framework share no formal overlap (e.g., UIDT relies on explicit Renormalization Group structures and precision verification), the numerical proximity of the Baddewithana vacuum unit to the UIDT $107.10 \text{ MeV}$ resonance frequency served as external cross-validation.
+Counter-signatures are recorded here, one block per signature.
 
-We gratefully acknowledge the receipt of this material. The Baddewithana document is not source material for the UIDT mathematical proofs but is appreciated as phenomenological context.
+## Format
 
-*Note: Any potential citation to external preprints (e.g., arXiv:2405.12345) regarding this specific octave model remains pending verification/author correction.*
+```
+- date: YYYY-MM-DD
+  pr: <number>
+  claim_ids: [UIDT-C-XXX, ...]
+  reviewer:
+    name: <name>
+    affiliation: <institution>
+    orcid_or_equivalent: <ID>
+    contact: <e-mail or stable handle>
+  statement: |
+    One paragraph in the reviewer's own words confirming what they reviewed and what their
+    judgement is. No AI-generated text. The reviewer attests this is their own writing.
+  scope_notes: |
+    What the signature does and does NOT cover.
+```
+
+## Signatures
+
+(none yet — to be filled by Wave-2+ research PRs)
