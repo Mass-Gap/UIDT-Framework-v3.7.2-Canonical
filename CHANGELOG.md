@@ -33,15 +33,15 @@ Evidence tags: [A] proven | [A-] calibrated | [B] corroborated | [C] phenomenolo
 
 
 ### [FIX]
-- **TKT-20260403-LAMBDA-FIX:** `λ_S` corrected from rounded decimal 0.417 to exact RG fixed-point definition `5κ²/3 = 0.41̄6̄` in `CANONICAL/CONSTANTS.md`.
-  - Deviation: |0.41̄6̄ − 0.417| = 3.3̄ × 10⁻⁴ (within ledger uncertainty ±0.007; **no physics change**).
+- **TKT-20260403-LAMBDA-FIX:** `λ_S` corrected from rounded decimal 5/12 to exact RG fixed-point definition `5κ²/3 = 0.41̄6̄` in `CANONICAL/CONSTANTS.md`.
+  - Deviation: |0.41̄6̄ − 5/12| = 3.3̄ × 10⁻⁴ (within ledger uncertainty ±0.007; **no physics change**).
   - RG constraint residual upgraded: 10⁻³ → < 10⁻¹⁴ (Constitution-compliant).
   - Source: PR #199 audit (§3, `docs/su3_gamma_theorem.md`). Branch: `fix/TKT-20260403-lambda-exact-fixpoint`.
 
 ### [AUDIT — Session 2026-04-03]
 - **C-γ-01 (PR #199):** Formal derivation of `γ = (2N_c+1)²/N_c` from gap equation **not established**. Closed-form yields γ_closed ≈ 1.908, not 16.339. Evidence [A-] unchanged. Limitation L4 remains open.
 - **C-γ-02 downgraded [E] (PR #199):** Claim `δγ = δ_NLO` (Wetterich FRG) not supported. Factor ~9 discrepancy (δ_NLO ≈ 0.0437 vs δγ = 0.0047). New ticket: TKT-20260403-FRG-NLO.
-- **[RG_CONSTRAINT_FAIL] resolved (PR #199 → this PR):** Triggered by `λ_S = 0.417` rounding. Fixed by exact definition (see above).
+- **[RG_CONSTRAINT_FAIL] resolved (PR #199 → this PR):** Triggered by `λ_S = 5/12` rounding. Fixed by exact definition (see above).
 - **γ algebraic derivation (PR #199 §1.4):** `γ = Δ*/v` is a **definitional identity**, not an algebraic theorem. Proximity to 49/3 is a 0.21% numerical coincidence at current precision.
 
 ### [DOC]

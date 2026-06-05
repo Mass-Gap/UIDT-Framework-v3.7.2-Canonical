@@ -106,7 +106,7 @@ has been corrected to reflect the actual computed value of ~143 MeV.
 
 ## 6. Script Changes Made
 
-- `LAMBDA_S`: Updated from `0.417` to `5 * mp.mpf("0.5")**2 / 3`
+- `LAMBDA_S`: Updated from `5/12` to `5 * mp.mpf("0.5")**2 / 3`
   (exact RG fixed-point, consistent with CANONICAL v3.9.5)
 - Docstring line 29: Corrected from "~107 MeV" to "~143 MeV"
 

@@ -49,7 +49,7 @@ Every numeric value in the PR diff MUST be cross-referenced against CANONICAL/CO
 | γ (kinetic) | 16.339 | exact match | [A-] |
 | γ (MC) | 16.374 ± 1.005 | within stated σ | [A-] |
 | κ | 0.500 ± 0.008 | exact match | [A] |
-| λ_S | 0.417 ± 0.007 | exact match | [A] |
+| λ_S | 5/12 ± 0.007 | exact match | [A] |
 | v | 47.7 MeV | exact match | [A] |
 | m_S | 1.705 ± 0.015 GeV | exact match | [D] |
 | H₀ | 70.4 ± 0.16 km/s/Mpc | exact match | [C] |

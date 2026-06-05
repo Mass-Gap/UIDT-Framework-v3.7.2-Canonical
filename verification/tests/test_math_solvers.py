@@ -23,10 +23,10 @@ class TestSolveExactCubicV(unittest.TestCase):
         mp.dps = 80
 
     def test_happy_path(self):
-        """Test with canonical parameters (m_S=1.705, kappa=0.500, lambda_S=0.417)"""
+        """Test with canonical parameters (m_S=1.705, kappa=0.500, lambda_S=5/12)"""
         m_S = 1.705
         kappa = 0.500
-        lambda_S = 0.417
+        lambda_S = 5/12
 
         v = solve_exact_cubic_v(m_S, lambda_S, kappa)
 

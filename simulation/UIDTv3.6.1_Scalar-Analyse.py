@@ -34,7 +34,7 @@ class LatticeConfig:
     def __init__(self, N_spatial=8, N_temporal=8, beta=5.7, a=0.12, 
                  N_therm=20, N_meas=50, N_skip=2, seed=12345,
                  kappa=0.5, Lambda=1.0, 
-                 m_S=1.705, lambda_S=0.417, v_vev=0.0477):
+                 m_S=1.705, lambda_S=5/12, v_vev=0.0477):
         self.N_spatial = N_spatial
         self.N_temporal = N_temporal
         
@@ -155,7 +155,7 @@ def integrated_autocorrelation_time(data, max_lag=None):
 
 class UIDTScalarAnalysis(UIDTLatticeWithSmearing):
     def __init__(self, cfg: LatticeConfig, kappa=0.5, Lambda=1.0,
-                 m_S=1.705, lambda_S=0.417, v_vev=0.0477):
+                 m_S=1.705, lambda_S=5/12, v_vev=0.0477):
         """
         Initialize Scalar Analysis with v3.6.1 Clean State parameters.
         """
@@ -361,7 +361,7 @@ if __name__ == "__main__":
         seed=123,
         v_vev=0.0477, # v3.6.1 Clean State
         m_S=1.705,
-        lambda_S=0.417
+        lambda_S=5/12
     )
     
     print("\n🧪 Running Scalar Mass Test (v3.6.1 Clean State)...")

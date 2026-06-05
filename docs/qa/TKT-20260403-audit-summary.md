@@ -39,7 +39,7 @@
 
 | Before | After |
 |--------|-------|
-| $\lambda_S = 0.417$ (rounded) | $\lambda_S = 5\kappa^2/3 = 5/12$ (exact) |
+| $\lambda_S = 5/12$ (rounded) | $\lambda_S = 5\kappa^2/3 = 5/12$ (exact) |
 | Residual: 0.001 | Residual: < 1e-78 (mp.dps=80) |
 | Evidence [A] (tol. 0.01) | Evidence **[A] (tol. < 1e-14)** |
 

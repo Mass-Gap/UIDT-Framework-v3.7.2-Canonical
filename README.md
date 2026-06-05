@@ -125,7 +125,7 @@ graph LR
     RG["5κ² = 3λ_S [A]"]
     Res["Residuals < 1e-14 [A]"]
     Kappa["κ = 0.500 ± 0.008 [A]"]
-    LambdaS["λ_S = 5κ²/3 ≈ 0.417 [A]"]
+    LambdaS["λ_S = 5κ²/3 ≈ 5/12 [A]"]
     VEV["v = 47.7 MeV [A]"]
     mS["m_S = 1.705 ± 0.015 GeV [B]"]
   end

@@ -2,7 +2,7 @@ def run_optimized_uidt_hmc(cfg: LatticeConfig,
                            kappa=0.5, 
                            Lambda=1.0, 
                            m_S=1.705,       # v3.6.1 Canonical Mass
-                           lambda_S=0.417,  # v3.6.1 Derived Coupling
+                           lambda_S=5/12,  # v3.6.1 Derived Coupling
                            v_vev=0.0477,    # v3.6.1 CLEAN STATE VEV (47.7 MeV)
                            use_omelyan=True, 
                            adaptive_stepsize=True):

@@ -34,7 +34,7 @@ and verify output matches expected Δ*.
 
 This file implements the RG fixed-point constraint 5κ² = 3λ_S. It
 correctly derives λ_S from the exact relation `(5/3) * κ²` rather than
-the rounded value 0.417. Contains explicit linter protection comment.
+the rounded value 5/12. Contains explicit linter protection comment.
 
 **Recommendation:** Review before merge. Verify residual is exactly 0.
 
@@ -54,7 +54,7 @@ for the February 2026 QA sweep and have not been superseded by a later
 framework. The audit functions are complementary to the existing
 `verification/scripts/` suite.
 
-No λ_S = 0.417 found in any audit file.
+No λ_S = 5/12 found in any audit file.
 
 **Recommendation:** Merge is safe. These are read-only analysis tools.
 
