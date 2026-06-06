@@ -46,7 +46,7 @@ Author:  UIDT Framework v3.9
 License: CC BY 4.0
 """
 
-import mpmath as mp
+from mpmath import mp
 import sys
 import os
 
@@ -88,7 +88,6 @@ def torsion_kill_switch(ET, Sigma_T):
         If ET = 0  =>  Sigma_T must be exactly 0.
     Returns True if constraint satisfied, False otherwise.
     """
-    mp.dps = 80
     ET      = mp.mpf(str(ET))
     Sigma_T = mp.mpf(str(Sigma_T))
     if ET == mp.mpf('0'):
