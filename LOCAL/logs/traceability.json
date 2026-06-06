@@ -1,0 +1,12 @@
+{
+  "TKT-ARXIV-SCAN": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "completed",
+    "timestamp": 1780755257,
+    "author": "Jules"
+  }
+}
