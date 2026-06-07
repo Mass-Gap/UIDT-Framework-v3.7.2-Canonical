@@ -1,0 +1,10 @@
+.uidt-local/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+verification/data/pregeometry/pytest-tmp*/
+verification/data/pregeometry/pr0_run_*.json
+verification/data/pregeometry/runs/
+verification/pregeometry/reports/pr0_report_*.md
+

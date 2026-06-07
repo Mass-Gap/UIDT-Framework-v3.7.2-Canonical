@@ -1,0 +1,9 @@
+textual
+textual-dev
+rich
+pydantic>=2
+typer
+orjson
+watchfiles
+plotext
+textual-plotext
