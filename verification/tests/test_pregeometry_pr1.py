@@ -1,16 +1,30 @@
 from __future__ import annotations
 
 import json
+from fractions import Fraction
 from pathlib import Path
 
 import pytest
 
 from verification.pregeometry.dashboard.renderers import render_dashboard_snapshot
+from verification.pregeometry.dashboard.schemas import assert_no_forbidden_visualization_text
 from verification.pregeometry.dashboard.telemetry import read_events, read_summary
 from verification.pregeometry.experiments.run_pr1_null_ensembles import ensure_allowed_pr1_output, run_pr1_null_ensembles
 from verification.pregeometry.experiments.run_pregeometry_toy import run_pr0
-from verification.pregeometry.null_ensembles import generate_all_ensembles, pr0_invariant_trace
-from verification.pregeometry.separation_metrics import final_state_l1, summarize_ensemble_metrics, trajectory_l1
+from verification.pregeometry.null_ensembles import (
+    degree_preserving_shuffle_state,
+    generate_all_ensembles,
+    pr0_invariant_trace,
+    pr0_state_trace,
+    undirected_degree_sequence,
+)
+from verification.pregeometry.separation_metrics import (
+    final_state_l1,
+    pseudo_label_permutation_p_value,
+    pseudo_label_statistics,
+    summarize_ensemble_metrics,
+    trajectory_l1,
+)
 
 
 def test_pr0_invariants_unchanged_for_pr1_reference_trace() -> None:
@@ -22,6 +36,19 @@ def test_pr0_invariants_unchanged_for_pr1_reference_trace() -> None:
 def test_null_ensembles_are_deterministic_for_fixed_seed() -> None:
     first = generate_all_ensembles(iterations=5, seed=39, ensemble_size=4)
     second = generate_all_ensembles(iterations=5, seed=39, ensemble_size=4)
+    assert first == second
+
+
+def test_degree_preserving_shuffle_preserves_pr0_final_degree_sequence() -> None:
+    reference = pr0_state_trace(8)[-1]
+    candidate = degree_preserving_shuffle_state(reference, seed=39, member_index=0)
+    assert sorted(undirected_degree_sequence(candidate)) == sorted(undirected_degree_sequence(reference))
+
+
+def test_degree_preserving_shuffle_is_deterministic_for_fixed_seed() -> None:
+    reference = pr0_state_trace(8)[-1]
+    first = degree_preserving_shuffle_state(reference, seed=39, member_index=3)
+    second = degree_preserving_shuffle_state(reference, seed=39, member_index=3)
     assert first == second
 
 
@@ -50,11 +77,30 @@ def test_forbidden_labels_are_rejected_by_metric_summary() -> None:
     reference = pr0_invariant_trace(2)
     with pytest.raises(ValueError):
         summarize_ensemble_metrics(
+            # Test-only rejection coverage for a registered forbidden label.
             ensemble_name="Minkowski",
             reference_trace=reference,
             candidate_traces=(reference,),
             seed=39,
         )
+
+
+def test_pseudo_label_permutation_diagnostic_excludes_self_distance() -> None:
+    reference = pr0_invariant_trace(4)
+    ensembles = generate_all_ensembles(iterations=4, seed=39, ensemble_size=2)
+    traces = [trace.invariants_by_tick for trace in ensembles["erdos_renyi"]]
+    stats = pseudo_label_statistics(reference, traces)
+    expected_reference_stat = Fraction(trajectory_l1(reference, traces[0]) + trajectory_l1(reference, traces[1]), 2)
+    assert stats[0] == expected_reference_stat
+
+
+def test_pseudo_label_permutation_diagnostic_is_deterministic() -> None:
+    reference = pr0_invariant_trace(4)
+    ensembles = generate_all_ensembles(iterations=4, seed=39, ensemble_size=3)
+    traces = [trace.invariants_by_tick for trace in ensembles["random_dag"]]
+    first = pseudo_label_permutation_p_value(reference, traces)
+    second = pseudo_label_permutation_p_value(reference, traces)
+    assert first == second
 
 
 def test_pr1_runtime_artifacts_stay_under_allowed_directory(tmp_path: Path) -> None:
@@ -73,6 +119,16 @@ def test_pr1_report_scopes_nonzero_separation_to_selected_nulls(tmp_path: Path) 
     assert "distinguishability from selected null" in text
     assert "Physical interpretation remains outside the scope" in text
     assert "[D/E]" in text
+    assert_no_forbidden_visualization_text(text)
+
+
+def test_pr_body_safe_limitations_wording_contains_no_forbidden_labels() -> None:
+    text = (
+        "A nonzero separation metric indicates distinguishability from selected null ensembles only. "
+        "It is not evidence for any registered forbidden target-label category. "
+        "All physical interpretation remains [D/E]."
+    )
+    assert_no_forbidden_visualization_text(text)
 
 
 def test_dashboard_remains_read_only_with_pr1_files_present(tmp_path: Path) -> None:

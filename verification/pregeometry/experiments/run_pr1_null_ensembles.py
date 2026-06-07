@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any
 
 from verification.pregeometry.dashboard.schemas import assert_no_forbidden_visualization_text
 from verification.pregeometry.null_ensembles import NULL_ENSEMBLE_NAMES, generate_all_ensembles, pr0_invariant_trace
@@ -42,7 +41,6 @@ def run_pr1_null_ensembles(
     reference_trace = pr0_invariant_trace(iterations)
     ensembles = generate_all_ensembles(iterations=iterations, seed=seed, ensemble_size=ensemble_size)
     metric_rows = []
-    ensemble_payload: dict[str, Any] = {}
     for index, name in enumerate(NULL_ENSEMBLE_NAMES):
         traces = ensembles[name]
         metric = summarize_ensemble_metrics(
@@ -52,7 +50,6 @@ def run_pr1_null_ensembles(
             seed=seed + index,
         )
         metric_rows.append(metric.as_jsonable())
-        ensemble_payload[name] = [trace.as_jsonable() for trace in traces]
 
     summary: dict[str, object] = {
         "schema": PR1_OUTPUT_SCHEMA,

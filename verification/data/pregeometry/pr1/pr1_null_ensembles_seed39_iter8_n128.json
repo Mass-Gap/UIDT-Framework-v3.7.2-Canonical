@@ -24,9 +24,9 @@
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "0.534883720930",
-        "denominator": 43,
-        "numerator": 23
+        "decimal": "0.007751937984",
+        "denominator": 129,
+        "numerator": 1
       },
       "trajectory_l1_mean": {
         "decimal": "35.59375",
@@ -62,9 +62,9 @@
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "0.519379844961",
+        "decimal": "0.007751937984",
         "denominator": 129,
-        "numerator": 67
+        "numerator": 1
       },
       "trajectory_l1_mean": {
         "decimal": "34.71875",
@@ -80,39 +80,39 @@
     {
       "bootstrap_ci": {
         "high": {
-          "decimal": "6.53125",
-          "denominator": 32,
-          "numerator": 209
+          "decimal": "0",
+          "denominator": 1,
+          "numerator": 0
         },
         "low": {
-          "decimal": "6.296875",
-          "denominator": 64,
-          "numerator": 403
+          "decimal": "0",
+          "denominator": 1,
+          "numerator": 0
         }
       },
       "claim_status": "[D]",
       "ensemble": "degree_preserving_shuffle",
       "final_state_l1_mean": {
-        "decimal": "2.015625",
-        "denominator": 64,
-        "numerator": 129
+        "decimal": "0",
+        "denominator": 1,
+        "numerator": 0
       },
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "0.201550387596",
-        "denominator": 129,
-        "numerator": 26
+        "decimal": "1",
+        "denominator": 1,
+        "numerator": 1
       },
       "trajectory_l1_mean": {
-        "decimal": "6.40625",
-        "denominator": 32,
-        "numerator": 205
+        "decimal": "0",
+        "denominator": 1,
+        "numerator": 0
       },
       "wasserstein_mean": {
-        "decimal": "0.75390625",
-        "denominator": 256,
-        "numerator": 193
+        "decimal": "0",
+        "denominator": 1,
+        "numerator": 0
       }
     },
     {
@@ -138,8 +138,8 @@
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "1",
-        "denominator": 1,
+        "decimal": "0.007751937984",
+        "denominator": 129,
         "numerator": 1
       },
       "trajectory_l1_mean": {

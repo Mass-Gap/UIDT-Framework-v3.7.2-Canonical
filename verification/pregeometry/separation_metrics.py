@@ -16,7 +16,6 @@ from verification.pregeometry.statistics import (
     bootstrap_confidence_interval,
     fraction_to_jsonable,
     mean_fraction,
-    permutation_p_value,
 )
 
 
@@ -97,16 +96,53 @@ def summarize_ensemble_metrics(
     wasserstein_distances = tuple(telemetry_wasserstein(reference_trace, trace) for trace in candidate_traces)
     ci_low, ci_high = bootstrap_confidence_interval(trajectory_distances, seed=seed)
     observed = mean_fraction(trajectory_distances)
+    pseudo_label_p = pseudo_label_permutation_p_value(reference_trace, candidate_traces)
     return EnsembleMetricSummary(
         ensemble=ensemble_name,
         member_count=len(candidate_traces),
         final_state_l1_mean=mean_fraction(final_distances),
         trajectory_l1_mean=observed,
         wasserstein_mean=mean_fraction(wasserstein_distances),
-        permutation_p_value=permutation_p_value(observed, trajectory_distances),
+        permutation_p_value=pseudo_label_p,
         bootstrap_ci_low=ci_low,
         bootstrap_ci_high=ci_high,
     )
+
+
+def pseudo_label_permutation_p_value(
+    reference_trace: Sequence[GraphInvariants],
+    candidate_traces: Sequence[Sequence[GraphInvariants]],
+) -> Fraction:
+    """Return a deterministic pseudo-label permutation diagnostic with status [D]."""
+    stats = pseudo_label_statistics(reference_trace, candidate_traces)
+    if len(stats) <= 1:
+        return Fraction(1, 1)
+    observed_stat = stats[0]
+    tail_count = sum(1 for stat in stats if stat >= observed_stat)
+    return Fraction(tail_count, len(stats))
+
+
+def pseudo_label_statistics(
+    reference_trace: Sequence[GraphInvariants],
+    candidate_traces: Sequence[Sequence[GraphInvariants]],
+) -> tuple[Fraction, ...]:
+    traces = (tuple(reference_trace),) + tuple(tuple(trace) for trace in candidate_traces)
+    if len(traces) <= 1:
+        return (Fraction(0, 1),)
+    return tuple(_mean_distance_to_other_traces(index, traces) for index in range(len(traces)))
+
+
+def _mean_distance_to_other_traces(
+    index: int,
+    traces: Sequence[Sequence[GraphInvariants]],
+) -> Fraction:
+    distances = []
+    selected = traces[index]
+    for other_index, other in enumerate(traces):
+        if other_index == index:
+            continue
+        distances.append(trajectory_l1(selected, other))
+    return mean_fraction(distances)
 
 
 def _invariant_l1(left: GraphInvariants, right: GraphInvariants) -> int:
@@ -121,4 +157,3 @@ def _invariant_l1(left: GraphInvariants, right: GraphInvariants) -> int:
 def _require_same_length(left: Sequence[object], right: Sequence[object]) -> None:
     if len(left) != len(right):
         raise ValueError("Metric inputs must have equal length.")
-

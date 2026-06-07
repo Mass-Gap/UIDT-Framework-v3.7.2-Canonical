@@ -8,11 +8,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from random import Random
-from typing import Iterable, Sequence
 
 from verification.pregeometry.growth_rules import apply_pr0_growth_step
 from verification.pregeometry.observables import GraphInvariants, compute_graph_invariants
-from verification.pregeometry.primitives import Relation, RelationalState, state_from_edges
+from verification.pregeometry.primitives import DistinctionID, RelationalState, state_from_edges
 
 
 NULL_ENSEMBLE_NAMES = (
@@ -47,6 +46,11 @@ class NullTrace:
 
 def pr0_invariant_trace(iterations: int) -> tuple[GraphInvariants, ...]:
     """Replay PR-0 with existing rules and return the invariant trace."""
+    return tuple(compute_graph_invariants(state) for state in pr0_state_trace(iterations))
+
+
+def pr0_state_trace(iterations: int) -> tuple[RelationalState, ...]:
+    """Replay PR-0 with existing rules and return the state trace."""
     if iterations < 0:
         raise ValueError("iterations must be non-negative.")
     state = RelationalState.unmarked()
@@ -54,7 +58,7 @@ def pr0_invariant_trace(iterations: int) -> tuple[GraphInvariants, ...]:
     for step in range(iterations):
         result = apply_pr0_growth_step(state, step)
         state = result.state
-        trace.append(compute_graph_invariants(state))
+        trace.append(state)
     return tuple(trace)
 
 
@@ -66,7 +70,7 @@ def generate_null_trace(*, name: str, iterations: int, seed: int, member_index: 
         raise ValueError(f"Unknown PR-1 null ensemble: {name}")
     rng = Random(_derived_seed(seed, member_index, name))
     trace: list[GraphInvariants] = []
-    reference_edges: tuple[tuple[int, int], ...] = ()
+    pr0_states = pr0_state_trace(iterations) if name == "degree_preserving_shuffle" else ()
     for tick in range(1, iterations + 1):
         node_count = tick
         if name == "erdos_renyi":
@@ -74,8 +78,8 @@ def generate_null_trace(*, name: str, iterations: int, seed: int, member_index: 
         elif name == "random_dag":
             state = _random_dag_state(node_count, rng)
         elif name == "degree_preserving_shuffle":
-            reference_edges = _reference_path_edges(node_count)
-            state = _degree_preserving_shuffle_state(node_count, reference_edges, rng)
+            reference_state = pr0_states[tick - 1]
+            state = _degree_preserving_shuffle_state(reference_state, rng)
         else:
             state = _preferential_attachment_state(node_count, rng)
         trace.append(compute_graph_invariants(state))
@@ -98,6 +102,16 @@ def generate_all_ensembles(*, iterations: int, seed: int, ensemble_size: int) ->
     }
 
 
+def degree_preserving_shuffle_state(
+    reference_state: RelationalState,
+    *,
+    seed: int,
+    member_index: int,
+) -> RelationalState:
+    rng = Random(_derived_seed(seed, member_index, "degree_preserving_shuffle"))
+    return _degree_preserving_shuffle_state(reference_state, rng)
+
+
 def _erdos_renyi_state(node_count: int, rng: Random) -> RelationalState:
     edges = []
     for a in range(node_count):
@@ -116,43 +130,26 @@ def _random_dag_state(node_count: int, rng: Random) -> RelationalState:
     return state_from_edges(node_count, edges, directed=True)
 
 
-def _degree_preserving_shuffle_state(
-    node_count: int,
-    reference_edges: Sequence[tuple[int, int]],
-    rng: Random,
-) -> RelationalState:
-    if node_count <= 1 or not reference_edges:
+def _degree_preserving_shuffle_state(reference_state: RelationalState, rng: Random) -> RelationalState:
+    """Return a label-shuffled comparator with the exact reference degree sequence."""
+    node_count = reference_state.distinction_count()
+    if node_count <= 1:
         return state_from_edges(node_count, (), directed=False)
 
-    stubs: list[int] = []
-    for a, b in reference_edges:
-        stubs.extend((a, b))
-    rng.shuffle(stubs)
-
-    edges: set[tuple[int, int]] = set()
-    leftovers = list(stubs)
-    attempts = 0
-    while len(leftovers) >= 2 and attempts < len(stubs) * len(stubs):
-        attempts += 1
-        a = leftovers.pop()
-        b = leftovers.pop()
-        if a == b:
-            leftovers.insert(0, a)
-            leftovers.insert(0, b)
-            rng.shuffle(leftovers)
-            continue
-        edge = tuple(sorted((a, b)))
-        if edge in edges:
-            leftovers.insert(0, a)
-            leftovers.insert(0, b)
-            rng.shuffle(leftovers)
-            continue
-        edges.add(edge)
-
-    if len(edges) != len(reference_edges):
-        # Deterministic fallback preserves edge count for small simple traces.
-        edges = set(reference_edges)
-    return state_from_edges(node_count, sorted(edges), directed=False)
+    labels = [distinction.value for distinction in reference_state.distinctions]
+    shuffled = list(labels)
+    rng.shuffle(shuffled)
+    permutation = dict(zip(labels, shuffled))
+    edges = sorted(
+        tuple(sorted((permutation[relation.source.value], permutation[relation.target.value])))
+        for relation in reference_state.relations
+    )
+    candidate = state_from_edges(node_count, edges, directed=False)
+    reference_degrees = sorted(undirected_degree_sequence(reference_state))
+    candidate_degrees = sorted(undirected_degree_sequence(candidate))
+    if candidate_degrees != reference_degrees:
+        raise AssertionError("degree_preserving_shuffle failed to preserve the PR-0 degree sequence exactly.")
+    return candidate
 
 
 def _preferential_attachment_state(node_count: int, rng: Random) -> RelationalState:
@@ -171,11 +168,14 @@ def _preferential_attachment_state(node_count: int, rng: Random) -> RelationalSt
     return state_from_edges(node_count, sorted(set(edges)), directed=False)
 
 
-def _reference_path_edges(node_count: int) -> tuple[tuple[int, int], ...]:
-    return tuple((index, index + 1) for index in range(max(node_count - 1, 0)))
+def undirected_degree_sequence(state: RelationalState) -> tuple[int, ...]:
+    degrees: dict[DistinctionID, int] = {distinction: 0 for distinction in state.distinctions}
+    for relation in state.relations:
+        degrees[relation.source] += 1
+        degrees[relation.target] += 1
+    return tuple(degrees[distinction] for distinction in sorted(state.distinctions))
 
 
 def _derived_seed(seed: int, member_index: int, name: str) -> int:
     name_value = sum((index + 1) * ord(char) for index, char in enumerate(name))
     return seed * 1_000_003 + member_index * 9_176 + name_value
-

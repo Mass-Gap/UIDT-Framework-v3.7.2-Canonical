@@ -26,10 +26,10 @@ py -m verification.pregeometry.experiments.run_pr1_null_ensembles --iterations 8
 
 | Ensemble | Members | Final L1 mean | Trajectory L1 mean | Wasserstein mean | Permutation p |
 |---|---:|---:|---:|---:|---:|
-| erdos_renyi | 128 | 9.578125 | 35.59375 | 4.353515625 | 0.534883720930 |
-| random_dag | 128 | 8.90625 | 34.71875 | 4.263671875 | 0.519379844961 |
-| degree_preserving_shuffle | 128 | 2.015625 | 6.40625 | 0.75390625 | 0.201550387596 |
-| preferential_attachment | 128 | 2 | 6 | 0.75 | 1 |
+| erdos_renyi | 128 | 9.578125 | 35.59375 | 4.353515625 | 0.007751937984 |
+| random_dag | 128 | 8.90625 | 34.71875 | 4.263671875 | 0.007751937984 |
+| degree_preserving_shuffle | 128 | 0 | 0 | 0 | 1 |
+| preferential_attachment | 128 | 2 | 6 | 0.75 | 0.007751937984 |
 
 ## Negative Results And Limitations
 
@@ -66,9 +66,9 @@ Post-hoc metric selection is not used; the registered metric list is fixed in `P
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "0.534883720930",
-        "denominator": 43,
-        "numerator": 23
+        "decimal": "0.007751937984",
+        "denominator": 129,
+        "numerator": 1
       },
       "trajectory_l1_mean": {
         "decimal": "35.59375",
@@ -104,9 +104,9 @@ Post-hoc metric selection is not used; the registered metric list is fixed in `P
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "0.519379844961",
+        "decimal": "0.007751937984",
         "denominator": 129,
-        "numerator": 67
+        "numerator": 1
       },
       "trajectory_l1_mean": {
         "decimal": "34.71875",
@@ -122,39 +122,39 @@ Post-hoc metric selection is not used; the registered metric list is fixed in `P
     {
       "bootstrap_ci": {
         "high": {
-          "decimal": "6.53125",
-          "denominator": 32,
-          "numerator": 209
+          "decimal": "0",
+          "denominator": 1,
+          "numerator": 0
         },
         "low": {
-          "decimal": "6.296875",
-          "denominator": 64,
-          "numerator": 403
+          "decimal": "0",
+          "denominator": 1,
+          "numerator": 0
         }
       },
       "claim_status": "[D]",
       "ensemble": "degree_preserving_shuffle",
       "final_state_l1_mean": {
-        "decimal": "2.015625",
-        "denominator": 64,
-        "numerator": 129
+        "decimal": "0",
+        "denominator": 1,
+        "numerator": 0
       },
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "0.201550387596",
-        "denominator": 129,
-        "numerator": 26
+        "decimal": "1",
+        "denominator": 1,
+        "numerator": 1
       },
       "trajectory_l1_mean": {
-        "decimal": "6.40625",
-        "denominator": 32,
-        "numerator": 205
+        "decimal": "0",
+        "denominator": 1,
+        "numerator": 0
       },
       "wasserstein_mean": {
-        "decimal": "0.75390625",
-        "denominator": 256,
-        "numerator": 193
+        "decimal": "0",
+        "denominator": 1,
+        "numerator": 0
       }
     },
     {
@@ -180,8 +180,8 @@ Post-hoc metric selection is not used; the registered metric list is fixed in `P
       "interpretation_boundary": "distinguishability from selected nulls only",
       "member_count": 128,
       "permutation_p_value": {
-        "decimal": "1",
-        "denominator": 1,
+        "decimal": "0.007751937984",
+        "denominator": 129,
         "numerator": 1
       },
       "trajectory_l1_mean": {
