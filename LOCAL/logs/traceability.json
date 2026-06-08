@@ -1,0 +1,15 @@
+{
+  "TKT-2026-06-08-arxiv-scan-001": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [],
+    "docs": [
+      "CANONICAL/FALSIFICATION.md",
+      "CANONICAL/LIMITATIONS.md"
+    ],
+    "status": "completed",
+    "timestamp": "2026-06-08T14:25:35.816249+00:00",
+    "author": "P. Rietz"
+  }
+}
