@@ -1,0 +1,17 @@
+{
+  "TASK-ARXIV-SCAN": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [
+      "python -m pytest verification/tests/ -v"
+    ],
+    "docs": [
+      "CANONICAL/FALSIFICATION.md",
+      "CANONICAL/LIMITATIONS.md"
+    ],
+    "status": "completed",
+    "timestamp": "2026-06-09T14:27:59.297852+00:00",
+    "author": "P. Rietz"
+  }
+}
