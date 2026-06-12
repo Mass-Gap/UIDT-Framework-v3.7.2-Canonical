@@ -1,0 +1,11 @@
+{
+  "protocol_id": "PREREG-PR-B1-002-AG2",
+  "phase": "AG-SIM",
+  "pilot_mode": true,
+  "sim_completed": false,
+  "data_frozen": false,
+  "eval_completed": false,
+  "outcome": null,
+  "start_time": "2026-06-12T03:23:02.819972+00:00",
+  "errors": []
+}
