@@ -195,7 +195,8 @@ def compute_force(
     for a in range(3):
         F_a = np.zeros((N, N), dtype=np.complex128)
 
-        # YM contribution:  dS_YM/dXa = N * (1/2) * Σ_{b≠a} [Xb, [Xa, Xb]]
+        # YM contribution: dS_YM/dXa = N * (-1/2) * [Xb, [Xa, Xb]]
+        # Force = -dS_YM/dXa = N * (+1/2) * [Xb, [Xa, Xb]]
         for b in range(3):
             if b == a:
                 continue
@@ -204,18 +205,18 @@ def compute_force(
         F_a *= N * 0.5
 
         # CS contribution: dS_CS/dXa = N * 2iα * eps-commutator
-        F_a += N * (2.0j * alpha) * cs_comms[a]
+        # Force = -dS_CS/dXa
+        F_a -= N * (2.0j * alpha) * cs_comms[a]
 
         # Mass contribution: dS_m/dXa = N * μ² * Xa
+        # Force = -dS_m/dXa
         if mu2 != 0.0:
-            F_a += N * mu2 * X[a]
+            F_a -= N * mu2 * X[a]
 
         # Double-trace contribution: dS_dt/dXa = (4 g2 / N) * tr_sum * Xa
+        # Force = -dS_dt/dXa
         if g2 != 0.0:
-            F_a += (4.0 * g2 / N) * tr_sum * X[a]
-
-        # Force = -gradient
-        F_a = -F_a
+            F_a -= (4.0 * g2 / N) * tr_sum * X[a]
 
         # Project back to traceless Hermitian
         F_a = (F_a + F_a.conj().T) / 2.0
