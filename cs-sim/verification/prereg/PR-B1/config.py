@@ -214,8 +214,8 @@ def compute_seed(model: str, N: int, alpha_tilde: float,
 
 # The PI must insert the hex digest here before production.
 # If this is empty, the orchestrator MUST abort with a FATAL error.
-PI_COMMITMENT_HEX: str = ""
-PI_COMMITMENT_UTC: str = ""
+PI_COMMITMENT_HEX: str = "6dad32ab1376bc4ae41fe76ea3380006d30f00e1336b38b0e7a1eda4cd1f673a"
+PI_COMMITMENT_UTC: str = "2026-06-12T03:47:04.956768+00:00"
 
 
 # =============================================================================
