@@ -660,7 +660,7 @@
       "id": "UIDT-C-054",
       "statement": "Gluon Condensate C_GLUON = (α_s/π)⟨G²⟩ ≈ 0.012 GeV⁴",
       "type": "parameter",
-      "status": "external",
+      "status": "calibrated",
       "evidence": "E",
       "confidence": 0.7,
       "dependencies": [],
@@ -671,7 +671,7 @@
       "id": "UIDT-C-055",
       "statement": "Strong coupling reference α_s(1.5 GeV) = 0.326 ± 0.019",
       "type": "parameter",
-      "status": "external",
+      "status": "calibrated",
       "evidence": "E",
       "confidence": 0.85,
       "dependencies": [],
@@ -762,6 +762,6 @@
     "withdrawn": 2,
     "rectified": 1,
     "conjectured": 4,
-    "external": 2
+    "calibrated": 2
   }
 }
