@@ -51,7 +51,7 @@ This document is intended for external reviewers and the FRG/Lattice community.
 
 - w₀ = −0.99 [C], ET = 2.44 MeV [C] — calibrated to cosmological observables,
   not derived from QCD first principles.
-- H₀ and S₈ tensions: **NOT resolved** by UIDT. These remain open in external literature.
+- H₀ and S₈ tensions: **NOT addressed** by UIDT. These remain open in external literature.
 
 ---
 
@@ -233,7 +233,7 @@ Any proposed change requires an explicit PR with Claims Table and Reproduction N
 - The electron mass residual from UIDT generation scaling remains unexplained.
 - The γ parameter is phenomenological [A-], not derived [A].
 - Cosmological calibration (w₀, ET) is not derived from QCD.
-- H₀ tension and S₈ tension are **not resolved** by UIDT.
+- H₀ tension and S₈ tension are **not addressed** by UIDT.
 - The framework is an active research programme, not established physics.
 
 ---

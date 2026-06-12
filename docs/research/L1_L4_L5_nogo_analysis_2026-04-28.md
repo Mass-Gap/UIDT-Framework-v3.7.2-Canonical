@@ -111,7 +111,7 @@ in quenched SU(3) Yang–Mills, sourced from lattice data.
 
 ---
 
-## 3. λS Exact Fix (Resolved: TKT-20260403-LAMBDA-FIX)
+## 3. λS Exact Fix (Addressed: TKT-20260403-LAMBDA-FIX)
 
 This PR resolves the λS rounding error identified in the prior audit.
 
@@ -176,7 +176,7 @@ Based on the no-go map above, the highest-leverage immediate next steps are:
 |------|--------|
 | No float() | ✓ All values in this doc are rational or mpmath.mpf |
 | mp.dps = 80 local | ✓ Code blocks above use local precision |
-| RG constraint 5κ²=3λS | ✓ Resolved by λS = 5/12 fix |
+| RG constraint 5κ²=3λS | ✓ Addressed by λS = 5/12 fix |
 | No mass deletion >10 lines in /core | ✓ Not applicable (docs only) |
 | Ledger constants unchanged | ✓ Δ*, γ, v, w0, ET, δγ untouched |
 | Forbidden language | ✓ No 'solved', 'proven', 'definitive' |

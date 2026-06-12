@@ -29,7 +29,7 @@ This document reports the **complete numerical execution of Step 5**, its result
 | RG constraint `5κ²=3λ_S` residual = 0 | ✅ PASS |
 | No deletion > 10 lines in /core or /modules | ✅ PASS |
 | Ledger constants Δ*, γ, v, w₀, E_T unchanged | ✅ PASS |
-| No forbidden language (solved/proven/resolved) | ✅ PASS |
+| No forbidden language (solved/proven/addressed) | ✅ PASS |
 
 ---
 

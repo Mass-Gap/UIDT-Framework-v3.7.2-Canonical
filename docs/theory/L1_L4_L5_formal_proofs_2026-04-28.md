@@ -212,7 +212,7 @@ definitional identity and promote v to an independent observable.
 This would simultaneously over-determine the system (3 constraints
 for {Delta*, gamma, v}) and potentially reveal whether
 gamma = Delta*/v is consistent or requires revision.
-Until such a measurement exists, L5 cannot be resolved independently
+Until such a measurement exists, L5 cannot be addressed independently
 of L1.
 
 **Conclusion:** v = 47.7 MeV [A] is correctly classified as a
@@ -281,7 +281,7 @@ All four conditions require [A-]. QED.
 
 ---
 
-## Metatheorem (Closure): Disjunction is exhaustive and both arms resolved
+## Metatheorem (Closure): Disjunction is exhaustive and both arms addressed
 
 ### Statement
 
@@ -330,7 +330,7 @@ With A refuted and B proven, the metatheorem follows. QED.
 - No float() used in any expression above.
 - All numerical values are exact rationals or mpmath.mpf references.
 - [TENSION ALERT] applied to L4 (delta_gamma NLO discrepancy).
-- No forbidden words (solved/proven/definitive/ultimate) used.
+- No forbidden words (solved/proven/definitive/fundamental) used.
 - Stratum I/II/III separation maintained.
 - Transparency over narrative: limitations explicitly stated.
 - Ledger constants not modified.

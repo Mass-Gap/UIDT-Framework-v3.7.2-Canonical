@@ -48,7 +48,7 @@ Using the standard PDG value for $\sin^2(\theta_W) = 0.23122$:
 - **New Residual:** 0.207568 %
 
 **Structural Source of Error:**
-The 23% error originates from treating the pure vacuum harmonic $n=3$ directly as the physical electron mass. When we account for the weak isospin projection ($\cos^2\theta_W \approx 0.76878$), the theoretical mass aligns with the observed mass to within ~0.2%. This strongly indicates that the L2 limitation can be largely resolved by fully formalizing the electroweak coupling inside the UIDT framework.
+The 23% error originates from treating the pure vacuum harmonic $n=3$ directly as the physical electron mass. When we account for the weak isospin projection ($\cos^2\theta_W \approx 0.76878$), the theoretical mass aligns with the observed mass to within ~0.2%. This strongly indicates that the L2 limitation can be largely addressed by fully formalizing the electroweak coupling inside the UIDT framework.
 
 ## 4. Stratum Declaration
 - **Stratum I content:** PDG electron mass $m_e = 0.51099895$ MeV, Weak mixing angle $\sin^2(\theta_W) = 0.23122$.

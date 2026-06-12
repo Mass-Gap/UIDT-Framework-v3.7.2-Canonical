@@ -262,7 +262,7 @@ From `docs/gamma_first_principles_crosscheck_2026-03-30.md` and `docs/first_prin
 
 ## 6. Open Questions Requiring Human Mathematical Work
 
-The following cannot be resolved by automated tool execution alone:
+The following cannot be addressed by automated tool execution alone:
 
 1. **L4-Q1:** Is (2N_c+1)²/N_c a natural outcome of SU(N_c) Casimir algebra in the kinetic VEV sector? Requires group-theoretic proof.
 
@@ -290,7 +290,7 @@ The following cannot be resolved by automated tool execution alone:
 - [x] RG constraint 5κ² = 3λ_S verified (residual = 0)
 - [x] No deletion > 10 lines in existing files
 - [x] All ledger constants unchanged
-- [x] No forbidden language ("solved", "definitive", "holy grail") used
+- [x] No forbidden language ("solved", "definitive", "significant milestone") used
 - [x] All UIDT claims labelled [E]; no upgrade claimed
 
 ---

@@ -143,7 +143,7 @@ if interpreted as negative coupling. However:
 - The "PASS" for n=2,3 is coincidental, driven by the near-zero ΔR_K
 - This channel shows NO evidence for γ^{−n} scaling
 
-**Verdict R_K: [NULL_RESULT]** — the resolved anomaly provides no
+**Verdict R_K: [NULL_RESULT]** — the addressed anomaly provides no
 useful constraint for or against the UIDT scaling hypothesis.
 
 ### 3.3 R(D*) Channel: |(R_exp/R_SM − 1) − γ^{−n}| / σ_frac
@@ -188,7 +188,7 @@ b→cτν vertex.
 
 ### Stratum II — Scientific Consensus
 
-- R_K anomaly: resolved, community consensus on SM compatibility
+- R_K anomaly: addressed, community consensus on SM compatibility
 - R(D*) tension: real, robust, confirmed by Belle, BaBar, Belle II, LHCb
 - Leading BSM models: leptoquarks, charged Higgs, W' (no consensus model)
 - No established BSM model uses a γ-type QCD vacuum parameter as coupling

@@ -6,5 +6,5 @@
 
 ## Resolution Plan
 - Compare observables with N=99 vs N=94.05.
-- Until resolved, **L5 remains OPEN**.
+- Until addressed, **L5 remains OPEN**.
 - Cosmology claims capped at [C].

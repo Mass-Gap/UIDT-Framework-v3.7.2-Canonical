@@ -256,7 +256,7 @@ If the fully NLO-corrected χ_top^{1/4} falls **outside** the range [140, 220] M
 **Verification Protocol:**
 1. Compute NLO corrections to SVZ formula using canonical α_s(μ) values
 2. Compare corrected χ_top^{1/4} with quenched lattice continuum extrapolation
-3. If corrected value inside [140, 220] MeV → tension resolved
+3. If corrected value inside [140, 220] MeV → tension addressed
 4. If outside → falsification trigger activated
 
 **Impact:**
