@@ -159,14 +159,36 @@ def detect_partition(
         m_j = int(np.sum(cluster_labels == c))
         all_sizes.append(m_j)
 
-    # Step 5: discard defect modes (m_j < KDE_MIN_CLUSTER_SIZE)
+    # Step 5: discard defect modes and resolve degenerate blocks using Casimirs
     kept: list[int] = []
     n_defect = 0
-    for m_j in all_sizes:
-        if m_j >= KDE_MIN_CLUSTER_SIZE:
-            kept.append(m_j)
-        else:
-            n_defect += 1
+    for c in range(n_clusters):
+        m_j = int(np.sum(cluster_labels == c))
+        if m_j == 0:
+            continue
+            
+        cluster_eigs = eigenvalues[cluster_labels == c]
+        mean_Q = float(np.mean(cluster_eigs))
+        
+        # Discard vacuum cluster
+        if mean_Q < 0.2:
+            continue
+            
+        # Deduce physical block size n from SU(2) Casimir Q = (n^2 - 1) / 4 -> n = sqrt(4Q + 1)
+        n_block = int(np.round(np.sqrt(max(1.0, 4.0 * mean_Q + 1.0))))
+        
+        if n_block <= 0:
+            continue
+            
+        # A block of size n_block provides n_block eigenvalues.
+        # So m_j eigenvalues means m_j / n_block copies of this block.
+        n_copies = max(1, int(np.round(m_j / float(n_block))))
+        
+        for _ in range(n_copies):
+            if n_block >= KDE_MIN_CLUSTER_SIZE:
+                kept.append(n_block)
+            else:
+                n_defect += 1
 
     partition = tuple(sorted(kept))
 
