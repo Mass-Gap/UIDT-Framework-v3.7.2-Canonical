@@ -122,3 +122,53 @@ def is_hot(seed_index: int) -> bool:
 def is_cold(seed_index: int) -> bool:
     """Return True if the seed index corresponds to a cold start."""
     return seed_index >= HOT_SEEDS
+
+
+def main() -> None:
+    """Verify cryptographic seed determinism."""
+    print("=" * 72)
+    print("PREREG-PR-B1 — Seed Determinism Verification")
+    print("=" * 72)
+    
+    # Check a specific cell
+    from ..config import GridCell
+    cell = GridCell("M0", 16, 1.0, 0.0, 0.0)
+    seed_0 = compute_seed(cell.model, cell.N, cell.alpha_tilde, cell.mu2, cell.g2, 0)
+    seed_1 = compute_seed(cell.model, cell.N, cell.alpha_tilde, cell.mu2, cell.g2, 1)
+    
+    print(f"Cell {cell}:")
+    print(f"  Seed 0: {seed_0}")
+    print(f"  Seed 1: {seed_1}")
+    
+    if seed_0 == seed_1:
+        print("[FAIL] Seeds are not unique!")
+        import sys
+        sys.exit(1)
+        
+    print("[PASS] Seed determinism verified.")
+
+
+
+def main() -> None:
+    """Verify cryptographic seed determinism."""
+    print("=" * 72)
+    print("PREREG-PR-B1 — Seed Determinism Verification")
+    print("=" * 72)
+    
+    # Check a specific cell
+    from ..config import GridCell
+    cell = GridCell("M0", 16, 1.0, 0.0, 0.0)
+    seed_0 = compute_seed(cell.model, cell.N, cell.alpha_tilde, cell.mu2, cell.g2, 0)
+    seed_1 = compute_seed(cell.model, cell.N, cell.alpha_tilde, cell.mu2, cell.g2, 1)
+    
+    print(f"Cell {cell}:")
+    print(f"  Seed 0: {seed_0}")
+    print(f"  Seed 1: {seed_1}")
+    
+    if seed_0 == seed_1:
+        print("[FAIL] Seeds are not unique!")
+        import sys
+        sys.exit(1)
+        
+    print("[PASS] Seed determinism verified.")
+
