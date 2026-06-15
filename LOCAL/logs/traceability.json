@@ -1,0 +1,14 @@
+{
+  "traceability": [],
+  "arxiv_monitor_script": {
+    "task_id": "arxiv_monitor_script",
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "completed",
+    "timestamp": "2026-06-15T14:35:37.242425+00:00",
+    "author": "Jules"
+  }
+}
