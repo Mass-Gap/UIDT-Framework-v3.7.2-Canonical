@@ -189,3 +189,6 @@ CLAUDE.md
 *.zip
 *.bak
 *.tmp
+
+# PI Decision Files (temporary, never versioned — see Plan v-wave0-2 §5)
+_pi_decision_delta.txt

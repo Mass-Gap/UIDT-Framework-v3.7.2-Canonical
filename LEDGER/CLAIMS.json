@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "version": "3.9.8",
-    "last_updated": "2026-04-25",
+    "version": "3.9.9",
+    "last_updated": "2026-05-30",
     "doi": "10.5281/zenodo.17835200",
-    "total_claims": 60,
-    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ)."
+    "total_claims": 59,
+    "audit_note": "v3.9.7 (2026-04-17): C-056 notes extended with EFT/IR reframing context. Added UIDT-C-096 (NLO-RG conjecture for χ_top tension, [E]). Session audit 2026-04-16/17. | v3.9.8a (2026-04-19): Added UIDT-C-100 (raumzeit hybrid Path A spectral gap verification, [E]). | v3.9.8b (2026-04-25): PI Decision D17 — pi_override mechanism added to schema. C-056 first applies the override (algorithmic B, PI-overridden D, rationale: Dürr et al. 2025 [arXiv:2501.08217] supersedes older Athenodorou 2021 estimate at z=4.25σ vs z=0.76σ). | v3.9.9 (2026-05-30): Wave-0-2 ledger hygiene — statistics regenerated, 7 duplicate-statement claims marked superseded_by, phantom claims C-050/C-051 explicitly flagged phantom_retained_for_xref, Δ* per PI Decision D18 (OPTION 1)."
   },
   "claims": [
     {
@@ -12,7 +12,7 @@
       "statement": "Mass Gap Δ = 1.710 ± 0.015 GeV",
       "type": "parameter",
       "status": "verified",
-      "evidence": "A",
+      "evidence": "B",
       "confidence": 0.99,
       "sigma": 5.0,
       "dependencies": [
@@ -20,7 +20,15 @@
         "Lattice QCD"
       ],
       "since": "v3.6.1",
-      "notes": "Spectral gap of Yang-Mills Hamiltonian, NOT particle mass"
+      "notes": "Spectral gap of Yang-Mills Hamiltonian, NOT particle mass | Downgraded [A]→[B] per PI Decision D18 (wave0-2). Rationale: [A] reserved for externally-proven results; Δ* is Banach-closure of UIDT's own axioms, lattice-compatible (z=0.37σ vs Chen 2006) → [B] is the honest fit.",
+      "pi_override": {
+        "evidence_override": "B",
+        "algorithmic_evidence": "A",
+        "rationale": "Δ* is the fixed point of UIDT's own Banach contraction within its axiom set — internal mathematical consistency, not an external derivation. Lattice-compatibility (z=0.37σ vs Chen et al. 2006) supports [B], not [A]. AI_AUDIT_POLICY §5 forbids 'proven' language for non-definitional claims; the ledger evidence class must follow.",
+        "decided_by": "Philipp Rietz (PI)",
+        "decided_date": "2026-05-30",
+        "pi_decision_ref": "D18"
+      }
     },
     {
       "id": "UIDT-C-002",
@@ -332,7 +340,10 @@
       "confidence": 0.8,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Casimir calculation anomaly prediction"
+      "notes": "Casimir calculation anomaly prediction",
+      "superseded_by": "UIDT-C-009",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-009. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-009."
     },
     {
       "id": "UIDT-C-029",
@@ -343,18 +354,21 @@
       "confidence": 0.9,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "DESI DR2 calibrated"
+      "notes": "DESI DR2 calibrated",
+      "superseded_by": "UIDT-C-008",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-008. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-008."
     },
     {
       "id": "UIDT-C-030",
       "statement": "Δ* = 1.710 ± 0.015 GeV",
       "type": "parameter",
       "status": "verified",
-      "evidence": "A",
+      "evidence": "B",
       "confidence": 0.99,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Yang-Mills mass gap (NOT particle mass!)"
+      "notes": "Yang-Mills mass gap (NOT particle mass!) | Downgraded [A]→[B] per PI Decision D18 (wave0-2). Rationale: [A] reserved for externally-proven results; Δ* is Banach-closure of UIDT's own axioms, lattice-compatible (z=0.37σ vs Chen 2006) → [B] is the honest fit."
     },
     {
       "id": "UIDT-C-031",
@@ -443,7 +457,10 @@
       "dependencies": [],
       "since": "v3.7.2",
       "sigma": 0.37,
-      "notes": "Numerical consistency vs lattice benchmark"
+      "notes": "Numerical consistency vs lattice benchmark",
+      "superseded_by": "UIDT-C-011",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-011. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-011."
     },
     {
       "id": "UIDT-C-039",
@@ -454,7 +471,10 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Open derivation question. See UIDT-C-017, UIDT-C-046, UIDT-C-050."
+      "notes": "Open derivation question. See UIDT-C-017, UIDT-C-046, UIDT-C-050.",
+      "superseded_by": "UIDT-C-017",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-017. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-017."
     },
     {
       "id": "UIDT-C-040",
@@ -465,7 +485,10 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Active research field"
+      "notes": "Active research field",
+      "superseded_by": "UIDT-C-016",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-016. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-016."
     },
     {
       "id": "UIDT-C-041",
@@ -477,7 +500,10 @@
       "dependencies": [],
       "since": "v3.7.2",
       "withdrawn_date": "2025-12-25",
-      "notes": "Δ is spectral gap, NOT particle mass"
+      "notes": "Δ is spectral gap, NOT particle mass",
+      "superseded_by": "UIDT-C-015",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-015. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-015."
     },
     {
       "id": "UIDT-C-042",
@@ -488,7 +514,10 @@
       "confidence": 0.7,
       "dependencies": [],
       "since": "v3.7.2",
-      "notes": "Highest priority open question"
+      "notes": "Highest priority open question",
+      "superseded_by": "UIDT-C-018",
+      "superseded_date": "2026-05-30",
+      "superseded_reason": "Duplicate statement of UIDT-C-018. Kept for cross-ref backward compatibility. Authoritative entry is UIDT-C-018."
     },
     {
       "id": "UIDT-C-043",
@@ -609,7 +638,9 @@
       ],
       "since": "v3.9",
       "notes": "Referenced in CHANGELOG.md and covariant_unification.py:27 but was never formally registered (phantom claim). N=99 phenomenologically chosen to match ρ_vac. See also UIDT-C-046 (N=94.05 proposed replacement).",
-      "falsification": "If N≠99 yields better ρ_vac match (as proposed by N=94.05)."
+      "falsification": "If N≠99 yields better ρ_vac match (as proposed by N=94.05).",
+      "phantom_retained_for_xref": true,
+      "phantom_notes": "Self-flagged as 'never formally registered'. Retained to preserve external citations. Authoritative reference: UIDT-C-017"
     },
     {
       "id": "UIDT-C-051",
@@ -623,7 +654,9 @@
         "UIDT-C-002"
       ],
       "since": "v3.9",
-      "notes": "Referenced in CHANGELOG.md as 'UIDT-C-051' but never registered (phantom claim). Validated across three UIDT-internal geometric methods at 500-dps. Internal validation → [C], not [B]. Related to L3. Source: Factor_2_3_Derivation.md."
+      "notes": "Referenced in CHANGELOG.md as 'UIDT-C-051' but never registered (phantom claim). Validated across three UIDT-internal geometric methods at 500-dps. Internal validation → [C], not [B]. Related to L3. Source: Factor_2_3_Derivation.md.",
+      "phantom_retained_for_xref": true,
+      "phantom_notes": "Self-flagged as 'never formally registered'. Retained to preserve external citations. Authoritative reference: LIMITATIONS L3"
     },
     {
       "id": "UIDT-C-052",
@@ -749,19 +782,21 @@
     }
   ],
   "statistics": {
-    "category_A": 14,
+    "category_B": 9,
     "category_A-": 4,
-    "category_B": 7,
-    "category_C": 11,
-    "category_D": 8,
-    "category_E": 15,
-    "verified": 22,
-    "calibrated": 9,
-    "predicted": 10,
-    "open": 6,
-    "withdrawn": 2,
+    "category_A": 12,
+    "category_D": 9,
+    "category_C": 12,
+    "category_E": 13,
+    "verified": 23,
+    "calibrated": 11,
     "rectified": 1,
-    "conjectured": 4,
-    "external": 2
+    "predicted": 10,
+    "withdrawn": 2,
+    "open": 7,
+    "conjectured": 3,
+    "external": 2,
+    "superseded": 7,
+    "phantom_retained_for_xref": 2
   }
 }

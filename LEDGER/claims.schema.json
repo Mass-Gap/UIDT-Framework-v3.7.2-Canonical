@@ -38,7 +38,7 @@
           },
           "status": {
             "type": "string",
-            "enum": ["verified", "calibrated", "predicted", "rectified", "open", "withdrawn", "conjectured"],
+            "enum": ["verified", "calibrated", "predicted", "rectified", "open", "withdrawn", "conjectured", "external"],
             "description": "Current claim status"
           },
           "evidence": {
@@ -94,6 +94,32 @@
               "decided_date": {"type": "string", "format": "date"},
               "pi_decision_ref": {"type": "string", "pattern": "^D\\d+$"}
             }
+          },
+          "superseded_by": {
+            "type": "string",
+            "pattern": "^UIDT-C-\\d{3}$",
+            "description": "ID of the authoritative claim this entry is superseded by (wave0-2 deduplication)"
+          },
+          "superseded_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when superseded_by was applied"
+          },
+          "superseded_reason": {
+            "type": "string",
+            "description": "Rationale for superseded marking"
+          },
+          "phantom_retained_for_xref": {
+            "type": "boolean",
+            "description": "True if this claim was never formally registered but is retained for backward-compatible cross-references"
+          },
+          "phantom_notes": {
+            "type": "string",
+            "description": "Explanation of phantom status and pointer to authoritative reference"
+          },
+          "falsification": {
+            "type": "string",
+            "description": "Conditions under which this claim would be refuted"
           }
         }
       }
@@ -106,7 +132,9 @@
         "category_B": {"type": "integer"},
         "category_C": {"type": "integer"},
         "category_D": {"type": "integer"},
-        "category_E": {"type": "integer"}
+        "category_E": {"type": "integer"},
+        "superseded": {"type": "integer"},
+        "phantom_retained_for_xref": {"type": "integer"}
       }
     }
   }
