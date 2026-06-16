@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,4 +27,4 @@ jobs:
           python-version: "3.x"
 
       - name: Run epistemic gatekeeper
-        run: python scripts/epistemic_gatekeeper.py
+        run: python scripts/epistemic_gatekeeper.py --diff "origin/${{ github.base_ref }}...HEAD"
