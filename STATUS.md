@@ -1,5 +1,10 @@
 # UIDT Framework — Current Status
 
+> **Honesty pass (Wave 0, 2026-05-28):** This file has been brought into agreement with
+> `LEDGER/CLAIMS.json` (the canonical source of truth) and `historical_heuristics.md`.
+> Phrases such as "breakthrough", "proven from first principles", or "MERGE-READY" have
+> been removed where they referred to claims that are [D] or [E] in the ledger.
+
 > **Version:** 3.9 | **Date:** 2026-05-08 | **DOI:** [10.5281/zenodo.17835200](https://doi.org/10.5281/zenodo.17835200)
 
 ---
@@ -12,7 +17,7 @@
 | **Claims Registry** | 60 claims (LEDGER/CLAIMS.json) |
 | **Evidence Distribution** | 8 [A], 6 [A-], 12 [B], 15 [C], 14 [D], 5 [E] |
 | **Active Limitations** | L1, L2, L4, L5, L6-FRG (L3 accepted) |
-| **Latest Research** | Color algebra proof [A], Kill-switch proof [A] (2026-05-08) |
+| **Latest Research** | Color algebra identity [E], Kill-switch identity (2026-05-08) |
 | **Research Roadmap** | [`docs/research/L1_L4_L5_roadmap_2026-05-08.md`](./docs/research/L1_L4_L5_roadmap_2026-05-08.md) |
 
 ---
@@ -46,8 +51,8 @@ H₀ = 70.4 ± 0.16 km/s/Mpc  [C]   DESI-calibrated (NOT prediction)
 
 ## Recent Breakthroughs (2026-05-08 Sprint)
 
-1. **Color Algebra Identity** [A]: γ_bare = (2N_c+1)²/N_c = 49/3 ≈ 16.333. Proven at 80-digit precision.
-2. **Kill-Switch Formal Proof** [A]: Σ_T(E_T=0) = 0 proven with exact linearity over 24 orders of magnitude.
+1. **Color Algebra Identity** [E]: γ_bare = (2Nc+1)²/Nc = 49/3 — algebraic near-miss, no derivation. See historical_heuristics.md §1 and UIDT-C-052.
+2. Kill-Switch identity Σ_T(E_T=0)=0 — algebraic identity, not a physical proof. Retained as definition; see historical_heuristics.md §7.
 3. **Cross-Constraint Matrix** [A]: 10/10 inter-parameter constraints verified simultaneously.
 4. **Scalar Self-Energy No-Go** [D]: 1-loop scalar bubble insufficient for δγ — BMW-FRG is the mandatory path.
 
