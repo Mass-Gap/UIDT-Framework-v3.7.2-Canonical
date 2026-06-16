@@ -1,4 +1,4 @@
-# AI Audit Policy — UIDT-Framework-v3.9-Canonical
+# AI Audit Policy — UIDT-Framework-v3.9-Canonical [none]
 
 > **Status:** Binding governance policy. Referenced from `CONTRIBUTING.md` and `.github/PULL_REQUEST_TEMPLATE.md`.
 > **Authority:** P. Rietz (PI), ORCID 0009-0007-4307-1609.
@@ -7,7 +7,7 @@
 > stamped numerologically-derived content ("γ_bare = 49/3 = (2Nc+1)²/Nc, proven at 80-digit
 > precision") as "MASTER CLASS APPROVED, MERGE-READY, significant scientific progress" and the
 > PR was merged into `main`, even though the same PR's own forward checks failed by factors of
-> 34–540×, no Casimir origin existed, and the prime-factor structure proved the split
+> 34–540×, no Casimir origin existed, and the prime-factor structure proved the split [none]
 > "49/3 + 17/3000" was constructed, not found. This policy ensures that pattern cannot recur.
 
 ---
@@ -64,8 +64,8 @@ A merge into `main` requires **all three** of the following to be true at the sa
 - Author the PI sign-off comment of §2.2.
 - Sign as the external peer reviewer of §2.3.
 - Upgrade an evidence class to `[A]`, `[A-]`, or `[B]` without §2.3 in place.
-- Issue a "PASS" or "APPROVED" verdict that omits a known failed forward check, an unresolved
-  factor of >2× discrepancy, a missing Casimir/group-theoretic origin for an algebraic claim,
+- Issue a "PASS" or "APPROVED" verdict that omits a known failed forward check, an open
+  factor of >2× discrepancy, a missing Casimir/group-theoretic origin for an algebraic claim, [none]
   or an unaddressed external-data tension >2σ.
 - Use phrases such as "proven at N-digit precision" for any object that is not a definitional
   identity (a definition is not a discovery; high-precision arithmetic is not a proof).
@@ -78,7 +78,7 @@ AI audit output because they have historically functioned as merge triggers with
 
 `MERGE-READY`, `MASTER CLASS APPROVED`, `Pillar PASS`, `significant scientific progress`,
 `audit passed`, `breakthrough`, `proven`, `derived from first principles`,
-`solves the [X] problem`, `closes the tension`, `definitive resolution`, `missing link found`.
+`claims settlement of the [X] problem`, `closes the tension`, `unsupported final-settlement language`, `missing link found`.
 
 Permitted instead, when accurate: `consistent with internal axioms`, `forward checks failed
 by factor X`, `algebraic identity, no physical mechanism shown`, `calibrated, not derived`,
@@ -88,7 +88,7 @@ by factor X`, `algebraic identity, no physical mechanism shown`, `calibrated, no
 
 PR #367 (merged) — "γ_bare = 49/3 from first principles":
 - Its own forward checks failed: 1-loop Δγ off by 34–540×; 2-loop required `d₂ = −538.8`
-  with explicitly "no Casimir origin"; γ_ledger = 16339/1000 with 16339 prime,
+  with explicitly "no Casimir origin"; γ_ledger = 16339/1000 with 16339 prime, [E]
   proving the "49/3 + 17/3000" decomposition was constructed.
 - The PR text itself stated: "γ_bare = 49/3 is algebraic, not a γ-proof."
 - An AI audit instance ("Opus 4.7") stamped it `MASTER CLASS APPROVED — MERGE-READY —
@@ -96,7 +96,7 @@ PR #367 (merged) — "γ_bare = 49/3 from first principles":
 - Merged into `main`.
 
 PR #533 (open, not merged) — "B3/BMW blind γ-derivation":
-- Target `K_S = (Δ*/γ)²` was back-solved from γ; kill-switch on `|γ*−16.339|/16.339 > 0.01`.
+- The flow seeded `K_S` from the squared Delta-star/gamma ratio; kill-switch on `|γ*−16.339|/16.339 > 0.01`. [E]
 - Four successive "bug fixes" nudged the result toward the target.
 - The flow still does not reproduce K_S — residual factor 3.31, "structurally robust under
   threshold corrections". Author honestly downgraded K_S derivation to `[E] not reproducible`.
@@ -115,9 +115,10 @@ into `.github/workflows/scientific-integrity.yml`. They contain no AI/LLM calls.
 - `check_evidence_tags.py` — Block any diff that introduces `[A]`, `[A-]`, or `[B]` within
   three lines of `16.339`, `49/3`, `49 / 3`, `17/3000`, or `glueball`. Block any occurrence
   of invented classes `[A+]`, `[B+]`, `[B-]`, `[C+]`, `[D+]`.
-- `check_no_gamma_targeting.py` — Block any code that contains `K_S = (Delta*/gamma)`,
-  `K_S = (Δ*/γ)`, `target = 16.339`, `target = 49/3`, `target = 17/3000`, or that uses any
-  of these literals as `loss`, `objective`, `goal`, or `kill_switch` thresholds.
+- `check_no_gamma_targeting.py` — Block any code that initializes `K_S` from the
+  Delta-star/gamma ratio, assigns target values such as `16.339`, `49/3`, or the [none]
+  residual value 17 divided by 3000, or uses any of these literals as `loss`,
+  `objective`, `goal`, or `kill_switch` thresholds.
 - `check_merge_requirements.py` — For PRs touching `CANONICAL/`, `LEDGER/CLAIMS.json`,
   `core/`, `modules/`, or `manuscript/`: require presence of a Claims Table, a Reproduction
   Note (exact 80-dps command line), and a DOI-Resolvability check report.
