@@ -30,3 +30,9 @@ The values for $\Delta$ (1.710 GeV) and $\gamma$ (16.339) are analytically deriv
 
 ---
 *By contributing, you agree that your code will be licensed under CC BY 4.0.*
+
+## AI audit policy
+
+This repository is governed by [`AI_AUDIT_POLICY.md`](./AI_AUDIT_POLICY.md). In particular,
+**no AI-generated audit verdict alone may authorise a merge into `main`**. See §2 of the
+policy for the three required conditions.
