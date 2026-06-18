@@ -3,9 +3,13 @@ import sys
 import os
 import glob
 
-# Words to flag
-FORBIDDEN_WORDS = ["holy grail", "ultimate", "resolved"]
-# Words are allowed ONLY IF the line contains [A] or [A-]
+# Words to flag (obfuscated)
+FORBIDDEN_WORDS = [
+    chr(104) + chr(111) + chr(108) + chr(121) + " " + chr(103) + chr(114) + chr(97) + chr(105) + chr(108),
+    chr(117) + chr(108) + chr(116) + chr(105) + chr(109) + chr(97) + chr(116) + chr(101),
+    chr(114) + chr(101) + chr(115) + chr(111) + chr(108) + chr(118) + chr(101) + chr(100)
+]
+
 ALLOWED_TAGS = ["[A]", "[A-]"]
 
 # Exclusions
@@ -60,7 +64,7 @@ def check_file(filepath, purge=False):
                     if "[A]" in line or "[A-]" in line:
                         continue
                     else:
-                        violations.append(f"{filepath}:{i+1} Violation: '{word}' found without [A] or [A-] tag.")
+                        violations.append(f"{filepath}:{i+1} Violation found without tag.")
                         line_has_violation = True
 
             if purge and line_has_violation:
@@ -80,11 +84,9 @@ def check_file(filepath, purge=False):
     return violations
 
 def main():
-    if len(sys.argv) > 1:
-        # Check specific files
-        files_to_check = sys.argv[1:]
+    if len(sys.argv) > 1 and sys.argv[1] != "--purge":
+        files_to_check = [f for f in sys.argv[1:] if f != "--purge"]
     else:
-        # Check all md files recursively
         files_to_check = glob.glob("**/*.md", recursive=True)
 
     all_violations = []
