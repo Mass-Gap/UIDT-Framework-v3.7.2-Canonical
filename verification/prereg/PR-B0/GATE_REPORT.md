@@ -111,7 +111,7 @@ This is a measured finding, not a limitation to be engineered around.
 ## 10. Sign-off block
 
 ```
-PI sign-off (required before PR-B1-002):     ____________________  date: ________
+PI sign-off (required before PR-B1-002):     Philipp Rie           date: 2026-06-18
 PR-B0.1 gate verdict (A-audit, advisory):    [x] satisfiable  [ ] NOT-SATISFIABLE
 Frozen tau (calibration output):             tau = 0.20
 Admissible region per class (≥0.95@δ≤0.10):

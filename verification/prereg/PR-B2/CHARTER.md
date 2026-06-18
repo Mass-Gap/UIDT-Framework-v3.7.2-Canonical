@@ -70,12 +70,12 @@ Listed as research directions, each with its own falsification/downgrade conditi
 ## 8. Sign-off block
 
 ```
-PI review of charter scope:                       ____________________  date: ________
-Premise accepted ((2,3)-stabilizer UNSOLVED):     [ ] yes
-Dirac route recorded as open thread, not solution:[ ] yes
-Symmetriebrechung.txt tagged [E]/over-read:       [ ] yes
-PR-B2 opened as [D]/[E] programme (not mandate):   [ ] yes
-Most-likely output = negative-result consolidation:[ ] acknowledged
+PI review of charter scope:                       Philipp Rie           date: 2026-06-18
+Premise accepted ((2,3)-stabilizer UNSOLVED):     [x] yes
+Dirac route recorded as open thread, not solution:[x] yes
+Symmetriebrechung.txt tagged [E]/over-read:       [x] yes
+PR-B2 opened as [D]/[E] programme (not mandate):   [x] yes
+Most-likely output = negative-result consolidation:[x] acknowledged
 ```
 
 ---
