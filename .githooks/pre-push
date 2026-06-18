@@ -1,0 +1,4 @@
+#!/bin/bash
+# UIDT canonical pre-push hook (passthrough — reserved for future use)
+echo "[UIDT PRE-PUSH] OK"
+exit 0

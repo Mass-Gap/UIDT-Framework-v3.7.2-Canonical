@@ -2,23 +2,50 @@ name: scientific-integrity
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, canonical]
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   ai-audit-policy-checks:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Fetch main for diff base
+        run: git fetch origin main:refs/remotes/origin/main
+
       - name: check_protected_paths
         run: python verification/scripts/check_protected_paths.py
+
       - name: check_evidence_tags
         run: python verification/scripts/check_evidence_tags.py
+
       - name: check_no_gamma_targeting
         run: python verification/scripts/check_no_gamma_targeting.py
+
+      - name: check_ontology_consistency
+        run: python verification/scripts/check_ontology_consistency.py
+
       - name: check_merge_requirements
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: python verification/scripts/check_merge_requirements.py
+
+      - name: unit tests
+        run: python -m pytest verification/tests/test_check_scripts.py -v

@@ -1,0 +1,15 @@
+#!/bin/bash
+# UIDT canonical pre-commit hook (versioned).
+# Install via: ./scripts/install-hooks.sh  (or scripts\install-hooks.bat on Windows)
+set -e
+echo "[UIDT PRE-COMMIT]"
+STAGED=$(git diff --cached --name-only 2>/dev/null)
+if [ -z "$STAGED" ]; then
+  echo "ERROR: no staged files." >&2
+  exit 1
+fi
+# Run the AI_AUDIT_POLICY §7 checks
+python3 verification/scripts/check_protected_paths.py    || exit 1
+python3 verification/scripts/check_evidence_tags.py      || exit 1
+python3 verification/scripts/check_no_gamma_targeting.py || exit 1
+echo "[UIDT PRE-COMMIT] OK"
