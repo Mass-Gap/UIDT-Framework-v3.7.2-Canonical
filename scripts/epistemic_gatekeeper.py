@@ -28,6 +28,22 @@ DEFAULT_EXCLUDED_DIRS = {
     "historical_heuristics",
 }
 
+# Audit/test tooling that legitimately contains the forbidden patterns as
+# detection regexes or negative test fixtures. These are not physics claims;
+# excluding them prevents the gatekeeper from blocking its own tooling.
+AUDIT_TOOL_ALLOWLIST = {
+    "scripts/epistemic_gatekeeper.py",
+    "verification/scripts/check_evidence_tags.py",
+    "verification/scripts/check_no_gamma_targeting.py",
+    "verification/scripts/check_protected_paths.py",
+    "verification/scripts/check_merge_requirements.py",
+    "verification/scripts/check_ontology_consistency.py",
+    "verification/tests/test_check_scripts.py",
+    "AI_AUDIT_POLICY.md",
+    "MERGE_PROTOCOL.md",
+    "CANONICAL/ONTOLOGY_LINK.md",
+}
+
 VALUE_49_OVER_3 = r"49\s*/\s*3"
 EVIDENCE_AB = r"\[[AB](?:[+\-\u2212])?\]"
 TARGET_KEYWORDS = r"(?:target|zielwert|loss|objective|minimi[sz]e|fit)"
@@ -154,6 +170,8 @@ def iter_target_files(root: Path) -> Iterable[Path]:
                 continue
             if path.resolve() == self_path:
                 continue
+            if is_audit_tool(path, root):
+                continue
             yield path
         return
 
@@ -170,6 +188,8 @@ def iter_target_files(root: Path) -> Iterable[Path]:
             if path.suffix.lower() not in TARGET_EXTENSIONS:
                 continue
             if path.resolve() == self_path:
+                continue
+            if is_audit_tool(path, root):
                 continue
             yield path
 
@@ -302,6 +322,8 @@ def scan_unified_added_lines(repo_root: Path, root: Path, diff_text: str) -> lis
             current_path = parse_diff_path(repo_root, root, raw_line[4:])
             if current_path is not None and current_path.resolve() == self_path:
                 current_path = None
+            if current_path is not None and is_audit_tool(current_path, repo_root):
+                current_path = None
             new_line_number = None
             continue
 
@@ -322,6 +344,13 @@ def scan_unified_added_lines(repo_root: Path, root: Path, diff_text: str) -> lis
             new_line_number += 1
 
     return violations
+
+
+def is_audit_tool(path: Path, base: Path) -> bool:
+    """True if the path is audit/test tooling allowed to contain forbidden patterns.
+    Matches by suffix against the allowlist so it works regardless of the base dir."""
+    posix = path.resolve().as_posix()
+    return any(posix.endswith(entry) for entry in AUDIT_TOOL_ALLOWLIST)
 
 
 def parse_diff_path(repo_root: Path, root: Path, diff_path: str) -> Path | None:
