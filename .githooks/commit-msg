@@ -1,0 +1,8 @@
+#!/bin/bash
+# UIDT canonical commit-msg hook — enforces [UIDT] <type>: <summary>
+MSG=$(head -n1 "$1")
+if ! echo "$MSG" | grep -qE '^\[UIDT\] (feat|fix|docs|chore|check|test|refactor|perf|style|build|ci|revert)(\(.+\))?: .+'; then
+  echo "ERROR: commit message must start with [UIDT] <type>: ..." >&2
+  echo "Got:   $MSG" >&2
+  exit 1
+fi
