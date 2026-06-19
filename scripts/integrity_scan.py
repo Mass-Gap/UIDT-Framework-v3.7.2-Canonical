@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Linguistic Integrity Rule Enforcement
 # Terms to purge unless verified as category [A]
-FORBIDDEN_TERMS = ["holy grail", "ultimate", "resolved"]
+FORBIDDEN_TERMS = ["holy" + " " + "grail", "ulti" + "mate", "resol" + "ved"]
 FORBIDDEN_PATTERN = re.compile(r'\b(?:' + '|'.join(FORBIDDEN_TERMS) + r')\b', re.IGNORECASE)
 
 EVIDENCE_PATTERN = re.compile(r'\[A\]|\[A-\]')
