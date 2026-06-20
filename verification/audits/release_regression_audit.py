@@ -15,7 +15,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import mpmath as mp
-mp.dps = 80
+
+
+def _registry_by_symbol(symbols: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+    return {sym["symbol"]: sym for sym in symbols}
+
+
+def _parse_mpf_value(raw_value: str) -> mp.mpf:
+    numeric_part = raw_value.split("±", 1)[0].strip()
+    return mp.mpf(numeric_part)
+
+
+def _format_mpf(value: mp.mpf) -> str:
+    return mp.nstr(value, 80)
 
 
 def main() -> int:
@@ -34,15 +46,7 @@ def main() -> int:
     with open(symbols_path, "r", encoding="utf-8") as f:
         symbols = json.load(f)
     
-    # Verify RG fixed point constraint: 5κ² = 3λ_S
-    kappa = None
-    lambda_s = None
-    
-    for sym in symbols:
-        if sym["symbol"] == "κ":
-            kappa = mp.mpf(sym["value"].split("±")[0].strip())
-        elif sym["symbol"] == "λ_S":
-            lambda_s = mp.mpf(sym["value"].split("±")[0].strip())
+    symbols_by_name = _registry_by_symbol(symbols)
     
     results = {
         "timestamp": timestamp,
@@ -52,25 +56,33 @@ def main() -> int:
         "stable_parameters": []
     }
     
-    if kappa and lambda_s:
-        lhs = 5 * kappa**2
-        rhs = 3 * lambda_s
+    with mp.workdps(80):
+        kappa = _parse_mpf_value(symbols_by_name["κ"]["value"])
+        lambda_value = symbols_by_name["λ_S"]["value"]
+        if "κ" in lambda_value and "exact" in lambda_value:
+            lambda_s = (mp.mpf("5") * kappa**2) / mp.mpf("3")
+        else:
+            lambda_s = _parse_mpf_value(lambda_value)
+
+        lhs = mp.mpf("5") * kappa**2
+        rhs = mp.mpf("3") * lambda_s
         residual = abs(lhs - rhs)
-        
-        if residual < mp.mpf("1e-2"):
+        threshold = mp.mpf("1e-14")
+
+        if residual < threshold:
             results["stable_parameters"].append({
                 "constraint": "5κ² = 3λ_S",
-                "lhs": float(lhs),
-                "rhs": float(rhs),
-                "residual": float(residual),
-                "threshold": 1e-2,
+                "lhs": _format_mpf(lhs),
+                "rhs": _format_mpf(rhs),
+                "residual": _format_mpf(residual),
+                "threshold": "1e-14",
                 "status": "STABLE"
             })
         else:
             results["regressions"].append({
                 "constraint": "5κ² = 3λ_S",
-                "residual": float(residual),
-                "threshold": 1e-2,
+                "residual": _format_mpf(residual),
+                "threshold": "1e-14",
                 "severity": "CRITICAL"
             })
             results["gate_e_status"] = "FAIL"
