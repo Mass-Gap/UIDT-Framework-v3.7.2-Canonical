@@ -1,0 +1,13 @@
+{
+  "TKT-2024-06-10-arxiv-scan-12345": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py",
+      "LOCAL/pr_template.md"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "completed",
+    "timestamp": "2026-06-10T14:15:57.126514+00:00",
+    "author": "P. Rietz"
+  }
+}
