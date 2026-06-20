@@ -8,3 +8,7 @@ verification/data/pregeometry/pr0_run_*.json
 verification/data/pregeometry/runs/
 verification/pregeometry/reports/pr0_report_*.md
 
+# IDE agent configs (local only per AI_AUDIT_POLICY)
+.cursor/
+.kiro/
+.gemini/
