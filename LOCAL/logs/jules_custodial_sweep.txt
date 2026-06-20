@@ -1,0 +1,33 @@
+#### 1. Repository Integrity
+- Protected hash status: [OK]
+- Canonical constants status: [OK]
+- Ledger status: [OK]
+- Hard halt required: [No]
+
+#### 2. Version & Metadata
+- Canonical version (`CONSTANTS.md`): v3.9.5
+- CITATION.cff version: 3.9
+- Docker labels / Metadata status: v3.9
+- Drift markers: Version in CONSTANTS.md (v3.9.5) differs from CITATION.cff and Dockerfile (3.9)
+
+#### 3. Dependency & Container Reproducibility
+- Requirements pinning status: Pinned (e.g., mpmath==1.3.0, pytest==8.2.2)
+- Hash-lock status: MISMATCH (Missing cryptographic hashes in requirements.txt)
+- Docker digest status: MISMATCH (Missing SHA256 digests in FROM python:3.10-slim)
+
+#### 4. Traceability & Nomenclature
+- Orphaned claims found: 42
+- Missing `# VERIFIES:` markers: Found 44 `# VERIFIES:` out of 59 claims. Many missing.
+- LaTeX / Python symbol drift: None strictly identified
+
+#### 5. Filesystem & Artifact Cleanup
+- Illegal root artifacts: None
+- LaTeX garbage / Cache files detected: .pytest_cache, core/__pycache__, modules/__pycache__, verification/tests/__pycache__, verification/scripts/__pycache__, verification/scripts/research/__pycache__
+
+#### 6. Action Plan
+- CLASS A hard halts: None
+- CLASS B review items: Version drift (3.9 vs 3.9.5), missing requirements hashes, missing Docker digest, 42 orphaned claims.
+- CLASS C safe cleanup: Remove __pycache__ and .pytest_cache.
+- CLASS D report-only items: Missing cryptographic hashes in requirements.txt and Dockerfiles.
+- Branch name for cleanup (if applicable): chore/TKT-jules-custodial-sweep
+- PR summary text (if applicable): chore(jules): custodial sweep artifact cleanup
