@@ -1,0 +1,45 @@
+{
+  "TKT-2026-06-03-daily-audit-01": {
+    "files": [
+      "LOCAL/scripts/daily_audit.py",
+      "LOCAL/scripts/integrity_scan.sh"
+    ],
+    "tests": [
+      "LOCAL/scripts/run_checks.py"
+    ],
+    "docs": [
+      "NONE"
+    ],
+    "status": "RESOLVED",
+    "timestamp": "2026-06-03T14:28:15.362364+00:00",
+    "author": "Jules"
+  },
+  "TKT-2026-06-03-daily-audit": {
+    "files": [
+      "./Supplementary_Results/Verification_Report_v3.6.1.md",
+      "./clay-submission/04_Certificates/MASTER_VERIFICATION_CERTIFICATE.txt",
+      "./clay-submission/02_VerificationCode/UIDT-3.6.1-Verification.py",
+      "./verification/results/Verification_Report_v3.6.1.md",
+      "./verification/scripts/UIDT-3.6.1-Verification.py",
+      "./verification/scripts/frg_tachyon_s2a.py",
+      "./verification/data/Verification_Report_v3.6.1.md",
+      "./docs/research/lhcb_predictions_paper_draft.md",
+      "./docs/evidence/DESI_DR2_alignment_report.md",
+      "./docs/evidence/falsification-criteria.md",
+      "./CANONICAL/CONSTANTS.md",
+      "./CANONICAL/FALSIFICATION.md",
+      "./manuscript/CSF_UIDT_Unification.tex",
+      "./manuscript/UIDT_v3.9-Complete-Framework_correct_.tex",
+      "./manuscript/UIDT_v3.9-Complete-Framework.tex"
+    ],
+    "tests": [
+      "pytest verification/tests/ -v"
+    ],
+    "docs": [
+      "LOCAL/logs/daily_pr_audit_20260603.md"
+    ],
+    "status": "RESOLVED",
+    "timestamp": "2026-06-03T15:35:34.307552+00:00",
+    "author": "Jules"
+  }
+}

@@ -32,7 +32,7 @@
 | Parameter | Symbol | Value | Uncertainty | Category | Notes |
 |-----------|--------|-------|-------------|----------|-------|
 | **Hubble Constant** | H₀ | 70.4 km/s/Mpc | ±0.16 | C | DESI DR2 calibrated (NOT prediction) |
-| **Dark Energy EOS** | w₀ | −0.99 | — | C | Canonical per Decision D-002 (2026-03-01). S1-04 RESOLVED. |
+| **Dark Energy EOS** | w₀ | −0.99 | — | C | Canonical per Decision D-002 (2026-03-01). S1-04 CLASSIFIED. |
 | **DE Evolution** | w_a | L-dependent | — | C | L=8.0→−1.18, L=8.2→−1.30. L not canonical. |
 | **Neutrino Sum** | Σmν | ≤ 0.16 eV | — | D | From v/γ⁷ ≈ 0.15 eV. Awaiting KATRIN/JUNO. |
 | **UIDT Wavelength** | λ_UIDT | 0.660 nm | ±0.005 | C | Characteristic scale |
@@ -117,7 +117,7 @@ Non-existent: [A+], [B+], [C+], [D+]
 
 - **S1-01:** w_a L-dependence — holographic length L not canonical
 - **S1-02:** N=99 vs N=94.05 contradiction in code vs docs
-- **S1-04:** ~~w₀ triple inconsistency~~ → **RESOLVED** 2026-03-02. Canonical w₀ = −0.99 per Decision D-002.
+- **S1-04:** ~~w₀ triple inconsistency~~ → **CLASSIFIED** 2026-03-02. Canonical w₀ = −0.99 per Decision D-002.
 - **L1:** 10¹⁰ geometric factor UNEXPLAINED
 - **L4:** γ NOT derived from RG first principles — algebraic closed-form yields γ ≈ 1.908, not 16.33 (PR #199, §1.4)
 - **L5:** N=99 steps unjustified
@@ -131,7 +131,7 @@ Non-existent: [A+], [B+], [C+], [D+]
 | Version | Date | Key Changes |
 |---------|------|-------------|
 | v3.9.5 | 2026-04-03 | λ_S → exact 5κ²/3 (TKT-20260403-LAMBDA-FIX). RG constraint < 10⁻¹⁴. Epistemic audit metadata added. |
-| v3.9.4 | 2026-03-02 | w₀ = −0.99 canonical (D-002). S1-04 resolved. Session #16 audit. |
+| v3.9.4 | 2026-03-02 | w₀ = −0.99 canonical (D-002). S1-04 classified. Session #16 audit. |
 | v3.9.3 | 2026-02-28 | Added δγ, C-068/C-069. PR Review #100-#115. 55 claims. |
 | v3.9.0 | 2026-02-28 | Added γ_∞, E_T, f_vac, w_a, Σmν. Audit PRs #1-#99. 53 claims. |
 | v3.7.3 | 2026-02-14 | Cleanup: Appendix integration, SEO removal, falsification IDs |

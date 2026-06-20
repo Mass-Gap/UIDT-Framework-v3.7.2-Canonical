@@ -56,7 +56,7 @@ We utilize the **Union3 / DESY5** combined analysis (Feb 2026), which provides t
 ### 3.2 UIDT Prediction
 *    = -0.99$ (Canonical [C] per Decision D-002)
 
-> **✅ w₀ Resolved (D-002):** Canonical w₀ = −0.99 [C] declared per Decision D-002. Previous values (−0.73, −0.961) are superseded.
+> **✅ w₀ Classified (D-002):** Canonical w₀ = −0.99 [C] declared per Decision D-002. Previous values (−0.73, −0.961) are superseded.
 *    = -1.30$ (Derived Vacuum Dressing)
 
 ### 3.3 MCMC Validation

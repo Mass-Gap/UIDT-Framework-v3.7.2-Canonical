@@ -211,7 +211,7 @@ def run_s2a() -> None:
             print(f"    Differenz           = {mp.nstr(delta, 10)}")
             print(f"    Ursache prüfen: κ̃₀*-Präzision, NLO-Korrekturen (S2-b)")
         else:
-            print(f"  [TENSION RESOLVED] |Δγ| < δγ — γ_emergent kandidiert [D]→[C]")
+            print(f"  [TENSION CLASSIFIED] |Δγ| < δγ — γ_emergent kandidiert [D]→[C]")
     else:
         print("  k_crit: NOT REACHED")
         print("  Diagnose: kein m²_S-Vorzeichenwechsel im Flow-Fenster [k_UV→k_IR]")
