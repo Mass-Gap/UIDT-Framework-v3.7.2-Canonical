@@ -15,7 +15,7 @@ Evidence categories:
 """
 import os
 import csv
-import mpmath as mp
+from mpmath import mp
 
 mp.dps = 80
 
@@ -194,7 +194,6 @@ def test_gamma_psi_correlation():
 # -----------------------------------------------------------------------
 def test_rg_constraint():
     """5*kappa^2 = 3*lambda_S must hold to 1e-14 [RG_CONSTRAINT_FAIL if not]."""
-    mp.dps = 80
     kappa    = mp.mpf("0.5")
     lambda_S = mp.mpf("5") * kappa**2 / mp.mpf("3")
     lhs = mp.mpf("5") * kappa**2
