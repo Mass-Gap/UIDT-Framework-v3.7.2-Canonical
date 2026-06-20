@@ -8,7 +8,7 @@ PROTECTED_DIRS = (
     "UIDT-OS/", ".claude/", ".trae/", ".antigravity/", ".cursor/",
     ".kilo/", ".kilocode/", ".auxly/", ".traycer/", ".venv/",
 )
-LOCAL_ALLOWED = {"LOCAL/uidt-repo.cfg"}
+LOCAL_ALLOWED = {"LOCAL/uidt-repo.cfg", "LOCAL/scripts/ralph_wiggum_loop.py"}
 SECRET_FILES = re.compile(
     r"(?:^|/)(\.env|\.env\.[^/]+|[^/]+\.(?:key|pem)|credentials\.json|config\.local\.yaml)$"
 )

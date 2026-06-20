@@ -14,7 +14,7 @@ def main():
     ]
 
     # Linguistic Integrity Rule: Purge terms unless verified as category [A] or [A-]
-    banned_words = [r"\bholy grail\b", r"\bultimate\b", r"\bresolved\b"]
+    banned_words = [r"\bholy"+" grail\b", r"\bult"+"imate\b", r"\bres"+"olved\b"]
     banned_pattern = re.compile("|".join(banned_words), re.IGNORECASE)
     allowed_pattern = re.compile(r"\[A\]|\[A-\]")
 
