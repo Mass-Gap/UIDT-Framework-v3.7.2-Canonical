@@ -1,0 +1,12 @@
+{
+  "TKT-2026-06-07-arxiv-scan-radar-001": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": "N/A",
+    "docs": "N/A",
+    "status": "Complete",
+    "timestamp": "2026-06-07T14:28:38.365685+00:00",
+    "author": "P. Rietz"
+  }
+}
