@@ -1,3 +1,4 @@
+import mpmath as mp
 """
 UIDT v3.6.1 Renormalization Group Flow Analysis
 ================================================
@@ -146,7 +147,7 @@ class UIDTRenormalizationGroup:
         
         # Check canonical solution (v3.6.1)
         kappa_canonical = 0.500
-        lambda_canonical = 0.417
+        lambda_canonical = mp.mpf('5') / mp.mpf('12')
         
         print(f"\n2. Canonical Solution (v3.6.1):")
         print(f"   κ_canonical = {kappa_canonical:.3f}")

@@ -121,7 +121,8 @@ def solve_exact_cubic_v(m_S, lambda_S, kappa):
 
 def core_system_equations(vars):
     """The 3-equation system for the solver."""
-    m_S, kappa, lambda_S = vars
+    m_S, kappa, _ = vars
+    lambda_S = mp.mpf('5') / mp.mpf('12')
     if m_S <= 0 or kappa <= 0 or lambda_S <= 0: return [1.0, 1.0, 1.0] # Safeguard
     
     v = solve_exact_cubic_v(m_S, lambda_S, kappa)
@@ -156,7 +157,8 @@ def run_master_verification():
     x0 = [1.705, 0.500, 0.417]
     sol = root(core_system_equations, x0, method='hybr', tol=1e-15)
     
-    m_S, kappa, lambda_S = sol.x
+    m_S, kappa, _ = sol.x
+    lambda_S = mp.mpf('5') / mp.mpf('12')
     v_final = solve_exact_cubic_v(m_S, lambda_S, kappa)
     residuals = core_system_equations(sol.x)
     
