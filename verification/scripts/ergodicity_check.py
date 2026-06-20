@@ -3,6 +3,13 @@ import os
 import numpy as np
 from scipy.linalg import expm
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: lambda_s
+# @Graph-Node: ergodicity_check.py
+# =====================================================================
 # Add the path to the simulation script
 sys.path.append(os.path.abspath("clay-submission/05_LatticeSimulation"))
 

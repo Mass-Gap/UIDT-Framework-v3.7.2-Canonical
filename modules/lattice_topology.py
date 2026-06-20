@@ -18,6 +18,13 @@ Sources:
 
 from mpmath import mp, mpf, pi
 
+# =====================================================================
+# @UIDT-Entity: Module_Script
+# @Proves-Claim: None
+# @Evidence-Tier: C
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: lattice_topology.py
+# =====================================================================
 # mp.dps MUST remain local per UIDT Constitution (Race Condition Lock)
 mp.dps = 80
 

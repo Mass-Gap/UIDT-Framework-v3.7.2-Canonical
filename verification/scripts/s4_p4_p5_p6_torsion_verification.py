@@ -6,6 +6,13 @@
 # Expected: All assertions PASS, RG_CONSTRAINT OK
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa
+# @Graph-Node: s4_p4_p5_p6_torsion_verification.py
+# =====================================================================
 mp.dps = 80
 
 # ── LEDGER (immutable) ────────────────────────────────────────────────────────

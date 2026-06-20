@@ -11,6 +11,13 @@ mp.dps = 80 (lokal, Race-Condition-safe)
 import mpmath as mp
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: kappa
+# @Graph-Node: verify_2loop_beta_fixpoint.py
+# =====================================================================
 def verify_2loop_beta_negativity():
     mp.dps = 80
     Nc = mp.mpf('3')

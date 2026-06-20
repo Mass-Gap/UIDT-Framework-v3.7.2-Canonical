@@ -15,6 +15,13 @@ import numpy as np
 from scipy import stats
 import sys
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: None
+# @Graph-Node: prng_stress_test.py
+# =====================================================================
 def run_stress_test():
     print("="*60)
     print("UIDT PRNG STRESS TEST (mpmath @ 80 dps)")

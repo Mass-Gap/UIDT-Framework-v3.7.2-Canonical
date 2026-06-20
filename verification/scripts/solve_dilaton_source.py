@@ -56,6 +56,13 @@ import os
 # These constants are ground truth and must NEVER be modified automatically.
 # Ref: UIDT SYSTEM DIRECTIVE v4.1, IMMUTABLE PARAMETER LEDGER
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-070
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: solve_dilaton_source.py
+# =====================================================================
 _DELTA_STAR    = None   # Will be set to mp.mpf('1.710')  [A]
 _GAMMA         = None   # Will be set to mp.mpf('16.339') [A-]
 _GAMMA_INF     = None   # Will be set to mp.mpf('16.3437')[A-]

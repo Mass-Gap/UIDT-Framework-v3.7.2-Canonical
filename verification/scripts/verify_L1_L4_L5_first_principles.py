@@ -35,6 +35,13 @@ import sys
 
 # ── Precision: LOCAL declaration, never centralised ──────────────────────────
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa
+# @Graph-Node: verify_L1_L4_L5_first_principles.py
+# =====================================================================
 mp.dps = 80  # RACE-CONDITION LOCK: must remain here, not moved to config
 
 # ── Immutable Parameter Ledger ────────────────────────────────────────────────

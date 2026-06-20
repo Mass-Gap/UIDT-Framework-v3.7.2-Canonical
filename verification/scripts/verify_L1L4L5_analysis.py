@@ -9,6 +9,13 @@
 # Do NOT move to config.py or any global setting.
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-05, UIDT-C-052
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma, kappa
+# @Graph-Node: verify_L1L4L5_analysis.py
+# =====================================================================
 mp.dps = 80  # LOCAL precision — Constitution required
 
 

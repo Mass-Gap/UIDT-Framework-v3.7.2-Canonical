@@ -43,6 +43,13 @@ Expected output:
 import mpmath as mp
 import sys
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-070
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma
+# @Graph-Node: derive_rg_gamma_extended.py
+# =====================================================================
 # ── Precision: LOCAL declaration mandatory (Race Condition Lock) ─────────────
 mp.dps = 80
 

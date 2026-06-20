@@ -2,6 +2,13 @@ import json
 import sys
 import os
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: None
+# @Graph-Node: daily_audit.py
+# =====================================================================
 def load_claims(filepath):
     try:
         with open(filepath, 'r') as f:

@@ -18,6 +18,13 @@ UIDT Constitution:
 """
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: verify_phase7_FRG_gamma_observable.py
+# =====================================================================
 mp.dps = 80
 
 # Ledger constants (LINTER PROTECTION)

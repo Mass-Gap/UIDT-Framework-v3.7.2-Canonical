@@ -11,6 +11,13 @@ import sys
 import os
 from mpmath import mp, mpf, nstr
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: kappa, lambda_s
+# @Graph-Node: verify_rg_fixed_point.py
+# =====================================================================
 # Windows UTF-8 console support
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding='utf-8')

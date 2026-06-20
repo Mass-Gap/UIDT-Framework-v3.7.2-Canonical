@@ -17,6 +17,13 @@ import numpy as np
 from scipy.optimize import fsolve
 import warnings
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: error_propagation.py
+# =====================================================================
 def uidt_system(params, C=0.277):
     """
     Coupled UIDT equations (v3.6.1 canonical).

@@ -6,6 +6,13 @@ Evidence: [A-]
 import mpmath as mp
 import random
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma, kappa, lambda_s
+# @Graph-Node: uidt_ks_mc_fss.py
+# =====================================================================
 mp.dps = 80
 
 def run_mc_fss():

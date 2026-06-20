@@ -4,6 +4,13 @@ Evidence Category: [D]
 """
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: gamma
+# @Graph-Node: proton_horizon_ratio.py
+# =====================================================================
 mp.dps = 80
 
 def calculate_ratio():

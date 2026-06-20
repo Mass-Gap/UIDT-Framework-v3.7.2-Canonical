@@ -1,4 +1,11 @@
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: kappa
+# @Graph-Node: derive_rg_gamma.py
+# =====================================================================
 mp.dps = 80
 
 # =====================================================================

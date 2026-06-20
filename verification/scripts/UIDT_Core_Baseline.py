@@ -9,6 +9,13 @@ import sys
 import os
 from mpmath import mp, mpf, nstr
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star
+# @Graph-Node: UIDT_Core_Baseline.py
+# =====================================================================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 if PROJECT_ROOT not in sys.path:

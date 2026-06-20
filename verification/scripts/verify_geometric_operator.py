@@ -2,6 +2,13 @@ import sys
 import os
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-049
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star
+# @Graph-Node: verify_geometric_operator.py
+# =====================================================================
 # Enforce local precision inside the script per UIDT Constitution (Race Condition Lock)
 mp.dps = 80
 

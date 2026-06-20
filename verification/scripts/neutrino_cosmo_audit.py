@@ -17,6 +17,13 @@ EVIDENCE CLASSIFICATION:
 import sys
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: gamma
+# @Graph-Node: neutrino_cosmo_audit.py
+# =====================================================================
 # Precision Setup (Anti-Tampering Rule: High Precision Required)
 mp.dps = 80
 

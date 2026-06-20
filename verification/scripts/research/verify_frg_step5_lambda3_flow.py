@@ -13,6 +13,13 @@ from __future__ import annotations
 import mpmath as mp
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: gamma
+# @Graph-Node: verify_frg_step5_lambda3_flow.py
+# =====================================================================
 def _p() -> None:
     mp.dps = 80
 

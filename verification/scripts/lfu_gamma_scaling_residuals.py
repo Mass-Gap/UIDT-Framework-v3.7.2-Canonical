@@ -16,6 +16,13 @@ No float(), no round(), no math module.
 """
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma
+# @Graph-Node: lfu_gamma_scaling_residuals.py
+# =====================================================================
 mp.dps = 80  # LOCAL — do not centralize per UIDT Constitution
 
 # ================================================================

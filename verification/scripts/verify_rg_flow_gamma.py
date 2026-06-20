@@ -25,6 +25,13 @@ import sys
 import json
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: gamma, kappa, lambda_s
+# @Graph-Node: verify_rg_flow_gamma.py
+# =====================================================================
 def verify_rg_constraint():
     """Verify 5κ²=3λ_S at the RG fixed point. [Category A]"""
     mp.dps = 80

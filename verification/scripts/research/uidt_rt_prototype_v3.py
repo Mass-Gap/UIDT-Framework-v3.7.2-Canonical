@@ -6,6 +6,13 @@ Status: Experimental
 import mpmath as mp
 import sys
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: gamma, kappa
+# @Graph-Node: uidt_rt_prototype_v3.py
+# =====================================================================
 # Configure precision
 mp.dps = 80
 

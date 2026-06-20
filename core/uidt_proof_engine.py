@@ -23,6 +23,13 @@ DOI: 10.5281/zenodo.17835200
 import mpmath
 from mpmath import mp
 
+# =====================================================================
+# @UIDT-Entity: Core_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma, kappa
+# @Graph-Node: uidt_proof_engine.py
+# =====================================================================
 # Set global precision (Digital Proof Standard)
 mp.dps = 80  # 80 decimal places for publication-grade verification
 print(f"╔══════════════════════════════════════════════════════════════╗")

@@ -6,6 +6,13 @@
 # RACE CONDITION LOCK: mp.dps = 80 LOCAL
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-05
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa
+# @Graph-Node: verify_L1L4L5_phase2.py
+# =====================================================================
 mp.dps = 80
 
 

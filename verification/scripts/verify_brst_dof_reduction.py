@@ -14,6 +14,13 @@ Adheres to UIDT Framework v3.9 Anti-Tampering Rules:
 
 import sys
 import itertools
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: None
+# @Graph-Node: verify_brst_dof_reduction.py
+# =====================================================================
 try:
     from mpmath import mp
 except ImportError:

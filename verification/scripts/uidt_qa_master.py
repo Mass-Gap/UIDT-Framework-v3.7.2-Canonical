@@ -5,6 +5,13 @@ import importlib.util
 from datetime import datetime, timezone
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: None
+# @Graph-Node: uidt_qa_master.py
+# =====================================================================
 # Enforce local mp.dps as per Constitution
 mp.mp.dps = 80
 

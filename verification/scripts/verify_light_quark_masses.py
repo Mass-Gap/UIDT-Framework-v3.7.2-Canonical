@@ -7,6 +7,13 @@ import mpmath
 import random
 from datetime import datetime
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: verify_light_quark_masses.py
+# =====================================================================
 # Enforce 80-digit precision locally
 mpmath.mp.dps = 80
 

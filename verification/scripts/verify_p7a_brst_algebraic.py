@@ -18,6 +18,13 @@ UIDT-Constitution:
 import mpmath as mp
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_p7a_brst_algebraic.py
+# =====================================================================
 def run_p7a_brst_algebraic():
     mp.dps = 80
 

@@ -2,6 +2,13 @@ import sys
 import os
 from mpmath import mp, mpf
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: gamma
+# @Graph-Node: verify_su3_color_projection.py
+# =====================================================================
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 from modules.covariant_unification import CovariantUnification
 

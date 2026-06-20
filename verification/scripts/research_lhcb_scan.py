@@ -1,6 +1,13 @@
 
 from mpmath import mp, mpf
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: research_lhcb_scan.py
+# =====================================================================
 # Local precision initialization
 mp.dps = 80
 

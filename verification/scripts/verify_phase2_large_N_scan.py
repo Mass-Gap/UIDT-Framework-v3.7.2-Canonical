@@ -14,6 +14,13 @@ UIDT Constitution compliance:
 """
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma
+# @Graph-Node: verify_phase2_large_N_scan.py
+# =====================================================================
 mp.dps = 80  # RACE CONDITION LOCK: local declaration
 
 # ── Ledger constants (LINTER PROTECTION: do not delete) ──

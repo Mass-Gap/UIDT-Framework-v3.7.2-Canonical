@@ -10,6 +10,13 @@ Kein Mock, kein float(), kein round().
 
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, kappa
+# @Graph-Node: verify_s4p1_onset_attractor.py
+# =====================================================================
 mp.dps = 80
 
 # ── Ledger-Konstanten ──────────────────────────────────────────────────────

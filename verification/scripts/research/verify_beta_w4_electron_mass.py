@@ -1,5 +1,12 @@
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: verify_beta_w4_electron_mass.py
+# =====================================================================
 # Ensure local precision
 mp.mp.dps = 80
 

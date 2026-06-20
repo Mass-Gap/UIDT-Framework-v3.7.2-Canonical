@@ -3,6 +3,13 @@ import scipy.stats as stats
 import sympy as sp
 import os
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: gamma
+# @Graph-Node: verify_desi_dr2_integration.py
+# =====================================================================
 try:
     import matplotlib.pyplot as plt
     HAS_MATPLOTLIB = True

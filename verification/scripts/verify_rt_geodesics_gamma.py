@@ -25,6 +25,13 @@ from typing import Any, Dict, List, Tuple
 from modules import rt_geodesics
 
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A-
+# @Requires-Constant: gamma
+# @Graph-Node: verify_rt_geodesics_gamma.py
+# =====================================================================
 def _init_mp() -> Any:
     """
     Local mpmath initialization for this verification script.

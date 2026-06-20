@@ -7,6 +7,13 @@ Purpose: 80-Digit computation of the fully-heavy tetraquark X(6900) harmonic res
 
 from mpmath import mp, mpf, nstr, factorial
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star
+# @Graph-Node: verify_tetraquark_harmonics.py
+# =====================================================================
 # Strikte 80-Digit Determinismus-Sperre (Lokal)
 mp.dps = 80
 

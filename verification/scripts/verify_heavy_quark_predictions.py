@@ -6,6 +6,13 @@ UIDT Framework TICK-20260224-Phase3_Discoveries
 import sys
 from mpmath import mp, mpf
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star
+# @Graph-Node: verify_heavy_quark_predictions.py
+# =====================================================================
 # Local precision initialization
 mp.dps = 80
 

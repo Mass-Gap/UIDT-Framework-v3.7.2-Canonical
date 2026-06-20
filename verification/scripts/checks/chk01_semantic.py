@@ -2,6 +2,13 @@ import os
 import re
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: chk01_semantic.py
+# =====================================================================
 mp.mp.dps = 80
 
 def run_check(repo_root):

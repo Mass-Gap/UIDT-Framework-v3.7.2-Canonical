@@ -3,6 +3,13 @@ import re
 import json
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: chk08_numerics.py
+# =====================================================================
 mp.mp.dps = 80
 
 def run_check(repo_root):

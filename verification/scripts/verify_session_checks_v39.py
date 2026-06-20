@@ -41,6 +41,13 @@ import sys
 # RACE CONDITION LOCK: mp.dps=80 declared locally — never centralised.
 # ---------------------------------------------------------------------------
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: UIDT-C-016, UIDT-C-010, UIDT-C-014, UIDT-C-012, UIDT-C-022, UIDT-C-013, UIDT-C-017, UIDT-C-018, UIDT-C-011
+# @Evidence-Tier: A
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: verify_session_checks_v39.py
+# =====================================================================
 mp.dps = 80
 
 # ---------------------------------------------------------------------------

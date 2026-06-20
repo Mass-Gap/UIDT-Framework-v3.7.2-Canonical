@@ -28,6 +28,13 @@ import sys
 import os
 import inspect
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: D
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: UIDT_Master_Verification.py
+# =====================================================================
 # Ensure UTF-8 output on Windows terminals
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding='utf-8')

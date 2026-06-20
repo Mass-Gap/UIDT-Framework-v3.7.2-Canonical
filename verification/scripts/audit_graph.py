@@ -1,6 +1,13 @@
 import json
 import sys
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: None
+# @Graph-Node: audit_graph.py
+# =====================================================================
 def load_claims(filepath):
     try:
         with open(filepath, 'r') as f:

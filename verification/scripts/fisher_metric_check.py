@@ -22,6 +22,13 @@ RACE CONDITION LOCK: mp.dps = 80 is LOCAL. Do NOT centralise.
 """
 
 import mpmath as mp
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: E
+# @Requires-Constant: delta_star, gamma, kappa, lambda_s
+# @Graph-Node: fisher_metric_check.py
+# =====================================================================
 mp.dps = 80  # LOCAL precision - do not move to config
 
 

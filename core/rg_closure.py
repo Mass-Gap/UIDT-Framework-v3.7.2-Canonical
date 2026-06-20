@@ -12,6 +12,13 @@ in exact arithmetic; the numerical test measures floating-point integrity.
 from mpmath import mp, mpf
 
 
+# =====================================================================
+# @UIDT-Entity: Core_Script
+# @Proves-Claim: None
+# @Evidence-Tier: A
+# @Requires-Constant: kappa, lambda_s
+# @Graph-Node: rg_closure.py
+# =====================================================================
 class RGFixedPoint:
     def __init__(self):
         # Precision declared locally — RACE CONDITION LOCK (Directive v4.1)

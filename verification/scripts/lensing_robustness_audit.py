@@ -15,6 +15,13 @@ from scipy.integrate import odeint
 from scipy.stats import pearsonr
 import mpmath as mp
 
+# =====================================================================
+# @UIDT-Entity: Verification_Script
+# @Proves-Claim: None
+# @Evidence-Tier: B
+# @Requires-Constant: delta_star, gamma
+# @Graph-Node: lensing_robustness_audit.py
+# =====================================================================
 # =============================================================================
 # 1. PRECISE PARAMETER DEFINITION (mpmath)
 # =============================================================================

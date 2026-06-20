@@ -14,6 +14,13 @@ Source:
 
 from mpmath import mp, mpf
 
+# =====================================================================
+# @UIDT-Entity: Module_Script
+# @Proves-Claim: None
+# @Evidence-Tier: None
+# @Requires-Constant: delta_star
+# @Graph-Node: harmonic_predictions.py
+# =====================================================================
 # Precision must remain consistent
 mp.dps = 80
 
