@@ -1,0 +1,15 @@
+[
+    {
+        "task_id": "TKT-2026-05-28-Literature-Radar-001",
+        "files": [
+            "LOCAL/scripts/arxiv_scan.py"
+        ],
+        "tests": [
+            "pytest verification/tests/"
+        ],
+        "docs": [],
+        "status": "PASS",
+        "timestamp": "2026-05-28T14:12:22.700513+00:00",
+        "author": "P. Rietz"
+    }
+]
