@@ -1,3 +1,4 @@
+import mpmath
 """
 UIDT v3.6.1 Error Propagation Analysis - STABLE RELEASE
 =======================================================
@@ -48,7 +49,7 @@ def propagate_errors():
     # Central values (v3.6.1 canonical)
     m_S_central = 1.705
     kappa_central = 0.500
-    lambda_S_central = 0.417
+    lambda_S_central = (mpmath.mpf('5') / mpmath.mpf('12'))
     C_central = 0.277
     Delta_central = 1.710
     
