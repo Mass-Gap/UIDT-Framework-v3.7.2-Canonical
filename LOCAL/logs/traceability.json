@@ -1,0 +1,12 @@
+{
+    "TKT-2026-04-16-arxiv-scan-01": {
+        "files": [
+            "LOCAL/scripts/arxiv_scan.py"
+        ],
+        "tests": [],
+        "docs": [],
+        "status": "completed",
+        "timestamp": 1780324835,
+        "author": "P. Rietz"
+    }
+}
