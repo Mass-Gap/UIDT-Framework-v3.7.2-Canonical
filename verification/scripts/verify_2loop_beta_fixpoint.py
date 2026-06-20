@@ -6,9 +6,8 @@ Prüft die strukturelle Aussage:
 
 Evidenz: [D] Prediction
 Epistemic-Stratum: III
-mp.dps = 80 (lokal, Race-Condition-safe)
 """
-import mpmath as mp
+from mpmath import mp
 
 
 def verify_2loop_beta_negativity():

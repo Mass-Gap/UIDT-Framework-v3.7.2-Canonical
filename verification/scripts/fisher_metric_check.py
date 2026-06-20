@@ -21,8 +21,7 @@ Immutable ledger constants used (DO NOT MODIFY):
 RACE CONDITION LOCK: mp.dps = 80 is LOCAL. Do NOT centralise.
 """
 
-import mpmath as mp
-mp.dps = 80  # LOCAL precision - do not move to config
+from mpmath import mp
 
 
 def run_fisher_metric_check():

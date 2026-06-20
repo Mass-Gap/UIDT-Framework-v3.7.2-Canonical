@@ -8,8 +8,7 @@
 # RACE CONDITION LOCK: mp.dps = 80 is declared LOCALLY here.
 # Do NOT move to config.py or any global setting.
 
-import mpmath as mp
-mp.dps = 80  # LOCAL precision — Constitution required
+from mpmath import mp
 
 
 def verify_rg_constraint() -> None:

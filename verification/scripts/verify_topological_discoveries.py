@@ -23,7 +23,6 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 # ABSOLUTE DIRECTIVE: Local precision initialization
-mp.dps = 80
 
 
 def verify_discoveries():

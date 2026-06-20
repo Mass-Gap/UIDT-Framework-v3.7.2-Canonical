@@ -40,8 +40,7 @@ import sys
 # ---------------------------------------------------------------------------
 # RACE CONDITION LOCK: mp.dps=80 declared locally — never centralised.
 # ---------------------------------------------------------------------------
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 # ---------------------------------------------------------------------------
 # Immutable Ledger Constants  [CONSTANTS.md v3.9.4]

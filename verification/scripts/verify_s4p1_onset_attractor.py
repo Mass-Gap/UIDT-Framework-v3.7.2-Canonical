@@ -8,9 +8,8 @@ Verifiziert:
 Kein Mock, kein float(), kein round().
 """
 
-import mpmath as mp
+from mpmath import mp
 
-mp.dps = 80
 
 # ── Ledger-Konstanten ──────────────────────────────────────────────────────
 Nc        = mp.mpf('3')

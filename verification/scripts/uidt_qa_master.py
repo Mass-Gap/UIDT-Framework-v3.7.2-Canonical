@@ -3,7 +3,7 @@ import sys
 import json
 import importlib.util
 from datetime import datetime, timezone
-import mpmath as mp
+from mpmath import mp
 
 # Enforce local mp.dps as per Constitution
 mp.mp.dps = 80

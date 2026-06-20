@@ -23,7 +23,6 @@ except ImportError:
 # -----------------------------------------------------------------------------
 
 # Set precision locally
-mp.dps = 80
 
 class TestTorsionLattice(unittest.TestCase):
     def setUp(self):

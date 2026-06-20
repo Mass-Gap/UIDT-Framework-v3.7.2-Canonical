@@ -24,13 +24,12 @@ Returns:
 """
 
 import sys
-import mpmath as mp
+from mpmath import mp
 
 # ----------------------------------------------------------------
 # LOCAL PRECISION — Race Condition Lock (UIDT Constitution)
 # MUST remain here. Never move to config.py or global scope.
 # ----------------------------------------------------------------
-mp.dps = 80
 
 
 # ----------------------------------------------------------------

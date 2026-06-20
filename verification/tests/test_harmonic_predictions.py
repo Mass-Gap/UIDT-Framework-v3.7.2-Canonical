@@ -14,7 +14,6 @@ except ImportError:
     from harmonic_predictions import HarmonicPredictor
 
 # Set precision locally as per Anti-Tampering rules
-mp.dps = 80
 
 class TestHarmonicPredictor:
     def setup_method(self):

@@ -13,7 +13,7 @@ Date: 2026-02-23
 import numpy as np
 from scipy.integrate import odeint
 from scipy.stats import pearsonr
-import mpmath as mp
+from mpmath import mp
 
 # =============================================================================
 # 1. PRECISE PARAMETER DEFINITION (mpmath)

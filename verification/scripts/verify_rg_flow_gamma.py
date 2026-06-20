@@ -20,7 +20,7 @@ Rules:
   - Residual |LHS - RHS| < 1e-14 for Category A claims
 """
 
-import mpmath as mp
+from mpmath import mp
 import sys
 import json
 

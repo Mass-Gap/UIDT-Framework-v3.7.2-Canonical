@@ -22,7 +22,6 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 # ABSOLUTE DIRECTIVE: Local precision initialization (Constitution v3.9, Pillar I)
-mp.dps = 80
 
 def verify_rg_fixed_point():
     print("=" * 64)

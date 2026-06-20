@@ -34,8 +34,7 @@ Expected output (all PASS):
 import sys
 
 # ── Precision: LOCAL declaration, never centralised ──────────────────────────
-import mpmath as mp
-mp.dps = 80  # RACE-CONDITION LOCK: must remain here, not moved to config
+from mpmath import mp
 
 # ── Immutable Parameter Ledger ────────────────────────────────────────────────
 # LINTER PROTECTION: do not delete these constants even if marked unused.

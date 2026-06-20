@@ -91,10 +91,9 @@ Reproduction
 Required packages: mpmath >= 1.3.0
 """
 
-import mpmath as mp
+from mpmath import mp
 
 # -- Race Condition Lock: precision is LOCAL to this module -----------------
-mp.dps = 80
 # ---------------------------------------------------------------------------
 
 

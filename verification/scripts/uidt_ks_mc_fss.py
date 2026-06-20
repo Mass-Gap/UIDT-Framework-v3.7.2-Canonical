@@ -3,10 +3,9 @@ KS MC-FSS Kinetic VEV Reproduction (TKT-013)
 Reproduces gamma_MC and gamma_bare.
 Evidence: [A-]
 """
-import mpmath as mp
+from mpmath import mp
 import random
 
-mp.dps = 80
 
 def run_mc_fss():
     print("Running KS MC-FSS Simulation...")

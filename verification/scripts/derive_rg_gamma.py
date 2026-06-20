@@ -1,5 +1,4 @@
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 # =====================================================================
 # UIDT SYSTEM DIRECTIVE (v4.1 - LLM Hardened)

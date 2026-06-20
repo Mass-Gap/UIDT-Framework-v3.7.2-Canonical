@@ -9,7 +9,6 @@ from mpmath import mp, mpf
 from modules.covariant_unification import CovariantUnification
 
 # UIDT Constitution Directive: Local precision initialization
-mp.dps = 80
 
 def test_covariant_unification_equation_of_state():
     """

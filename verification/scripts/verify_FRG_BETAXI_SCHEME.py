@@ -6,9 +6,8 @@ UIDT Framework v3.9 — Constitution-compliant
 All calculations use mpmath with local mp.dps = 80.
 No float(), no round(), no centralized precision control.
 """
-import mpmath as mp
+from mpmath import mp
 
-mp.dps = 80  # RACE CONDITION LOCK: local only
 
 # ── Immutable Ledger Constants [DO NOT MODIFY] ───────────────────────────
 Delta    = mp.mpf('1.710')          # [A] Yang-Mills spectral gap

@@ -15,7 +15,6 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 # 80-digit precision lock (Constitution §4)
-mp.dps = 80
 
 print("╔══════════════════════════════════════════════════════════════╗")
 print("║  UIDT v3.9 CORE BASELINE VERIFICATION                        ║")

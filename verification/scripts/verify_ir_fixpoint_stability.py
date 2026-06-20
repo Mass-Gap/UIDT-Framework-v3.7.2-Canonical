@@ -4,6 +4,7 @@ Task 22: Infrared Fixed Point Stability of the Vacuum Spectral Gap
 """
 import sys
 import mpmath
+from mpmath import mp
 from datetime import datetime
 
 # Enforce 80-digit precision locally

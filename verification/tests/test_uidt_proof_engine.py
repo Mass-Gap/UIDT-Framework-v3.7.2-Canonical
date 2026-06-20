@@ -29,7 +29,6 @@ except ImportError:
     from core.uidt_proof_engine import UIDT_Prover
 
 # CRITICAL: Set local precision to 80 digits
-mp.dps = 80
 
 class TestUIDTProver:
     """

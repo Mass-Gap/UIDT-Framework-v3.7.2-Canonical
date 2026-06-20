@@ -10,8 +10,7 @@ Tests:
 Requirements: mpmath
 Run: python3 verification/scripts/test_L1_bare_gamma_session2.py
 """
-import mpmath as mp
-mp.dps = 80
+from mpmath import mp
 
 RESIDUAL_TOL = mp.mpf('1e-14')
 

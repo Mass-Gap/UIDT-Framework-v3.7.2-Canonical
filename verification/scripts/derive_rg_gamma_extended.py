@@ -40,11 +40,10 @@ Expected output:
     Confirmation of Limitation L8 as root cause.
 """
 
-import mpmath as mp
+from mpmath import mp
 import sys
 
 # ── Precision: LOCAL declaration mandatory (Race Condition Lock) ─────────────
-mp.dps = 80
 
 # ── SU(3) group factors ──────────────────────────────────────────────────────
 Nc   = mp.mpf('3')

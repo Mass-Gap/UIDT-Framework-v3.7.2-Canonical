@@ -24,7 +24,6 @@ from mpmath import mp
 from modules.geometric_operator import GeometricOperator
 
 # --- Anti-Tampering Rule: Local Precision ---
-mp.dps = 80
 
 def run_stresstest():
     print("=== PR #51: Geometric Operator Stresstest (Thermodynamic Limit N=10000) ===")

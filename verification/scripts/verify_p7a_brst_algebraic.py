@@ -15,7 +15,7 @@ UIDT-Constitution:
 - Ledger-Konstanten unveraendert
 """
 
-import mpmath as mp
+from mpmath import mp
 
 
 def run_p7a_brst_algebraic():

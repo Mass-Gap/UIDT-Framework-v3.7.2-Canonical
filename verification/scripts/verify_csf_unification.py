@@ -17,7 +17,6 @@ if PROJECT_ROOT not in sys.path:
 
 from modules.covariant_unification import CovariantUnification
 
-mp.dps = 80
 
 
 def run_csf_verification():

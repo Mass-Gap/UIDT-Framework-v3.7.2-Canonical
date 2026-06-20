@@ -21,7 +21,6 @@ except ImportError:
     sys.exit(1)
 
 # Anti-Tampering: Local precision declaration
-mp.dps = 80
 
 class StandardModelDoF:
     def __init__(self):

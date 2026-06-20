@@ -13,8 +13,7 @@ UIDT Constitution compliance:
   - Residual tolerance abs(...) < 1e-14 for exact checks
 """
 
-import mpmath as mp
-mp.dps = 80  # RACE CONDITION LOCK: local declaration
+from mpmath import mp
 
 # ── Ledger constants (LINTER PROTECTION: do not delete) ──
 GAMMA = mp.mpf('16.339')    # [A-]

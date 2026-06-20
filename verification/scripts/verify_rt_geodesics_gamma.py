@@ -33,7 +33,7 @@ def _init_mp() -> Any:
     Do NOT centralize mp.mp.dps into a shared config or global variable.
     (Race-condition lock — UIDT Constitution requirement.)
     """
-    import mpmath as mp
+    from mpmath import mp
     mp.mp.dps = 80
     return mp
 

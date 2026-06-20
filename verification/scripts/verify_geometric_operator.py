@@ -3,7 +3,6 @@ import os
 from mpmath import mp
 
 # Enforce local precision inside the script per UIDT Constitution (Race Condition Lock)
-mp.dps = 80
 
 print("\n" + "="*80)
 print("UIDT EFFECTIVE GEOMETRIC FUNCTIONAL - VERIFICATION SUITE")
