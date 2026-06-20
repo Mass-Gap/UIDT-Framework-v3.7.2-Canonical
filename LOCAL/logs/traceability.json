@@ -1,0 +1,13 @@
+{
+  "TKT-2026-06-05-ARXIV-1": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py",
+      "LOCAL/pr_template.md"
+    ],
+    "tests": [],
+    "docs": [],
+    "status": "implemented",
+    "timestamp": 1780669044,
+    "author": "P. Rietz"
+  }
+}
