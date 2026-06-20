@@ -1,5 +1,5 @@
 import pytest
-import mpmath as mp
+from mpmath import mp
 
 # Set precision locally
 mp.dps = 80
