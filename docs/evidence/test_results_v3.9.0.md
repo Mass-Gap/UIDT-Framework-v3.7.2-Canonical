@@ -9,7 +9,7 @@
 | Test Script | Status (Pre-Fix) | Status (Post-Fix) | Issues Found |
 | :--- | :--- | :--- | :--- |
 | `test_modules_language.py` | 🔴 FAIL | 🟢 PASS | German comments ("Berechnet", "Leitet", etc.) in `modules/` |
-| `test_public_docs_compliance.py` | 🔴 FAIL | 🟢 PASS | `Category A+` used; `Resolved` used for cosmology; missing `spectral gap` |
+| `test_public_docs_compliance.py` | 🔴 FAIL | 🟢 PASS | `Category A+` used; `Addressed` used for cosmology; missing `spectral gap` |
 | `test_reference_traceability.py` | 🔴 FAIL | 🟢 PASS | Outdated DESI arXiv reference (2404.03047) |
 | `test_simulation_compliance.py` | 🔴 FAIL | 🟢 PASS | Missing `--seed` in HMC; Taylor expansion `order < 40` |
 
@@ -26,11 +26,11 @@
 - `modules/geometric_operator.py`
 
 ### 2.2 Documentation Compliance (`README.md`)
-**Problem:** Used "Prestige Language" (`Category A+`, `Resolved`) and missed the canonical definition of Delta.
+**Problem:** Used "Prestige Language" (`Category A+`, `Addressed`) and missed the canonical definition of Delta.
 **Fix:**
 - Replaced `Category A+` → `Category A (Mathematical Consistency)` or `[A]`.
 - Replaced `Scientifically Closed` → `Scientifically Consistent`.
-- Replaced `Resolved` → `Consistent [C]` (for cosmology).
+- Replaced `Addressed` → `Consistent [C]` (for cosmology).
 - Added `(spectral gap)` to the definition of Δ*.
 
 ### 2.3 Reference Traceability (`docs/theoretical_notes.md`)

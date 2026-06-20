@@ -121,7 +121,7 @@ Script: `verification/scripts/verify_phase4_cheeger_bound.py`
 ## Constitution Compliance
 
 - [x] No ledger constants modified
-- [x] No forbidden language (solved/definitive/ultimate)
+- [x] No forbidden language (solved/definitive/fundamental)
 - [x] All evidence categories A-E assigned
 - [x] Stratum I/II/III separation maintained
 - [x] All numerics: mpmath mp.dps=80 local

@@ -209,7 +209,7 @@ The following represent exact or near-exact numerical scaling laws and algebraic
 
 ---
 
-## Resolved Limitations (Historical)
+## Addressed Limitations (Historical)
 
 ### L6: Spectral Gap vs. Particle Mass ✅ CLARIFIED (2025-12-25)
 

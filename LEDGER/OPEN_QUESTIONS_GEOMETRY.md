@@ -9,7 +9,7 @@ per the UIDT Evidence System (A–E).
 
 ---
 
-## Resolved Items
+## Addressed Items
 
 ### TKT-20260403-LAMBDA-FIX — λS Exact Value [RESOLVED 2026-04-28]
 

@@ -224,7 +224,7 @@ This [E] hypothesis would be **falsified** if:
 - [x] Ledger constants UNCHANGED — γ = 16.339 [A-] immutable
 - [x] Evidence [E] correctly applied throughout
 - [x] Stratum III classification
-- [x] Forbidden language avoided (no 'solved', 'definitive', 'ultimate')
+- [x] Forbidden language avoided (no 'solved', 'definitive', 'fundamental')
 
 ---
 

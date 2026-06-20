@@ -131,7 +131,7 @@ Non-existent: [A+], [B+], [C+], [D+]
 | Version | Date | Key Changes |
 |---------|------|-------------|
 | v3.9.5 | 2026-04-03 | λ_S → exact 5κ²/3 (TKT-20260403-LAMBDA-FIX). RG constraint < 10⁻¹⁴. Epistemic audit metadata added. |
-| v3.9.4 | 2026-03-02 | w₀ = −0.99 canonical (D-002). S1-04 resolved. Session #16 audit. |
+| v3.9.4 | 2026-03-02 | w₀ = −0.99 canonical (D-002). S1-04 addressed. Session #16 audit. |
 | v3.9.3 | 2026-02-28 | Added δγ, C-068/C-069. PR Review #100-#115. 55 claims. |
 | v3.9.0 | 2026-02-28 | Added γ_∞, E_T, f_vac, w_a, Σmν. Audit PRs #1-#99. 53 claims. |
 | v3.7.3 | 2026-02-14 | Cleanup: Appendix integration, SEO removal, falsification IDs |

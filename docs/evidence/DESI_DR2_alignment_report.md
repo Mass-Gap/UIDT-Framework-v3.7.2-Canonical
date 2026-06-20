@@ -40,7 +40,7 @@ The dark energy equation of state evolution parameter $ is identified directly w
 $$ w_a = -\delta_{eff} \approx -1.300 $$
 
 **Evidence Classification:**
-> **Category C (Calibrated):** This value depends on L=8.2, a non-canonical free parameter (not in CONSTANTS.md). Cosmology claims are max [C] per EVIDENCE_SYSTEM. Note: theoretical_notes.md §10 uses L=8.0 → w_a ≈ −1.183. This L-ambiguity (S1-01) must be resolved. It is *not* fitted to the supernova data.
+> **Category C (Calibrated):** This value depends on L=8.2, a non-canonical free parameter (not in CONSTANTS.md). Cosmology claims are max [C] per EVIDENCE_SYSTEM. Note: theoretical_notes.md §10 uses L=8.0 → w_a ≈ −1.183. This L-ambiguity (S1-01) must be addressed. It is *not* fitted to the supernova data.
 
 ---
 
@@ -56,7 +56,7 @@ We utilize the **Union3 / DESY5** combined analysis (Feb 2026), which provides t
 ### 3.2 UIDT Prediction
 *    = -0.99$ (Canonical [C] per Decision D-002)
 
-> **✅ w₀ Resolved (D-002):** Canonical w₀ = −0.99 [C] declared per Decision D-002. Previous values (−0.73, −0.961) are superseded.
+> **✅ w₀ Addressed (D-002):** Canonical w₀ = −0.99 [C] declared per Decision D-002. Previous values (−0.73, −0.961) are superseded.
 *    = -1.30$ (Derived Vacuum Dressing)
 
 ### 3.3 MCMC Validation
@@ -94,7 +94,7 @@ This confirms the specific damping signature of the vacuum energy density predic
 The integration of **DESI-DR2** data into **UIDT v3.9** is complete. The theory successfully predicts the strong dynamical evolution ( \approx -1.3$) observed in recent surveys, interpreting it as a holographic vacuum dressing effect.
 
 **Final Status:**
-*   **Tension:** Resolved
+*   **Tension:** Addressed
 *   **Consistency:** -bash.65\sigma$
 *   **Verification Script:** `verification/scripts/verify_desi_dr2_integration.py`
 

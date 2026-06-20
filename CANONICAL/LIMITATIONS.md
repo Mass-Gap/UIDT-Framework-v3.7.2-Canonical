@@ -42,7 +42,7 @@ Electron mass formula shows 23% residual (was 3.2% in earlier versions).
 **Condition for Resolution:**  
 Improved electroweak coupling in UIDT framework
 
-**Note:** v3.6.1 patch addressed some issues but not fully resolved.
+**Note:** v3.6.1 patch addressed some issues but not fully addressed.
 
 ---
 
@@ -136,7 +136,7 @@ self-consistent Dyson resummation in the full (S, A) propagator matrix.
 
 ---
 
-## Resolved Limitations (Historical)
+## Addressed Limitations (Historical)
 
 ### L6: Spectral Gap vs. Particle Mass [RESOLVED — superseded by L6-FRG above]
 **Status:** ✅ CLARIFIED (2025-12-25)

@@ -20,7 +20,7 @@ All cited sources have been verified for real existence (DOI or arXiv identifier
 - Date range: 1995–2026
 - Methodology: keyword search + abstract verification + compatibility analysis
 - Stratum separation: I (empirical) / II (consensus) / III (UIDT-internal) applied throughout
-- Forbidden language: "solved", "ultimate", "definitive", "holy grail"
+- Forbidden language: "solved", "fundamental", "definitive", "significant milestone"
 
 ---
 

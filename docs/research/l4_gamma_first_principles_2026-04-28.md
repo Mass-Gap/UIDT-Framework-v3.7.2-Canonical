@@ -5,7 +5,7 @@
 **Stratum: III**  
 **Date: 2026-04-28 | Precision: mpmath 80 dps | All computations reproducible**
 
-> ⚠️ **Status: OPEN RESEARCH — L4 not resolved.**  
+> ⚠️ **Status: OPEN RESEARCH — L4 not addressed.**
 > This document is a full systematic first-principles audit of all known  
 > algebraic paths to γ = 16.339. No hallucinated results. All computations  
 > at mp.dps = 80. Zero external references fabricated.
