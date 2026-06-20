@@ -1,0 +1,14 @@
+{
+  "TKT-2026-06-12-arxiv-radar": {
+    "files": [
+      "LOCAL/scripts/arxiv_scan.py"
+    ],
+    "tests": [
+      "test_arxiv_scan.py"
+    ],
+    "docs": [],
+    "status": "complete",
+    "timestamp": "2026-06-12T14:35:58.341065+00:00",
+    "author": "Jules"
+  }
+}
