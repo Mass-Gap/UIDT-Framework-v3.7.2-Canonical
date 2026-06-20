@@ -1,0 +1,29 @@
+[
+  {
+    "id": "PR-B1",
+    "title": "YMCS matrix condensation vs. Wedderburn (2,3) selection",
+    "outcome": "O-C",
+    "outcome_label": "honest null — YMCS/Myers (M0) does not select (2,3) as a stable vacuum",
+    "evidence_class": "D",
+    "strata": "III",
+    "status": "RECORDED",
+    "method": "blinded HMC metastability pre-protocol (PREREG-PR-B1-PRE-001), PR-B0.2 grid detector, tau=0.14, delta measured (finite-K factor A)",
+    "result_summary": "planted (2,3) decays out of (2,3) class by MC step ~10 at all alpha_tilde in {0.40,0.55,0.625,0.75,0.90}, N in {16,24,32}",
+    "preregistered_null": "single fuzzy sphere is true vacuum (Azuma et al., JHEP 05 (2004) 005)",
+    "blindness": "PI-confirmed; alpha_tilde/N/tau/delta frozen pre-results",
+    "corroboration": [
+      "10.1088/1126-6708/2004/05/005",
+      "RESEARCH-YMCS-METASTAB-001"
+    ],
+    "reinforces": "Appendix B Rem. B-moduli-restated",
+    "does_not_upgrade": [
+      "C-B1 (stays E)",
+      "ONT-08 (stays D)"
+    ],
+    "full_run_PR-B1-002": "CANCELLED — not required (answered by PRE-O1 + literature)",
+    "successor": "PR-B2 (open [D]/[E] charter: deformation-stabilized (2,3)? UNSOLVED)",
+    "signed_source": "PREREG-PR-B1-PRE-001 (PI-signed 2026-06-17)",
+    "pi_signoff": "Philipp Rie 2026-06-18",
+    "date_recorded": "2026-06-17"
+  }
+]

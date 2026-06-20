@@ -272,6 +272,17 @@ def test_textual_app_can_be_instantiated_without_network_access(tmp_path: Path) 
     assert app.TITLE == "UIDT PR-0.6 Pregeometry Telemetry Cockpit"
 
 
+def test_textual_app_run_method_is_not_shadowed(tmp_path: Path) -> None:
+    from verification.pregeometry.dashboard.textual_app import build_textual_app
+
+    run_pr0(project_root=tmp_path, iterations=2, seed=39, telemetry=True, run_id="latest")
+    app_cls = build_textual_app(project_root=tmp_path, run="latest")
+    app = app_cls()
+    assert callable(app.run)
+    assert getattr(app, "selected_run_id") == "latest"
+    assert not isinstance(getattr(app, "run", None), str)
+
+
 def test_dashboard_dispatches_to_rich_fallback_when_textual_missing(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,

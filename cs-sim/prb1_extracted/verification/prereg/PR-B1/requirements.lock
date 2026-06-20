@@ -1,0 +1,11 @@
+# PREREG-PR-B1 requirements.lock
+# Frozen dependencies for reproducibility (Sec. 9.1)
+# Python >= 3.11 required
+# No GPU dependence required (optional cupy arm must be bit-compared)
+#
+# NOTE: This is a stochastic simulation, NOT proof-critical arithmetic.
+# mp.dps = 80 DOES NOT APPLY here. All simulation runs in IEEE-754 float64.
+# Exact arithmetic (fractions.Fraction) is mandatory ONLY in scoring (Sec. 4.4).
+
+numpy==2.1.3
+scipy==1.14.1

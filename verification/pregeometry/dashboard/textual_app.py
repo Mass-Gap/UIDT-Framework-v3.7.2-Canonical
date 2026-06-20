@@ -38,8 +38,8 @@ def build_textual_app(*, project_root: Path, run: str):
         def __init__(self) -> None:
             super().__init__()
             self.project_root = Path(project_root)
-            self.run = run
-            self.summary, self.events = load_dashboard_data(project_root=self.project_root, run=self.run)
+            self.selected_run_id = run
+            self.summary, self.events = load_dashboard_data(project_root=self.project_root, run=self.selected_run_id)
             self.selected_index = max(len(self.events) - 1, 0)
 
         def compose(self) -> ComposeResult:
@@ -60,7 +60,7 @@ def build_textual_app(*, project_root: Path, run: str):
             self._refresh_widgets()
 
         def action_reload(self) -> None:
-            self.summary, self.events = load_dashboard_data(project_root=self.project_root, run=self.run)
+            self.summary, self.events = load_dashboard_data(project_root=self.project_root, run=self.selected_run_id)
             self.selected_index = min(self.selected_index, max(len(self.events) - 1, 0))
             self._refresh_widgets()
 
@@ -123,4 +123,7 @@ def build_textual_app(*, project_root: Path, run: str):
 
 def run_textual_app(*, project_root: Path, run: str) -> None:
     """Launch the primary Textual dashboard path."""
-    build_textual_app(project_root=project_root, run=run)().run()
+    app_or_factory = build_textual_app(project_root=project_root, run=run)
+    app = app_or_factory() if isinstance(app_or_factory, type) else app_or_factory
+    assert callable(app.run), "Textual App.run() was shadowed or is not callable"
+    app.run()
