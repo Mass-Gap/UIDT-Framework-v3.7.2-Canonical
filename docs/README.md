@@ -13,21 +13,29 @@ This directory contains supporting technical documentation, audits, and archival
 ## Recommended active documents
 
 ### Core scientific status
-- [`bare_gamma_theorem.md`](./bare_gamma_theorem.md)
-- [`cosmological_implications_v3.9.md`](./cosmological_implications_v3.9.md)
-- [`falsification-criteria.md`](./falsification-criteria.md)
-- [`evidence-classification.md`](./evidence-classification.md)
-- [`experimental_roadmap.md`](./experimental_roadmap.md)
+- [`theory/effective_gap_derivation.md`](./theory/effective_gap_derivation.md)
+- [`theory/bare_gamma_theorem.md`](./theory/bare_gamma_theorem.md)
+- [`theory/cosmological_implications_v3.9.md`](./theory/cosmological_implications_v3.9.md)
+- [`evidence/falsification-criteria.md`](./evidence/falsification-criteria.md)
+- [`evidence/evidence-classification.md`](./evidence/evidence-classification.md)
+- [`research/experimental_roadmap.md`](./research/experimental_roadmap.md)
+
+### Predictions and interpretive mappings
+- [`predictions/glueball_spectrum.md`](./predictions/glueball_spectrum.md)
+- [`predictions/thermal_vacuum.md`](./predictions/thermal_vacuum.md)
+- [`predictions/qgp_viscosity.md`](./predictions/qgp_viscosity.md)
+- [`predictions/unquenched_qcd.md`](./predictions/unquenched_qcd.md)
+- [`predictions/tetraquark_binding.md`](./predictions/tetraquark_binding.md)
 
 ### Governance and review
-- [`PR_Review_Protocol_v2.0.md`](./PR_Review_Protocol_v2.0.md)
-- [`citation-guide.md`](./citation-guide.md)
-- [`data-availability.md`](./data-availability.md)
+- [`governance/PR_Review_Protocol_v2.0.md`](./governance/PR_Review_Protocol_v2.0.md)
+- [`guides/citation-guide.md`](./guides/citation-guide.md)
+- [`guides/data-availability.md`](./guides/data-availability.md)
 
 ### Audits and review history
-- [`critical_review_2025.md`](./critical_review_2025.md)
-- [`epistemic_audit_2026-03-30.md`](./epistemic_audit_2026-03-30.md)
-- [`first_principles_evidence_audit_2026-03-30.md`](./first_principles_evidence_audit_2026-03-30.md)
+- [`audits/critical_review_2025.md`](./audits/critical_review_2025.md)
+- [`audits/epistemic_audit_2026-03-30.md`](./audits/epistemic_audit_2026-03-30.md)
+- [`audits/first_principles_evidence_audit_2026-03-30.md`](./audits/first_principles_evidence_audit_2026-03-30.md)
 
 ## Archived material
 
@@ -38,3 +46,5 @@ Superseded or historical notes are retained in:
 ## Scope note
 
 This directory is subordinate to the root `README.md`. If any summary in `docs/` diverges from canonical claims in the manuscript, ledger, or root-level governance files, the root-level source prevails.
+
+The effective gap derivation must be read with its stated boundary: UIDT documents a reduced-model fixed point and lattice-compatible scale; the full pure-theory equivalence remains an open Stratum III assumption [E].

@@ -1,4 +1,4 @@
-# UIDT Formalism v3.7.2
+# UIDT Formalism v3.9
 
 > **PURPOSE:** Central repository for UIDT equations  
 > **RULE:** Math (LaTeX) MUST be separated from interpretation
@@ -42,26 +42,46 @@ $$\mu \frac{d\lambda_S}{d\mu} = \beta_{\lambda_S}(\lambda_S, \kappa, g)$$
 ### RG Fixed Point Constraint
 $$5\kappa^2 = 3\lambda_S$$
 
+For the canonical exact representation:
+$$\kappa=\frac12,\qquad \lambda_S=\frac{5}{12}$$
+
 **Verification:**
 $$5 \times (0.500)^2 = 1.250$$
-$$3 \times 0.417 = 1.251$$
-$$|\Delta| = 0.001 < 0.01 \checkmark$$
+$$3 \times \frac{5}{12} = 1.250$$
+$$|5\kappa^2-3\lambda_S| = 0 < 10^{-14} \quad [A]$$
 
 ---
 
-## Mass Gap Derivation
+## Effective Gap Derivation
 
-### Spectral Gap
-$$\Delta = \gamma \cdot \Lambda_{\text{QCD}}$$
+### Reduced Algebraic Gap Equation
+
+The reduced effective map is
+
+$$
+T(\Delta)=
+\sqrt{
+m_S^2+
+\frac{\kappa^2\mathcal C}{4\Lambda^2}
+\left[
+1+
+\frac{\ln(\Lambda^2/\Delta^2)}{16\pi^2}
+\right]
+}.
+$$
+
+The local Banach fixed-point closure is an [A] statement only inside this one-dimensional reduced model. The projection from the full pure Yang--Mills functional integral to this map remains an open Stratum III assumption [E].
+
+### Spectral Scale
 
 With:
 - $\gamma = 16.339$ (kinetic VEV) [A-]
-- $\Lambda_{\text{QCD}} \approx 0.1046$ GeV
-- $\Delta = 1.710 \pm 0.015$ GeV [A]
+- $\Delta^* = 1.710 \pm 0.015$ GeV [A], internally reduced-model spectral closure
+- lattice comparison status [B], not direct particle observation
 
 ### Scalar Mass
 $$m_S^2 = 2\lambda_S v^2$$
-$$m_S = 1.705 \pm 0.015 \text{ GeV}$$
+$$m_S = 1.705 \pm 0.015 \text{ GeV} \quad [D]$$
 
 ---
 
@@ -103,9 +123,9 @@ $$ \rho_{max} = \Delta^4 \cdot \gamma^{99} $$
 ### Equation of State (Placeholders)
 $$ w_0 = -0.99, \quad w_a = +0.03 $$
 
-> **Strict Caveat:** The CSF extensions are strictly evaluated under Evidence Category `[C]`. 
-> They map phenomenologically upon the `[A-]` calibrated lattice invariant $\gamma = 16.339$. 
-> **Limitation L4:** $\gamma$ is calibrated, not fundamentally derived. 
+> **Strict Caveat:** The CSF extensions are strictly evaluated under Evidence Category `[C]`.  
+> They map phenomenologically upon the `[A-]` calibrated lattice invariant $\gamma = 16.339$.  
+> **Limitation L4:** $\gamma$ is calibrated, not fundamentally derived.  
 > **Limitation L5:** The $N=99$ RG step limit remains empirical.
 
 ---
@@ -138,20 +158,20 @@ $$d_{\text{opt}} = 0.854 \text{ nm}$$
 
 | Constraint | Expression | Value | Status |
 |------------|------------|-------|--------|
-| RG Fixed Point | 5κ² = 3λ_S | 1.250 ≈ 1.251 | ✅ |
+| RG Fixed Point | 5κ² = 3λ_S | 1.250 = 1.250 | ✅ |
 | Perturbative | λ_S < 1 | 0.417 | ✅ |
 | Vacuum | V''(v) > 0 | 2.907 | ✅ |
-| Gamma | γ_kinetic ≈ γ_MC | 16.339 ≈ 16.374 | ✅ |
+| Gamma | γ kinetic calibration | 16.339 | [A-] |
 
 ---
 
 ## Reference Implementation
 
-See `WORKSPACE/derivations/` for:
-- `uidt_proof_core.py` — Core proof implementation
-- `rg_flow_analysis.py` — RG flow calculations
-- `error_propagation.py` — Uncertainty analysis
+See:
+- `docs/theory/effective_gap_derivation.md` — hybrid gap derivation and epistemic boundary
+- `verification/scripts/verify_effective_gap_predictions.py` — documentation numerics
+- `verification/scripts/UIDT_Master_Verification.py` — legacy master verification runner
 
 ---
 
-**CITATION:** Rietz, P. (2025). UIDT v3.7.2. DOI: 10.5281/zenodo.17835200
+**CITATION:** Rietz, P. (2026). UIDT v3.9. DOI: 10.5281/zenodo.17835200
