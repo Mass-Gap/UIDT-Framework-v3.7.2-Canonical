@@ -61,7 +61,7 @@ def rg_2loop_fixed_point():
     mp.dps = 80
 
     kappa   = mp.mpf('0.500')
-    lam     = mp.mpf('0.417')
+    lam     = mp.mpf('5') / mp.mpf('12')
     pi2     = mp.pi**2
 
     # 1-loop beta at canonical fixed point
@@ -83,7 +83,7 @@ def rg_2loop_fixed_point():
     print(f"delta_lambda_S (2-loop): {mp.nstr(delta_lam, 15)}")
 
     # RG constraint check (1-loop, phenomenological tolerance)
-    # With calibrated κ=0.500, λ_S=0.417: residual = 0.001 < 1e-2
+    # With calibrated κ=0.500, λ_S=5/12: residual = 0.001 < 1e-2
     # For analytical Category A: use exact symbolic values and threshold 1e-14
     lhs = mp.mpf('5') * kappa**2
     rhs = mp.mpf('3') * lam

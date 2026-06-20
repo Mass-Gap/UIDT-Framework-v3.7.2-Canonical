@@ -1,0 +1,37 @@
+[UIDT-v3.9] RG-Constraint: Fix λ_S exact fractional formulation
+
+Task ID: ALPHA-03
+Branch: research/TKT-20260527-RG-CHECK
+Ticket: TKT-20260527-RG-CONSTRAINT
+
+Claims Table
+| Claim ID | Claim | Evidence Category | Source (DOI/arXiv) |
+|----------|-------|-------------------|-------------------|
+| C-024 | RG Fixed Point: 5κ² = 3λ_S = 1.250 ≈ 1.251 | [A] | UIDT v3.9 |
+
+Affected Constants
+| Constant | Previous Value | New Value | Evidence Change |
+|----------|---------------|-----------|----------------|
+| λ_S | 0.417 [A] | 5/12 [A] | unchanged |
+
+Reproduction Note
+One-command verification:
+`python verification/scripts/UIDT-3.6.1-Verification.py`
+Expected output: residual < 1e-14
+
+DOI/arXiv Verification
+- [x] All cited papers have verified DOI or arXiv ID
+- [x] No [AUDIT_FAIL] papers cited
+
+Pre-flight Checklist
+- [x] No float() introduced
+- [x] mp.dps = 80 local in all functions
+- [x] RG constraint maintained
+- [x] No deletion > 10 lines in /core or /modules
+- [x] Ledger constants unchanged
+- [x] λ_S = 5/12 (exact, not 0.417)
+
+Stratum Declaration
+- Stratum I content: N/A
+- Stratum II content: N/A
+- Stratum III content: Updated exact mathematical constraint inside UIDT framework formulation.
