@@ -13,7 +13,7 @@ per the UIDT Evidence System (A–E).
 
 ### TKT-20260403-LAMBDA-FIX — λS Exact Value [RESOLVED 2026-04-28]
 
-**Problem:** λS = 0.417 (rounded) caused |5κ² − 3λS| ≈ 10⁻³,
+**Problem:** λS = 5/12 (rounded) caused |5κ² − 3λS| ≈ 10⁻³,
 violating the RG constraint tolerance < 10⁻¹⁴ → **[RG_CONSTRAINT_FAIL]**.
 
 **Fix:** λS = 5/12 (exact rational). With κ = 1/2:
@@ -114,5 +114,5 @@ without explicit maintainer confirmation:
 | v | 47.7 MeV | [A] | Definitional: v = Δ*/γ |
 | w0 | −0.99 | [C] | Calibrated cosmology |
 | ET | 2.44 MeV | [C] | Calibrated cosmology |
-| **λS** | **5/12 (exact)** | **[A]** | **RG identity; replaces rounded 0.417** |
+| **λS** | **5/12 (exact)** | **[A]** | **RG identity; replaces rounded 5/12** |
 | κ | 1/2 (exact) | [A] | From 5κ²=3λS with λS=5/12 |

@@ -31,10 +31,10 @@ The UIDT framework employs a strict evidence classification system to distinguis
 | UIDT-C-001 | **Spectral Gap** Δ | 1.710 ± 0.015 GeV | Yang-Mills mass gap (NOT particle mass!) |
 | UIDT-C-004 | **VEV** v | 47.7 MeV | Corrected from 0.854 MeV in v3.6.1 |
 | UIDT-C-005 | **Coupling** κ | 0.500 ± 0.008 | Non-minimal gauge-scalar coupling |
-| UIDT-C-006 | **Self-Coupling** λ_S | 0.417 ± 0.007 | Perturbative (< 1) |
+| UIDT-C-006 | **Self-Coupling** λ_S | 5/12 ± 0.007 | Perturbative (< 1) |
 | UIDT-C-010 | **RG Fixed Point** | 5κ² = 3λ_S = 1.250 | Residual 0.001 < tolerance |
 | UIDT-C-013 | **Vacuum Stability** | V''(v) = 2.907 > 0 | Positive definite |
-| UIDT-C-014 | **Perturbative Stability** | λ_S = 0.417 < 1 | Valid expansion |
+| UIDT-C-014 | **Perturbative Stability** | λ_S = 5/12 < 1 | Valid expansion |
 
 **Verification:**
 ```bash

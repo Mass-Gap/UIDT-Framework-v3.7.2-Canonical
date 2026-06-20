@@ -115,7 +115,7 @@ in quenched SU(3) Yang–Mills, sourced from lattice data.
 
 This PR resolves the λS rounding error identified in the prior audit.
 
-**Problem:** λS = 0.417 (rounded) → |5κ² − 3λS| ≈ 10⁻³ → **[RG_CONSTRAINT_FAIL]**
+**Problem:** λS = 5/12 (rounded) → |5κ² − 3λS| ≈ 10⁻³ → **[RG_CONSTRAINT_FAIL]**
 
 **Fix:** λS = 5κ²/3 = 5/12 (exact rational)
 

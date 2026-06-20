@@ -86,7 +86,7 @@ is necessarily a double cone (Lorentz structure) because:
 |-----------|-------|----------|
 | Delta*    | 1.710 +/- 0.015 GeV | A |
 | kappa     | 0.500 +/- 0.008     | A- |
-| lambda_S  | 0.417 +/- 0.007     | A- |
+| lambda_S  | 5/12 +/- 0.007     | A- |
 | v         | 47.7 +/- 0.5 MeV    | A |
 | gamma     | 16.339              | A- |
 | 5*kappa^2 = 3*lambda_S | residual < 1e-14 | A |

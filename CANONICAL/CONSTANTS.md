@@ -23,7 +23,7 @@
 | **Vacuum Frequency** | f_vac | 107.10 MeV | — | C | Composite: Δ/γ + E_T. Limited by weakest input. |
 | **Dressing Shift** | δγ | 0.0047 | — | B | γ_∞ − γ_kinetic = 16.3437 − 16.339 (0.029% relative) |
 
-> **λ_S Note (TKT-20260403-LAMBDA-FIX):** The previous ledger value λ_S = 0.417 was a rounded decimal approximation. The exact RG fixed-point definition is λ_S := 5κ²/3. With κ = 0.500 (exact): λ_S = 5×0.25/3 = 0.41̄6̄. The deviation |0.41̄6̄ − 0.417| = 3.3̄×10⁻⁴ lies within the stated uncertainty ±0.007 — **no physics change**. This correction upgrades the RG constraint residual from 10⁻³ to < 10⁻¹⁴ (Category [A], Constitution-compliant). See PR #199, `docs/su3_gamma_theorem.md` §3.
+> **λ_S Note (TKT-20260403-LAMBDA-FIX):** The previous ledger value λ_S = 5/12 was a rounded decimal approximation. The exact RG fixed-point definition is λ_S := 5κ²/3. With κ = 0.500 (exact): λ_S = 5×0.25/3 = 0.41̄6̄. The deviation |0.41̄6̄ − 5/12| = 3.3̄×10⁻⁴ lies within the stated uncertainty ±0.007 — **no physics change**. This correction upgrades the RG constraint residual from 10⁻³ to < 10⁻¹⁴ (Category [A], Constitution-compliant). See PR #199, `docs/su3_gamma_theorem.md` §3.
 
 ---
 
@@ -71,7 +71,7 @@ residual = abs(5 * kappa**2 - 3 * lambda_s)
 print(mp.nstr(residual, 20))               # 0.0
 ```
 
-Previous (v3.9.4): λ_S = 0.417 → residual = 0.001 → [RG_CONSTRAINT_FAIL] at tol < 1e-14  
+Previous (v3.9.4): λ_S = 5/12 → residual = 0.001 → [RG_CONSTRAINT_FAIL] at tol < 1e-14
 Current (v3.9.5): λ_S = 5κ²/3 → residual < 10⁻⁸⁰ → **Constitution-compliant** ✓
 
 ### Gamma Consistency

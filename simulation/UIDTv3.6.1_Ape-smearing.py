@@ -106,7 +106,7 @@ class UIDTLatticeOptimized:
 # =============================================================================
 class UIDTLatticeWithSmearing(UIDTLatticeOptimized):
     def __init__(self, cfg: LatticeConfig, kappa=0.5, Lambda=1.0,
-                 m_S=1.705, lambda_S=0.417, v_vev=0.0477):
+                 m_S=1.705, lambda_S=5/12, v_vev=0.0477):
         super().__init__(cfg, kappa, Lambda, m_S, lambda_S, v_vev)
 
     def _shift(self, U, mu, shift):

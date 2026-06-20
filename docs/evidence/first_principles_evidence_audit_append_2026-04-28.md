@@ -56,7 +56,7 @@ independent derivation of both Δ* and γ.
 ### λS Exact Fix (Resolved)
 
 TKT-20260403-LAMBDA-FIX is resolved in this PR:
-- λS = 0.417 (old, rounded) → **λS = 5/12 = 0.41666... (exact)**
+- λS = 5/12 (old, rounded) → **λS = 5/12 = 0.41666... (exact)**
 - RG constraint |5κ² − 3λS| = 0 (exactly) with κ = 1/2
 - Evidence category: **[A]** (mathematical identity)
 

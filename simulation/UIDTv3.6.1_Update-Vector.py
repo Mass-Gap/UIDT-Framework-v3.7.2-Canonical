@@ -135,7 +135,7 @@ class UIDTLatticeOptimized:
     """
     
     def __init__(self, cfg, kappa=0.500, Lambda=1.0, 
-                 m_S=1.705, lambda_S=0.417, v_vev=0.0477): # v3.6.1 Clean State
+                 m_S=1.705, lambda_S=5/12, v_vev=0.0477): # v3.6.1 Clean State
         
         self.cfg = cfg
         self.Nx = cfg.N_spatial

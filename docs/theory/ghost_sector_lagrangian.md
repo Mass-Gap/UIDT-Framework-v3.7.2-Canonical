@@ -33,7 +33,7 @@ with field strength $F^a_{\mu\nu} = \partial_\mu A^a_\nu - \partial_\nu A^a_\mu 
 
 $$\mathcal{L}_S = \frac{1}{2}(\partial_\mu S)^2 - \frac{\lambda_S}{4}(S^2 - v^2)^2$$
 
-with $v = 47.7$ MeV [A] and $\lambda_S = 0.417$ [A].
+with $v = 47.7$ MeV [A] and $\lambda_S = 5/12$ [A].
 
 ### 2.3 Interaction Sector
 

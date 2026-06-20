@@ -11,9 +11,9 @@
 
 ---
 
-## 1. Fix: λS = 5/12 (exact) replaces λS = 0.417
+## 1. Fix: λS = 5/12 (exact) replaces λS = 5/12
 
-Per TKT-20260403-LAMBDA-FIX, `rg_2loop_beta.md` uses `λS = 0.417`
+Per TKT-20260403-LAMBDA-FIX, `rg_2loop_beta.md` uses `λS = 5/12`
 (old rounded value), causing RG residual ≈ 10⁻³ instead of 0.
 
 All computations in this document use the **exact** value:

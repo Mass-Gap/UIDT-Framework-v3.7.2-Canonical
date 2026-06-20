@@ -36,7 +36,7 @@ $$
 With canonical ledger values ($\Delta^* = 1.710$ GeV, $\lambda_S = 5\kappa^2/3 = 0.41\overline{6}$, $\kappa = 0.500$, $\mathcal{C} = 0.277$ GeV$^4$):
 
 $$
-\gamma_{\text{closed}} = \left(\frac{6 \times 1.710^3 \times 0.417}{13 \times 0.500 \times 0.277}\right)^{1/3} \approx 1.908
+\gamma_{\text{closed}} = \left(\frac{6 \times 1.710^3 \times 5/12}{13 \times 0.500 \times 0.277}\right)^{1/3} \approx 1.908
 $$
 
 For $\gamma_{\text{closed}} = 49/3$ to hold exactly, the gap equation would require $\Delta^* \approx 14.64$ GeV — a factor ~8.6 above the Banach fixed point.
@@ -108,7 +108,7 @@ $$
 $$
 
 $$
-\text{RHS} = 3\lambda_S = 3 \times 0.417 = 1.25099999\ldots
+\text{RHS} = 3\lambda_S = 3 \times 5/12 = 1.25099999\ldots
 $$
 
 $$
@@ -122,13 +122,13 @@ $$
 | Ledger tolerance (≤ 0.01) | 0.001 | ✅ PASS |
 | Constitution tolerance (< 10⁻¹⁴) | 0.001 | ❌ FAIL → [RG_CONSTRAINT_FAIL] |
 
-**[RG_CONSTRAINT_FAIL]** — The ledger rounds $\lambda_S = 0.417$, whereas the exact fixed-point value is:
+**[RG_CONSTRAINT_FAIL]** — The ledger rounds $\lambda_S = 5/12$, whereas the exact fixed-point value is:
 
 $$
 \lambda_S^{\text{exact}} = \frac{5\kappa^2}{3} = \frac{5 \times 0.25}{3} = 0.41\overline{6}
 $$
 
-The deviation $\Delta\lambda_S = 0.41\overline{6} - 0.417 = -3.\overline{3} \times 10^{-4}$ lies **within the ledger uncertainty $\pm 0.007$**, so no physical inconsistency exists.
+The deviation $\Delta\lambda_S = 0.41\overline{6} - 5/12 = -3.\overline{3} \times 10^{-4}$ lies **within the ledger uncertainty $\pm 0.007$**, so no physical inconsistency exists.
 
 ### 3.3  Recommended Fix
 
@@ -136,7 +136,7 @@ To restore the constraint to $< 10^{-14}$, update the canonical ledger:
 
 ```
 λ_S := 5κ²/3   [exact RG fixed-point definition]
-     = 0.41666...  (not 0.417)
+     = 0.41666...  (not 5/12)
 ```
 
 This is a **rounding correction only** — no physics changes. It upgrades the RG constraint from Category [A] (tolerance 0.01) to **Category [A] (tolerance < 10⁻¹⁴)**.
