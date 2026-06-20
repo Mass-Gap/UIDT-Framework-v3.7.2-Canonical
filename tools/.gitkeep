@@ -1,0 +1,3 @@
+# tools/ directory — reserved for future CLI wrappers
+# All verification scripts live in verification/scripts/
+# See docs/pr-gate/ for claims table and reproduction notes

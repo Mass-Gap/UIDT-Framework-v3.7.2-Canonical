@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "description": "Machine-readable extraction of LEDGER/CLAIMS_ADDENDUM_C054_C056.md",
+    "extracted_by": "Antigravity / UIDT-Assistant v4.1",
+    "extraction_date": "2026-05-24",
+    "source_sha": "3928923c0fbb7248cae40545125c141459213068",
+    "audit_note": "[AUDIT_FAIL] No f_n(g) vacuum suppression definitions found in this addendum. Claims C054-C056 concern emergent geometry only. f_n definitions for rho_vac suppression formula are NOT present in CANONICAL/ or LEDGER/ as of 2026-05-24. L1 (10^10 factor) and L5 (N=99 unjustified) remain fully open.",
+    "fn_status": "NOT_FOUND_IN_ADDENDUM",
+    "fn_search_locations": [
+      "CANONICAL/CONSTANTS.md",
+      "LEDGER/CLAIMS_ADDENDUM_C054_C056.md",
+      "LEDGER/CLAIMS.json"
+    ],
+    "fn_required_action": "Author (P. Rietz) must supply explicit f_n(g) definitions with derivation before L1 can be promoted beyond [E]. Until then, tools/vacuum_suppression.py --profile extracted raises [AUDIT_FAIL]."
+  },
+  "claims": [
+    {
+      "id": "UIDT-C-054",
+      "statement": "Gradient bilinear [partial_mu S partial_nu S]_R as candidate metric seed in emergent geometry",
+      "type": "hypothesis",
+      "status": "proposed",
+      "evidence": "E",
+      "confidence": 0.50,
+      "dependencies": ["UIDT-C-001", "UIDT-C-002", "UIDT-C-018"],
+      "since": "v3.9.4",
+      "domain": "emergent_geometry",
+      "fn_relevance": "none",
+      "falsification": "If operator mixing under the ERG destroys positive-definiteness of g_munu^info at all renormalisation scales, claim is refuted."
+    },
+    {
+      "id": "UIDT-C-055",
+      "statement": "Information-geometric distance d^2(x,y) = -log(G_R(x,y;mu)/G_R(mu)) induces a Lorentz metric of signature (1,3)",
+      "type": "hypothesis",
+      "status": "proposed",
+      "evidence": "E",
+      "confidence": 0.45,
+      "dependencies": ["UIDT-C-054", "UIDT-C-016"],
+      "since": "v3.9.4",
+      "domain": "emergent_geometry",
+      "fn_relevance": "none",
+      "falsification": "If signature (1,3) cannot be recovered from G_R at any renormalisation scale within UIDT truncation, claim is refuted."
+    },
+    {
+      "id": "UIDT-C-056",
+      "statement": "A renormalisation reference scale mu is required for dimensional consistency of g_munu^info; mu is not yet canonically registered in CONSTANTS.md",
+      "type": "constraint",
+      "status": "proposed",
+      "evidence": "E",
+      "confidence": 0.90,
+      "dependencies": ["UIDT-C-018", "UIDT-C-001"],
+      "since": "v3.9.4",
+      "domain": "emergent_geometry",
+      "fn_relevance": "none",
+      "falsification": "If no mu exists such that g_munu^info is dimensionless and background-independent, dimensional consistency fails."
+    }
+  ]
+}
