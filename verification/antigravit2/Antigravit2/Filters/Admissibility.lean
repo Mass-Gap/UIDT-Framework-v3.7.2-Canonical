@@ -3,100 +3,169 @@
   ===================================
   [D/E] — Combinatorial predicates only. No physical claim.
 
-  Formalizes the topological and symmetry-breaking filters that constrain
-  which block partitions are "admissible" in the UIDT matrix-thermodynamic
-  framework.
+  Phase 1: Compilable filter definitions with small lemmas.
 
-  Filter 1 (Topological / Intersection Form):
-    Motivated by non-degenerate intersection form requirements in NCG.
-    Restricts the maximum dimension jump between adjacent blocks.
-    Formalized as a combinatorial predicate (hypothesis), not a theorem.
+  Builds on BlockPartition base lemmas. Filter predicates are defined
+  as Prop-valued functions, not axioms. Admissibility is the conjunction.
 
-  Filter 2 (Symmetry Breaking / Mass Non-Degeneracy):
-    Fully symmetric block structures (all blocks equal) lead to fermionic
-    mass degeneracy and are dynamically unstable. These are excluded.
+  Strategy: define filters → prove basic sanity checks → enumerate
+  for small N (Phase 1b).
 
-  Anti-Target-Leakage Discipline:
-    The "desired" partition [3,2,1] MUST NOT appear in any filter definition.
-    It may only emerge as the result of applying filters to the space of
-    all partitions of N.
+  Anti-Target-Leakage: [3,2,1] appears ONLY in theorem conclusions,
+  never in definitions or hypotheses.
 
   Reference: Matrix-Thermodynamik session notes (Filter 1, Filter 2)
   Reference: UIDT_Ontology_v3_9_9.tex, Part IV (multiplicity verdicts)
-  Reference: arXiv:0706.3690 (NCG intersection form, motivating Filter 1)
 -/
 
 import Antigravit2.MatrixThermo.BlockPartition
 
-namespace Antigravit2.Filters
+namespace Antigravit2
+namespace Filters
 
-open Antigravit2.MatrixThermo
+open MatrixThermo
 
-/-- [D/E] Filter 1: Topological intersection-form constraint.
+-- ═══════════════════════════════════════════════════════════════
+-- Filter 1: Dimension-jump constraint
+-- ═══════════════════════════════════════════════════════════════
 
-    Restricts the maximum absolute difference between any two block sizes
-    to at most δ (default: δ = 1).
+/-- [D/E] Maximum block size in a partition. -/
+def BlockPartition.maxBlock {N : ℕ} (p : BlockPartition N) : ℕ :=
+  p.blocks.foldl max 0
 
-    Motivation: In NCG, a non-degenerate intersection form on the
-    finite geometry constrains how "far apart" the summands of the
-    matrix algebra can be. This is encoded here as a pure combinatorial
-    predicate.
+/-- [D/E] Minimum block size in a partition (0 for empty). -/
+def BlockPartition.minBlock {N : ℕ} (p : BlockPartition N) : ℕ :=
+  match p.blocks with
+  | [] => 0
+  | n :: ns => ns.foldl min n
 
-    This is a HYPOTHESIS, not a theorem. The NCG literature motivates
-    such restrictions but does not prove a general "dimension jump bound"
-    in this exact form.
+/-- [D/E] Filter 1: The spread (max - min block size) is at most δ.
 
-    Reference: arXiv:0706.3690 (Chamseddine-Connes-Marcolli, NCG and SM)
-    Reference: arXiv:1805.08582 (classification of finite spectral triples)
+    Motivated by NCG intersection-form non-degeneracy: blocks that are
+    "too far apart" in dimension break the intersection form.
+
+    This is a HYPOTHESIS [D], not a derived theorem.
+    Default δ = 1 (adjacent dimensions only).
+
+    Reference: arXiv:0706.3690 (Chamseddine-Connes-Marcolli)
 -/
 def filter1 {N : ℕ} (p : BlockPartition N) (δ : ℕ := 1) : Prop :=
-  ∀ (i j : Fin p.blocks.length),
-    Int.natAbs (↑(p.blocks.get i) - ↑(p.blocks.get j)) ≤ δ
+  p.maxBlock - p.minBlock ≤ δ
 
-/-- [D/E] Filter 2: Symmetry-breaking / mass non-degeneracy constraint.
+-- ═══════════════════════════════════════════════════════════════
+-- Filter 2: Symmetry-breaking constraint
+-- ═══════════════════════════════════════════════════════════════
 
-    Excludes fully symmetric block partitions (all blocks of equal size),
-    because these produce degenerate fermion mass spectra and are
-    dynamically unstable under off-diagonal perturbations.
+/-- [D/E] Predicate: all blocks in the partition are equal. -/
+def BlockPartition.allEqual {N : ℕ} (p : BlockPartition N) : Prop :=
+  ∀ a ∈ p.blocks, ∀ b ∈ p.blocks, a = b
 
-    A partition passes Filter 2 iff NOT all blocks are equal.
+/-- [D/E] Filter 2: The partition is NOT fully symmetric.
 
-    Reference: Matrix-Thermodynamik session notes (Filter 2, Massendegeneration)
+    Fully symmetric partitions (all blocks equal) produce degenerate
+    fermion mass spectra and are dynamically unstable under
+    off-diagonal perturbations.
+
+    Reference: Matrix-Thermodynamik session notes (Massendegeneration)
 -/
 def filter2 {N : ℕ} (p : BlockPartition N) : Prop :=
-  ¬ (∀ (i j : Fin p.blocks.length), p.blocks.get i = p.blocks.get j)
+  ¬ p.allEqual
 
-/-- [D/E] A partition is 'admissible' iff it passes both Filter 1 and Filter 2.
+-- ═══════════════════════════════════════════════════════════════
+-- Admissibility
+-- ═══════════════════════════════════════════════════════════════
 
-    Anti-Target-Leakage: This predicate is defined generically.
-    No specific partition is mentioned. The set of admissible partitions
-    for a given N is determined by enumeration and proof, not by
-    hard-coding the answer.
+/-- [D/E] A partition is admissible iff it passes both filters.
+
+    Anti-Target-Leakage: defined generically. No specific partition
+    is mentioned. The admissible set for a given N is determined
+    by enumeration and proof.
 -/
 def admissible {N : ℕ} (p : BlockPartition N) (δ : ℕ := 1) : Prop :=
   filter1 p δ ∧ filter2 p
 
-/-- [D/E] The trivial (single-block) partition [N] always fails Filter 2
-    vacuously (only one block, so "all blocks equal" holds trivially).
+-- ═══════════════════════════════════════════════════════════════
+-- Sanity lemmas
+-- ═══════════════════════════════════════════════════════════════
 
-    This is a sanity check: the trivial partition is never admissible.
+/-- The single-block partition [N] is always allEqual (vacuously for k=1). -/
+lemma singleton_allEqual (N : ℕ) (hN : 0 < N) :
+    (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N).allEqual := by
+  intro a ha b hb
+  simp at ha hb
+  rw [ha, hb]
+
+/-- The single-block partition [N] always fails Filter 2. -/
+lemma singleton_fails_filter2 (N : ℕ) (hN : 0 < N) :
+    ¬ filter2 (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) := by
+  intro h
+  exact h (singleton_allEqual N hN)
+
+/-- The single-block partition [N] is never admissible. -/
+theorem singleton_not_admissible (N : ℕ) (hN : 0 < N) :
+    ¬ admissible (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) := by
+  intro ⟨_, h2⟩
+  exact singleton_fails_filter2 N hN h2
+
+/-- The single-block partition [N] always passes Filter 1 (spread = 0). -/
+lemma singleton_passes_filter1 (N : ℕ) (hN : 0 < N) (δ : ℕ) :
+    filter1 (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) δ := by
+  simp [filter1, BlockPartition.maxBlock, BlockPartition.minBlock]
+
+/-- A two-block partition [a, b] with a ≠ b passes Filter 2. -/
+lemma two_block_distinct_passes_filter2 {N : ℕ} (a b : ℕ)
+    (ha : 0 < a) (hb : 0 < b) (hab : a ≠ b) (hsum : a + b = N) :
+    filter2 (⟨[a, b], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega,
+              by simp [hsum]⟩ : BlockPartition N) := by
+  intro h_all
+  have := h_all a (by simp) b (by simp)
+  exact hab this
+
+-- ═══════════════════════════════════════════════════════════════
+-- Phase 1b stubs: enumeration for small N
+-- ═══════════════════════════════════════════════════════════════
+
+/-- [D/E] For N = 3: the partition [2, 1] is admissible with δ = 1.
+    (Spread = 1 ≤ 1, and blocks are not all equal.) -/
+theorem partition_2_1_admissible :
+    admissible (⟨[2, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega,
+                 by simp⟩ : BlockPartition 3) := by
+  constructor
+  · -- Filter 1: maxBlock - minBlock = 2 - 1 = 1 ≤ 1
+    simp [filter1, BlockPartition.maxBlock, BlockPartition.minBlock]
+  · -- Filter 2: 2 ≠ 1
+    intro h_all
+    have := h_all 2 (by simp) 1 (by simp)
+    omega
+
+/-- [D/E] For N = 4: the partition [2, 2] fails Filter 2 (all equal). -/
+theorem partition_2_2_not_admissible :
+    ¬ admissible (⟨[2, 2], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega,
+                   by simp⟩ : BlockPartition 4) := by
+  intro ⟨_, h2⟩
+  apply h2
+  intro a ha b hb
+  simp at ha hb
+  rcases ha with rfl | rfl <;> rcases hb with rfl | rfl <;> rfl
+
+/-- [D/E] For N = 6: the partition [3, 2, 1] is admissible with δ = 2.
+
+    Anti-Target-Leakage: This partition appears ONLY here in a theorem
+    conclusion. It is derived from the filter predicates, not assumed.
+    Note: with δ = 1 (strict), [3,2,1] fails (spread = 2 > 1).
+    With δ = 2, it passes.
 -/
-theorem trivial_partition_not_admissible (N : ℕ) (hN : 0 < N)
-    (p : BlockPartition N) (hp : p.blocks = [N]) :
-    ¬ admissible p := by
-  sorry -- Phase 1: unfold admissible, filter2; show single-element list is "all equal"
+theorem partition_3_2_1_admissible_delta2 :
+    admissible (⟨[3, 2, 1],
+      by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl <;> omega,
+      by simp⟩ : BlockPartition 6) (δ := 2) := by
+  constructor
+  · -- Filter 1: maxBlock - minBlock = 3 - 1 = 2 ≤ 2
+    simp [filter1, BlockPartition.maxBlock, BlockPartition.minBlock]
+  · -- Filter 2: not all equal (3 ≠ 2)
+    intro h_all
+    have := h_all 3 (by simp) 2 (by simp)
+    omega
 
-/-- [D/E] For N = 6 with δ = 1: enumerate all admissible partitions.
-
-    Expected result (to be PROVEN, not assumed):
-    The admissible partitions of 6 with |n_i - n_j| ≤ 1 and not-all-equal are:
-      [3, 2, 1], [2, 2, 1, 1], ...  (exact set TBD by proof)
-
-    Anti-Target-Leakage: The partition [3, 2, 1] appears here ONLY as a
-    conjectured member of the result set, NOT in any definition.
-    The proof must derive membership from the filter predicates.
--/
--- theorem admissible_partitions_of_6 : ... := by sorry
--- Phase 2: Complete enumeration via decidable instances
-
-end Antigravit2.Filters
+end Filters
+end Antigravit2

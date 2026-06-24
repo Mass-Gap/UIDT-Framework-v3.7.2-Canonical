@@ -3,105 +3,101 @@
   =========================================
   [D/E] — Combinatorial definitions only. No physical claim.
 
-  Formalizes the matrix-thermodynamic block condensation model:
-  - A matrix of size N×N is partitioned into diagonal blocks of sizes n_i
-    with Σ n_i = N.
-  - Entropy functional: S ~ Σ n_i²  (diagonal degrees of freedom)
-  - Off-diagonal penalty: U_off ~ Σ_{i<j} n_i · n_j  (inter-block coupling cost)
-  - Free energy: F = -α·S + β·U_off  (competition drives block selection)
+  Phase 1: Compilable core with base lemmas.
 
-  The key physical claim (not proven here) is that thermodynamic competition
-  between entropy maximization and off-diagonal suppression selects a
-  specific partition structure that matches the Standard Model gauge algebra.
+  A BlockPartition of N is a list of positive naturals summing to N.
+  We define entropy S ~ Σ n_i² and off-diagonal penalty U_off ~ Σ_{i<j} n_i·n_j
+  and prove basic properties.
 
   Reference: Matrix-Thermodynamik session notes (block condensation)
   Reference: UIDT_Ontology_v3_9_9.tex, Part IV (multiplicity verdicts)
 -/
 
-import Mathlib.Data.List.Basic
+import Mathlib.Combinatorics.Enumerative.Partition
 import Mathlib.Data.Nat.Basic
+import Mathlib.Data.List.Basic
 
-namespace Antigravit2.MatrixThermo
+namespace Antigravit2
+namespace MatrixThermo
 
-/-- [D/E] A block partition of N is a nonempty list of positive naturals
-    summing to N.
+/-- [D/E] A block partition of N is a list of positive naturals summing to N.
 
-    Represents a decomposition of an N×N matrix into diagonal blocks
-    of sizes n₁, n₂, ..., nₖ.
-
-    Anti-Target-Leakage: This definition is generic over all partitions.
-    The "desired" partition (e.g. [3,2,1] for N=6) must NOT appear
-    in any definition — it may only emerge as the RESULT of filter
-    application and optimization.
+    Anti-Target-Leakage: Generic over all partitions. No specific partition
+    (e.g. [3,2,1]) appears in any definition.
 -/
 structure BlockPartition (N : ℕ) where
   /-- The list of block sizes. -/
   blocks : List ℕ
-  /-- The partition is nonempty. -/
-  nonempty : blocks ≠ []
   /-- Every block has positive size. -/
   positive : ∀ n ∈ blocks, 0 < n
   /-- The block sizes sum to N. -/
-  sum_eq : blocks.foldl (· + ·) 0 = N
+  sum_blocks : blocks.sum = N
 
-/-- [D/E] Number of blocks (k) in the partition. -/
+/-- [D/E] Number of blocks in the partition. -/
 def BlockPartition.numBlocks {N : ℕ} (p : BlockPartition N) : ℕ :=
   p.blocks.length
 
 /-- [D/E] Entropy functional S ~ Σ n_i².
-
-    Measures the diagonal degrees of freedom. Maximized by the trivial
-    partition [N] (single block) and minimized by the finest partition
-    [1,1,...,1].
-
-    Reference: Matrix-Thermodynamik §3 (Entropie-Funktional)
--/
-def BlockPartition.entropy {N : ℕ} (p : BlockPartition N) : ℕ :=
+    Measures diagonal degrees of freedom.
+    -- v3.9.9, Matrix-Thermodynamik §3 -/
+def entropy {N : ℕ} (p : BlockPartition N) : ℕ :=
   p.blocks.foldl (fun acc n => acc + n * n) 0
 
 /-- [D/E] Off-diagonal penalty U_off ~ Σ_{i<j} n_i · n_j.
+    Measures inter-block coupling cost.
+    -- v3.9.9, Matrix-Thermodynamik §3 -/
+def offDiagPenalty {N : ℕ} (p : BlockPartition N) : ℕ :=
+  let rec aux : List ℕ → ℕ
+    | [] => 0
+    | n :: ns => n * ns.sum + aux ns
+  aux p.blocks
 
-    Measures the inter-block coupling cost. Maximized when blocks are
-    roughly equal in size; minimized by the trivial partition [N].
+-- ═══════════════════════════════════════════════════════════════
+-- Base lemmas (Phase 1)
+-- ═══════════════════════════════════════════════════════════════
 
-    Identity: 2 · U_off = N² - Σ n_i²  (= N² - entropy)
+/-- Entropy of the empty partition (N=0) is 0. -/
+lemma entropy_nil {N : ℕ} (h : N = 0) :
+    entropy (N := N) ⟨[], by intro n hn; cases hn, by simpa [h]⟩ = 0 := by
+  simp [entropy]
 
-    Reference: Matrix-Thermodynamik §3 (Off-Diagonal-Penalty)
--/
-def BlockPartition.offDiagPenalty {N : ℕ} (p : BlockPartition N) : ℕ :=
-  -- Compute Σ_{i<j} n_i · n_j via the identity:
-  -- 2 · U_off = (Σ n_i)² - Σ n_i² = N² - entropy
-  -- For now, direct computation:
-  let b := p.blocks
-  List.foldl (fun (acc : ℕ) (pair : ℕ × ℕ) => acc + pair.1 * pair.2) 0
-    (b.enum.bind fun ⟨i, ni⟩ =>
-      (b.drop (i + 1)).map fun nj => (ni, nj))
+/-- Off-diagonal penalty of the empty partition (N=0) is 0. -/
+lemma offDiagPenalty_nil {N : ℕ} (h : N = 0) :
+    offDiagPenalty (N := N) ⟨[], by intro n hn; cases hn, by simpa [h]⟩ = 0 := by
+  simp [offDiagPenalty]
 
-/-- [D/E] Free energy functional F = -α·S + β·U_off.
+/-- Entropy is always non-negative (trivially, since ℕ). -/
+lemma entropy_nonneg {N : ℕ} (p : BlockPartition N) : 0 ≤ entropy p := by
+  simp [entropy]
 
-    The competition between entropy maximization (favoring fewer, larger blocks)
-    and off-diagonal penalty (favoring more, smaller blocks) selects
-    the thermodynamically preferred partition.
+/-- Off-diagonal penalty is always non-negative (trivially, since ℕ). -/
+lemma offDiagPenalty_nonneg {N : ℕ} (p : BlockPartition N) : 0 ≤ offDiagPenalty p := by
+  simp [offDiagPenalty]
 
-    Here α, β are (ℕ-valued) coupling parameters. For the real-valued
-    version, these definitions would be lifted to ℝ.
+/-- [D/E] The trivial (single-block) partition [N] has entropy N². -/
+lemma entropy_singleton (N : ℕ) (hN : 0 < N) :
+    entropy (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) = N * N := by
+  simp [entropy]
 
-    Reference: Matrix-Thermodynamik §4 (Freie Energie)
--/
-def BlockPartition.freeEnergy {N : ℕ} (p : BlockPartition N) (α β : ℕ) : ℤ :=
-  -(↑(α * p.entropy) : ℤ) + ↑(β * p.offDiagPenalty)
+/-- [D/E] The trivial (single-block) partition [N] has zero off-diagonal penalty. -/
+lemma offDiagPenalty_singleton (N : ℕ) (hN : 0 < N) :
+    offDiagPenalty (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) = 0 := by
+  simp [offDiagPenalty, offDiagPenalty.aux]
 
-/-- [D/E] Lemma stub: The identity 2·U_off + S = N².
+/-- [D/E] The finest partition [1,1,...,1] of N has entropy N.
+    (Each block contributes 1² = 1, and there are N blocks.) -/
+lemma entropy_finest (N : ℕ) (p : BlockPartition N)
+    (h_all_one : ∀ n ∈ p.blocks, n = 1) :
+    entropy p = N := by
+  sorry -- Phase 1: prove via induction on blocks, using h_all_one and sum_blocks
 
-    For any partition of N with entropy S = Σ n_i² and
-    off-diagonal penalty U_off = Σ_{i<j} n_i·n_j, we have:
-      (Σ n_i)² = Σ n_i² + 2·Σ_{i<j} n_i·n_j
-    i.e. N² = S + 2·U_off.
+/-- [D/E] Algebraic identity: (Σ n_i)² = Σ n_i² + 2·Σ_{i<j} n_i·n_j
+    i.e. N² = entropy(p) + 2·offDiagPenalty(p).
 
-    This is a standard algebraic identity, not a physics claim.
--/
-theorem entropy_offDiag_identity (N : ℕ) (p : BlockPartition N) :
-    p.entropy + 2 * p.offDiagPenalty = N * N := by
-  sorry -- Phase 1: prove from the algebraic identity (Σ aᵢ)² = Σ aᵢ² + 2·Σ_{i<j} aᵢ·aⱼ
+    This is a standard identity, not a physics claim. -/
+theorem entropy_offDiag_identity {N : ℕ} (p : BlockPartition N) :
+    entropy p + 2 * offDiagPenalty p = N * N := by
+  sorry -- Phase 1: prove by induction on p.blocks
 
-end Antigravit2.MatrixThermo
+end MatrixThermo
+end Antigravit2
