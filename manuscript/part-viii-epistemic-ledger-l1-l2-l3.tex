@@ -1,0 +1,144 @@
+% ============================================================
+% Part VIII — Epistemic Ledger: Strict Demarcation of Open Residues
+% File: manuscript/part-viii-epistemic-ledger-l1-l2-l3.tex
+% Branch: TKT-2026-06-24-part-viii-epistemic-ledger-l1-l2-l3
+% Evidence tags: [A] [A-] [B] [C] [D] [E] per v3.9 governance
+% DO NOT merge to main without PR gate (Claims Table + Reproduction Note)
+% ============================================================
+
+\subsection{Epistemic Ledger: Strict Demarcation of Open Residues}
+\label{sec:epistemic_ledger}
+
+\noindent This subsection constitutes the formal Epistemic Ledger of
+\UIDT\ v3.9. Every entry is a hard boundary, not a programme aspiration.
+Evidence tags are mandatory and non-negotiable; no claim may be presented
+at a higher stratum than its tag permits. The three limitations below are
+the load-bearing open residues of the framework as of the present
+canonical edition.
+
+% ------------------------------------------------------------
+\paragraph{Limitation L1: Dimensional Transmutation and the Origin
+  of $\gamma$.}
+\textbf{Status:~[A-] (Internally Calibrated) / Tension Entry~[C].}
+
+The interface weight $\gamma = 16.339$ is phenomenologically calibrated
+and its classification is~\textbf{[A-] permanent}; it is not~[A] and
+may not be described as \emph{derived}.\Aminus\ The underlying
+topological generator is identified via the SU(3) Casimir structure
+\begin{equation}
+  \gamma_{\text{bare}}
+  = \frac{(2N_c+1)^2}{N_c}\bigg|_{N_c=3}
+  = \frac{49}{3}
+  \approx 16.333,
+  \label{eq:gamma-bare}
+\end{equation}
+which provides the bare algebraic value.\Aminus\ The residual discrepancy
+\begin{equation}
+  \Delta\gamma = \gamma - \gamma_{\text{bare}}
+  = 16.339 - 16.333 = +0.00567
+  \label{eq:delta-gamma}
+\end{equation}
+is formally registered in the ledger as an \emph{open tension} between
+the pure algebraic topology and the empirically calibrated readout at the
+observer interface.\Cminus\ A Monte-Carlo internal determination
+$\gamma_{\text{MC}}$ is held alongside $16.339$ as a separate recorded
+tension; the two determinations must be displayed with their methods and
+uncertainties and are not to be reconciled by selection.\Aminus
+
+In strict adherence to the framework's \textbf{Anti-Target-Leakage
+Protocol} (Proposition~\ref{prop:target-leakage}): no ab-initio
+derivation of $\gamma = 16.339$ is attempted from within any solver that
+has access to this value. Such imports constitute tautological fitting
+rather than physical derivation and are prohibited.\Aminus\ Any future
+derivation must satisfy, in advance and in public: (i)~the operator
+whose flow it integrates, (ii)~the flow equation, (iii)~the regulator,
+(iv)~boundary conditions, (v)~an explicit proof that no target value has
+leaked into the computation, and (vi)~an executable reproduction
+command. Absent any one of these conditions, a claimed derivation of
+$\gamma$ remains at predictive status~[D] at best.\Aminus
+
+% ------------------------------------------------------------
+\paragraph{Limitation L2: Yukawa Couplings and the Relocation
+  Necessity Conjecture.}
+\textbf{Status:~[D] (Conjecture\,/\,Formal Hypothesis) /
+  [E] (Systemic Concealment).}
+
+The NCG structure enforces the Standard Model algebra
+$\mathbb{C} \oplus \mathbb{H} \oplus M_3(\mathbb{C})$ as the
+topologically unique surviving partition under entropy-penalty
+competition in Matrix Thermodynamics~[D].\Dclass\ Specifically, the free
+energy functional
+\begin{equation}
+  F = U - TS, \quad
+  S = \textstyle\sum_i n_i^2, \quad
+  U_{\text{off}} \propto \textstyle\sum_{i<j} n_i n_j \, V_{ij},
+  \label{eq:free-energy}
+\end{equation}
+subject to two topological filters (intersection-form non-degeneracy and
+mass-degeneration instability), eliminates all integer partitions of
+$N=6$ except $(3,2,1)$.\Dclass\ This case-by-case elimination for $N=6$
+is documented; the claim that $(3,2,1)$ is the unique global minimum for
+all $N$ is registered as the \textbf{Relocation Necessity Conjecture
+(RNC)} at status~\textbf{[D]} and constitutes the primary open
+mathematical deliverable of this research programme.\Dclass
+
+However, the granular Yukawa couplings — fermion masses and their
+hierarchies — remain \emph{free parameters} of the finite Dirac operator
+$D_F$. The NCG construction constrains the algebra but does not dictate
+the scaling of these parameters.\Dclass\ Due to the principle of
+\textbf{computational irreducibility}, the precise algorithmic generation
+of these infrared weights is systemically concealed from the
+$(3+1)$D observer interface; no derivation from within the framework's
+effective field theory domain is possible in principle.\Eclass
+
+Any prior generation-scaling rules (e.g.\ mass-ratio formulae involving
+factors of $100 \times \Delta$ or geometric harmonics $\sqrt{9/\gamma}$)
+are \textbf{strictly demoted} to post-dictive mappings~\textbf{[C/D]}
+and carry no status of formal derivation. These mappings are preserved in
+the museum record as documentation of a failed approach; they are not
+admissible as live calculations.\Aminus
+
+% ------------------------------------------------------------
+\paragraph{Limitation L3: UV-Completion and the $d^2\!=\!0$
+  Obstruction.}
+\textbf{Status:~[A] (Effective Field Theory Demarcation).}
+
+The physical domain of the Forgetful Functor is strictly bounded by the
+Information Saturation Bound $\rho_{\max} = 4 \times 10^{99}$, which
+constitutes the final kill-switch of the effective theory.\Aclass\ The
+inability of the scalar field $S$ to generate unmediated UV curvature is
+mathematically formalised via the \textbf{$d^2=0$ obstruction}: for any
+real scalar $S$,
+\begin{equation}
+  F = d^2 S \cdot dS = 0 \quad \text{identically},
+  \label{eq:d2-obstruction}
+\end{equation}
+which establishes that $S$ alone cannot generate Yang-Mills curvature
+below or above the EFT cutoff $\Lambda$.\Aclass\ This is Limitation~L7
+in its mathematical hardware form and closes the scalar-gradient route to
+gauge structure as a~[A] negative result.\Aclass
+
+The unreduced absolute state $\mathcal{M}_{\text{UV}}$ beyond
+$\rho_{\max}$ admits no physical history, no fluctuation, and no
+cosmological epoch; all singular genesis narratives are excluded as
+category errors.\Aclass\ A non-perturbative UV completion remains an
+open research question at status~[D]; the present effective Lagrangian
+(Equation~\ref{eq:lagrangian}) is explicitly not renormalisable by power
+counting (dimension-5 operator), and this limitation is openly
+recorded.\Aclass
+
+% ------------------------------------------------------------
+\begin{governancebox}{Epistemic Ledger Standing Status}
+  \textbf{L1.}~$\gamma = 16.339$ is [A-] calibrated, permanently.
+  $\gamma_{\text{bare}} = 49/3$ identified via SU(3) Casimir [A-].
+  $\Delta\gamma = +0.00567$ is an open Tension Entry [C]; no
+  ab-initio derivation attempted; Anti-Target-Leakage enforced [A-].\\[0.3em]
+  \textbf{L2.}~SM algebra $\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$
+  as topological survivor of Matrix Thermodynamics [D].
+  Yukawa couplings: free parameters of $D_F$, systemically concealed [E].
+  Generation-scaling rules: post-dictive mapping [C/D], museum only.
+  RNC: primary open conjecture [D].\\[0.3em]
+  \textbf{L3.}~$d^2=0$ obstruction: [A] negative result.
+  EFT boundary at $\rho_{\max}$ [A]. UV completion open [D].
+  $\mathcal{M}_{\text{UV}}$ admits no physical history [A].
+\end{governancebox}
