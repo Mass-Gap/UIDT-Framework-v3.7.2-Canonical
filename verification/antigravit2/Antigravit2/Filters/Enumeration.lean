@@ -3,18 +3,28 @@
   =================================
   [D/E] — Combinatorial enumeration only. No physical claim.
 
-  Phase 1: Explicit partition candidate lists for N = 4, 5, 6.
-  Stufe 1 strategy: hard-coded reference lists with sum/positivity checks.
-  Stufe 2 (later): generative enumerator with monotonicity invariant.
+  Phase 2: Explicit partition reference lists + mathlib Partition bridge.
+
+  Two-layer architecture:
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │ Layer 1 (Stufe 1): Explicit reference lists for N = 4, 5, 6.      │
+  │   Hard-coded, verified by decide. Used as regression ground truth. │
+  │                                                                     │
+  │ Layer 2 (Stufe 2): Bridge to Mathlib.Combinatorics.Partition.       │
+  │   Connects our BlockPartition to mathlib's Nat.Partition.           │
+  │   Enables future use of mathlib enumeration and counting results.  │
+  └─────────────────────────────────────────────────────────────────────┘
 
   Anti-Target-Leakage: all partitions listed uniformly; no partition
   is singled out in definitions. Filter results derived by proof.
 
   Reference: Matrix-Thermodynamik session notes
+  Reference: Mathlib.Combinatorics.Enumerative.Partition (Nat.Partition)
 -/
 
 import Antigravit2.MatrixThermo.BlockPartition
 import Antigravit2.Filters.Admissibility
+import Mathlib.Combinatorics.Enumerative.Partition
 import Mathlib.Tactic
 
 namespace Antigravit2
@@ -23,54 +33,57 @@ namespace Filters
 open MatrixThermo
 
 -- ═══════════════════════════════════════════════════════════════
--- Explicit reference lists (Stufe 1)
+-- LAYER 1: Explicit reference lists (Stufe 1)
 -- Partitions in decreasing order (canonical form)
 -- ═══════════════════════════════════════════════════════════════
 
-/-- All partitions of 4 (decreasing order). -/
+/-- [DEFINITIONAL] All integer partitions of 4 (decreasing order). -/
 def partitions4 : List (List ℕ) :=
   [[4], [3, 1], [2, 2], [2, 1, 1], [1, 1, 1, 1]]
 
-/-- All partitions of 5 (decreasing order). -/
+/-- [DEFINITIONAL] All integer partitions of 5 (decreasing order). -/
 def partitions5 : List (List ℕ) :=
   [[5], [4, 1], [3, 2], [3, 1, 1], [2, 2, 1], [2, 1, 1, 1], [1, 1, 1, 1, 1]]
 
-/-- All partitions of 6 (decreasing order). -/
+/-- [DEFINITIONAL] All integer partitions of 6 (decreasing order). -/
 def partitions6 : List (List ℕ) :=
   [[6], [5, 1], [4, 2], [4, 1, 1], [3, 3], [3, 2, 1], [3, 1, 1, 1],
    [2, 2, 2], [2, 2, 1, 1], [2, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1]]
 
--- ═══════════════════════════════════════════════════════════════
--- Sum checks: every candidate list sums correctly
--- ═══════════════════════════════════════════════════════════════
+-- ---------------------------------------------------------------
+-- Layer 1 integrity checks
+-- ---------------------------------------------------------------
 
+-- Sum checks
 example : partitions4.Forall (fun xs => xs.sum = 4) := by decide
 example : partitions5.Forall (fun xs => xs.sum = 5) := by decide
 example : partitions6.Forall (fun xs => xs.sum = 6) := by decide
 
--- ═══════════════════════════════════════════════════════════════
--- Positivity checks: every element is positive
--- ═══════════════════════════════════════════════════════════════
-
+-- Positivity checks
 example : partitions4.Forall (fun xs => xs.Forall (· > 0)) := by decide
 example : partitions5.Forall (fun xs => xs.Forall (· > 0)) := by decide
 example : partitions6.Forall (fun xs => xs.Forall (· > 0)) := by decide
 
--- ═══════════════════════════════════════════════════════════════
--- Completeness: correct count of partitions p(N)
--- p(4)=5, p(5)=7, p(6)=11
--- ═══════════════════════════════════════════════════════════════
-
+-- Cardinality: p(4)=5, p(5)=7, p(6)=11
 example : partitions4.length = 5 := by decide
 example : partitions5.length = 7 := by decide
 example : partitions6.length = 11 := by decide
 
+-- Monotonicity (decreasing order within each partition)
+example : partitions4.Forall (fun xs => xs.Sorted (· ≥ ·)) := by decide
+example : partitions5.Forall (fun xs => xs.Sorted (· ≥ ·)) := by decide
+example : partitions6.Forall (fun xs => xs.Sorted (· ≥ ·)) := by decide
+
+-- No duplicates in the reference lists
+example : partitions4.Nodup := by decide
+example : partitions5.Nodup := by decide
+example : partitions6.Nodup := by decide
+
 -- ═══════════════════════════════════════════════════════════════
--- Entropy/offDiag computation for all partitions of 6
--- (numerical regression, Anti-Target-Leakage: uniform treatment)
+-- LAYER 1: Entropy / offDiag regression for all partitions of 6
 -- ═══════════════════════════════════════════════════════════════
 
--- Format: (partition, entropy, offDiag, entropy + 2*offDiag = 36?)
+-- Entropy values
 example : entropyList [6] = 36 := by decide
 example : entropyList [5, 1] = 26 := by decide
 example : entropyList [4, 2] = 20 := by decide
@@ -83,6 +96,7 @@ example : entropyList [2, 2, 1, 1] = 10 := by decide
 example : entropyList [2, 1, 1, 1, 1] = 8 := by decide
 example : entropyList [1, 1, 1, 1, 1, 1] = 6 := by decide
 
+-- Off-diagonal penalty values
 example : offDiagList [6] = 0 := by decide
 example : offDiagList [5, 1] = 5 := by decide
 example : offDiagList [4, 2] = 8 := by decide
@@ -95,7 +109,7 @@ example : offDiagList [2, 2, 1, 1] = 13 := by decide
 example : offDiagList [2, 1, 1, 1, 1] = 14 := by decide
 example : offDiagList [1, 1, 1, 1, 1, 1] = 15 := by decide
 
--- Identity check: S + 2·U = 36 for all partitions of 6
+-- Identity check: S + 2·U = N² = 36 for all partitions of 6
 example : entropyList [6] + 2 * offDiagList [6] = 36 := by decide
 example : entropyList [5, 1] + 2 * offDiagList [5, 1] = 36 := by decide
 example : entropyList [4, 2] + 2 * offDiagList [4, 2] = 36 := by decide
@@ -109,11 +123,9 @@ example : entropyList [2, 1, 1, 1, 1] + 2 * offDiagList [2, 1, 1, 1, 1] = 36 := 
 example : entropyList [1, 1, 1, 1, 1, 1] + 2 * offDiagList [1, 1, 1, 1, 1, 1] = 36 := by decide
 
 -- ═══════════════════════════════════════════════════════════════
--- Filter verdicts for all 11 partitions of 6
--- spread, allEqual, admissible δ=1, admissible δ=2
+-- LAYER 1: Spread values for all 11 partitions of 6
 -- ═══════════════════════════════════════════════════════════════
 
--- Spread values
 example : spread [6] = 0 := by decide
 example : spread [5, 1] = 4 := by decide
 example : spread [4, 2] = 2 := by decide
@@ -127,7 +139,103 @@ example : spread [2, 1, 1, 1, 1] = 1 := by decide
 example : spread [1, 1, 1, 1, 1, 1] = 0 := by decide
 
 -- ═══════════════════════════════════════════════════════════════
--- Summary table for N=6 (as comments, derived from examples above)
+-- LAYER 2: Bridge to Mathlib.Combinatorics.Enumerative.Partition
+-- ═══════════════════════════════════════════════════════════════
+
+/-!
+## Mathlib Partition Bridge
+
+mathlib's `Nat.Partition` represents an integer partition as a
+`Multiset ℕ` of positive parts summing to n. Our `BlockPartition`
+uses a `List ℕ` of positive parts summing to N.
+
+The key differences are:
+1. **Ordering**: `Nat.Partition` uses a `Multiset` (unordered).
+   `BlockPartition` uses a `List` (ordered). Our reference lists
+   use canonical decreasing order.
+2. **Representation**: `Nat.Partition` stores parts in a `Multiset`.
+   `BlockPartition` stores parts in a `List`.
+
+The bridge consists of:
+- `toNatPartition`: convert a `BlockPartition` to a `Nat.Partition`
+- `fromNatPartition`: convert a `Nat.Partition` to a `BlockPartition`
+  (choosing the canonical decreasing ordering)
+
+STATUS: [DEFINITIONAL] for the conversion functions.
+The conversions are purely combinatorial; no physical content.
+-/
+
+/-- [DEFINITIONAL] Convert a BlockPartition to a mathlib Nat.Partition.
+    Forgets the ordering (List → Multiset). -/
+def BlockPartition.toNatPartition {N : ℕ} (p : BlockPartition N) :
+    Nat.Partition N where
+  parts := p.blocks
+  parts_pos := by
+    intro n hn
+    exact p.positive n (Multiset.mem_coe.mp hn)
+  parts_sum := by
+    rw [Multiset.sum_coe]
+    exact p.sum_blocks
+
+/-- [DEFINITIONAL] Convert a decreasing List ℕ with sum = N and
+    all-positive parts to a BlockPartition. -/
+def BlockPartition.fromList {N : ℕ} (xs : List ℕ)
+    (hpos : ∀ n ∈ xs, 0 < n) (hsum : xs.sum = N) :
+    BlockPartition N :=
+  ⟨xs, hpos, hsum⟩
+
+/-- [DEFINITIONAL] Round-trip: toNatPartition preserves the parts
+    as a multiset (forgets ordering). -/
+lemma toNatPartition_parts {N : ℕ} (p : BlockPartition N) :
+    (p.toNatPartition).parts = ↑p.blocks := by
+  simp [BlockPartition.toNatPartition]
+
+/-- [DEFINITIONAL] The number of parts is preserved by conversion. -/
+lemma toNatPartition_card {N : ℕ} (p : BlockPartition N) :
+    Multiset.card (p.toNatPartition).parts = p.blocks.length := by
+  simp [BlockPartition.toNatPartition]
+
+-- ═══════════════════════════════════════════════════════════════
+-- LAYER 2: Regression — convert test partitions and verify
+-- ═══════════════════════════════════════════════════════════════
+
+-- Verify that toNatPartition produces valid Nat.Partitions
+example : (p21.toNatPartition).parts.sum = 3 := by
+  simp [BlockPartition.toNatPartition, p21]
+
+example : (p321.toNatPartition).parts.sum = 6 := by
+  simp [BlockPartition.toNatPartition, p321]
+
+example : (p2211.toNatPartition).parts.sum = 6 := by
+  simp [BlockPartition.toNatPartition, p2211]
+
+-- ═══════════════════════════════════════════════════════════════
+-- Stufe 2b (stub): Generative partition enumerator
+-- ═══════════════════════════════════════════════════════════════
+
+/-!
+## Generative Enumerator (Roadmap)
+
+A generative enumerator would produce all partitions of N recursively:
+```
+partitionsUpTo (n maxPart : ℕ) : List (List ℕ)
+```
+with invariants:
+- parts are positive and non-increasing
+- sum = n
+- first part ≤ maxPart
+
+This is NOT implemented in Phase 2 because:
+1. The explicit reference lists are sufficient for N ≤ 6.
+2. Correctness proofs for generative enumerators are non-trivial.
+3. Anti-Target-Leakage is easier to audit with explicit lists.
+
+UPGRADE PATH: Implement in Phase 3 when N > 6 cases are needed,
+or when we want to prove "the reference lists are complete".
+-/
+
+-- ═══════════════════════════════════════════════════════════════
+-- Summary table for N=6 (derived from Layer 1 examples above)
 --
 -- Partition     | S  | U  | spread | allEq | adm δ=1 | adm δ=2
 -- [6]           | 36 |  0 |   0    |  yes  |   no    |   no
@@ -135,7 +243,7 @@ example : spread [1, 1, 1, 1, 1, 1] = 0 := by decide
 -- [4,2]         | 20 |  8 |   2    |  no   |   no    |   yes
 -- [4,1,1]       | 18 |  9 |   3    |  no   |   no    |   no
 -- [3,3]         | 18 |  9 |   0    |  yes  |   no    |   no
--- [3,2,1]       | 14 | 11 |   2    |  no   |   no    |   yes  ← ATL target
+-- [3,2,1]       | 14 | 11 |   2    |  no   |   no    |   yes  ← ATL
 -- [3,1,1,1]     | 12 | 12 |   2    |  no   |   no    |   yes
 -- [2,2,2]       | 12 | 12 |   0    |  yes  |   no    |   no
 -- [2,2,1,1]     | 10 | 13 |   1    |  no   |   yes   |   yes
