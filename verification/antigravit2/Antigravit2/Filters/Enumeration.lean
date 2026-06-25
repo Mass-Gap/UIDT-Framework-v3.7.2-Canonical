@@ -210,29 +210,43 @@ example : (p2211.toNatPartition).parts.sum = 6 := by
   simp [BlockPartition.toNatPartition, p2211]
 
 -- ═══════════════════════════════════════════════════════════════
--- Stufe 2b (stub): Generative partition enumerator
+-- Stufe 2b (Phase 3 stub): Generative partition enumerator
 -- ═══════════════════════════════════════════════════════════════
 
 /-!
-## Generative Enumerator (Roadmap)
+## Generative Enumerator
 
-A generative enumerator would produce all partitions of N recursively:
-```
-partitionsUpTo (n maxPart : ℕ) : List (List ℕ)
-```
-with invariants:
-- parts are positive and non-increasing
-- sum = n
-- first part ≤ maxPart
+A generative enumerator produces all partitions of N recursively.
+This is defined as `enumPartitionsBounded n maxPart`, which yields
+all partitions of `n` into positive parts each at most `maxPart`,
+in canonical non-increasing order.
 
-This is NOT implemented in Phase 2 because:
-1. The explicit reference lists are sufficient for N ≤ 6.
-2. Correctness proofs for generative enumerators are non-trivial.
-3. Anti-Target-Leakage is easier to audit with explicit lists.
+STATUS: [DEFINITIONAL]
+The enumerator is a pure combinatorial function. It natively avoids
+permutations (produces canonical non-increasing sequences).
 
-UPGRADE PATH: Implement in Phase 3 when N > 6 cases are needed,
-or when we want to prove "the reference lists are complete".
+UPGRADE PATH: Phase 4 can formalize the proofs that this enumerator
+is complete and sound with respect to `Nat.Partition`.
 -/
+
+/-- [DEFINITIONAL] Recursively enumerate partitions of `n` with parts ≤ `maxPart`. -/
+def enumPartitionsBounded : ℕ → ℕ → List (List ℕ)
+| 0, _ => [[]]
+| _+1, 0 => []
+| n+1, k+1 =>
+    let m := min (n+1) (k+1)
+    ((List.range' 1 m).reverse).bind fun part =>
+      (enumPartitionsBounded ((n+1) - part) part).map (fun rest => part :: rest)
+
+/-- [DEFINITIONAL] Enumerate all partitions of N. -/
+def enumPartitions (N : ℕ) : List (List ℕ) :=
+  enumPartitionsBounded N N
+
+-- Regression tests: check that the generative enumerator matches the
+-- explicit reference lists for small N (up to order).
+example : enumPartitions 4 = partitions4 := by decide
+example : enumPartitions 5 = partitions5 := by decide
+example : enumPartitions 6 = partitions6 := by decide
 
 -- ═══════════════════════════════════════════════════════════════
 -- Summary table for N=6 (derived from Layer 1 examples above)
