@@ -56,6 +56,39 @@ def FiniteAlgebraSignature.numSummands (sig : FiniteAlgebraSignature) : ℕ :=
 def FiniteAlgebraSignature.algebraDim (sig : FiniteAlgebraSignature) : ℕ :=
   (sig.blocks.map fun n => n * n).sum
 
+abbrev End (H : Type _) := H → H
+
+/--
+[DESIGN-LEVEL]
+A bundled algebra representation.
+
+At this phase we only record the action `act`.
+Later phases may enrich this structure with linearity, multiplicativity,
+`*`-compatibility, boundedness, or continuity.
+-/
+structure AlgebraRep (A : Type _) (H : Type _) where
+  act : A → End H
+deriving Repr
+
+namespace AlgebraRep
+
+variable {A : Type _} {H : Type _}
+
+@[simp] theorem act_apply (ρ : AlgebraRep A H) (a : A) (x : H) :
+    ρ.act a x = (ρ.act a) x := rfl
+
+/--
+[DESIGN-LEVEL]
+Trivial representation by identity endomorphisms.
+-/
+def trivial : AlgebraRep Unit Unit :=
+  { act := fun _ => id }
+
+@[simp] theorem trivial_apply (u : Unit) :
+    trivial.act () u = u := rfl
+
+end AlgebraRep
+
 -- ═══════════════════════════════════════════════════════════════
 -- [DESIGN-LEVEL] Spectral triple (finite, abstract)
 -- ═══════════════════════════════════════════════════════════════
@@ -69,10 +102,9 @@ def FiniteAlgebraSignature.algebraDim (sig : FiniteAlgebraSignature) : ℕ :=
       - Unboundedness / resolvent compactness
       - Bounded commutators [D, π(a)]
       - Dense subalgebra conditions
-      - Representation π : A →ₐ End(H)
 
     UPGRADE PATH (Phase 4+):
-      1. Add representation field `rep : A → H → H`
+      1. Add representation field `rep : AlgebraRep A H`
       2. Add first-order condition as actual Prop depending on rep
       3. Add orientability via Hochschild cycle
       4. Add Poincaré duality
@@ -83,18 +115,18 @@ def FiniteAlgebraSignature.algebraDim (sig : FiniteAlgebraSignature) : ℕ :=
 -/
 structure SpectralTriple (A : Type*) (H : Type*) where
   /-- [DESIGN-LEVEL] Representation of the algebra on the Hilbert space.
-      Phase 4: bare curried function (acts as A → End(H)).
+      Phase 4: bundled representation (AlgebraRep).
       Phase 5+: algebra homomorphism into bounded operators. -/
-  rep : A → H → H
+  rep : AlgebraRep A H
   /-- Dirac operator D : H → H.
       Phase 3: bare function. Phase 4+: self-adjoint, unbounded. -/
-  D : H → H
+  D : End H
   /-- Real structure J : H → H (charge conjugation).
       Phase 3: bare function. Phase 4+: antiunitary, J² = ε. -/
-  J : H → H
+  J : End H
   /-- Chirality operator γ : H → H (grading for even triples).
       Phase 3: bare function. Phase 4+: γ² = 1, γ* = γ. -/
-  gamma : H → H
+  gamma : End H
   /-- KO-dimension (mod 8). Encodes sign table (ε, ε', ε''). -/
   KO_dim : Fin 8
   /-- The algebra signature that generated this triple.
@@ -107,15 +139,15 @@ structure SpectralTriple (A : Type*) (H : Type*) where
 -- ═══════════════════════════════════════════════════════════════
 
 /-- [DESIGN-LEVEL] First-order condition stub.
-    Full version: [[D, rep a], J (rep b)* J⁻¹] = 0 for all a, b ∈ A.
-    Phase 4: rep is available as a bare function, but missing *-algebra properties.
+    Full version: [[D, rep.act a], J (rep.act b)* J⁻¹] = 0 for all a, b ∈ A.
+    Phase 4: rep is available as a bundled AlgebraRep, but missing *-algebra properties.
     UPGRADE PATH: formalize when representation is promoted to a *-homomorphism. -/
 def SpectralTriple.firstOrderCondition
     {A H : Type*} (_st : SpectralTriple A H) : Prop :=
   True -- stub: will be replaced by actual commutator condition
 
 /-- [DESIGN-LEVEL] Orientability stub.
-    Full version: ∃ Hochschild cycle c, rep(c) = γ.
+    Full version: ∃ Hochschild cycle c, rep.act(c) = γ.
     UPGRADE PATH: formalize when Hochschild homology is available. -/
 def SpectralTriple.orientable
     {A H : Type*} (_st : SpectralTriple A H) : Prop :=
@@ -163,6 +195,7 @@ example : koSignTable standardModelKODim = (1, 1, -1) := by decide
 -- │ FiniteAlgebraSignature     │ DEFINITIONAL  │ Stable.                │
 -- │ totalDim, numSummands      │ DEFINITIONAL  │ Stable.                │
 -- │ algebraDim                 │ DEFINITIONAL  │ Stable.                │
+-- │ AlgebraRep                 │ DESIGN-LEVEL  │ Add *-hom conditions   │
 -- │ SpectralTriple             │ DESIGN-LEVEL  │ Add self-adj, bounded  │
 -- │ firstOrderCondition        │ DESIGN-LEVEL  │ Replace True with comm │
 -- │ orientable                 │ DESIGN-LEVEL  │ Replace True with HC   │

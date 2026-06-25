@@ -93,7 +93,7 @@ UPGRADE PATH:
 def FiniteAlgebraSignature.toTrivialTriple (sig : FiniteAlgebraSignature)
     (ko : Fin 8 := standardModelKODim) :
     SpectralTriple Unit Unit where
-  rep := fun _ x => x
+  rep := AlgebraRep.trivial
   D := id
   J := id
   gamma := id
@@ -116,6 +116,10 @@ def BlockPartition.toTrivialTriple {N : ℕ} (p : BlockPartition N)
     (ko : Fin 8 := standardModelKODim) :
     SpectralTriple Unit Unit :=
   p.toSignature.toTrivialTriple ko
+
+@[simp] theorem toTrivialTriple_rep_apply {N : ℕ} (p : BlockPartition N) (u : Unit) :
+    p.toTrivialTriple.rep.act () u = u := by
+  rfl
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DEFINITIONAL] Pipeline regression tests
