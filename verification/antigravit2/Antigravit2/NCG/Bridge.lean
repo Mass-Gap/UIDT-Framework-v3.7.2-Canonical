@@ -93,11 +93,12 @@ UPGRADE PATH:
 def FiniteAlgebraSignature.toTrivialTriple (sig : FiniteAlgebraSignature)
     (ko : Fin 8 := standardModelKODim) :
     SpectralTriple Unit Unit where
+  rep := fun _ x => x
   D := id
   J := id
   gamma := id
   KO_dim := ko
-  signature := some sig
+  signature := sig
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DEFINITIONAL] Full pipeline: BlockPartition → SpectralTriple
@@ -140,7 +141,7 @@ example : (p321.toTrivialTriple).KO_dim = standardModelKODim := by
   simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
 
 -- Signature is recoverable from the trivial triple
-example : (p321.toTrivialTriple).signature = some p321.toSignature := by
+example : (p321.toTrivialTriple).signature = p321.toSignature := by
   simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
 
 -- Pipeline for p2211
@@ -151,7 +152,7 @@ example : (p2211.toSignature).numSummands = 4 := by
   simp [BlockPartition.toSignature, FiniteAlgebraSignature.numSummands, p2211]
 
 -- ═══════════════════════════════════════════════════════════════
--- Phase 3 epistemic status summary
+-- Phase 4 epistemic status summary
 --
 -- ┌─────────────────────────────┬───────────────┬──────────────────────┐
 -- │ Entity                      │ Status        │ Upgrade path         │

@@ -82,6 +82,10 @@ def FiniteAlgebraSignature.algebraDim (sig : FiniteAlgebraSignature) : ℕ :=
     Reference: arXiv:0706.3690, §2 (finite NCG axioms)
 -/
 structure SpectralTriple (A : Type*) (H : Type*) where
+  /-- [DESIGN-LEVEL] Representation of the algebra on the Hilbert space.
+      Phase 4: bare curried function (acts as A → End(H)).
+      Phase 5+: algebra homomorphism into bounded operators. -/
+  rep : A → H → H
   /-- Dirac operator D : H → H.
       Phase 3: bare function. Phase 4+: self-adjoint, unbounded. -/
   D : H → H
@@ -93,24 +97,25 @@ structure SpectralTriple (A : Type*) (H : Type*) where
   gamma : H → H
   /-- KO-dimension (mod 8). Encodes sign table (ε, ε', ε''). -/
   KO_dim : Fin 8
-  /-- Optional: the algebra signature that generated this triple.
-      Connects back to the combinatorial layer. -/
-  signature : Option FiniteAlgebraSignature := none
+  /-- The algebra signature that generated this triple.
+      Connects back to the combinatorial layer.
+      Phase 4: Now directly carried instead of Option. -/
+  signature : FiniteAlgebraSignature
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DESIGN-LEVEL] Axiom stubs — Prop-valued, to be replaced
 -- ═══════════════════════════════════════════════════════════════
 
 /-- [DESIGN-LEVEL] First-order condition stub.
-    Full version: [[D, π(a)], J π(b)* J⁻¹] = 0 for all a, b ∈ A.
-    Requires representation π : A →ₐ End(H), not yet available.
-    UPGRADE PATH: formalize when representation field is added. -/
+    Full version: [[D, rep a], J (rep b)* J⁻¹] = 0 for all a, b ∈ A.
+    Phase 4: rep is available as a bare function, but missing *-algebra properties.
+    UPGRADE PATH: formalize when representation is promoted to a *-homomorphism. -/
 def SpectralTriple.firstOrderCondition
     {A H : Type*} (_st : SpectralTriple A H) : Prop :=
   True -- stub: will be replaced by actual commutator condition
 
 /-- [DESIGN-LEVEL] Orientability stub.
-    Full version: ∃ Hochschild cycle c, π(c) = γ.
+    Full version: ∃ Hochschild cycle c, rep(c) = γ.
     UPGRADE PATH: formalize when Hochschild homology is available. -/
 def SpectralTriple.orientable
     {A H : Type*} (_st : SpectralTriple A H) : Prop :=
@@ -150,7 +155,7 @@ def standardModelKODim : Fin 8 := 6
 example : koSignTable standardModelKODim = (1, 1, -1) := by decide
 
 -- ═══════════════════════════════════════════════════════════════
--- Phase 3 epistemic status summary
+-- Phase 4 epistemic status summary
 --
 -- ┌────────────────────────────┬───────────────┬────────────────────────┐
 -- │ Entity                     │ Status        │ Upgrade path           │
@@ -158,7 +163,7 @@ example : koSignTable standardModelKODim = (1, 1, -1) := by decide
 -- │ FiniteAlgebraSignature     │ DEFINITIONAL  │ Stable.                │
 -- │ totalDim, numSummands      │ DEFINITIONAL  │ Stable.                │
 -- │ algebraDim                 │ DEFINITIONAL  │ Stable.                │
--- │ SpectralTriple             │ DESIGN-LEVEL  │ Add rep, self-adj, ... │
+-- │ SpectralTriple             │ DESIGN-LEVEL  │ Add self-adj, bounded  │
 -- │ firstOrderCondition        │ DESIGN-LEVEL  │ Replace True with comm │
 -- │ orientable                 │ DESIGN-LEVEL  │ Replace True with HC   │
 -- │ poincareDuality            │ DESIGN-LEVEL  │ Replace True with IF   │
