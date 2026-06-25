@@ -3,101 +3,196 @@
   =========================================
   [D/E] — Combinatorial definitions only. No physical claim.
 
-  Phase 1: Compilable core with base lemmas.
+  Phase 1: List-level helpers + lifted BlockPartition definitions.
+  Strategy: prove on lists first, then lift via simpa.
 
-  A BlockPartition of N is a list of positive naturals summing to N.
-  We define entropy S ~ Σ n_i² and off-diagonal penalty U_off ~ Σ_{i<j} n_i·n_j
-  and prove basic properties.
-
-  Reference: Matrix-Thermodynamik session notes (block condensation)
-  Reference: UIDT_Ontology_v3_9_9.tex, Part IV (multiplicity verdicts)
+  Reference: Matrix-Thermodynamik session notes
+  Reference: UIDT_Ontology_v3_9_9.tex, Part IV
 -/
 
-import Mathlib.Combinatorics.Enumerative.Partition
-import Mathlib.Data.Nat.Basic
 import Mathlib.Data.List.Basic
+import Mathlib.Data.Nat.Basic
+import Mathlib.Tactic
 
 namespace Antigravit2
 namespace MatrixThermo
 
-/-- [D/E] A block partition of N is a list of positive naturals summing to N.
+-- ═══════════════════════════════════════════════════════════════
+-- List-level helpers (prove here, lift to BlockPartition below)
+-- ═══════════════════════════════════════════════════════════════
 
-    Anti-Target-Leakage: Generic over all partitions. No specific partition
-    (e.g. [3,2,1]) appears in any definition.
--/
+/-- [D/E] Entropy on raw lists: Σ n_i². -/
+def entropyList (xs : List ℕ) : ℕ :=
+  (xs.map fun n => n * n).sum
+
+/-- [D/E] Off-diagonal penalty on raw lists: Σ_{i<j} n_i · n_j. -/
+def offDiagList : List ℕ → ℕ
+  | [] => 0
+  | n :: ns => n * ns.sum + offDiagList ns
+
+-- ---------------------------------------------------------------
+-- List-level lemmas
+-- ---------------------------------------------------------------
+
+@[simp] lemma entropyList_nil : entropyList [] = 0 := by
+  simp [entropyList]
+
+@[simp] lemma entropyList_cons (n : ℕ) (ns : List ℕ) :
+    entropyList (n :: ns) = n * n + entropyList ns := by
+  simp [entropyList, List.map_cons, List.sum_cons]
+
+@[simp] lemma offDiagList_nil : offDiagList [] = 0 := rfl
+
+@[simp] lemma offDiagList_cons (n : ℕ) (ns : List ℕ) :
+    offDiagList (n :: ns) = n * ns.sum + offDiagList ns := rfl
+
+lemma entropyList_singleton (n : ℕ) : entropyList [n] = n * n := by
+  simp
+
+lemma offDiagList_singleton (n : ℕ) : offDiagList [n] = 0 := by
+  simp
+
+lemma entropyList_replicate_one (N : ℕ) :
+    entropyList (List.replicate N 1) = N := by
+  induction N with
+  | zero => simp
+  | succ k ih => simp [List.replicate_succ, ih]
+
+/-- The fundamental algebraic identity on lists:
+    (Σ n_i)² = Σ n_i² + 2·Σ_{i<j} n_i·n_j -/
+theorem square_sum_identity (xs : List ℕ) :
+    xs.sum * xs.sum = entropyList xs + 2 * offDiagList xs := by
+  induction xs with
+  | nil => simp
+  | cons a as ih =>
+    simp [List.sum_cons]
+    ring_nf
+    rw [show a * a + (a * as.sum + as.sum * a) + as.sum * as.sum
+        = a * a + 2 * (a * as.sum) + as.sum * as.sum from by ring]
+    rw [ih]
+    ring
+
+-- ═══════════════════════════════════════════════════════════════
+-- BlockPartition structure
+-- ═══════════════════════════════════════════════════════════════
+
+/-- [D/E] A block partition of N: a list of positive naturals summing to N.
+    Anti-Target-Leakage: generic over all partitions. -/
 structure BlockPartition (N : ℕ) where
-  /-- The list of block sizes. -/
   blocks : List ℕ
-  /-- Every block has positive size. -/
   positive : ∀ n ∈ blocks, 0 < n
-  /-- The block sizes sum to N. -/
   sum_blocks : blocks.sum = N
 
-/-- [D/E] Number of blocks in the partition. -/
+/-- Number of blocks. -/
 def BlockPartition.numBlocks {N : ℕ} (p : BlockPartition N) : ℕ :=
   p.blocks.length
 
-/-- [D/E] Entropy functional S ~ Σ n_i².
-    Measures diagonal degrees of freedom.
-    -- v3.9.9, Matrix-Thermodynamik §3 -/
+-- ═══════════════════════════════════════════════════════════════
+-- Lifted definitions (thin wrappers)
+-- ═══════════════════════════════════════════════════════════════
+
+/-- [D/E] Entropy: S ~ Σ n_i². -/
 def entropy {N : ℕ} (p : BlockPartition N) : ℕ :=
-  p.blocks.foldl (fun acc n => acc + n * n) 0
+  entropyList p.blocks
 
-/-- [D/E] Off-diagonal penalty U_off ~ Σ_{i<j} n_i · n_j.
-    Measures inter-block coupling cost.
-    -- v3.9.9, Matrix-Thermodynamik §3 -/
+/-- [D/E] Off-diagonal penalty: U_off ~ Σ_{i<j} n_i · n_j. -/
 def offDiagPenalty {N : ℕ} (p : BlockPartition N) : ℕ :=
-  let rec aux : List ℕ → ℕ
-    | [] => 0
-    | n :: ns => n * ns.sum + aux ns
-  aux p.blocks
+  offDiagList p.blocks
 
 -- ═══════════════════════════════════════════════════════════════
--- Base lemmas (Phase 1)
+-- Lifted lemmas
 -- ═══════════════════════════════════════════════════════════════
 
-/-- Entropy of the empty partition (N=0) is 0. -/
-lemma entropy_nil {N : ℕ} (h : N = 0) :
-    entropy (N := N) ⟨[], by intro n hn; cases hn, by simpa [h]⟩ = 0 := by
+lemma entropy_nil :
+    entropy (⟨[], by intro n hn; cases hn, by simp⟩ : BlockPartition 0) = 0 := by
   simp [entropy]
 
-/-- Off-diagonal penalty of the empty partition (N=0) is 0. -/
-lemma offDiagPenalty_nil {N : ℕ} (h : N = 0) :
-    offDiagPenalty (N := N) ⟨[], by intro n hn; cases hn, by simpa [h]⟩ = 0 := by
+lemma offDiagPenalty_nil :
+    offDiagPenalty (⟨[], by intro n hn; cases hn, by simp⟩ : BlockPartition 0) = 0 := by
   simp [offDiagPenalty]
 
-/-- Entropy is always non-negative (trivially, since ℕ). -/
-lemma entropy_nonneg {N : ℕ} (p : BlockPartition N) : 0 ≤ entropy p := by
-  simp [entropy]
+lemma entropy_singleton (n : ℕ) (hpos : 0 < n) :
+    entropy (⟨[n], by intro m hm; simp at hm; omega, by simp⟩ : BlockPartition n) = n * n := by
+  simp [entropy, entropyList]
 
-/-- Off-diagonal penalty is always non-negative (trivially, since ℕ). -/
-lemma offDiagPenalty_nonneg {N : ℕ} (p : BlockPartition N) : 0 ≤ offDiagPenalty p := by
+lemma offDiagPenalty_singleton (n : ℕ) (hpos : 0 < n) :
+    offDiagPenalty (⟨[n], by intro m hm; simp at hm; omega, by simp⟩ : BlockPartition n) = 0 := by
   simp [offDiagPenalty]
 
-/-- [D/E] The trivial (single-block) partition [N] has entropy N². -/
-lemma entropy_singleton (N : ℕ) (hN : 0 < N) :
-    entropy (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) = N * N := by
-  simp [entropy]
+/-- The finest partition [1,...,1] has entropy = N. -/
+lemma entropy_finest (N : ℕ) :
+    entropy (⟨List.replicate N 1,
+      by intro n hn; simp at hn; omega,
+      by simp⟩ : BlockPartition N) = N := by
+  simp [entropy, entropyList_replicate_one]
 
-/-- [D/E] The trivial (single-block) partition [N] has zero off-diagonal penalty. -/
-lemma offDiagPenalty_singleton (N : ℕ) (hN : 0 < N) :
-    offDiagPenalty (⟨[N], by intro n hn; simp at hn; omega, by simp⟩ : BlockPartition N) = 0 := by
-  simp [offDiagPenalty, offDiagPenalty.aux]
-
-/-- [D/E] The finest partition [1,1,...,1] of N has entropy N.
-    (Each block contributes 1² = 1, and there are N blocks.) -/
-lemma entropy_finest (N : ℕ) (p : BlockPartition N)
-    (h_all_one : ∀ n ∈ p.blocks, n = 1) :
-    entropy p = N := by
-  sorry -- Phase 1: prove via induction on blocks, using h_all_one and sum_blocks
-
-/-- [D/E] Algebraic identity: (Σ n_i)² = Σ n_i² + 2·Σ_{i<j} n_i·n_j
-    i.e. N² = entropy(p) + 2·offDiagPenalty(p).
-
-    This is a standard identity, not a physics claim. -/
+/-- N² = entropy(p) + 2·offDiagPenalty(p).
+    Lifted from the list-level square_sum_identity. -/
 theorem entropy_offDiag_identity {N : ℕ} (p : BlockPartition N) :
-    entropy p + 2 * offDiagPenalty p = N * N := by
-  sorry -- Phase 1: prove by induction on p.blocks
+    N * N = entropy p + 2 * offDiagPenalty p := by
+  have h := square_sum_identity p.blocks
+  rw [p.sum_blocks] at h
+  exact h
+
+-- ═══════════════════════════════════════════════════════════════
+-- Concrete test partitions
+-- ═══════════════════════════════════════════════════════════════
+
+/-- Partition [2, 1] of 3. -/
+def p21 : BlockPartition 3 :=
+  ⟨[2, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega, by simp⟩
+
+/-- Partition [2, 2] of 4. -/
+def p22 : BlockPartition 4 :=
+  ⟨[2, 2], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega, by simp⟩
+
+/-- Partition [3, 2, 1] of 6. -/
+def p321 : BlockPartition 6 :=
+  ⟨[3, 2, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl <;> omega, by simp⟩
+
+/-- Partition [2, 2, 1, 1] of 6. -/
+def p2211 : BlockPartition 6 :=
+  ⟨[2, 2, 1, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl | rfl <;> omega, by simp⟩
+
+/-- Partition [3, 3] of 6. -/
+def p33 : BlockPartition 6 :=
+  ⟨[3, 3], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega, by simp⟩
+
+/-- Partition [2, 2, 2] of 6. -/
+def p222 : BlockPartition 6 :=
+  ⟨[2, 2, 2], by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl <;> omega, by simp⟩
+
+-- ═══════════════════════════════════════════════════════════════
+-- Numerical regression examples
+-- ═══════════════════════════════════════════════════════════════
+
+-- [2, 1]: entropy = 4+1 = 5, offDiag = 2·1 = 2, identity: 9 = 5 + 2·2
+example : entropy p21 = 5 := by simp [entropy, entropyList, p21]
+example : offDiagPenalty p21 = 2 := by simp [offDiagPenalty, offDiagList, p21]
+example : entropy p21 + 2 * offDiagPenalty p21 = 9 := by
+  simp [entropy, entropyList, offDiagPenalty, offDiagList, p21]
+
+-- [2, 2]: entropy = 4+4 = 8, offDiag = 2·2 = 4, identity: 16 = 8 + 2·4
+example : entropy p22 = 8 := by simp [entropy, entropyList, p22]
+example : offDiagPenalty p22 = 4 := by simp [offDiagPenalty, offDiagList, p22]
+
+-- [3, 2, 1]: entropy = 9+4+1 = 14, offDiag = 3·3 + 2·1 = 11, identity: 36 = 14 + 22
+example : entropy p321 = 14 := by simp [entropy, entropyList, p321]
+example : offDiagPenalty p321 = 11 := by simp [offDiagPenalty, offDiagList, p321]
+example : entropy p321 + 2 * offDiagPenalty p321 = 36 := by
+  simp [entropy, entropyList, offDiagPenalty, offDiagList, p321]
+
+-- [2, 2, 1, 1]: entropy = 4+4+1+1 = 10, offDiag = 2·4+2·2+1·1 = 13
+example : entropy p2211 = 10 := by simp [entropy, entropyList, p2211]
+example : offDiagPenalty p2211 = 13 := by simp [offDiagPenalty, offDiagList, p2211]
+
+-- [3, 3]: entropy = 9+9 = 18, offDiag = 9
+example : entropy p33 = 18 := by simp [entropy, entropyList, p33]
+example : offDiagPenalty p33 = 9 := by simp [offDiagPenalty, offDiagList, p33]
+
+-- [2, 2, 2]: entropy = 12, offDiag = 12
+example : entropy p222 = 12 := by simp [entropy, entropyList, p222]
+example : offDiagPenalty p222 = 12 := by simp [offDiagPenalty, offDiagList, p222]
 
 end MatrixThermo
 end Antigravit2
