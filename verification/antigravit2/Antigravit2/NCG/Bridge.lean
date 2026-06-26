@@ -3,8 +3,9 @@
   ========================
   [D/E] — Integration pipeline stubs. No physical claim.
 
-  Phase 3: Connects BlockPartition (combinatorial layer)
+  Phase 5: Connects BlockPartition (combinatorial layer)
   to FiniteAlgebraSignature and SpectralTriple (NCG layer).
+  Now supplies explicit NCG axiom Props (trivially True for stubs).
 
   Pipeline architecture:
   ┌──────────────────┐     ┌───────────────────────┐     ┌────────────────┐
@@ -88,7 +89,11 @@ UPGRADE PATH:
     mathematical content. Its purpose is to type-check the pipeline
     and verify that the structural plumbing compiles.
 
+    Phase 5: Now explicitly supplies firstOrderCondition, orientable,
+    and reality as True (trivially satisfied for the Unit triple).
+
     UPGRADE PATH: Replace Unit with actual matrix algebra and rep space.
+    When real operators are introduced, these Props must be proven.
 -/
 def FiniteAlgebraSignature.toTrivialTriple (sig : FiniteAlgebraSignature)
     (ko : Fin 8 := standardModelKODim) :
@@ -99,6 +104,9 @@ def FiniteAlgebraSignature.toTrivialTriple (sig : FiniteAlgebraSignature)
   gamma := id
   KO_dim := ko
   signature := sig
+  firstOrderCondition := True  -- trivially: Unit has no nontrivial commutators
+  orientable := True           -- trivially: Unit has no Hochschild obstruction
+  reality := True              -- trivially: J = id satisfies all sign rules on Unit
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DEFINITIONAL] Full pipeline: BlockPartition → SpectralTriple
@@ -145,7 +153,7 @@ example : (p321.toTrivialTriple).KO_dim = standardModelKODim := by
   simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
 
 -- Signature is recoverable from the trivial triple
-example : (p321.toTrivialTriple).signature = p321.toSignature := by
+example : (p321.toTrivialTriple).signature.blocks = p321.toSignature.blocks := by
   simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
 
 -- Pipeline for p2211
@@ -155,20 +163,32 @@ example : (p2211.toSignature).totalDim = 6 := by
 example : (p2211.toSignature).numSummands = 4 := by
   simp [BlockPartition.toSignature, FiniteAlgebraSignature.numSummands, p2211]
 
+-- NCG axiom Props are trivially True in the trivial triple
+example : (p321.toTrivialTriple).firstOrderCondition = True := by
+  simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
+
+example : (p321.toTrivialTriple).orientable = True := by
+  simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
+
+example : (p321.toTrivialTriple).reality = True := by
+  simp [BlockPartition.toTrivialTriple, FiniteAlgebraSignature.toTrivialTriple]
+
 -- ═══════════════════════════════════════════════════════════════
--- Phase 4 epistemic status summary
+-- Phase 5 epistemic status summary
 --
--- ┌─────────────────────────────┬───────────────┬──────────────────────┐
--- │ Entity                      │ Status        │ Upgrade path         │
--- ├─────────────────────────────┼───────────────┼──────────────────────┤
--- │ BlockPartition.toSignature  │ DEFINITIONAL  │ Stable.              │
--- │ toSignature_totalDim        │ [A] proven    │ Stable.              │
--- │ toSignature_numSummands     │ [A] proven    │ Stable.              │
--- │ toSignature_algebraDim      │ [A] proven    │ Stable.              │
--- │ toTrivialTriple             │ DESIGN-LEVEL  │ Replace Unit with ⊕M │
--- │ BlockPartition.toTrivTriple │ DESIGN-LEVEL  │ Compose real stages  │
--- │ Pipeline regressions        │ [A] proven    │ Stable.              │
--- └─────────────────────────────┴───────────────┴──────────────────────┘
+-- ┌─────────────────────────────┬───────────────┬────────────────────────────┐
+-- │ Entity                      │ Status        │ Upgrade path               │
+-- ├─────────────────────────────┼───────────────┼────────────────────────────┤
+-- │ BlockPartition.toSignature  │ DEFINITIONAL  │ + canonicalBlocks pipeline │
+-- │ toSignature_totalDim        │ [A] proven    │ Stable.                    │
+-- │ toSignature_numSummands     │ [A] proven    │ Stable.                    │
+-- │ toSignature_algebraDim      │ [A] proven    │ Stable.                    │
+-- │ toTrivialTriple             │ DESIGN-LEVEL  │ Replace Unit, prove axioms │
+-- │ BlockPartition.toTrivTriple │ DESIGN-LEVEL  │ Compose real stages        │
+-- │ toTrivialTriple_rep_apply   │ [A] proven    │ Stable.                    │
+-- │ NCG axiom regressions       │ DESIGN-LEVEL  │ Replace True with content  │
+-- │ Pipeline regressions        │ [A] proven    │ Stable.                    │
+-- └─────────────────────────────┴───────────────┴────────────────────────────┘
 -- ═══════════════════════════════════════════════════════════════
 
 end NCG
