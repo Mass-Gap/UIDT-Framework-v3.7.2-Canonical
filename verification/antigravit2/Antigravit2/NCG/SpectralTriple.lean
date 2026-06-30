@@ -264,7 +264,11 @@ example : koSignTable standardModelKODim = (1, 1, -1) := by decide
 
     Phase 7 version:
     Injects RealStructure as a typeclass parameter.
-    realityCondition links the sign integers to koSignTable.
+    Props like `realityCondition`, `JD_relation`, and `Jγ_relation` act as
+    **linkage constraints** (Verknüpfungs-Props) between the typeclass fields 
+    (e.g., `realStruct.epsD`) and the `SpectralTriple` data (e.g., `koSignTable`).
+    They do NOT duplicate the proofs from `RealStructure.lean` but enforce that 
+    the external RealStructure aligns with the specific KO-dimension of this triple.
     firstOrderCondition is a placeholder (True) pending Phase 8.
     [Star (H → H)] is an abstract assumption, not a concrete mathlib instance. -/
 structure SpectralTriple (A H : Type _)
