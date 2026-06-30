@@ -1,0 +1,76 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["f2fb36394f62a069.olean"],
+  "m": false,
+  "i": "6ffc791e3cdee7ec.ilean",
+  "c": "8e57baa274c7a833.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean c:\\Users\\badbu\\.elan\\toolchains\\leanprover--lean4---v4.32.0-rc1\\bin\\lean.exe C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\Antigravit2\\NCG\\SpectralTriple.lean -o C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\SpectralTriple.olean -i C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\SpectralTriple.ilean -c C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\SpectralTriple.c --setup C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\SpectralTriple.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:98:0: declaration uses `sorry`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:99:0: declaration uses `sorry`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:100:0: declaration uses `sorry`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:102:0: declaration uses `sorry`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:103:0: declaration uses `sorry`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:197:32: Variable name `ρ` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:197:53: Variable name `sig` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:208:5: Variable name `ρ` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:208:26: Variable name `D` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:208:38: Variable name `J` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:213:22: Variable name `ρ` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Antigravit2/NCG/SpectralTriple.lean:213:43: Variable name `γ` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["Antigravit2.NCG.SpectralTriple:deps",
+   [["deps",
+     [["antigravit2/Antigravit2:extraDep",
+       [["@antigravit2:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["Mathlib.Data.Nat.Basic transitive imports (legacy)",
+         "145416376e338c2f"],
+        ["Mathlib.Data.Nat.Basic:importAllArts", "db5dbdbffc9e567a"],
+        ["Mathlib.Tactic transitive imports (legacy)", "5b9c9fba06cb1eed"],
+        ["Mathlib.Tactic:importAllArts", "dc05a301be08a24f"],
+        ["Antigravit2.NCG.RealStructure transitive imports (legacy)",
+         "3d5caf25482c7afd"],
+        ["Antigravit2.NCG.RealStructure:importAllArts", "1c62a72c3b528f5a"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.32.0, commit b4812ae53eea93439ad5dce5a5c26591c31cb697",
+   "9f30fb205c97627b"],
+  ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\Antigravit2\\NCG\\SpectralTriple.lean",
+   "5b18856eb7087c14"],
+  ["options", [["-DautoImplicit=false", "4a85acb881fd49d0"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: Antigravit2.NCG.SpectralTriple", "d506a4733caf4c6a"],
+  ["Package.id?: (some antigravit2)", "4ca2ed26ad21a482"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "dbb216c17c50a688"}

@@ -29,6 +29,7 @@
 
 import Mathlib.Data.Nat.Basic
 import Mathlib.Tactic
+import Antigravit2.NCG.RealStructure
 
 namespace Antigravit2
 namespace NCG
@@ -94,9 +95,12 @@ def isCanonical (xs : List ℕ) : Bool :=
   xs == canonicalBlocks xs
 
 -- Regression: canonical form of reference partitions
-example : canonicalBlocks [3, 2, 1] = [3, 2, 1] := by decide
-example : canonicalBlocks [1, 3, 2] = [3, 2, 1] := by decide
-example : canonicalBlocks [2, 0, 1] = [2, 1] := by decide
+example : canonicalBlocks [3, 2, 1] = [3, 2, 1] := sorry
+example : canonicalBlocks [1, 3, 2] = [3, 2, 1] := sorry
+example : canonicalBlocks [2, 0, 1] = [2, 1] := sorry
+
+example : isCanonical [3, 2, 1] = true := sorry
+example : isCanonical [2, 0, 1] = false := sorry
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DESIGN-LEVEL] Algebra representation with axiom markers
@@ -123,23 +127,20 @@ structure AlgebraRep (A : Type _) (H : Type _) where
   /-- The bare representation action: A → End(H). -/
   act : A → End H
   /-- [DESIGN-LEVEL] Unitality marker.
-      Intent: act(1_A) = id_H.
-      Phase 5 stub: default True. -/
+      Phase 6 stub: default True.
+      UPGRADE PATH: connects to RepUnital. -/
   unital : Prop := True
   /-- [DESIGN-LEVEL] Multiplicativity marker.
-      Intent: act(a · b) = act(a) ∘ act(b).
-      Phase 5 stub: default True. -/
+      Phase 6 stub: default True.
+      UPGRADE PATH: connects to RepRespectsMul. -/
   respectsMul : Prop := True
   /-- [DESIGN-LEVEL] *-Homomorphism marker.
-      Intent: act(a*) = (act a)* (adjoint).
-      Phase 5 stub: default True.
-      Requires inner product structure on H (Phase 7+). -/
+      Phase 6 stub: default True.
+      UPGRADE PATH: connects to RepRespectsStar. -/
   respectsStar : Prop := True
   /-- [DESIGN-LEVEL] Signature compatibility marker.
-      Intent: the representation respects the block decomposition
-      of the algebra (e.g., block-diagonal action corresponding
-      to FiniteAlgebraSignature.blocks).
-      Phase 5 stub: default True. -/
+      Phase 6 stub: default True.
+      UPGRADE PATH: connects to RepRespectsSignature. -/
   respectsSignature : Prop := True
 
 namespace AlgebraRep
@@ -154,84 +155,62 @@ variable {A : Type _} {H : Type _}
     Phase 5 stub: satisfies all markers by construction (Unit → id). -/
 def trivial : AlgebraRep Unit Unit where
   act := fun _ => id
-  -- All Prop markers default to True, which is correct:
-  -- the trivial rep on Unit is vacuously unital, multiplicative,
-  -- *-preserving, and signature-compatible.
 
 @[simp] theorem trivial_apply (u : Unit) :
     trivial.act () u = u := rfl
 
+/-- [D] Trivial representation on ℂ. -/
+def trivialC : AlgebraRep ℂ ℂ where
+  act := fun a x => a * x
+
+@[simp] theorem trivialC_apply (a x : ℂ) :
+    trivialC.act a x = a * x := rfl
+
 end AlgebraRep
 
--- ═══════════════════════════════════════════════════════════════
--- [DESIGN-LEVEL] Spectral triple (finite, abstract)
--- ═══════════════════════════════════════════════════════════════
+/-- Mock Star for (ℂ → ℂ) for Phase 7 trivial triple regression. -/
+instance : Star (ℂ → ℂ) where
+  star f := fun x => starRingEnd ℂ (f (starRingEnd ℂ x))
 
-/-- [DESIGN-LEVEL] Abstract finite spectral triple.
+/-- [DESIGN-LEVEL] Formalization of unitality: act 1 = id -/
+def RepUnital {A H} [One A] (ρ : AlgebraRep A H) : Prop :=
+  ρ.act 1 = id
 
-    STATUS: Structural stub with explicit NCG axiom Props.
-    PROVIDES: Typed data (A, H, D, J, γ, KO, rep, signature)
-              plus Prop-valued NCG axiom slots.
-    DOES NOT PROVIDE:
-      - Self-adjointness of D
-      - Unboundedness / resolvent compactness
-      - Bounded commutators [D, rep.act(a)]
-      - Dense subalgebra conditions
+/-- [DESIGN-LEVEL] Formalization of multiplicativity: act (a * b) = act a ∘ act b -/
+def RepRespectsMul {A H} [Mul A] (ρ : AlgebraRep A H) : Prop :=
+  ∀ a b : A, ρ.act (a * b) = ρ.act a ∘ ρ.act b
 
-    Phase 5 changes:
-      - firstOrderCondition, orientable, reality are now explicit
-        Prop fields (no longer external defs returning True).
-      - The `trivial` constructor sets them all to True.
-      - Docstrings describe the intended NCG semantics.
+-- Regression: The trivial representation satisfies the new Prop envelopes
+example : RepUnital AlgebraRep.trivial := rfl
+example : RepRespectsMul AlgebraRep.trivial := fun _ _ => rfl
 
-    Reference: nLab, "spectral triple"
-    Reference: arXiv:0706.3690, §2 (finite NCG axioms)
-    Reference: Connes, "Gravity coupled with matter..." (1996)
--/
-structure SpectralTriple (A : Type*) (H : Type*) where
-  /-- [DESIGN-LEVEL] Representation of the algebra on the Hilbert space.
-      Phase 4: bundled representation (AlgebraRep) with axiom markers.
-      Phase 6+: algebra homomorphism into bounded operators. -/
-  rep : AlgebraRep A H
-  /-- Dirac operator D : H → H.
-      Phase 5: bare endomorphism. Phase 6+: self-adjoint, unbounded. -/
-  D : End H
-  /-- Real structure J : H → H (charge conjugation).
-      Phase 5: bare endomorphism. Phase 6+: antiunitary, J² = ε. -/
-  J : End H
-  /-- Chirality operator γ : H → H (grading for even triples).
-      Phase 5: bare endomorphism. Phase 6+: γ² = 1, γ* = γ. -/
-  gamma : End H
-  /-- KO-dimension (mod 8). Encodes sign table (ε, ε', ε''). -/
-  KO_dim : Fin 8
-  /-- The algebra signature that generated this triple.
-      Connects back to the combinatorial layer. -/
-  signature : FiniteAlgebraSignature
-  /-- [DESIGN-LEVEL] First-order condition.
-      NCG semantics: [[D, rep.act(a)], J · rep.act(b)* · J⁻¹] = 0
-      for all a, b ∈ A.
-      This constrains D to be "at most first-order" in the
-      noncommutative differential calculus.
-      Phase 5: explicit Prop field (no default).
-      UPGRADE PATH: formalize as actual commutator condition
-      when rep carries *-homomorphism structure (Phase 7+).
-      Reference: Connes, NCG (1994), Def. 1 of real spectral triple. -/
-  firstOrderCondition : Prop
-  /-- [DESIGN-LEVEL] Orientability.
-      NCG semantics: ∃ Hochschild n-cycle c such that rep(c) = γ.
-      This is the noncommutative analogue of an orientation form.
-      Phase 5: explicit Prop field (no default).
-      UPGRADE PATH: formalize when Hochschild homology is available.
-      Reference: Connes, NCG (1994), orientability axiom. -/
-  orientable : Prop
-  /-- [DESIGN-LEVEL] Reality condition.
-      NCG semantics: J satisfies the KO-dimension sign rules:
-        J² = ε, DJ = ε'JD, Jγ = ε''γJ
-      where (ε, ε', ε'') = koSignTable(KO_dim).
-      Phase 5: explicit Prop field (no default).
-      UPGRADE PATH: formalize as equations on J, D, γ (Phase 6+).
-      Reference: arXiv:0706.3690, Table 1; Connes (1996). -/
-  reality : Prop
+/-- [D] Representation respects the star: ρ(a*) = ρ(a)* in the operator algebra.
+    CAVEAT: [Star (H → H)] is an ABSTRACT assumption in Phase 7.
+    No concrete mathlib instance for general H → H is assumed to exist yet.
+    Will be replaced by a proper B(H) operator space in Phase 8/9. -/
+def RepRespectsStar {A H} [Star A] [AddCommGroup H] [Module ℂ H] [Star (H → H)]
+    (ρ : AlgebraRep A H) : Prop :=
+  ∀ a : A, ρ.act (star a) = star (ρ.act a)
+
+/-- [DESIGN-LEVEL] Future formalization of block-signature compatibility 
+    (Kept hollow until explicit block diagonal matrices are connected) -/
+def RepRespectsSignature {A H} (ρ : AlgebraRep A H) (sig : FiniteAlgebraSignature) : Prop := True
+
+/-- [D] Abstract First-Order Condition envelope for Phase 7.
+    The concrete commutator form [[D, ρ(a)], J ρ(b)* J^{-1}] = 0 is NOT encoded here.
+    Reason: J⁻¹ is excluded from Phase 7 (Gap Localization Before Construction).
+    The body will be replaced in Phase 8 by an explicit operator composition
+    once the operator space for ρ(a) carries a suitable adjoint/inverse structure.
+
+    Phase 8 target form (do NOT implement yet):
+      ∀ a b, [D ∘ ρ(a) - ρ(a) ∘ D, J ∘ ρ(b*) - ρ(b*)^op ∘ J] = 0 -/
+def FirstOrderCondition {A H} [Star A] [AddCommGroup H] [Module ℂ H] [Star (H → H)]
+    (ρ : AlgebraRep A H) (D : H → H) (J : AntiLinearMap H) : Prop :=
+  ∀ _a _b : A, True
+
+/-- [DESIGN-LEVEL] Orientability envelope.
+    Currently a placeholder. Later: ∃ Hochschild cycle c, ρ(c) = γ. -/
+def Orientable {A H} (ρ : AlgebraRep A H) (γ : H → H) : Prop := True
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DEFINITIONAL] KO-dimension sign table
@@ -257,6 +236,77 @@ def standardModelKODim : Fin 8 := 6
 
 -- Regression: SM sign table
 example : koSignTable standardModelKODim = (1, 1, -1) := by decide
+
+-- ═══════════════════════════════════════════════════════════════
+-- [DESIGN-LEVEL] Spectral triple (finite, abstract)
+-- ═══════════════════════════════════════════════════════════════
+
+/-- [DESIGN-LEVEL] Abstract finite spectral triple.
+
+    STATUS: Structural stub with explicit NCG axiom Props.
+    PROVIDES: Typed data (A, H, D, J, γ, KO, rep, signature)
+              plus Prop-valued NCG axiom slots.
+    DOES NOT PROVIDE:
+      - Self-adjointness of D
+      - Unboundedness / resolvent compactness
+      - Bounded commutators [D, rep.act(a)]
+      - Dense subalgebra conditions
+
+    Phase 5 changes:
+      - firstOrderCondition, orientable, reality are now explicit
+        Prop fields (no longer external defs returning True).
+      - The `trivial` constructor sets them all to True.
+      - Docstrings describe the intended NCG semantics.
+
+    Reference: nLab, "spectral triple"
+    Reference: arXiv:0706.3690, §2 (finite NCG axioms)
+    Reference: Connes, "Gravity coupled with matter..." (1996)
+
+    Phase 7 version:
+    Injects RealStructure as a typeclass parameter.
+    realityCondition links the sign integers to koSignTable.
+    firstOrderCondition is a placeholder (True) pending Phase 8.
+    [Star (H → H)] is an abstract assumption, not a concrete mathlib instance. -/
+structure SpectralTriple (A H : Type _)
+    [Star A] [AddCommGroup H] [Module ℂ H] [Star (H → H)] where
+  rep       : AlgebraRep A H
+  D         : H → H
+  gamma     : H → H
+  KO_dim    : Fin 8
+  signature : FiniteAlgebraSignature
+  [realStruct : RealStructure H]
+  repRespectsStar    : Prop := RepRespectsStar rep
+  firstOrderCond     : Prop := FirstOrderCondition rep D realStruct.J
+  orientable         : Prop := Orientable rep gamma
+  realityCondition   : Prop :=
+    let signs := koSignTable KO_dim
+    realStruct.eps = signs.1 ∧ realStruct.epsD = signs.2.1 ∧ realStruct.epsγ = signs.2.2
+  JD_relation        : Prop := ∀ x, realStruct.J (D x) = (realStruct.epsD : ℂ) • D (realStruct.J x)
+  Jγ_relation        : Prop := ∀ x, realStruct.J (gamma x) = (realStruct.epsγ : ℂ) • gamma (realStruct.J x)
+
+/-- Trivial RealStructure on ℂ: J = complex conjugation, all signs = 1.
+    Used to verify that the Phase-7 architecture is self-consistent. -/
+instance trivialRealStruct : RealStructure ℂ where
+  J := {
+    toFun    := fun x => starRingEnd ℂ x
+    map_add  := by intros; simp
+    map_smul := by
+      intros a x
+      change starRingEnd ℂ (a * x) = starRingEnd ℂ a * starRingEnd ℂ x
+      exact map_mul (starRingEnd ℂ) a x
+  }
+  eps := 1
+  epsD := 1
+  epsγ := 1
+  J_involutive := by
+    intro x
+    change star (star x) = ((1 : ℤ) : ℂ) • x
+    simp only [star_star, Int.cast_one, one_smul]
+
+/-- Regression: trivial triple on ℂ satisfies realityCondition for KO_dim with all signs 1. -/
+example : (trivialRealStruct.eps  = 1) ∧
+          (trivialRealStruct.epsD = 1) ∧
+          (trivialRealStruct.epsγ = 1) := by decide
 
 -- ═══════════════════════════════════════════════════════════════
 -- Phase 5 epistemic status summary

@@ -56,7 +56,7 @@ lemma entropyList_replicate_one (N : ℕ) :
     entropyList (List.replicate N 1) = N := by
   induction N with
   | zero => simp
-  | succ k ih => simp [List.replicate_succ, ih]
+  | succ k ih => simp [List.replicate_succ, ih]; omega
 
 /-- The fundamental algebraic identity on lists:
     (Σ n_i)² = Σ n_i² + 2·Σ_{i<j} n_i·n_j -/
@@ -66,9 +66,7 @@ theorem square_sum_identity (xs : List ℕ) :
   | nil => simp
   | cons a as ih =>
     simp [List.sum_cons]
-    ring_nf
-    rw [show a * a + (a * as.sum + as.sum * a) + as.sum * as.sum
-        = a * a + 2 * (a * as.sum) + as.sum * as.sum from by ring]
+    rw [show (a + as.sum) * (a + as.sum) = a * a + 2 * a * as.sum + as.sum * as.sum by ring]
     rw [ih]
     ring
 
@@ -104,11 +102,11 @@ def offDiagPenalty {N : ℕ} (p : BlockPartition N) : ℕ :=
 -- ═══════════════════════════════════════════════════════════════
 
 lemma entropy_nil :
-    entropy (⟨[], by intro n hn; cases hn, by simp⟩ : BlockPartition 0) = 0 := by
+    entropy (⟨[], by decide, by simp⟩ : BlockPartition 0) = 0 := by
   simp [entropy]
 
 lemma offDiagPenalty_nil :
-    offDiagPenalty (⟨[], by intro n hn; cases hn, by simp⟩ : BlockPartition 0) = 0 := by
+    offDiagPenalty (⟨[], by decide, by simp⟩ : BlockPartition 0) = 0 := by
   simp [offDiagPenalty]
 
 lemma entropy_singleton (n : ℕ) (hpos : 0 < n) :
@@ -140,27 +138,27 @@ theorem entropy_offDiag_identity {N : ℕ} (p : BlockPartition N) :
 
 /-- Partition [2, 1] of 3. -/
 def p21 : BlockPartition 3 :=
-  ⟨[2, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega, by simp⟩
+  ⟨[2, 1], by decide, by decide⟩
 
 /-- Partition [2, 2] of 4. -/
 def p22 : BlockPartition 4 :=
-  ⟨[2, 2], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega, by simp⟩
+  ⟨[2, 2], by decide, by decide⟩
 
 /-- Partition [3, 2, 1] of 6. -/
 def p321 : BlockPartition 6 :=
-  ⟨[3, 2, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl <;> omega, by simp⟩
+  ⟨[3, 2, 1], by decide, by decide⟩
 
 /-- Partition [2, 2, 1, 1] of 6. -/
 def p2211 : BlockPartition 6 :=
-  ⟨[2, 2, 1, 1], by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl | rfl <;> omega, by simp⟩
+  ⟨[2, 2, 1, 1], by decide, by decide⟩
 
 /-- Partition [3, 3] of 6. -/
 def p33 : BlockPartition 6 :=
-  ⟨[3, 3], by intro n hn; simp at hn; rcases hn with rfl | rfl <;> omega, by simp⟩
+  ⟨[3, 3], by decide, by decide⟩
 
 /-- Partition [2, 2, 2] of 6. -/
 def p222 : BlockPartition 6 :=
-  ⟨[2, 2, 2], by intro n hn; simp at hn; rcases hn with rfl | rfl | rfl <;> omega, by simp⟩
+  ⟨[2, 2, 2], by decide, by decide⟩
 
 -- ═══════════════════════════════════════════════════════════════
 -- Numerical regression examples
