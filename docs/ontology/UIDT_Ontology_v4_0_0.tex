@@ -6,7 +6,7 @@
 \date{2026}
 
 \newtcolorbox{museumbox}[1][]{colback=gray!10!white, colframe=gray!80!black, title=Historical Artefact: #1}
-
+\newtcolorbox{governancebox}[1]{colback=blue!5!white, colframe=blue!75!black, title=#1}
 \begin{document}
 
 \maketitle
@@ -23,6 +23,25 @@ In earlier versions (e.g., v3.9), $S(x)$ was treated as a continuous geometric b
 
 \section{The Pregeometric Substrate}
 Finite algebraic signature $\mathcal{A}_F$ and Krajewski diagrams.
+
+\section{NCG Formal Layer}
+\begin{governancebox}{Phase 7 Formal Closure — NCG Modularization}
+\textbf{Status:} Formally closed 2026-06-30.\\[0.4em]
+\textbf{Verified claims (Class~A, Stratum~III):}
+\begin{itemize}
+  \item \texttt{RealStructure} typeclass cleanly separates $J$, $\varepsilon$, 
+        $\varepsilon'$, $\varepsilon''$ from \texttt{SpectralTriple} core.
+  \item \texttt{toTrivialTriple} pipeline: no \texttt{sorryAx} 
+        (transitive closure via \texttt{\#print axioms}).
+  \item \texttt{canonicalBlocks} sorry isolated in \texttt{Enumeration.lean},
+        no NCG prop depends on it transitively.
+  \item Props \texttt{JD\_relation}, \texttt{J$\gamma$\_relation} in 
+        \texttt{SpectralTriple} are linkage constraints to \texttt{koSignTable},
+        not proof duplicates.
+\end{itemize}
+\textbf{Open:} Phase 8 target — \texttt{canonicalBlocks DecidableEq} 
+via mathlib Partition API.
+\end{governancebox}
 
 \section{Thermodynamic Time and Entropic Gradients}
 Analogies to BEC (Barontini) and Active Inference.
