@@ -13,6 +13,7 @@ import Antigravit2.NCG.RealStructure
 import Antigravit2.NCG.Bridge
 import Antigravit2.MatrixThermo.BlockPartition
 import Antigravit2.NCG.FiniteAlgebra
+import Antigravit2.NCG.Krajewski
 
 namespace Antigravit2
 namespace NCG
@@ -26,6 +27,7 @@ namespace NCG
 
 -- Phase 8 axiom check:
 #print axioms trivialFiniteAlgebra
+#print axioms KrajewskiDiagram.empty
 
 end NCG
 end Antigravit2
