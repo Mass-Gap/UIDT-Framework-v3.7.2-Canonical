@@ -9,11 +9,11 @@
   │ This file does NOT formalize full analytical NCG.               │
   │ It provides typed placeholders for the data of a finite         │
   │ spectral triple, suitable for connecting to BlockPartition      │
-  │ via FiniteAlgebraSignature in the integration pipeline.         │
+  │ via FiniteAlgebraSignatureOld in the integration pipeline.         │
   │                                                                  │
   │ Phase 5 adds:                                                    │
   │  - AlgebraRep axiom markers (unital, respectsMul, etc.)         │
-  │  - FiniteAlgebraSignature canonicity stubs                      │
+  │  - FiniteAlgebraSignatureOld canonicity stubs                      │
   │  - SpectralTriple NCG axioms as explicit Prop fields            │
   │                                                                  │
   │ Upgrade path: self-adjointness, bounded commutators, dense     │
@@ -51,7 +51,7 @@ namespace NCG
       sorted        → List.Sorted (· ≥ ·) blocks
       positiveBlocks → ∀ n ∈ blocks, 0 < n
 -/
-structure FiniteAlgebraSignature where
+structure FiniteAlgebraSignatureOld where
   /-- Block sizes [n₁, ..., nₖ], each positive. -/
   blocks : List ℕ
   /-- Every block has positive dimension. -/
@@ -68,15 +68,15 @@ structure FiniteAlgebraSignature where
   positiveBlocks : Prop := True
 
 /-- [DEFINITIONAL] Total dimension N = Σ n_i. -/
-def FiniteAlgebraSignature.totalDim (sig : FiniteAlgebraSignature) : ℕ :=
+def FiniteAlgebraSignatureOld.totalDim (sig : FiniteAlgebraSignatureOld) : ℕ :=
   sig.blocks.sum
 
 /-- [DEFINITIONAL] Number of summands k. -/
-def FiniteAlgebraSignature.numSummands (sig : FiniteAlgebraSignature) : ℕ :=
+def FiniteAlgebraSignatureOld.numSummands (sig : FiniteAlgebraSignatureOld) : ℕ :=
   sig.blocks.length
 
 /-- [DEFINITIONAL] Total matrix dimension: Σ n_i² (= dim_ℂ A). -/
-def FiniteAlgebraSignature.algebraDim (sig : FiniteAlgebraSignature) : ℕ :=
+def FiniteAlgebraSignatureOld.algebraDim (sig : FiniteAlgebraSignatureOld) : ℕ :=
   (sig.blocks.map fun n => n * n).sum
 
 -- ═══════════════════════════════════════════════════════════════
@@ -84,7 +84,7 @@ def FiniteAlgebraSignature.algebraDim (sig : FiniteAlgebraSignature) : ℕ :=
 -- ═══════════════════════════════════════════════════════════════
 
 /-- [DESIGN-LEVEL] Canonical block list: filter zeros, sort descending.
-    This is the intended normal form for FiniteAlgebraSignature.blocks.
+    This is the intended normal form for FiniteAlgebraSignatureOld.blocks.
     UPGRADE PATH: prove that BlockPartition.toSignature always produces
     a list that equals its canonicalBlocks image. -/
 def canonicalBlocks (xs : List ℕ) : List ℕ :=
@@ -194,7 +194,7 @@ def RepRespectsStar {A H} [Star A] [AddCommGroup H] [Module ℂ H] [Star (H → 
 
 /-- [DESIGN-LEVEL] Future formalization of block-signature compatibility 
     (Kept hollow until explicit block diagonal matrices are connected) -/
-def RepRespectsSignature {A H} (ρ : AlgebraRep A H) (sig : FiniteAlgebraSignature) : Prop := True
+def RepRespectsSignature {A H} (ρ : AlgebraRep A H) (sig : FiniteAlgebraSignatureOld) : Prop := True
 
 /-- [D] Abstract First-Order Condition envelope for Phase 7.
     The concrete commutator form [[D, ρ(a)], J ρ(b)* J^{-1}] = 0 is NOT encoded here.
@@ -277,7 +277,7 @@ structure SpectralTriple (A H : Type _)
   D         : H → H
   gamma     : H → H
   KO_dim    : Fin 8
-  signature : FiniteAlgebraSignature
+  signature : FiniteAlgebraSignatureOld
   [realStruct : RealStructure H]
   repRespectsStar    : Prop := RepRespectsStar rep
   firstOrderCond     : Prop := FirstOrderCondition rep D realStruct.J
@@ -287,25 +287,6 @@ structure SpectralTriple (A H : Type _)
     realStruct.eps = signs.1 ∧ realStruct.epsD = signs.2.1 ∧ realStruct.epsγ = signs.2.2
   JD_relation        : Prop := ∀ x, realStruct.J (D x) = (realStruct.epsD : ℂ) • D (realStruct.J x)
   Jγ_relation        : Prop := ∀ x, realStruct.J (gamma x) = (realStruct.epsγ : ℂ) • gamma (realStruct.J x)
-
-/-- Trivial RealStructure on ℂ: J = complex conjugation, all signs = 1.
-    Used to verify that the Phase-7 architecture is self-consistent. -/
-instance trivialRealStruct : RealStructure ℂ where
-  J := {
-    toFun    := fun x => starRingEnd ℂ x
-    map_add  := by intros; simp
-    map_smul := by
-      intros a x
-      change starRingEnd ℂ (a * x) = starRingEnd ℂ a * starRingEnd ℂ x
-      exact map_mul (starRingEnd ℂ) a x
-  }
-  eps := 1
-  epsD := 1
-  epsγ := 1
-  J_involutive := by
-    intro x
-    change star (star x) = ((1 : ℤ) : ℂ) • x
-    simp only [star_star, Int.cast_one, one_smul]
 
 /-- Regression: trivial triple on ℂ satisfies realityCondition for KO_dim with all signs 1. -/
 example : (trivialRealStruct.eps  = 1) ∧
@@ -318,7 +299,7 @@ example : (trivialRealStruct.eps  = 1) ∧
 -- ┌────────────────────────────┬───────────────┬──────────────────────────┐
 -- │ Entity                     │ Status        │ Upgrade path             │
 -- ├────────────────────────────┼───────────────┼──────────────────────────┤
--- │ FiniteAlgebraSignature     │ DEFINITIONAL  │ + sorted, positiveBlocks │
+-- │ FiniteAlgebraSignatureOld     │ DEFINITIONAL  │ + sorted, positiveBlocks │
 -- │ totalDim, numSummands      │ DEFINITIONAL  │ Stable.                  │
 -- │ algebraDim                 │ DEFINITIONAL  │ Stable.                  │
 -- │ canonicalBlocks            │ DESIGN-LEVEL  │ Prove sort-idempotence   │
