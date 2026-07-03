@@ -33,6 +33,14 @@ lake build Antigravit2
 lake build Antigravit2.NCG.AxiomAudit
 ```
 
+## Transfer-Policy (Public Repo Migration)
+
+Da dieses Projekt in ein öffentliches Repository transferiert werden soll, gelten folgende Regeln:
+- Das private Verzeichnis `.uidt-local/` bleibt strikt privat und wird **nicht** migriert.
+- Die CI-Workflows bleiben öffentlich.
+- Ontologie-Dokumente werden nur nach human review übernommen.
+- Es gibt keine automatische Übernahme von AI-Chunks in die wissenschaftlichen Hauptdokumente.
+
 ## Module Structure
 
 ```
