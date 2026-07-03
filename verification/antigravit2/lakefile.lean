@@ -13,4 +13,4 @@ require mathlib from git
 
 @[default_target]
 lean_lib «Antigravit2» where
-  srcDir := "."
+  srcDir := "src"
