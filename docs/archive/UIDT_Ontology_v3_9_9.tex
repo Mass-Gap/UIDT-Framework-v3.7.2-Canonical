@@ -2702,6 +2702,39 @@ spectrum}~\cite{iss2004}, a dynamical-non-degeneracy criterion external to
 (G1)--(G4). Its admissibility under (G1)--(G4) proper therefore remains
 open.\catmark{D}
 
+\paragraph{Methodological Boundary: Elimination at $N=6$.}
+The thermodynamic kernel with block condensation, $S=\sum n_i^2$, and the off-diagonal penalty is conceptually very strong and compatible with both the IKKT/BFSS intuition and the existing \UIDT\ baseline. The sensitive points, however, are precisely those that must be explicitly marked here as assumptions: Filter~1 (the intersection constraint $|n_i - n_j| \le 1$) is not yet a theorem in this generality; Filter~2 (mass non-degeneracy) currently functions more as a dynamical plausibility argument than a proven theorem; and the global uniqueness of $(3,2,1)$, as well as the assertion that larger $N$ inevitably fragment into $(3,2,1)$ subgraphs, extends beyond what is presently mathematically secured.\catmark{E}
+
+In the following, the result is therefore formulated as an elimination argument under explicit hypotheses, rather than as an unconditional theorem.\catmark{D}
+
+\begin{proposition}[Conditional Selection at $N=6$]
+Under the explicit hypotheses of Intersection Admissibility (Filter~1: $|n_i - n_j| \le 1$) and Mass Non-Degeneracy (Filter~2: strictly distinct non-trivial block sizes), $(3,2,1)$ is the unique thermodynamically and topologically admissible partition of $N=6$.
+\end{proposition}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llc}
+\toprule
+\textbf{Partition of $N=6$} & \textbf{Obstruction} & \textbf{Status} \\
+\midrule
+$(6)$ & Requires 1 block, fails Filter~2 (trivial) & Excluded \\
+$(5,1)$ & $|5-1|=4 > 1$, fails Filter~1 & Excluded \\
+$(4,2)$ & $|4-2|=2 > 1$, fails Filter~1 & Excluded \\
+$(4,1,1)$ & $|4-1|=3 > 1$, fails Filter~1 & Excluded \\
+$(3,3)$ & Degenerate mass spectrum, fails Filter~2 & Excluded \\
+$(3,2,1)$ & \textbf{Unique Admissible Configuration} & \textbf{Admissible} \\
+$(3,1,1,1)$ & Degenerate blocks, fails Filter~2 & Excluded \\
+$(2,2,2)$ & Degenerate blocks, fails Filter~2 & Excluded \\
+$(2,2,1,1)$ & Degenerate blocks, fails Filter~2 & Excluded \\
+$(2,1,1,1,1)$ & Degenerate blocks, fails Filter~2 & Excluded \\
+$(1,1,1,1,1,1)$ & Degenerate blocks, fails Filter~2 & Excluded \\
+\bottomrule
+\end{tabular}
+\caption{Elimination table for $N=6$ partitions under Hypotheses H1 (Filter 1) and H2 (Filter 2).\catmark{D}}
+\label{tab:n6_elimination}
+\end{table}
+
 \paragraph{What is not established.}
 No renormalisation-group flow on the space of Krajewski diagrams is
 currently defined. By the scaffold discipline of

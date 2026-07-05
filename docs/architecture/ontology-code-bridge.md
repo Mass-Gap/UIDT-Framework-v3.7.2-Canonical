@@ -10,3 +10,5 @@ This document establishes the conceptual links between the formal equations in t
 | Spectral Triple | `NCG/SpectralTriple.lean` | `SpectralTriple` |
 | KO-Dimension | `NCG/FiniteAlgebra.lean` | `FiniteAlgebraSignature.koDim` |
 | Matrix Partitioning | `MatrixThermo/BlockPartition.lean` | `BlockPartition` |
+| NCG Filters / Partition Admissibility | `Filters/EliminationN6.lean` | `phase9Admissible`, `unique_321_N6` |
+| Moduli Space & RNC | `NCG/ModuliStub.lean` | `ModuliDatum`, `rnc_conjecture` |
