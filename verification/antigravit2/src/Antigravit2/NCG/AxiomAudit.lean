@@ -15,6 +15,8 @@ import Antigravit2.MatrixThermo.BlockPartition
 import Antigravit2.NCG.FiniteAlgebra
 import Antigravit2.NCG.Krajewski
 
+import Antigravit2.Filters.EliminationN6
+
 namespace Antigravit2
 namespace NCG
 
@@ -28,6 +30,9 @@ namespace NCG
 -- Phase 8 axiom check:
 #print axioms trivialFiniteAlgebra
 #print axioms KrajewskiDiagram.empty
+
+-- Phase 9 axiom check:
+#print axioms Filters.unique_321_N6
 
 end NCG
 end Antigravit2
