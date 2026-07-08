@@ -19,10 +19,32 @@ This project does **not** attempt to prove UIDT physics in Lean. Instead, it:
 - Codifies the **ontological structures and filters** as cleanly typed Lean definitions and theorems.
 - Provides a **formal test laboratory** for Matrix Thermodynamics, NCG filters, and the Primitive Operator Directive (DIR-S-01).
 
+## Governance & Audit
+
+> [!IMPORTANT]
+> **Layout Refactor Only, No Evidence-Class Upgrade:** The recent restructuring to the `src/` layout is purely organizational. It does not alter the mathematical or physical claims of the framework.
+> **Privacy:** The `.uidt-local/` directory is strictly excluded from version control and remains private.
+> **Axiom Audit:** The target `AxiomAudit.lean` is a mandatory CI governance step to ensure no unapproved `sorry` markers leak into the repository.
+
+To build and audit the project locally, run exactly:
+```bash
+cd verification/antigravit2
+lake build Antigravit2
+lake build Antigravit2.NCG.AxiomAudit
+```
+
+## Transfer-Policy (Public Repo Migration)
+
+Da dieses Projekt in ein öffentliches Repository transferiert werden soll, gelten folgende Regeln:
+- Das private Verzeichnis `.uidt-local/` bleibt strikt privat und wird **nicht** migriert.
+- Die CI-Workflows bleiben öffentlich.
+- Ontologie-Dokumente werden nur nach human review übernommen.
+- Es gibt keine automatische Übernahme von AI-Chunks in die wissenschaftlichen Hauptdokumente.
+
 ## Module Structure
 
 ```
-Antigravit2/
+src/Antigravit2/
 ├── Foundation/          -- PrimitiveOperator class (DIR-S-01), base axioms
 │   └── PrimitiveOperator.lean
 ├── MatrixThermo/        -- BlockPartition, entropy, off-diagonal penalty

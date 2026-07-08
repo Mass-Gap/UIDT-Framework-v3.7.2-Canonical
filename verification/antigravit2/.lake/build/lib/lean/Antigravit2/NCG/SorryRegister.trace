@@ -1,0 +1,32 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["07fb68fd93e37f4a.olean"],
+  "m": false,
+  "i": "9309e9468628ec8c.ilean",
+  "c": "120ed1e497b90af4.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean c:\\Users\\badbu\\.elan\\toolchains\\leanprover--lean4---v4.32.0-rc1\\bin\\lean.exe C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\src\\Antigravit2\\NCG\\SorryRegister.lean -o C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\SorryRegister.olean -i C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\SorryRegister.ilean -c C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\SorryRegister.c --setup C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\SorryRegister.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["Antigravit2.NCG.SorryRegister:deps",
+   [["deps",
+     [["antigravit2/Antigravit2:extraDep",
+       [["@antigravit2:extraDep", "00000000000006bb"]]],
+      ["imports", "00000000000006bb"]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.32.0, commit b4812ae53eea93439ad5dce5a5c26591c31cb697",
+   "9f30fb205c97627b"],
+  ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\src\\Antigravit2\\NCG\\SorryRegister.lean",
+   "00aa2f4a2a960916"],
+  ["options", [["-DautoImplicit=false", "4a85acb881fd49d0"]]],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: Antigravit2.NCG.SorryRegister", "2d4cb6e78980ed91"],
+  ["Package.id?: (some antigravit2)", "4ca2ed26ad21a482"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "ed5ac7114db892b1"}

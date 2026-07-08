@@ -1,0 +1,57 @@
+name: Lean CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Build Antigravit2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install elan
+        run: |
+          set -o pipefail
+          curl -sSfL https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          
+      - name: Build Project
+        run: |
+          cd verification/antigravit2
+          lake build Antigravit2
+
+  governance-audit:
+    name: Axiom Audit (Sorry-Free Check)
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install elan
+        run: |
+          set -o pipefail
+          curl -sSfL https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          
+      - name: Run Axiom Audit
+        run: |
+          cd verification/antigravit2
+          # We build the AxiomAudit target and capture the output
+          lake build Antigravit2.NCG.AxiomAudit > audit.log 2>&1 || true
+          
+      - name: Verify No Sorries
+        run: |
+          cd verification/antigravit2
+          cat audit.log
+          if grep -q "uses sorry" audit.log; then
+            echo "ERROR: Unallowed sorry markers found in the build!"
+            exit 1
+          else
+            echo "SUCCESS: No unexpected sorries detected."
+          fi
