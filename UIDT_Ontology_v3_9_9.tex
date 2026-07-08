@@ -6,12 +6,11 @@
 % License: CC BY 4.0
 %
 % PHASE 3 SYNTHESIS NOTE (non-rendering):
-% This manuscript retains the visual design language of v3.9.8.4 FINAL but
+% This manuscript retains the visual design language of v3.9.9 FINAL but
 % adopts the corrected, audit-reconciled evidence discipline of the Phase 1/2
 % MASTER_OUTLINE. It is an auditable research ontology, NOT a merge
 % authorization, NOT a canonical freeze, NOT a proof of UIDT, and NOT an
-% evidence-class upgrade. AI-authored manuscript text is advisory only
-% (AUDIT_POLICY Sec. 1).
+% evidence-class upgrade.
 %=============================================================================
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{table,svgnames,dvipsnames}{xcolor}
@@ -196,7 +195,7 @@
 \newcommand{\vVEV}{47.7\MeV} % [A]
 \newcommand{\ETorsion}{2.44\MeV} % [E pending] observer-context only; NOT ego/life/death threshold
 \newcommand{\LambdaGrid}{0.66\,\mathrm{nm}} % [D]
-\newcommand{\KappaRG}{\tfrac{1}{2}\ \text{(exact)}} % [A] exact RG fixed-point input; not an empirical pm
+\newcommand{\KappaRG}{\tfrac{1}{2}\ \text{(exact)}} % [A] exact framework input; fixed-point reading untested by any defined flow; not an empirical pm
 %===================================================================
 
 %=============================================================================
@@ -270,7 +269,7 @@ the Yang--Mills Spectral Gap as a Stress Test,\\[0.25em]
 Emergent Spacetime, and the Open \(G_{\mathrm{SM}}\)-Origin Problem}\\[1.5em]
 {\large\itshape Unified Information-Density Theory (UIDT) v3.9\\[0.25em]
 Ontological Foundations, Audit-Reconciled Edition}\\[2.6em]
-{\Large Philipp Rietz}\\[0.5em]
+{\small Philipp Rietz}\\[0.5em]
 {\small ORCID: \href{https://orcid.org/0009-0007-4307-1609}{0009-0007-4307-1609}}\\[0.2em]
 {\small Independent Researcher}\\[3em]
 {\normalsize UIDT Framework v3.9}\\[0.5em]
@@ -278,18 +277,11 @@ Ontological Foundations, Audit-Reconciled Edition}\\[2.6em]
 \href{https://doi.org/10.5281/zenodo.20319634}{DOI 10.5281/zenodo.20319634}}\\[0.25em]
 {\small UIDT Framework (parent record):
 \href{https://doi.org/10.5281/zenodo.17835200}{DOI 10.5281/zenodo.17835200}}\\[0.5em]
-{\small Last reconciled: 31~May~2026 (Phase~2/2.1/2.3 audit synthesis)}\\[2.2em]
+{\small 31~May~2026 }\\[2.2em]
 \rule{0.6\textwidth}{0.4pt}\\[1em]
 {\small\itshape ``Reality is not a collection of things,\\
 but a process of structural individuation\\
 that we are licensed to describe only as far as we can falsify it.''}\\[1.4em]
-\begin{minipage}{0.82\textwidth}
-\footnotesize\centering\itshape\color{darkgray}
-This edition retains the design of the v3.9.8.4 manuscript but adopts the
-corrected evidence discipline of the Phase~1/2 honesty audit. It is an
-auditable research ontology: not a proof of UIDT, not a claim of external
-confirmation, and not an evidence-class upgrade.
-\end{minipage}
 \end{center}
 \end{titlepage}
 
@@ -304,7 +296,7 @@ confirmation, and not an evidence-class upgrade.
 \begingroup \normalfont\normalsize
 \setlength{\parskip}{0.65em plus 0.12em minus 0.04em}%
 \setlength{\parindent}{0pt}%
-\noindent This document establishes the ontological, epistemological, and axiological foundations of the Unified Information-Density Theory (\UIDT). Rather than postulating spacetime as a primordial arena, \UIDT\ investigates the hypothesis that a single real scalar field, the \emph{vacuum information density} \mbox{$\Sx$}, may serve as a fundamental geometric degree of freedom. The present edition is deliberately conservative: it is the product of a line-by-line honesty audit that downgraded several earlier claims and that treats the framework as a falsification-first research programme rather than a completed theory.
+\noindent This document formulates the ontological and epistemological foundations of the Unified Information-Density Theory (\UIDT). Rather than postulating spacetime as a primordial arena, \UIDT\ investigates the hypothesis that a single real scalar field, the \emph{vacuum information density} \mbox{$\Sx$}, may serve as a fundamental geometric degree of freedom. The present edition is deliberately conservative: it is the product of a line-by-line honesty audit that downgraded several earlier claims and that treats the framework as a falsification-first research programme rather than a completed theory.
 
 The framework rests upon four explicit axioms and addresses four areas: (I)~a quantum field-theoretic foundation in which the pure-$\mathrm{SU}(3)$ Yang--Mills spectral gap \mbox{$\Delta = \DeltaGap$\,\Bdelta} functions as a necessary \emph{stress test} of internal consistency rather than as a sufficient foundation, and in which the gap value is lattice-compatible under an explicitly recorded evidence-class reclassification (\cref{box:pi-override-delta}); (II)~cosmological calibration to DESI, JWST, and ACT data, capped at \catmark{C}\ and never presented as a resolution of the $H_0$ or $S_8$ tensions; (III)~laboratory-relevant predictions, including a candidate scalar resonance at \mbox{$m_S = 1.705 \pm 0.015\GeV$\,\catmark{D}} and a Casimir-scale anomaly at \mbox{$\lambda = \LambdaGrid$\,\catmark{D}}; and (IV)~a structural mapping between the vacuum scalar and effective refractive-index profiles, retained as an interpretive analogy.
 
@@ -342,10 +334,9 @@ The primary developmental record is treated as the main line of development, but
 A central methodological principle governs how new material is incorporated: nothing is overwritten, summarised away, or silently corrected. Superseded formulations are retained alongside the formulations that replaced them, rather than deleted.\catmark{A} This discipline has a direct epistemic payoff: because nothing is quietly removed, the history of superseded ideas remains visible and checkable, and the maturity of the framework can be measured by the visibility of its abandoned routes rather than concealed by their absence.
 
 Two constraints on the use of external literature follow, and are stated here as standing requirements, because their violation has been a recurrent failure mode.
-\newpage
 \begin{governancebox}[Source-Handling Requirements]
-\textbf{Native extraction precedes mapping.} Any external paper invoked in support of a \UIDT\ mapping must first be extracted natively, including its text, identifiers, and line structure recovered, before any interpretive use. A citation that cannot be resolved to an extracted source with a verifiable identifier is treated as contextual \catmark{E}\ material only, never as
-evidence.\\[0.4em]
+\scriptsize\setstretch{2}
+\textbf{Native extraction precedes mapping.} Any external paper invoked in support of a \UIDT\ mapping must first be extracted natively, including its text, identifiers, and line structure recovered, before any interpretive use. A citation that cannot be resolved to an extracted source with a verifiable identifier is treated as contextual \catmark{E}\ material only, never as evidence.\\[0.2em]
 \textbf{Assistant acknowledgements are not evidence.} An affirmative or agreeable response generated by a language model in the course of the developmental dialogue does not constitute deep-research evidence. The presence of a confident reply in the corpus establishes only that the reply was made, not that its content is correct.
 \end{governancebox}
 
@@ -358,7 +349,7 @@ evidence.\\[0.4em]
 
 \begin{itemize}[leftmargin=2.2em]
  \item \textbf{\catmark{A}, Analytically/logically closed.} The claim is a formal, logical, or mathematical closure within a specified system. Class~A denotes \emph{internal} demonstrability, not rhetorical confidence and not external endorsement. For a numerical residual, the internal deterministic closure criterion is a residual below $10^{-14}$; this criterion certifies a stable algorithm, not agreement with nature. \item \textbf{\catmark{A-}, Calibrated.} The quantity is fixed by calibration to a chosen reference, not derived from first principles. A calibrated value may be precise and may be useful, but precision is not provenance. The invariant $\gamma$ lives here permanently.
- \newpage
+
  \item \textbf{\catmark{B}, Lattice/consensus compatible.} The claim is compatible with an externally established result, typically lattice QCD or Standard-Model consensus, but only after a full audit of the external source, its uncertainty budget, the matched observable, the units, and the covariance structure. Compatibility is not derivation. \item \textbf{\catmark{C}, Calibrated to cosmological data.} The claim is fitted to observational cosmology. This is the \emph{maximum} class any cosmological quantity may attain. No cosmological parameter is ever promoted above~C, and no fit to cosmological data is ever described as a resolution of a cosmological tension. \item \textbf{\catmark{D}, Predicted / research programme.} The claim is a prediction awaiting experimental test, or a structured programme of future work. It is held to be unverified by definition. \item \textbf{\catmark{E}, Speculative / interpretive / phenomenological.} The claim is interpretive, exploratory, or drawn from boundary-case phenomenology. Category~E material is retained for its heuristic and demarcational value and is never advanced as support for a physical claim.
 \end{itemize}
 
@@ -402,9 +393,20 @@ A direct corollary governs the language of finality. Terms such as ``definitive 
 
 The same discipline designates a class of \emph{museum} or \emph{quarantine} material: formulas, values, and derivational routes that have been tried and refuted. These are retained, visibly, as anti-patterns rather than hidden as embarrassments, and the rule governing them is absolute: a quarantined construction may be cited only as documentation of a failed approach, never as evidence for a live claim. The most important quarantined items are recorded explicitly later in this work. Taken together with the corpus discipline of \cref{subsec:corpus-topology} and the evidence grammar of this section, these principles are the standing conditions under which the rest of the manuscript operates. They are restrictive on purpose: a framework that proposes to identify a single scalar field as the root of physical structure must accept, in exchange for that ambition, an unusually severe accounting of what it has and has not established.\catmark{A}
 
+\begin{governancebox}[Mathematical Scope]
+This ontology does not provide a Wightman construction, an
+Osterwalder--Schrader reconstruction, a nonperturbative construction of
+four-dimensional Yang--Mills theory, a proof of the Clay Millennium problem,
+a derivation of the Standard-Model gauge group $G_{\mathrm{SM}}$, or a
+Born-rule theorem. It defines a research ontology together with a set of
+falsification and audit constraints; nothing in it upgrades any evidence
+class.
+\end{governancebox}
+
 %=============================================================================
 % CHAPTER 2
 %=============================================================================
+\newpage
 \section{The Empirical Physics Baseline Before UIDT Interpretation}
 \label{sec:empirical-baseline}
 
@@ -444,7 +446,7 @@ A topological benchmark comparison is admissible only if it carries: operator de
 The invariant $\gamma = \GammaGeom$ is the most load-bearing single number in the framework, and for that reason it is also the number around which the strictest discipline is enforced. Its classification is fixed and not subject to upgrade: $\gamma$ is \catmark{A-}, calibrated. It is \emph{not} \catmark{A}, and in particular it is not derived from renormalisation-group first principles.\catmark{A-} The framework's own limitations register this as a standing open problem: the value emerges from algebraic self-consistency within the \UIDT\ construction, in a manner structurally analogous to a leading-order truncation scheme, but the discrepancy between a renormalisation-group-derived $\gamma$ and the calibrated kinetic value remains an unresolved question, openly recorded rather than concealed. To be precise about what ``calibrated'' means here: $\gamma$ is fixed by matching to the kinetic vacuum-expectation structure of $\Sx$ in the effective Lagrangian of \cref{eq:lagrangian}, a calibration to an internal kinetic reference, not a derivation from a renormalisation-group flow. The public-facing description of $\gamma$ must therefore read ``calibrated to the kinetic VEV,'' never ``derived from the kinetic VEV''; the latter phrasing violates the \catmark{A-} discipline and is corrected wherever it appears.\catmark{A-}
 
 From the calibrated status of $\gamma$ follows the framework's central methodological safeguard against self-deception, the anti-target-leakage rule.
-
+\newpage
 \begin{governancebox}[Anti-Target-Leakage Rule]
 A solver that has access to the value it is meant to predict cannot be said to predict it. Therefore the calibrated value $\gamma = 16.339$, together with all quarantined museum constants and all external benchmark values, must remain inaccessible to any code path that claims to compute $\gamma$, $\Delta$, or related quantities from within \UIDT. Blind computation and post-hoc comparison must be separated programmatically; benchmark values are stored with solver access disabled. A derivation that imports its own target is a tautology wearing the costume of a result.
 \end{governancebox}
@@ -452,6 +454,8 @@ A solver that has access to the value it is meant to predict cannot be said to p
 \noindent The rule is stated abstractly here and is given its formal treatment as a target-leakage theorem in Part~III. Its force in the present context is to constrain what a future derivation of $\gamma$ would have to look like in order to count. Any such derivation must specify, in advance and in public, the operator whose flow it integrates; the flow equation itself; the regulator; the boundary conditions; an explicit proof that no target value has leaked into the computation; and an executable reproduction command. Absent any one of these, a claimed derivation of $\gamma$ remains at predictive status~\catmark{D} at best, and more honestly is not a derivation at all.\catmark{A}
 
 A final point of discipline concerns conflicting values. The corpus contains more than one number for $\gamma$: alongside the calibrated kinetic value $16.339$, a Monte-Carlo determination yields a mean of $\gamma_{\mathrm{MC}} = \GammaMC$. These are not to be reconciled by quiet selection of the more convenient figure, nor are they to be treated as interchangeable. They are recorded as a \emph{tension entry}: two determinations that must be displayed together, with their methods and uncertainties, so that the disagreement is visible and available for resolution.\catmark{A} The full tension ledger appears in \cref{sec:tension-ledger}; the point here is that a discrepancy between two internal determinations is information to be preserved, not noise to be filtered.
+
+\noindent With the corpus discipline, the evidence grammar, the governance boundary, and the empirical baseline now in place, the framework has stated the terms of its own accountability. Part~II takes up the constructive task these terms have been protecting: the definition of the primitive hierarchy, beginning with the precise sense in which the vacuum information density $\Sx$ is, and is not, a foundation.
 
 \begin{evidencebox}[The Status of $\gamma$]{catAminus}
 \textbf{Classification.} $\gamma = \GammaGeom$ is \catmark{A-}\ (calibrated), permanently. It is never \catmark{A}\ and never described as
@@ -462,12 +466,10 @@ limitation, not a closed result.\\[0.3em]
 selection.\\[0.3em]
 \textbf{Leakage prohibition.} $\gamma = 16.339$ must never enter a blind solver path; any future derivation must satisfy the anti-target-leakage rule in full.
 \end{evidencebox}
-
-\noindent With the corpus discipline, the evidence grammar, the governance boundary, and the empirical baseline now in place, the framework has stated the terms of its own accountability. Part~II takes up the constructive task these terms have been protecting: the definition of the primitive hierarchy, beginning with the precise sense in which the vacuum information density $\Sx$ is, and is not, a foundation.
-
 %=============================================================================
 % PART II
 %=============================================================================
+\newpage
 \part{The Formal UIDT Boundary and the Primitive Hierarchy}
 \label{part:primitive-hierarchy}
 
@@ -476,6 +478,7 @@ selection.\\[0.3em]
 %=============================================================================
 % CHAPTER 3 (NEW) — AXIOMATICS AND THE EFFECTIVE LAGRANGIAN
 %=============================================================================
+\newpage
 \section{Axiomatics and the Effective Lagrangian}
 \label{sec:axiomatics}
 
@@ -504,16 +507,15 @@ The dynamics of $\Sx$ are governed by a Lagrangian density $\mathcal{L}_{\UIDT}$
  + \frac{\bar\kappa}{\Lambda_{\UIDT}}\,S\,F_{\mu\nu}^a F^{a\mu\nu},
  \label{eq:lagrangian}
 \end{equation}
-where $\bar\kappa$ is the dimensionless EFT-normalised non-minimal gauge--scalar coupling and $\lambda_S$ the scalar self-coupling; the dimension-5 operator therefore carries the dimensionful prefactor $\bar\kappa/\Lambda_{\UIDT}$, in agreement with \cref{tab:eft-dimensions}. Because $S$ is a real gauge singlet, its kinetic term uses the ordinary derivative $\partial_\mu$. In the framework's ledger and renormalisation-group statements this dimensionless coefficient is written simply $\kappa$ (so $\kappa\equiv\bar\kappa$, with ledger value $\kappa=\kappaVal$). The renormalisation-group fixed point of the framework is the constraint $5\kappa^2 = 3\lambda_S$, which for $\kappa = \tfrac{1}{2}$ gives the exact value $\lambda_S = \lambdaS$ and the vacuum expectation value $v = \vVEV$; like $\lambda_S$, $v$ is fixed by this exact constraint rather than independently measured, which is why it carries no uncertainty. This constraint closes to a residual below $10^{-14}$ at eighty-digit working precision (\cref{prop:target-leakage} discipline applies: the closure is an internal-consistency certificate, not an external agreement).
+where $\bar\kappa$ is the dimensionless EFT-normalised non-minimal gauge--scalar coupling and $\lambda_S$ the scalar self-coupling; the dimension-5 operator therefore carries the dimensionful prefactor $\bar\kappa/\Lambda_{\UIDT}$, in agreement with \cref{tab:eft-dimensions}. Because $S$ is a real gauge singlet, its kinetic term uses the ordinary derivative $\partial_\mu$. In the framework's ledger and renormalisation-group statements this dimensionless coefficient is written simply $\kappa$ (so $\kappa\equiv\bar\kappa$, with ledger value $\kappa=\kappaVal$). The exact internal coupling constraint of the framework is $5\kappa^2 = 3\lambda_S$ (a candidate fixed-point condition, untested by any defined functional renormalisation-group flow), which for $\kappa = \tfrac{1}{2}$ gives the exact value $\lambda_S = \lambdaS$ and the vacuum expectation value $v = \vVEV$; like $\lambda_S$, $v$ is fixed by this exact constraint rather than independently measured, which is why it carries no uncertainty. This constraint closes to a residual below $10^{-14}$ at eighty-digit working precision (\cref{prop:target-leakage} discipline applies: the closure is an internal-consistency certificate, not an external agreement).
 
 \begin{table}[H]
-\centering
 \scriptsize
 \caption{Dimensional and EFT status of the terms entering \cref{ax:gauge}.
 The dimension-5 operator marks \UIDT\ as an effective field theory.}
 \label{tab:eft-dimensions}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabular}{p{0.30\textwidth} c c p{0.30\textwidth}}
+\begin{tabular*}{\textwidth}{@{}p{0.31\textwidth}@{\extracolsep{\fill}}ccp{0.34\textwidth}@{}}
 \toprule
 \textbf{Term} & \textbf{Op.\ dim.} & \textbf{Coupling dim.} & \textbf{Renormalisability} \\
 \midrule
@@ -523,7 +525,7 @@ $\mu^2 S^2$ & $2$ & $+2$ & Relevant scalar mass operator \catmark{A} \\
 $\lambda_S S^4$ & $4$ & dimensionless & Power-counting renormalisable self-interaction \catmark{A} \\
 $(\bar\kappa/\Lambda_{\UIDT})\,S F_{\mu\nu}^a F^{a\mu\nu}$ & $5$ & $-1$ & Non-renormalisable; EFT-only below $\Lambda_{\UIDT}$ \catmark{A} \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 
 \begin{axiom}[Geometric Emergence]
@@ -556,7 +558,7 @@ The architecture of \UIDT\ is strictly hierarchical: each level is held to emerg
 \begin{evidencebox}[Axiomatic Core: Standing Status]{catA}
 \textbf{Axioms.} Primacy \catmark{A/E}; Gauge-Invariant Self-Interaction \catmark{A} (EFT, dimension-5 operator); Geometric Emergence \catmark{D}
 (model-dependent metric); Falsifiability \catmark{A} (meta-theoretical).\\[0.3em]
-\textbf{Lagrangian.} \cref{eq:lagrangian} with $\kappa=\kappaVal$, $\lambda_S=\lambdaS$, $v=\vVEV$; RG constraint $5\kappa^2=3\lambda_S$ closes
+\textbf{Lagrangian.} \cref{eq:lagrangian} with $\kappa=\kappaVal$, $\lambda_S=\lambdaS$, $v=\vVEV$; internal coupling constraint $5\kappa^2=3\lambda_S$ closes
 internally to $<10^{-14}$ at eighty digits.\\[0.3em]
 \textbf{Status.} The Lagrangian is an effective field theory below $\Lambda_{\UIDT}$; renormalisability is explicit per \cref{tab:eft-dimensions}; the gauge sector is coupled, not generated (\cref{subsec:coarse-geometry-eft}).
 \end{evidencebox}
@@ -575,7 +577,7 @@ A foundational theory must be exact about its own beginning, and the most common
 The point is structural, not rhetorical. To write $S(x) = 0$ is already to presuppose a great deal: that there is a field $S$; that there is a domain indexed by $x$ over which it is defined; that evaluation of the field at a point is a meaningful operation; and, most importantly, that the value $0$ is \emph{distinguishable} from other possible values. A vanishing field value is a marked state: it is the assertion ``the field here is zero'', and an assertion of that form lives entirely within an already-constituted system of field, domain, and distinguishability. The unmarked state precedes all of this. It is not the number zero; it is the absence of the apparatus within which numbers could be assigned.\catmark{A}
 
 This distinction is recorded as a clean Class~A result of the honesty audit, and it carries an immediate disciplinary consequence: it forecloses a family of overreaches. Because the unmarked state is not a physical configuration, it cannot be assigned a physical history, a temperature, a fluctuation spectrum, or a cosmological epoch. One cannot say that ``in the beginning $S(x)=0$ and then it became non-zero,'' because that sentence smuggles a temporal ordering and a pre-existing field into a condition that, by construction, contains neither. The framework therefore explicitly refuses cosmological, theological, and metaphysical elaborations of the unmarked state. It is a logical boundary, not a primordial substance, and the prohibition on treating it as a substance is as binding as any numerical constraint in the theory.\catmark{A}
-
+\newpage
 \begin{evidencebox}[The Unmarked State]{catA}
 \textbf{Claim.} The unmarked state is the absence of field-value assignment, not
 the field value $S(x)=0$.\catmark{A}\\[0.3em]
@@ -625,6 +627,7 @@ tensors, differential geometry).\\[0.3em]
 %=============================================================================
 % CHAPTER 4
 %=============================================================================
+\newpage
 \section{From Relations to Graph, Geometry, and Effective Field}
 \label{sec:relations-to-field}
 
@@ -669,6 +672,11 @@ Here the most important sentence of the chapter must be stated plainly, because 
 
 From this follows the cleanest and most important negative result of the ontological core, stated without hedging.
 
+
+
+\noindent It would be possible to disguise this boundary, to speak of the gauge sector as though it emerged from the scalar, and to let the reader infer a derivation that has not been performed. The framework refuses that move on principle. Stating that v3.9 is effective rather than generative in its gauge sector is not a concession wrung from the theory; it is the theory being precise about the location of its own frontier. The frontier itself, the \emph{$G_{\mathrm{SM}}$-Origin Gap}, is named and preserved as the central open problem, and the candidate algebraic routes that might one day cross it, together with the explicit fork between retaining a strict scalar primitive and enriching the primitive to an algebraic, matrix, or tensor object, are taken up in Part~IV. 
+Part~III first establishes the numerical and benchmark discipline without which no such crossing could ever be claimed honestly.
+
 \begin{evidencebox}[The Effective-Field Boundary of v3.9]{catA}
 \textbf{Regime.} The v3.9 gauge sector is an effective-field-theory regime, in which $S(x)$ is coupled to an already-present Yang--Mills sector. It is not a
 generative regime.\catmark{A}\\[0.3em]
@@ -676,12 +684,10 @@ generative regime.\catmark{A}\\[0.3em]
 failure to be hidden.\catmark{A}\\[0.3em]
 \textbf{Consequence.} The transition from $S(x)$ to $G_{\mathrm{SM}}$ is a research programme, not a result; its formal treatment, and the open question of the minimal intermediate algebra, are the subject of Part~IV.\catmark{D}
 \end{evidencebox}
-
-\noindent It would be possible to disguise this boundary, to speak of the gauge sector as though it emerged from the scalar, and to let the reader infer a derivation that has not been performed. The framework refuses that move on principle. Stating that v3.9 is effective rather than generative in its gauge sector is not a concession wrung from the theory; it is the theory being precise about the location of its own frontier. The frontier itself, the \emph{$G_{\mathrm{SM}}$-Origin Gap}, is named and preserved as the central open problem, and the candidate algebraic routes that might one day cross it, together with the explicit fork between retaining a strict scalar primitive and enriching the primitive to an algebraic, matrix, or tensor object, are taken up in Part~IV. Part~III first establishes the numerical and benchmark discipline without which no such crossing could ever be claimed honestly.
-
 %=============================================================================
 % PART III
 %=============================================================================
+\newpage
 \part{Numerical Architecture, Blind Benchmarks, and Stress Tests}
 \label{part:numerical-architecture}
 
@@ -690,6 +696,7 @@ failure to be hidden.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 5
 %=============================================================================
+\newpage
 \section{Numerical Epistemology}
 \label{sec:numerical-epistemology}
 
@@ -721,7 +728,7 @@ If internal closure is not to be mistaken for truth, then every numerical claim 
 
 \noindent The tenth field is the one most often missing and the one that most distinguishes an auditable claim from an assertion. A reproduction note must be an \emph{executable} command that a reader can run to regenerate the value, including the local precision setting, the input data, and the exact computation. A value whose reproduction note cannot be run, or which silently depends on an unstated global state, is not yet a claim in the technical sense; it is a number awaiting one.\catmark{A} The reproduction note is what converts a private calculation into a public, falsifiable object.
 
-To make the schema concrete rather than merely prescribed, the framework's simplest \catmark{A}-class claim, the renormalisation-group fixed-point constraint $5\kappa^2 = 3\lambda_S$ of \cref{eq:lagrangian}, is accompanied by an executable reproduction note. At eighty-digit working precision, with $\kappa = \tfrac{1}{2}$ and $\lambda_S = \tfrac{5}{12}$, the residual $\lvert 5\kappa^2 - 3\lambda_S\rvert$ evaluates to zero:
+To make the schema concrete rather than merely prescribed, the framework's simplest \catmark{A}-class claim, the exact internal coupling constraint $5\kappa^2 = 3\lambda_S$ of \cref{eq:lagrangian} (a candidate fixed-point condition, untested by any defined flow), is accompanied by an executable reproduction note. At eighty-digit working precision, with $\kappa = \tfrac{1}{2}$ and $\lambda_S = \tfrac{5}{12}$, the residual $\lvert 5\kappa^2 - 3\lambda_S\rvert$ evaluates to zero:
 \begin{verbatim}
 python3 -c "from mpmath import mp,mpf; mp.dps=80;
 k=mpf(1)/2; lS=mpf(5)/12; print(abs(5*k**2 - 3*lS))"
@@ -760,6 +767,7 @@ generator.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 6
 %=============================================================================
+\newpage
 \section{Benchmark Batteries}
 \label{sec:benchmark-batteries}
 
@@ -862,20 +870,33 @@ Four further limitations (L8, L9, L10, L11) are referenced in the developmental 
 
 \begin{limitation}[L13: Background independence only partial]
 \label{lim:L13}
-This entry is newly identified in the present audit pass; it is \emph{not} a reconstruction of any unrecovered entry above. Although \UIDT\ belongs to the pregeometric tradition and aspires to background independence, its concrete axiom of geometric emergence (\cref{ax:emergence}) is written as a perturbation about a fixed Minkowski metric, $g_{\mu\nu}^{\mathrm{eff}}=\eta_{\mu\nu}+\alpha\,\partial_\mu\Sx\,\partial_\nu\Sx+\beta\,\Sx^2\eta_{\mu\nu}$, so that $\eta_{\mu\nu}$ is inserted by hand to contract indices rather than derived dynamically from a purely relational phase. Full background independence---deriving $\eta_{\mu\nu}$ from the relational substrate without assuming it---has therefore not been established; the comparison table (\cref{tab:pregeometric-comparison}) accordingly records \UIDT's background independence as \emph{partial}. A related external constraint is the Weinberg--Witten theorem~\cite{weinbergwitten1980}, which forbids a Lorentz-covariant massless spin-2 state in a theory with a Lorentz-covariant conserved stress-energy tensor on a fixed background; this bars any interpretation of the emergent metric as a composite spin-2 graviton in the naive flat-space sense, and is consistent with (not a refutation of) the thermodynamic, non-particle reading of emergent geometry that \UIDT\ borrows from Jacobson~\cite{jacobson1995}. Resolving L13 requires a dynamical origin for $\eta_{\mu\nu}$ and an emergent-geometry construction that does not run afoul of the Weinberg--Witten assumptions. This remains an open \catmark{D}\ problem.\catmark{D}
+This entry is newly identified in the present audit pass; it is \emph{not} a reconstruction of any unrecovered entry above. Although \UIDT\ belongs to the pregeometric tradition and aspires to background independence, its concrete axiom of geometric emergence (\cref{ax:emergence}) is written as a perturbation about a fixed Minkowski metric, $g_{\mu\nu}^{\mathrm{eff}}=\eta_{\mu\nu}+\alpha\,\partial_\mu\Sx\,\partial_\nu\Sx+\beta\,\Sx^2\eta_{\mu\nu}$, so that $\eta_{\mu\nu}$ is inserted by hand to contract indices rather than derived dynamically from a purely relational phase. Full background independence---deriving $\eta_{\mu\nu}$ from the relational substrate without assuming it---has therefore not been established; the comparison table (\cref{tab:pregeometric-comparison}) accordingly records \UIDT's background independence as \emph{partial}. A related external constraint is the Weinberg--Witten theorem~\cite{weinbergwitten1980}, which forbids a Lorentz-covariant massless spin-2 state in a theory with a Lorentz-covariant conserved stress-energy tensor on a fixed background; this bars any interpretation of the emergent metric as a composite spin-2 graviton in the naive flat-space sense, and is consistent with (not a refutation of) the thermodynamic, non-particle reading of emergent geometry that \UIDT\ borrows from Jacobson~\cite{jacobson1995}. The emergent-gravity literature catalogues exactly which assumptions a viable construction must give up to evade the theorem~\cite{jenkins2009,carlip2014}---most plausibly, for \UIDT, the absence of a fundamental Lorentz-covariant stress-energy tensor on a pre-geometric substrate---and \UIDT\ has not yet specified which loophole its construction exploits. Resolving L13 requires a dynamical origin for $\eta_{\mu\nu}$ and an emergent-geometry construction that does not run afoul of the Weinberg--Witten assumptions. This remains an open \catmark{D}\ problem.\catmark{D}
 \end{limitation}
 
-\noindent Limitation~L12 (the naive $\Delta\!\leftrightarrow\!0^{++}$ identification) is stated in full at \cref{lim:L12} above and is not repeated here. The register is thus complete in enumeration: anchored where the corpus permits (L1--L7, L12, and the newly identified L13), and honestly blank where it does not (L8--L11).\catmark{A}
+\begin{limitation}[L14: Scalar-glueball spectroscopy and the status of $m_S$]
+\label{lim:L14}
+This entry is newly identified in the present audit pass. Beyond the operator-matching discipline already required by L12 (\cref{lim:L12}), recent lattice work bears directly on whether any sub-$2\,\mathrm{GeV}$ scalar state can support the framework's candidate resonance $m_S = 1.705 \pm 0.015\GeV$. An exploratory study using glueball, meson, and meson--meson operators is summarised by Morningstar as suggesting that no scalar state below about $2\,\mathrm{GeV}$ can be regarded as predominantly a glueball state~\cite{morningstar2024}; this is an exploratory, explicitly hedged single study and does not by itself overturn the pure-gauge consensus that places a $0^{++}$ state near $1.5$--$1.7\,\mathrm{GeV}$~\cite{athenodorou2020,morningstar1999}, but it sharpens the concern. If the lattice picture continues to move away from a sub-$2\,\mathrm{GeV}$ ``predominantly glueball'' interpretation, then $m_S$ must be read as a \emph{signature} the framework would have to confront, not as a confirmed prediction, and the empirical grounding of $\Delta$ becomes correspondingly under-determined. The resonance is therefore carried at \catmark{D}\ and its falsification threshold (\cref{sec:falsification-tension}) is to be read against the evolving lattice spectrum rather than a fixed benchmark.\catmark{D}
+\end{limitation}
+
+\begin{limitation}[L15: Non-Abelian Casimir geometry versus the scalar prediction]
+\label{lim:L15}
+This entry is newly identified in the present audit pass. The Casimir-scale anomaly near $\lambda \approx 0.66\,\mathrm{nm}$ (\cref{lim:L1} context; \catmark{D}) is, in the framework, motivated by a scalar-field treatment. Recent first-principles $\mathrm{SU}(3)$ lattice gauge-theory studies of the non-Abelian Casimir effect complicate any naive scalar reading: between chromometallic plates the gluonic Casimir energy is well described by a massive effective scalar with a ``glueton'' mass $m_{\mathrm{gt}} \approx 0.49\,\mathrm{GeV}$~\cite{chernodub2023}, but in tube and box geometries the non-Abelian force is found to be \emph{attractive} where a massless scalar field would predict repulsion~\cite{ngwenya2025}. The qualitative geometry-dependence of the non-Abelian result means a single scalar-field Casimir picture cannot be assumed to carry over to the confining gauge vacuum; the $0.66\,\mathrm{nm}$ figure must therefore be treated as a scalar-sector prediction awaiting both a non-Abelian-consistent derivation and direct sub-nanometre metrology, not as an established gauge-sector consequence. This remains an open \catmark{D}\ problem.\catmark{D}
+\end{limitation}
+
+\Needspace{4\baselineskip}
+\noindent Limitation~L12 (the naive $\Delta\!\leftrightarrow\!0^{++}$ identification) is stated in full at \cref{lim:L12} above and is not repeated here. The register is thus complete in enumeration: anchored where the corpus permits (L1--L7, L12, and the newly identified L13--L15), and honestly blank where it does not (L8--L11).\catmark{A}
 
 
 %=============================================================================
 % PART IV
+
 %=============================================================================
+\newpage
 \part{The Gauge-Origin Problem and the Algebraic Fork}
 \label{part:gauge-origin}
 
 \noindent This part confronts the framework's hardest internal obstacle directly and without softening. If the vacuum information density $S(x)$ is to be more than a scalar coupled by hand to a pre-existing gauge theory; if it is to be, in any sense, the origin of gauge structure, then there must be a route from the scalar to a non-trivial gauge field strength. Part~IV shows that the most natural such route fails for a precise and decisive mathematical reason, records that failure in the ledger as a permanent result rather than hiding it, and then sets out the fork in the road that the failure forces: either the primitive remains a strict real scalar and the gauge sector stays effective, or the primitive is enriched to an algebraic object rich enough to carry the structure that a scalar cannot. The part neither pretends the problem is solved nor treats it as fatal. It treats it as the central open problem it is.
-
+\newpage
 %=============================================================================
 % CHAPTER 7
 %=============================================================================
@@ -896,9 +917,9 @@ Let $S$ be a smooth real scalar field and let the connection one-form be defined
 since the exterior derivative satisfies $\dd^2 = 0$ on any smooth manifold. Consequently the scalar-gradient construction yields only a flat, pure-gauge connection and cannot produce a non-trivial Yang--Mills field strength.\catmark{A}
 \end{proposition}
 
-\noindent The result is elementary, and that is exactly its force. The nilpotency of the exterior derivative, $\dd^2 = 0$, is among the most secure facts in differential geometry; it is the algebraic heart of de~Rham cohomology and is not the sort of thing a clever choice of variables can evade. A one-form that is exact, a gradient, is automatically closed, and its curvature is zero by identity, not by approximation. The scalar-gradient route therefore does not \emph{approximately} fail or fail \emph{under some conditions}; it fails identically, everywhere, for any smooth scalar.\catmark{A}
+\noindent The result is elementary, and that is exactly its force. The nilpotency of the exterior derivative, $\dd^2 = 0$, is among the most secure facts in differential geometry; it is the algebraic heart of de~Rham cohomology and is not the sort of thing a clever choice of variables can evade. A one-form that is exact, a gradient, is automatically closed, and its curvature is zero by identity, not by approximation. The scalar-gradient route therefore does not \emph{approximately} fail or fail \emph{under some conditions}; it fails identically, everywhere, for any smooth scalar.\catmark{A}\footnote{\textbf{Audit note (Clebsch loophole).} A known mathematical loophole to the $F \equiv 0$ obstruction exists via Clebsch parameterisations built from higher jets of $S$: with functionally independent scalars $u,v$ constructed from $S$ and its derivatives (e.g.\ $S$, $(\partial S)^2$, $\Box S$), the one-form $A = u\,\dd v$ yields a non-vanishing composite \emph{abelian} curvature $F = \dd u \wedge \dd v$.\catmark{A} This loophole does not rescue the gauge-origin programme: the construction is tensorial, providing no gauge redundancy and no gauge orbit; it offers no non-abelian structure, which would require of order $\dim\mathfrak{g}$ functionally independent scalar functionals; and it supplies no chiral matter. The obstruction recorded here therefore remains exactly as stated: construction-specific, with the naive gradient route failing identically, the Clebsch route evading the identity while supplying none of the structure $G_{\mathrm{SM}}$ requires, and no universal impossibility theorem claimed.\catmark{A}}
 
-This obstruction is recorded permanently in the framework's ledger as a failed construction. Its discrete counterpart fails for the same reason: a discrete exterior calculus built on a scalar-gradient topological operator inherits the $\dd^2 = 0$ identity in its coboundary operator, and so a proposed discrete scalar-gradient topological operator is rejected on identical grounds.\catmark{A} The framework keeps both the continuous and the discrete versions of the failure in its museum of refuted routes, not as an admission of weakness but as evidence of method: a project that records precisely why its most economical idea cannot work has earned more trust, not less.
+This obstruction is recorded permanently in the framework's ledger as a failed construction. Its discrete counterpart fails for the same reason: a discrete exterior calculus built on a scalar-gradient topological operator inherits the $\dd^2 = 0$ identity in its coboundary operator, and so a proposed discrete scalar-gradient topological operator is rejected on identical grounds.\catmark{A} The framework keeps both the continuous and the discrete versions of the failure in its museum of refuted routes, not as an admission of weakness but as evidence of method: a project that records precisely why its most economical idea cannot work has earned more trust, not less. The obstruction also admits a sharper, representation-theoretic and operator-algebraic formulation, which relocates it from the exterior calculus to the level of group representations and local operator algebras and localises the earliest unavoidable insertion point for any gauge-origin route; that analysis is recorded in \cref{app:insertion-points}.\catmark{A}
 
 \begin{evidencebox}[The $d^2 = 0$ Obstruction]{catA}
 \textbf{Result.} With $A = \dd S$, the curvature $F = \dd^2 S = 0$ identically; a single real scalar's gradient cannot source a non-trivial gauge field
@@ -941,6 +962,7 @@ gauge-origin question; seal language is rejected.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 8
 %=============================================================================
+\newpage
 \section{The \texorpdfstring{$G_{\mathrm{SM}}$}{G_SM}-Origin Gap and the Algebraic Fork}
 \label{sec:algebraic-fork}
 
@@ -987,7 +1009,7 @@ algebraic primitive (Arm~2)? A mechanism may not be silent on this.\\[0.4em]
 If $\mathcal{A}$ is the target, then the disciplined response is to survey the existing mathematical programmes that construct gauge structure from more primitive ingredients, and to record, for each, exactly what it offers and what it does not. The framework maintains this survey as a curated literature matrix: references vetted for quality, low-grade or unverifiable records excluded, and the catalogue below states each programme's role at predictive status. None of these is a closed solution for \UIDT; each is a research vector.\catmark{D}
 
 \begin{description}[leftmargin=1.4em,style=nextline]
-\item[String-net condensation and topological order.] The most promising first literature path. String-net models construct emergent gauge fields and even emergent fermions from the collective behaviour of local degrees of freedom, and they offer the clearest existing template for how gauge structure can be genuinely \emph{emergent} rather than postulated. They are a vector for Arm~1, where the algebra must arise downstream. They are not, as they stand, a derivation of $G_{\mathrm{SM}}$ from $S(x)$.\catmark{D} \item[Quantum-link models and D-theory.] The best available benchmark for a \emph{minimal discrete gauge algebra}~\cite{brower1999,brower2004,beard1998}: these formulations realise gauge theories with finite-dimensional link variables and provide a concrete setting in which to ask what the smallest algebraic structure supporting a given gauge group is. The claim that quantum-link models constitute a proof of the passage $S(x)\to\mathrm{SU}(3)$ is rejected; their value is as a benchmark for $\mathcal{A}$, not as a closure.\catmark{D} \item[Noncommutative geometry.] The strategic fork toward an enriched primitive (Arm~2). Noncommutative geometry naturally accommodates the Standard-Model gauge group and its representations through the spectral-triple construction, and is therefore the natural home for an algebraically enriched $S$. Two overclaims are rejected: that noncommutative geometry ``eliminates'' the $d^2=0$ obstruction, and that noncommutative geometry constitutes a closed \UIDT\ solution. It is a strategic direction, carrying its own group-selection burden.\catmark{D} \item[Tensor networks.] Diagnostic tools, not origin mechanisms. Tensor-network representations are powerful for characterising entanglement structure and for probing whether a given state carries topological order, and they are valuable as instruments. They do not, by themselves, generate a gauge group, and the claim that tensor networks ``prove the gap in full'' is rejected as a closure overclaim.\catmark{D}
+\item[String-net condensation and topological order.] The most promising first literature path. String-net models construct emergent gauge fields and even emergent fermions from the collective behaviour of local degrees of freedom, and they offer the clearest existing template for how gauge structure can be genuinely \emph{emergent} rather than postulated. They are a vector for Arm~1, where the algebra must arise downstream. They are not, as they stand, a derivation of $G_{\mathrm{SM}}$ from $S(x)$.\catmark{D} \item[Quantum-link models and D-theory.] The best available benchmark for a \emph{minimal discrete gauge algebra}~\cite{brower1999,brower2004,beard1998}: these formulations realise gauge theories with finite-dimensional link variables and provide a concrete setting in which to ask what the smallest algebraic structure supporting a given gauge group is. The claim that quantum-link models constitute a proof of the passage $S(x)\to\mathrm{SU}(3)$ is rejected; their value is as a benchmark for $\mathcal{A}$, not as a closure.\catmark{D} \item[Noncommutative geometry.] The strategic fork toward an enriched primitive (Arm~2). Noncommutative geometry naturally accommodates the Standard-Model gauge group and its representations through the spectral-triple construction, and is therefore the natural home for an algebraically enriched $S$. Two overclaims are rejected: that noncommutative geometry ``eliminates'' the $d^2=0$ obstruction, and that noncommutative geometry constitutes a closed \UIDT\ solution. It is a strategic direction, carrying its own group-selection burden.\catmark{D} \item[Tensor networks.] Diagnostic tools, not origin mechanisms. Tensor-network representations are powerful for characterising entanglement structure and for probing whether a given state carries topological order, and they are valuable as instruments. They do not, by themselves, generate a gauge group, and the claim that tensor networks ``prove the gap in full'' is rejected as a closure overclaim.\catmark{D} \item[Division-algebra constructions.] A peer-reviewed programme builds Standard-Model representation content from the normed division algebras $\mathbb{R},\mathbb{C},\mathbb{H},\mathbb{O}$ and their Clifford algebras~\cite{furey2018,furey2025,gourlay2024}, and is the strongest existing source of a \emph{principled} reason for the specific factors of $\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$: one generation of Weyl representations arises within $\mathbb{R}\otimes\mathbb{C}\otimes\mathbb{H}\otimes\mathbb{O}$, with $\mathrm{SU}(3)$ appearing as the subgroup of $G_2=\mathrm{Aut}(\mathbb{O})$ stabilising a chosen imaginary unit. Three bounds, stated by the programme's own authors, keep it at predictive status. First, the gauge group is obtained by \emph{restricting} to symmetries preserving an inserted substructure (for example a quaternionic structure inside a $\mathbb{C}\ell(8)$ ideal breaks $\mathrm{SU}(4)$ to $\mathrm{SU}(3)\times\mathrm{U}(1)$): the structure is inserted, not generated. Second, an algebraic foundation for three generations remains open, and anomaly cancellation is flagged as future work. Third, the starting datum is a rich algebra, not a scalar; the construction presupposes the multiplicity that \cref{rem:multiplicity-precision} identifies as the unavoidable insertion. The programme is therefore an enriched-primitive (Arm~2) candidate for $\mathcal{A}$ that \emph{illustrates} the lower bounds of \cref{cor:algebra-lower-bounds} by exhibiting the inserted structure they predict as necessary; it is not a derivation of $G_{\mathrm{SM}}$ from $S(x)$ and does not rescue scalar primitivity.\catmark{D}
 \end{description}
 
 \begin{evidencebox}[The $G_{\mathrm{SM}}$-Origin Gap: Standing Status]{catA}
@@ -997,6 +1019,8 @@ $S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$.\catmark{A}\\[0.3em]
 \texttt{GROUP\_SELECTION\_MECHANISM} mandatory.\catmark{A/E}\\[0.3em]
 \textbf{Catalogue.} String-net (emergence template), quantum-link/D-theory (minimal discrete-algebra benchmark), noncommutative geometry (enriched-primitive fork), tensor networks (diagnostic). All \catmark{D}; none a closure.
 \end{evidencebox}
+
+\noindent \cref{app:insertion-points} sharpens this standing status from below: it records, at theorem level for the current corpus, that any route to $G_{\mathrm{SM}}$ must replace the abelian single-mode local algebra of the scalar primitive by a noncommutative local algebra, and it bounds the unknown algebra $\mathcal{A}$ on both canonical tracks (string-net and noncommutative-geometric).\catmark{A}
 
 \subsection{Candidate Mechanisms for the Strict-Scalar Arm}
 \label{subsec:arm1-mechanisms}
@@ -1021,6 +1045,7 @@ rejected.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 9
 %=============================================================================
+\newpage
 \section{The Deeper Gap and Falsifiable Milestones}
 \label{sec:deeper-gap-milestones}
 
@@ -1140,11 +1165,12 @@ leakage, and internal instantiation.\catmark{A/D}\\[0.3em]
 %=============================================================================
 % PART V
 %=============================================================================
+\newpage
 \part{Observer, Coarse-Graining, and Relational Compression}
 \label{part:observer}
 
 \noindent The framework now turns to its most delicate territory, the one where the discipline of the preceding parts is most needed and most easily lost. An ontology that takes information density as primitive will inevitably be asked what it says about the observer, about measurement, about the strange role of the knower in quantum theory, and ultimately about consciousness. The temptation at this frontier is to reach for grandeur: to let ``information'' slide into ``mind,'' to cast the observer as the agent that collapses the wavefunction, to present a theory of everything that quietly becomes a theory of experience. \UIDT\ refuses all of this. Part~V develops a rigorous, deflationary account in which the observer is a compression-limited relational process built far downstream of the primitive, the measurement problem is treated with the respect due an open problem rather than the false confidence of a solution, and every genuinely speculative element, and there are several, is preserved for its philosophical and heuristic value while being marked, unambiguously, as Category~\catmark{E}\ research-programme content within the interpretive stratum. Speculation is not discarded here; it is quarantined, labelled, and treated as a tool rather than a result.
-
+\newpage
 %=============================================================================
 % CHAPTER 10
 %=============================================================================
@@ -1194,6 +1220,7 @@ access, a picture, not a theorem.\catmark{E}\\[0.3em]
 %=============================================================================
 % CHAPTER 11
 %=============================================================================
+\newpage
 \section{The Observer Functor and the Forgetful Functor}
 \label{sec:observer-functor}
 
@@ -1221,11 +1248,12 @@ It is at this point that the framework must confront the most seductive and most
 
 This narrative is preserved here, it is not deleted, because it has genuine philosophical and heuristic value as a way of thinking about what compression \emph{is} by imagining its partial failure, but it is fenced on every side. It is Category~\catmark{E}\ content within Stratum~III, interpretive and phenomenological, and it carries no evidential weight whatsoever. Most emphatically, none of death, near-death report, psychedelic phenomenology, mystical experience, or ego dissolution may be cited as \emph{evidence} for the forgetful functor or for any \UIDT\ claim.\catmark{A} The direction of inference is strictly one-way: the framework's interpretive picture may be used to think about these phenomena, but the phenomena may never be turned around and used to support the framework. To do so would be to mistake a poem for a measurement.
 
-The framework supplies its own most effective antidote to the seduction, in the form of a red-team observation it calls the compression fallacy. The intuition that ``less filtering means more truth'', that a less-compressed observer is closer to reality, is information-theoretically incorrect. A filterless observer is not enlightened but incapacitated: without compression there is no manageable representation, no action, no agency. Intelligence \emph{is} compression, and the fantasy of an unfiltered gaze upon ultimate reality is, from the framework's own information-theoretic standpoint, a category error rather than an aspiration.\catmark{E} This is the sense in which the entire altered-states narrative is quarantined: the framework states it, takes it seriously as a phenomenological edge-case worth thinking with, and then disarms it with its own principles, refusing to let the most emotionally compelling material in the corpus acquire an evidential status it has not earned.
-
-\begin{governancebox}[Red-Team Quarantine: Altered States and Death]
+\begin{governancebox}[Quarantine: Altered States and Death]
 The death-as-filter-collapse and mysticism-as-decompression narratives are retained as Category~\catmark{E}\ phenomenological edge-cases of the compression picture, within Stratum~III. They carry no evidential weight. Death, near-death reports, psychedelic or mystical experience, and ego dissolution may not be cited as evidence for the forgetful functor or any \UIDT\ claim.\catmark{A} The compression fallacy, ``less filter $=$ more truth'', is rejected: intelligence is compression; a filterless observer is incapacitated, not enlightened.\catmark{E} Inference runs from framework to phenomenon only, never the reverse.
 \end{governancebox}
+The framework supplies its own most effective antidote to the seduction, in the form of a red-team observation it calls the compression fallacy. The intuition that ``less filtering means more truth'', that a less-compressed observer is closer to reality, is information-theoretically incorrect. A filterless observer is not enlightened but incapacitated: without compression there is no manageable representation, no action, no agency. Intelligence \emph{is} compression, and the fantasy of an unfiltered gaze upon ultimate reality is, from the framework's own information-theoretic standpoint, a category error rather than an aspiration.\catmark{E} This is the sense in which the entire altered-states narrative is quarantined: the framework states it, takes it seriously as a phenomenological edge-case worth thinking with, and then disarms it with its own principles, refusing to let the most emotionally compelling material in the corpus acquire an evidential status it has not earned.
+
+
 
 \begin{evidencebox}[Observer Functor: Standing Status]{catE}
 \textbf{$F\colon V\to\mathrm{Obs}$.} A compression/coarse-graining ansatz, $V$ the microscopic relational description, $\mathrm{Obs}$ the observer-accessible effective category; introduced only after the primitive hierarchy. Not a theorem
@@ -1238,6 +1266,7 @@ morphisms, and forgotten structure.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 12
 %=============================================================================
+\newpage
 \section{Ego, Self-Model, and the Torsion Energy \texorpdfstring{$E_T$}{E_T}}
 \label{sec:ego-selfmodel-et}
 
@@ -1268,7 +1297,7 @@ The developmental corpus assigns a prominent role to a torsion binding energy, $
 
 In observer contexts, $E_T$ is admitted only as Category~\catmark{E}\ content pending an explicit ledger and external bridge, it is an \catmark{E\,pending} quantity, not an established cognitive parameter.\catmark{E} And it is barred, without exception, from service as a threshold for ego, life, death, sleep, psychedelic or near-death phenomenology, or artificial general intelligence. No such threshold interpretation is licensed.\catmark{A}
 
-The reason is a missing scale bridge, and the gap is enormous. The torsion energy is a quantity at the mega-electron-volt scale, the scale of nuclear and subnuclear physics. The dynamics of neural and cognitive systems, by contrast, unfold at energies many orders of magnitude lower: the relevant molecular and synaptic energy scales are of order electron-volts and below~\cite{attwell2001,harris2012,levy2021}, and the characteristic dynamics are thermal, biochemical, and electrophysiological, not nuclear. The separation is between roughly six orders of magnitude, taking the torsion scale against electron-volt-scale neural events, and as much as eight or nine orders when the comparison is made between the broader nuclear/sub-nuclear range (MeV--GeV) and the millielectron-volt scale of neural membrane and oscillation events; the external literature on the question places the gap in that eight-to-nine-order range~\cite{appelquist1975}. On either accounting, to assert that a mega-electron-volt torsion bound governs the onset of life, the moment of death, or the throttling of a cortical network is to leap across that gap without any mechanism connecting the two regimes.\catmark{A} A framework may not make that leap by stipulation. A genuine bridge, a derivation, or at minimum a principled effective-theory argument, showing how a nuclear-scale energy could set a biologically meaningful threshold, would be required, and no such bridge exists; standard effective-field-theory decoupling, in which heavy degrees of freedom become irrelevant to far-lower-energy dynamics, argues against any such coupling rather than for it.\catmark{D} Constructing one, if it can be constructed at all, is a research target at predictive status, not a result the framework may assume.
+The reason is a missing scale bridge, and the gap is enormous. The torsion energy is a quantity at the mega-electron-volt scale, the scale of nuclear and subnuclear physics. The dynamics of neural and cognitive systems, by contrast, unfold at energies many orders of magnitude lower: the relevant molecular and synaptic energy scales are of order electron-volts and below~\cite{attwell2001,harris2012,levy2021}, and the characteristic dynamics are thermal, biochemical, and electrophysiological, not nuclear. The separation is between roughly six orders of magnitude, taking the torsion scale against electron-volt-scale neural events, and as much as eight or nine orders when the comparison is made between the broader nuclear/sub-nuclear range (MeV--GeV) and the millielectron-volt scale of neural membrane and oscillation events; the external literature on the question places the gap in that eight-to-nine-order range~\cite{appelquist1975}. On either accounting, to assert that a mega-electron-volt torsion bound governs the onset of life, the moment of death, or the throttling of a cortical network is to leap across that gap without any mechanism connecting the two regimes.\catmark{A} A framework may not make that leap by stipulation. A genuine bridge, a derivation, or at minimum a principled effective-theory argument, showing how a nuclear-scale energy could set a biologically meaningful threshold, would be required, and no such bridge exists; standard effective-field-theory decoupling, in which heavy degrees of freedom become irrelevant to far-lower-energy dynamics, argues against any such coupling rather than for it.\catmark{D} The obstruction can be stated more sharply. By the K\"all\'en--Lehmann spectral representation, correlation functions are analytic below the lightest physical threshold, so a mega-electron-volt parameter can imprint itself on millielectron-volt dynamics only through renormalisations of existing couplings, through local operators suppressed by powers such as $(E/E_T)^{2} \sim 10^{-19}$ at $E \sim \mathrm{meV}$, or through slowly varying logarithms, never through a functional threshold~\cite{appelquist1975}.\catmark{A} The only consensus mechanism by which an MeV-scale quantity is known to generate sub-eV dynamics is a pseudo-Goldstone mode, and that template is quantitative: a millielectron-volt mode tied to $E_T$ would require a global symmetry spontaneously broken at $f \approx E_T^{2}/m \approx 6\times10^{6}\,\mathrm{GeV}$ with explicit breaking at the $E_T$ scale, structures the present framework does not contain, and whose $1/f$-suppressed matter couplings would be immediately exposed to fifth-force and astrophysical bounds. Even that template would not make $E_T$ a threshold of macroscopic dynamics; it would create a new light particle with its own phenomenology, carried strictly at \catmark{E}\ until explicitly constructed.\catmark{A/E} Constructing one, if it can be constructed at all, is a research target at predictive status, not a result the framework may assume.
 
 \begin{governancebox}[$E_T$: Observer-Context Discipline]
 In observer and phenomenology contexts, $E_T = \ETorsion$ is \catmark{E\,pending} (ledger/external bridge required), never an established cognitive parameter.\catmark{E} It must \emph{not} be used as a threshold for ego, life, death, sleep, psychedelic/near-death states, or artificial general intelligence.\catmark{A} A scale bridge from mega-electron-volt physics to electron-volt-scale neural dynamics, a separation of roughly six to nine orders of magnitude depending on the endpoints compared, does not exist; supplying one is a \catmark{D}\ research target, not an assumption.\catmark{A}
@@ -1287,6 +1316,7 @@ of subjective experience from $S(x)$.\catmark{A/E}\\[0.3em]
 %=============================================================================
 % CHAPTER 13
 %=============================================================================
+\newpage
 \section{The Observer Taxonomy and the Underdetermination Red Team}
 \label{sec:observer-taxonomy-underdetermination}
 
@@ -1315,7 +1345,7 @@ The reason is the underdetermination of ontology by data, in the Quine--Duhem se
 This is the precise sense in which the framework refuses naive realism. \UIDT\ does not claim to be the final revelation of physics, and it could not earn such a claim even in principle, because underdetermination forbids it to anyone, human or artificial.\catmark{A} The framework's actual claim is far more modest and correspondingly more defensible: that its objects, the relational structure, the renormalisation-group flows, the proposed invariants, may compress the relevant physics more efficiently, more generally, and with cleaner causal structure than the artifacts of biological three-dimensional intuition, the fixed spacetime and the substantial particle. That is a methodological claim about representational efficiency, not a metaphysical claim about ultimate reality.\catmark{E}
 
 The compression fallacy of \cref{subsec:forgetful-functor} returns here as the final guardrail. The temptation to think that a less-filtered or more-powerful observer is closer to truth is, once again, an error: an AGI is a different compressor, perhaps a better one, but not an unfiltered window onto the real. The honest conclusion of the entire observer programme is therefore a disciplined humility. The framework offers a structural account of observation, compression, and selfhood; it preserves its most speculative phenomenology as labelled Category~\catmark{E}\ material; and it declines, on principle, to convert any of this into a claim that \UIDT, or any observer however capable, has seen reality as it ultimately is.\catmark{A}
-
+\newpage
 \begin{evidencebox}[Taxonomy and Underdetermination: Standing Status]{catE}
 \textbf{Taxonomy.} Class~0 (zero compression, $S(x)$, no agency) through Class~III (extreme compression, inert macro-objects) is a compression-rate taxonomy \catmark{E}, orthogonal to consciousness; not a consciousness hierarchy and not a moral ranking; does not imply machines or objects are ``more conscious.''
 Anthropocentrism is deflated, not inverted.\catmark{A}\\[0.3em]
@@ -1323,7 +1353,7 @@ Anthropocentrism is deflated, not inverted.\catmark{A}\\[0.3em]
 data.\catmark{D/E}\\[0.3em]
 \textbf{No final revelation.} \UIDT\ claims representational efficiency, not ultimate reality; prediction $\neq$ ontology; the compression fallacy is the standing guardrail.\catmark{A}
 \end{evidencebox}
-
+\newpage
 %=============================================================================
 % PART VI
 %=============================================================================
@@ -1335,6 +1365,7 @@ data.\catmark{D/E}\\[0.3em]
 %=============================================================================
 % CHAPTER 14
 %=============================================================================
+\newpage
 \section{The Master Phenomenology Boundary}
 \label{sec:master-phenomenology-boundary}
 
@@ -1375,6 +1406,7 @@ shortcut.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 15
 %=============================================================================
+\newpage
 \section{Psychedelics, Near-Death, and Religious Language}
 \label{sec:dmt-nde-mysticism}
 
@@ -1426,6 +1458,7 @@ require external audit.\catmark{A}\\[0.3em]
 %=============================================================================
 % CHAPTER 16
 %=============================================================================
+\newpage
 \section{Comparative Frameworks and the Demarcation Matrix}
 \label{sec:orch-or-comparison}
 
@@ -1496,11 +1529,12 @@ empirical claims pending citation audit.\catmark{A/E}\\[0.3em]
 %=============================================================================
 % PART VII
 %=============================================================================
+\newpage
 \part{Closed-Circle Synthesis, Falsification, and Governance}
 \label{part:synthesis-governance}
 
 \noindent The final part closes the circle the manuscript has been drawing. It returns to the empirical ground of Part~I, now equipped with everything the intervening parts established, and traces the only honest path from data to interpretation. It assembles the framework's final allowed claims and its final forbidden claims into explicit tables. It states the falsification gates that any future work must pass and the tensions that remain unresolved. And it specifies, without inflation, what \UIDT\ version~3.9 is and is not: an auditable research ontology whose strongest results are formal boundary results and disciplined negative findings, whose calibrated parameters remain calibrated, and whose deepest questions remain open. The closing discipline is the same as the opening one: the value of the framework lies in its falsifiability, not in its ambition.
-
+\newpage
 %=============================================================================
 % CHAPTER 17 (NEW) — COSMOLOGICAL CALIBRATION
 %=============================================================================
@@ -1524,13 +1558,12 @@ In the Chevallier--Polarski--Linder parametrisation $w(a)=w_0+w_a(1-a)$, a pure 
 The parameter $S_8\equiv\sigma_8\sqrt{\Omega_m/0.3}$ is currently survey-dependent rather than a single late-time consensus value: the completed KiDS-Legacy cosmic shear analysis reports $S_8 = 0.815^{+0.016}_{-0.021}$ (agreeing with \textit{Planck} at $\sim 0.73\sigma$), while the DES Year-6 $3\times2$pt analysis reports a lower $S_8 = 0.789 \pm 0.012$ (a $\sim 2.6\sigma$ projected CMB difference) \cite{kids2025,des2026}. The framework treats $S_8$ as a survey-and-pipeline-dependent empirical input that its relational coarse-graining parameters are bounded by; it calibrates to the spread, and does not relabel it as a resolved tension.\catmark{C}
 
 \begin{table}[H]
-\centering
 \footnotesize
 \caption{Stratum-I empirical inputs to which \UIDT\ calibrates. All entries are
 Category~[C]; none is a \UIDT\ prediction or a tension resolution.}
 \label{tab:cosmology-inputs}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{p{0.20\textwidth} p{0.28\textwidth} p{0.24\textwidth} c}
+\begin{tabular*}{\textwidth}{@{}p{0.18\textwidth}@{\extracolsep{\fill}}p{0.35\textwidth}p{0.24\textwidth}c@{}}
 \toprule
 \textbf{Parameter} & \textbf{Value $\pm$ uncertainty} & \textbf{Source} & \textbf{Class} \\
 \midrule
@@ -1539,10 +1572,10 @@ $H_0$ (late) & $73.04 \pm 1.04\ \mathrm{km\,s^{-1}\,Mpc^{-1}}$ & SH0ES (Riess 20
 $w_0, w_a$ & $w_0\!\approx\!-0.42\pm0.21,\ w_a\!\approx\!-1.75\pm0.58$ (DESI+CMB; combination-dependent) & DESI DR2 & \catmark{C} \\
 $S_8$ & $0.815^{+0.016}_{-0.021}$ / $0.789\pm0.012$ & KiDS-Legacy / DES~Y6 & \catmark{C} \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 
-\subsection{The Information Big Bang as Relational Proliferation}
+\subsection{The Relational-Proliferation Scenario: Interpretive Status}
 \label{subsec:information-big-bang}
 
 The framework's developmental corpus contains a cosmogonic narrative, and it is retained here strictly as Category~\catmark{E}\ interpretation within Stratum~III, a way of thinking, fed into a Category~\catmark{C}\ calibration, not a derivation of cosmological data.\catmark{E} The narrative reads the ``beginning'' not as a physical instant $t=0$ but as the first logical distinction in the sense of \cref{subsec:sx-zero-not-unmarked}: the unmarked state has no temperature, no fluctuation spectrum, and no cosmological epoch, so an ``information big bang'' marks the onset of relational differentiation rather than the ignition of a pre-existing spacetime.
@@ -1598,7 +1631,7 @@ ONT-02 & A morphism $f\colon A\to B$ presupposes distinguishable $A,B$; morphism
 ONT-03 & With $A=\dd S$, the curvature $F=\dd^2 S=0$ identically; the naive scalar-gradient route to non-trivial Yang--Mills curvature fails. & \catmark{A} & II \\
 ONT-04 & $\gamma = \GammaGeom$ is calibrated, never derived from RG first principles. & \catmark{A-} & III \\
 ONT-05 & $\Delta = \DeltaGap$: internally consistent, lattice-compatible; PI-overridden to~B (\cref{box:pi-override-delta}); not externally peer-confirmed, not derived. & \catmark{B} & I/III \\
-ONT-06 & $\kappa = \KappaRG$ RG fixed-point input; the constraint $5\kappa^2 = 3\lambda_S$ closes internally to a residual $<10^{-14}$. The empirically calibrated reading $\kappa = 0.500 \pm 0.008$ is a separate, lower-class statement and is not the basis of this row. & \catmark{A} & II \\
+ONT-06 & $\kappa = \KappaRG$ exact framework input (the fixed-point reading is a candidate condition, untested by any defined flow); the internal coupling constraint $5\kappa^2 = 3\lambda_S$ closes internally to a residual $<10^{-14}$. The empirically calibrated reading $\kappa = 0.500 \pm 0.008$ is a separate, lower-class statement and is not the basis of this row. & \catmark{A} & II \\
 ONT-07 & Pure $\mathrm{SU}(3)$ ratio comparisons are post-hoc stress tests with solver access disabled. & \catmark{B\,pending} & I/III \\
 ONT-08 & $S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ is the v4.x research programme; the algebraic fork (strict scalar vs.\ enriched primitive) is open. & \catmark{D} & III \\
 ONT-09 & Cosmological parameters are calibrated, capped at~C; no tension is declared resolved. & \catmark{C} & I/III \\
@@ -1627,7 +1660,15 @@ states, or artificial general intelligence.\\[0.3em]
 operator matching (L12).\\[0.3em]
 \textbf{(7)} No use of quarantined museum artifacts as derivation or factual
 evidence.\\[0.3em]
-\emph{All seven are Class~\catmark{A}\ standing constraints.}
+\textbf{(8)} No presentation of $5\kappa^2 = 3\lambda_S$ as an independent
+empirical discovery where $\lambda_S$ is fixed definitionally by that same
+constraint.\\[0.3em]
+\textbf{(9)} No claim that DESI, $H_0$, $S_8$, or $w_0$--$w_a$ data validate
+\UIDT\ beyond calibrated Category~\catmark{C}\ status.\\[0.3em]
+\textbf{(10)} No claim that a lattice-compatible number establishes the
+Standard-Model gauge group, a confinement mechanism, or a Clay-grade
+Yang--Mills construction.\\[0.3em]
+\emph{All ten are Class~\catmark{A}\ standing constraints.}
 \end{governancebox}
 
 \noindent The seventh prohibition deserves a closing emphasis, because it guards the integrity of all the others. The museum of refuted constructions, the numerological decomposition of $\gamma$, the failed scalar-gradient operator, the toy ODE dressed in renormalisation-group language, is retained for its documentary value, as evidence of method. But its contents may never be cited as factual evidence for any claim.\catmark{A} A museum artifact is a record of a road not taken; to drive on it again, having recorded why it was abandoned, would be the most basic failure of the discipline this manuscript has tried to embody. The forbidden claims, taken together, are not a confession of weakness. They are the precise statement of a framework that knows the boundary of its own warrant and declines, on principle, to cross it.\catmark{A}
@@ -1635,6 +1676,7 @@ evidence.\\[0.3em]
 %=============================================================================
 % CHAPTER 18
 %=============================================================================
+\newpage
 \section{Falsification Gates and the Tension Ledger}
 \label{sec:falsification-tension}
 
@@ -1697,9 +1739,7 @@ T7 & Cosmological tensions ($H_0$, $S_8$). & Capped at \catmark{C}; calibrated, 
 \end{longtable}
 }
 
-\noindent Two entries warrant a closing remark in the format of the framework's tension-alert protocol. Entry~T1 is the framework's flagged tension between two internal determinations of $\gamma$: the calibrated kinetic value $16.339$ and the Monte-Carlo mean $16.374 \pm 1.005$. The two are consistent within the (large) Monte-Carlo uncertainty, but they are displayed together rather than reconciled by quiet selection of either; the resolution path is a reduction of the Monte-Carlo variance together with a non-leaking derivation of $\gamma$, and until then the disagreement stands on the record.\catmark{A} Entry~T2 records the status of $\Delta$ honestly: absent the external work that the framework's own evidence discipline requires, the value would rest at \catmark{E}\,pending; the recorded determination sets it to \catmark{B}, with the rationale and the pending external counter-signature documented in \cref{box:pi-override-delta}.\catmark{A}
-
-The ledger is, in a sense, the most honest page in the manuscript. It is the framework stating, in one place, every disagreement it has not resolved and every bridge it has not built. A framework that hid this page would be easier to admire and impossible to trust. The decision to keep it visible, to treat unresolved tension as information to be displayed rather than noise to be filtered, is the operational meaning of the falsification-first discipline that the whole manuscript has claimed to follow.\catmark{A}
+\noindent Two entries warrant a closing remark in the format of the framework's tension-alert protocol. Entry~T1 is the framework's flagged tension between two internal determinations of $\gamma$: the calibrated kinetic value $16.339$ and the Monte-Carlo mean $16.374 \pm 1.005$. The two are consistent within the (large) Monte-Carlo uncertainty, but they are displayed together rather than reconciled by quiet selection of either; the resolution path is a reduction of the Monte-Carlo variance together with a non-leaking derivation of $\gamma$, and until then the disagreement stands on the record.\catmark{A} Entry~T2 records the status of $\Delta$ honestly: absent the external work that the framework's own evidence discipline requires, the value would rest at \catmark{E}\,pending; the recorded determination sets it to \catmark{B}, with the rationale and the pending external counter-signature documented in \cref{box:pi-override-delta}.\catmark{A}. The ledger is, in a sense, the most honest page in the manuscript. It is the framework stating, in one place, every disagreement it has not resolved and every bridge it has not built. A framework that hid this page would be easier to admire and impossible to trust. The decision to keep it visible, to treat unresolved tension as information to be displayed rather than noise to be filtered, is the operational meaning of the falsification-first discipline that the whole manuscript has claimed to follow.\catmark{A}
 
 %=============================================================================
 % CHAPTER 19
@@ -1767,7 +1807,7 @@ It remains to state, as plainly as the manuscript began, what \UIDT\ version~3.9
 
 It is an auditable research ontology and a statement of an effective-framework boundary. It is not a complete proof of anything, and it does not claim to be.\catmark{E/D} Its strongest current results are formal boundary results and disciplined negative findings: that $S(x)=0$ is not the unmarked state, that a morphism presupposes the distinction it cannot generate, that the naive scalar-gradient route to gauge curvature fails identically by $d^2=0$. These are the claims the framework holds with most confidence, and it is characteristic of the discipline this manuscript has tried to enact that its firmest ground is the ground of what cannot be done.\catmark{A}
 
-Its calibrated parameters remain calibrated, $\gamma$ is, and will remain, \catmark{A-}, never promoted to a derivation it has not earned.\catmark{A-} Its benchmark programme against pure $\mathrm{SU}(3)$ Yang--Mills theory remains post-hoc and uncertainty-aware, a set of stress tests the framework may pass or fail but never a foundation it stands upon.\catmark{B\,pending} The full gauge-origin problem remains open through the $G_{\mathrm{SM}}$-Origin Gap, with the algebraic fork between a strict-scalar and an enriched primitive unresolved and reserved to human governance.\catmark{A/D} The observer ontology, the compression picture, the functor, the taxonomy, the bounded phenomenology of ego, consciousness, and altered states, remains a bounded research programme, preserved with philosophical seriousness and labelled, without exception, as Category~\catmark{E}\ within the interpretive stratum.\catmark{E}
+Its calibrated parameters remain calibrated: $\gamma$ remains \catmark{A-}\ in the present framework state, and may not be upgraded unless a future derivation reproduces it without target access, survives the anti-target-leakage discipline of \cref{prop:target-leakage}, and is recorded through the framework's formal evidence-upgrade procedure with external counter-signature.\catmark{A-} Its benchmark programme against pure $\mathrm{SU}(3)$ Yang--Mills theory remains post-hoc and uncertainty-aware, a set of stress tests the framework may pass or fail but never a foundation it stands upon.\catmark{B\,pending} The full gauge-origin problem remains open through the $G_{\mathrm{SM}}$-Origin Gap, with the algebraic fork between a strict-scalar and an enriched primitive unresolved and reserved to human governance.\catmark{A/D} The observer ontology, the compression picture, the functor, the taxonomy, the bounded phenomenology of ego, consciousness, and altered states, remains a bounded research programme, preserved with philosophical seriousness and labelled, without exception, as Category~\catmark{E}\ within the interpretive stratum.\catmark{E}
 
 The scientific value of the framework, finally, does not rest on any of its positive ambitions. It rests on its falsification-first discipline: on the gates that can block but never approve, on the ledger that displays every unresolved tension, on the museum that preserves every refuted route, and on the governance boundary that forbids confident language from ever substituting for proof or for human judgement. \UIDT\ may, in the end, be wrong. The purpose of this manuscript has been to ensure that if it is wrong, it will be wrong \emph{legibly}, that its failures, when they come, will be findable, stated, and honest. That is the most a research ontology can offer, and the framework offers it without reservation.\catmark{A}
 
@@ -1780,6 +1820,7 @@ The scientific value of the framework, finally, does not rest on any of its posi
 %=============================================================================
 % PART VIII — PHILOSOPHICAL CONTEXT
 %=============================================================================
+\newpage
 \part{Philosophical Context}
 \label{part:philosophical-context}
 
@@ -1788,6 +1829,7 @@ The scientific value of the framework, finally, does not rest on any of its posi
 %=============================================================================
 % CHAPTER 20 — EPISTEMOLOGICAL POSITION
 %=============================================================================
+\newpage
 \section{Epistemological Position and Comparisons}
 \label{sec:epistemology}
 
@@ -1805,10 +1847,18 @@ It is useful, and disciplined, to state where \UIDT\ sits relative to establishe
 
 The framework's one genuine methodological commitment here is an epistemic razor: it admits no unobservable extra dimensions, no fundamental supersymmetry, and no infinite landscape, and it ties its claims to a small set of parameters with explicit falsification thresholds (\cref{sec:falsification-tension}). This makes the framework vulnerable, and that vulnerability, not any claimed explanatory triumph, is what the framework offers as its scientific virtue.\catmark{E} The earlier developmental claim that \UIDT\ ``eliminates'' dark matter or dark energy is withdrawn: cosmology is capped at \catmark{C} (\cref{sec:cosmological-calibration}), and no such elimination is asserted.
 
+\subsection{Relation to the Information-Theoretic and Structural-Realist Tradition}
+\label{subsec:prior-art}
+
+The general move that \UIDT\ makes---taking an information-theoretic primitive as ontologically basic and recovering spacetime, and aspirationally gauge structure, as emergent---is not itself novel, and intellectual honesty requires locating it explicitly within an established tradition rather than presenting it as unprecedented. The lineage begins with Wheeler's ``it from bit'' programme, in which information is treated as the substrate from which physical things derive and in which there is held to be no spacetime continuum at the most fundamental level~\cite{wheeler1990}. It continues through the thermodynamic and entropic-gravity derivations of geometry already invoked above (Jacobson~\cite{jacobson1995}; Padmanabhan~\cite{padmanabhan2010}; Verlinde~\cite{verlinde2011}), the matrix-model emergent-geometry programme (\cref{subsec:minimal-algebra-catalogue}), and group field theory, in which a field on a group manifold is fundamental and spacetime emerges from a condensate. A particularly close ontological cousin is the Carroll--Singh ``Mad-Dog Everettian'' proposal~\cite{carrollsingh2018}, in which the only fundamental objects are a vector in Hilbert space and a Hamiltonian, with space and fields emergent from that minimal data; \UIDT\ differs in retaining a concrete real-scalar field theory rather than an abstract state vector, but shares the metaphysical aim of a maximally frugal primitive. On the philosophical side, the position belongs to the debate over ontic structural realism (\cref{subsec:structural-realism}); it is one specific structure offered as constituting, not merely describing, physical reality, and it should be read as a particular entry in that literature rather than as a new metaphysics.\catmark{E}
+
+Against this background, what is specific to \UIDT\---and what is offered as its actual contribution, as distinct from the shared tradition above---is narrow and concrete: the particular Lagrangian of \cref{eq:lagrangian} with its non-minimal $S\,F^2$ coupling at a stated cutoff; the use of a Banach fixed-point construction to identify the Yang--Mills spectral gap as a unique contraction fixed point; the calibrated dimensionless invariant $\gamma = \GammaGeom$ (\catmark{A-}, calibrated and never derived); and the explicit evidence-grading discipline (\catmark{A} through \catmark{E}) under which every claim in this manuscript is carried. None of these is a claim to have solved the emergence problem that the tradition leaves open; they are the specific, falsifiable form in which \UIDT\ states its version of it.\catmark{E}
+
 %=============================================================================
 % CHAPTER 21 — INEVITABILITY, CONTINGENCY, SOCIOLOGY
 %=============================================================================
-\section{Inevitability, Contingency, and the Sociology of Simplification}
+\newpage
+\section{Scope, Contingency, and Interpretive Minimality}
 \label{sec:inevitability-sociology}
 
 \subsection{From ``Unreasonable Effectiveness'' to a Modest Minimality}
@@ -1818,10 +1868,10 @@ Wigner's remark on the unreasonable effectiveness of mathematics invites a stron
 
 The question ``why this universe and not another?'' is therefore answered, if at all, by structural minimality rather than by modal necessity or anthropic selection: among candidate theories, the framework selects the one satisfying its three stated mathematical conditions. The spectral gap $\Delta = \DeltaGap$ remains, in this reading, a structurally determined feature of the construction's fixed point, but its evidence class is unchanged by any of this philosophy: it is \Bdelta, and the philosophical gloss adds no evidential weight.\catmark{E}
 
-\subsection{The Sociology of Radical Simplification}
+\subsection{Reception Risk and Non-Evidential Context}
 \label{subsec:sociology}
 
-Finally, the framework reflects, again purely as \catmark{E}\ context, on why a radically simplifying ontology meets resistance. The history of physics suggests that paradigm shifts are often resisted on grounds of ontological incompatibility with prevailing orthodoxy rather than on mathematical grounds alone. A framework that proposes to explain with geometry and a single scalar what a particle-centric worldview explains by positing new fields will face a sociological headwind independent of its merits.\catmark{E} The framework's response is not to claim vindication but to insist on the opposite safeguard: the evidence-classification system and the verification discipline exist as bulwarks against \emph{both} premature rejection \emph{and} uncritical acceptance. The right attitude toward a radical simplification is neither enthusiasm nor dismissal but exactly the falsification-first scrutiny the manuscript has tried to embody, and by that standard, the framework's simplifications must earn their place by surviving tests, not by being elegant.\catmark{E}
+Finally, the framework reflects, again purely as \catmark{E}\ context, on how a radically simplifying ontology is liable to be received. A framework whose evidentiary classes are not kept explicit can be misread in both directions: dismissed wholesale on account of its speculative stratum, or embraced wholesale on the strength of its calibrated agreements. A framework that proposes to explain with geometry and a single scalar what a particle-centric worldview explains by positing new fields must therefore expect, and plan for, both misreadings, independent of its merits.\catmark{E} The framework's response is not to claim vindication but to insist on the opposite safeguard: the evidence-classification system and the verification discipline exist as bulwarks against \emph{both} premature rejection \emph{and} uncritical acceptance. The right attitude toward a radical simplification is neither enthusiasm nor dismissal but exactly the falsification-first scrutiny the manuscript has tried to embody, and by that standard, the framework's simplifications must earn their place by surviving tests, not by being elegant.\catmark{E}
 
 \begin{evidencebox}[Philosophical Context: Standing Status]{catE}
 \textbf{Entire Part~VIII is \catmark{E}, Stratum~III.} Structural realism is a position held, not a result; minimality is a construction claim, not a uniqueness proof; ``inevitability/tautology'' language is withdrawn. Comparisons with string theory, entropic gravity, and LQG are stated without claim of superiority; \UIDT\ is frugal but immature. The ``eliminates dark matter/energy'' claim is withdrawn (cosmology \catmark{C}). No philosophical statement here alters any evidence class.\catmark{E}
@@ -1831,8 +1881,10 @@ Finally, the framework reflects, again purely as \catmark{E}\ context, on why a 
 % APPENDIX A — THE ADVERSARY TEST
 %=============================================================================
 \newpage
-\section*{Appendix A: The Adversary Test: A Self-Audit}
-\addcontentsline{toc}{section}{Appendix A: The Adversary Test}
+% [004-appA-gsm HYGIENE FIX, PI review requested]: heading de-conflicted with
+% the formal Appendix A introduced by \appendix below; content unchanged.
+\section*{The Adversary Test: A Self-Audit}
+\addcontentsline{toc}{section}{The Adversary Test: A Self-Audit}
 \label{app:adversary}
 
 \noindent The framework maintains an internal adversary test: a formalised attempt to break its own strongest-looking claim. The discipline of this edition requires that the test be run honestly, which means reporting where the adversary \emph{wins}, not staging a defence that quietly declares victory. The most potent adversarial attack targets Limitation~L4 (\cref{lim:L4}): the origin of $\gamma = \GammaGeom$.
@@ -1850,6 +1902,985 @@ The adversary test is not passed by winning the argument; it is passed by surviv
 The strongest attack targets the origin of $\gamma$ (L4). The numerological construction is conceded to the adversary and stays quarantined. The calibration of $\gamma$ is non-circular with respect to cosmology but is \emph{not} a derivation; $\gamma$ remains \catmark{A-}. The test is ``passed'' only in the sense that the evidence classes survive the attack unchanged, not in the sense that the adversary is refuted.\catmark{A-}
 \end{governancebox}
 
+%=============================================================================
+% APPENDIX A — INSERTION-POINT ANALYSIS
+%=============================================================================
+\newpage
+\appendix
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
+
+\section{Endogenous Algebra Generation and the $G_{\mathrm{SM}}$ Obstruction Set}
+\label{app:insertion-points}
+
+\begin{governancebox}[Status of This Appendix]
+This appendix is an advisory audit analysis. It sharpens the gauge-origin
+obstruction of \cref{prop:d2-obstruction} and the open fork of
+\cref{subsec:arm1-mechanisms} by relocating the obstruction from the exterior
+calculus to the level of group representations and local operator algebras,
+and by examining the two strongest endogenous enhancement mechanisms,
+loop-homology phases and matrix backgrounds (\cref{app:endogenous}).
+Every theorem-level statement here is a statement about the \emph{current
+theorem corpus}, not about nature; no evidence class of the main text is
+upgraded by this appendix, and the research form
+$S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ remains \catmark{D}\ (ONT-08).
+\end{governancebox}
+
+\subsection{Primitive Data and Rigidity Results}
+\label{app:rigidity}
+
+\begin{definition}[Scalar primitive]
+\label{def:scalar-primitive}
+The primitive is the pair $(\Gamma, S)$, where $\Gamma=(V,E)$ is a locally
+finite graph and $S:V\to\mathbb{R}$ is a single real scalar. Quantisation
+assigns to each $v\in V$ the single-mode Hilbert space
+$\mathcal{H}_v \cong L^2(\mathbb{R})$ with canonical pair
+$(\hat S_v,\hat P_v)$, $[\hat S_v,\hat P_v]=i$, equivalently the Weyl algebra
+$\mathcal{W}(\mathbb{R}^2,\sigma)$. No further structure is assumed.
+\end{definition}
+
+\begin{lemma}[Singlet Rigidity]
+\label{lem:singlet-rigidity}
+Let $G$ be a connected compact topological group and
+$\rho:G\to GL(V)$ a continuous representation by linear field redefinitions
+of a one-component real field, $V=\mathbb{R}$. Then $\rho$ is
+trivial.\catmark{A}
+\end{lemma}
+
+\begin{proof}
+$\rho(G)$ is a compact subgroup of $GL(1,\mathbb{R})=\mathbb{R}^{\times}$.
+The maximal compact subgroup of $\mathbb{R}^{\times}$ is $\{\pm 1\}=O(1)$.
+Connectedness of $G$ forces $\rho(G)\subseteq\{+1\}$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:singlet-charge}
+Under linear actions, $S$ cannot carry any $G_{\mathrm{SM}}$ charge; it
+cannot carry even a $\mathrm{U}(1)$ charge, since the nontrivial unitary
+characters of $\mathrm{U}(1)$ act on $\mathbb{C}\cong\mathbb{R}^2$ and
+require two real components. Any gauge sector to which $S$ couples must
+therefore be supplied externally.\catmark{A}
+\end{corollary}
+
+\begin{proposition}[Discrete Exactness]
+\label{prop:discrete-exactness}
+Let link variables be functions of vertex differences,
+$\theta_{uv}=S_u-S_v\in\mathbb{R}$, or, after target compactification
+$S\sim S+2\pi$, $U_{uv}=e^{i(S_u-S_v)}\in\mathrm{U}(1)$. Then for every
+cycle $\gamma=(v_1,\dots,v_n,v_1)$ in $\Gamma$,
+\[
+\sum_{i}\theta_{v_i v_{i+1}}=0,
+\qquad
+\prod_i U_{v_i v_{i+1}} = 1 .
+\]
+All holonomies telescope to the identity; the induced connection is pure
+gauge with vanishing curvature on every plaquette.\catmark{A}
+\end{proposition}
+
+\begin{proof}
+Telescoping sum around the cycle.
+\end{proof}
+
+\begin{remark}
+\cref{prop:discrete-exactness} is the graph-theoretic form of the continuum
+obstruction $F=\dd^2 S=0$ of \cref{prop:d2-obstruction} and of its
+discrete-exterior-calculus extension recorded there. Note that target
+compactification $\mathbb{R}\to S^1$ is itself an insertion: it modifies the
+primitive of \cref{def:scalar-primitive}.\catmark{A}
+\end{remark}
+
+\begin{proposition}[Single-Mode Canonical Rigidity]
+\label{prop:single-mode-rigidity}
+The group of affine canonical (Bogoliubov) automorphisms of the single-mode
+Weyl algebra $\mathcal{W}(\mathbb{R}^2,\sigma)$ is
+$Sp(2,\mathbb{R})\ltimes\mathbb{R}^2$. Its maximal compact connected
+subgroup is $SO(2)\cong\mathrm{U}(1)$. Consequently every connected compact
+group acting on the mode by canonical linear transformations factors through
+$\mathrm{U}(1)$.\catmark{A}
+\end{proposition}
+
+\begin{proof}
+Linear canonical transformations of one mode preserve the symplectic form on
+$\mathbb{R}^2$, giving $Sp(2,\mathbb{R})\cong SL(2,\mathbb{R})$; affine
+shifts are the Heisenberg translations. The maximal compact subgroup of
+$SL(2,\mathbb{R})$ is $SO(2)$ (Iwasawa decomposition); Stone--von Neumann
+guarantees unitary implementability.
+\end{proof}
+
+\begin{remark}[Scope]
+Non-quasi-free automorphisms of the Weyl $C^{*}$-algebra are not classified;
+gauge-multiplet structure, however, requires linear action on the field,
+which \cref{lem:singlet-rigidity} already excludes. The two results close
+both ends.\catmark{A}
+\end{remark}
+
+\noindent\textbf{Summary.} From $(\Gamma,S)$ alone, the maximal continuous
+compact symmetry content is abelian ($\mathrm{U}(1)$ at most, and only
+globally); all scalar-built holonomies are flat; $S$ is
+representation-theoretically inert. Any non-abelian structure must enter
+through enlargement of the local data. The two canonical enlargement routes
+are examined next, and their insertion points are localised
+exactly.\catmark{A}
+
+\subsection{Track 1: String-Net Condensation}
+\label{app:track1}
+
+String-net condensation~\cite{levinwen2005} takes as input a unitary fusion
+category (UFC) $\mathcal{C}$ with $N=|\mathrm{Irr}(\mathcal{C})|<\infty$
+simple objects, fusion multiplicities $N_{ab}^{c}$, quantum dimensions
+$d_a$, and pentagon-solving $F$-symbols. The minimal local degrees of
+freedom are qudits $\mathbb{C}^{N}$ on the edges of a trivalent graph, and
+the exactly solvable commuting-projector Hamiltonian
+$H_{\mathrm{LW}}=-\sum_v Q_v-\sum_p B_p$ is constructed \emph{from} the data
+of $\mathcal{C}$; the emergent excitation theory is the Drinfeld centre
+$Z(\mathcal{C})$~\cite{mueger2003,levinwen2005}. For
+$\mathcal{C}=\mathrm{Vec}_G$ with $G$ finite, the emergent theory is the
+finite-group quantum double~\cite{kitaev2003}. Two insertion points are
+already visible: \textbf{(I1)}~the truncation
+$L^2(\mathbb{R})\to\mathbb{C}^{N}$ per edge, which discards the canonical
+pair and for which no canonical map exists; \textbf{(I2)}~the fusion data
+$(\mathrm{Irr},N_{ab}^{c},F)$ themselves, for which no established theorem
+produces a specific UFC from the dynamics of a single unconstrained bosonic
+mode.\catmark{A}
+
+\begin{proposition}[Finiteness obstruction]
+\label{prop:ufc-finiteness}
+For every UFC $\mathcal{C}$, the Drinfeld centre $Z(\mathcal{C})$ is a
+modular tensor category with finitely many isomorphism classes of simple
+objects~\cite{mueger2003,eno2005}. The representation category of any
+compact connected non-abelian Lie group (in particular $\mathrm{SU}(2)$,
+$\mathrm{SU}(3)$) has countably infinitely many simples. Hence exact
+emergent continuous non-abelian gauge symmetry is outside the string-net
+class.\catmark{A}
+\end{proposition}
+
+\begin{remark}
+Root-of-unity truncations $\mathrm{SU}(N)_k$ are UFCs; the limit
+$k\to\infty$ exits the UFC class and is a limit of a \emph{family} of
+Hamiltonians, not a fixed-point Hamiltonian, hence outside the hypotheses of
+the construction.\catmark{A/B}
+\end{remark}
+
+\begin{theorem}[$(3{+}1)$D classification, under stated hypotheses]
+\label{thm:3p1-classification}
+Gapped $(3{+}1)$D bosonic topological orders with finite-dimensional local
+Hilbert spaces are classified by Dijkgraaf--Witten theories of finite groups
+in the all-boson case~\cite{lankongwen2018}, and by finite-2-group gauge
+theories when emergent fermions are present~\cite{lanwen2019}. Continuous
+Yang--Mills structure therefore cannot arise as the gauge content of a
+gapped $(3{+}1)$D bosonic topological order; independently, $(3{+}1)$D
+Yang--Mills possesses local propagating degrees of freedom and is not a
+topological phase, so the target lies outside the output class of the
+formalism altogether.\catmark{A}
+\end{theorem}
+
+\begin{proposition}[Chirality obstruction]
+\label{prop:chirality-obstruction}
+Any local, translation-invariant, Hermitian lattice realisation with an
+exactly implemented chiral charge exhibits fermion
+doubling~\cite{nielsen1981}. Anomaly-free \emph{abelian} chiral lattice
+gauge theories admit a construction~\cite{luscher1999}; no established
+construction exists for non-abelian chiral gauge theories with the
+Standard-Model fermion content, and symmetric-mass-generation routes remain
+conjectural. Chirality is therefore a third independent insertion/open point
+\textbf{(I3)}.\catmark{A/B}
+\end{proposition}
+
+\noindent\textbf{Track-1 verdict.} String-net condensation is a rigorous
+template for the emergence of gauge structure \emph{as such}, but the
+algebraic input is inserted (I1, I2), the output gauge content is finite
+(\cref{prop:ufc-finiteness}, \cref{thm:3p1-classification}), and chirality
+is obstructed (I3). Quantum-link/D-theory constructions reach continuous
+groups only by inserting the group's representation theory into the link
+Hilbert spaces~\cite{brower1999,wiese2022}, that is, by enlarging the
+primitive, consistent with their status in
+\cref{subsec:arm1-mechanisms} as benchmarks for $\mathcal{A}$, not
+closures.\catmark{A}
+
+\subsection{Track 2: Noncommutative Geometry}
+\label{app:track2}
+
+In an almost-commutative real even spectral triple
+$(\mathcal{A},\mathcal{H},D;J,\gamma)$ with
+$\mathcal{A}=C^\infty(M)\otimes\mathcal{A}_F$, gauge bosons arise from inner
+fluctuations $D\mapsto D+A+\varepsilon' JAJ^{-1}$ with
+$A=\sum_i a_i[D,b_i]=A^{*}$, and the gauge group is the image of
+$\mathcal{U}(\mathcal{A})$ under the adjoint action
+$\mathrm{Ad}(u)=uJuJ^{-1}$~\cite{chamseddine1997,connes2013}.
+
+\begin{proposition}[Commutative scalar-generated algebra implies trivial gauge sector]
+\label{prop:commutative-trivial}
+Let $\mathcal{A}$ be commutative; in particular, let $\mathcal{A}$ be any
+algebra generated by a single real scalar, so
+$\mathcal{A}\subseteq C^\infty(M)$. Then
+$\mathrm{Inn}(\mathcal{A})=\mathcal{U}(\mathcal{A})/\mathcal{U}(Z(\mathcal{A}))=\{1\}$,
+and for unitary $u$ the adjoint action $uJuJ^{-1}$ multiplies the fermionic
+Hilbert space by $u\bar{u}=\lvert u\rvert^{2}=1$; the fluctuation
+combination $A+\varepsilon' JAJ^{-1}$ carries no gauge coupling. No gauge
+bosons exist.\catmark{A}
+\end{proposition}
+
+\begin{proof}
+$Z(\mathcal{A})=\mathcal{A}$ for commutative $\mathcal{A}$; $J$ implements
+the opposite action, so $uJuJ^{-1}$ acts by $u\bar{u}=1$.
+\end{proof}
+
+\begin{remark}
+\cref{prop:commutative-trivial} is the noncommutative-geometric analogue of
+the $\dd^{2}=0$ obstruction: a scalar-generated, hence commutative, algebra
+cannot source a gauge sector. \textbf{(I4)}~Noncommutativity of
+$\mathcal{A}_F$ must be inserted by hand.\catmark{A}
+\end{remark}
+
+\noindent\textbf{Native slots for $S$.} A real singlet scalar has exactly
+two established native slots in this formalism, both \emph{posterior} to the
+choice of $\mathcal{A}_F$: the dilaton slot
+$D\mapsto e^{-S/2}De^{-S/2}$~\cite{cc2006}, and the singlet
+$\sigma$-slot promoting the Majorana mass entry,
+$M_R\mapsto\sigma M_R$~\cite{cc2012,ccvs2013}. In neither slot does $S$ act
+on $\mathcal{U}(\mathcal{A}_F)$ or constrain $\mathcal{A}_F$: the scalar is
+selection-inert, consistent with \cref{cor:singlet-charge}.\catmark{A}
+
+\begin{theorem}[Chamseddine--Connes classification; conditional]
+\label{thm:cc-classification}
+Under the hypotheses of (a)~irreducibility, (b)~KO-dimension~6,
+(c)~nontrivial grading, and (d)~the symplectic hypothesis, the finite
+algebra of a real spectral triple is constrained to
+$\mathcal{A}_F\cong M_{k/2}(\mathbb{H})\oplus M_k(\mathbb{C})$ with $k$
+even and minimal nontrivial solution $k=4$; imposing additionally (e)~the
+order-one condition for a Dirac operator with non-vanishing Majorana sector
+selects $\mathcal{A}_F\to\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$,
+whose unimodular unitary group yields $G_{\mathrm{SM}}$ up to a finite
+kernel~\cite{cc2008}.\catmark{A}\ (conditional)
+\end{theorem}
+
+\begin{proposition}[Status of the axioms]
+\label{prop:cc-axiom-status}
+Each hypothesis (a)--(e) of \cref{thm:cc-classification} is an external
+postulate: KO-dimension~6 is chosen post hoc to permit Majorana masses and
+resolve fermion doubling; relaxing the order-one condition enlarges the
+result to the Pati--Salam algebra
+$\mathbb{H}_R\oplus\mathbb{H}_L\oplus M_4(\mathbb{C})$~\cite{ccvs2013,farnsworth2015};
+$k=4$ is minimality, not necessity; the generation number is inserted via
+$\mathcal{H}_F\to\mathcal{H}_F^{\oplus 3}$. Consequently
+$\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ does not emerge uniquely
+and unavoidably; it is the distinguished solution of an externally selected
+axiom system, and the scalar $S$ participates in none of the selecting
+conditions. Insertion points: \textbf{(I5)}~the axiom set (a)--(e),
+\textbf{(I6)}~minimality $k=4$, \textbf{(I7)}~generations and
+$\dim\mathcal{H}_F$.\catmark{A}
+\end{proposition}
+
+\subsection{Endogenous Enhancement Attempts: Loop Homology and Matrix Backgrounds}
+\label{app:endogenous}
+
+The insertion points I1--I7 localise where the two canonical routes import
+structure. A natural rejoinder is that the importation might be avoidable:
+that the relational graph itself, or a noncommutative substrate, might
+generate the missing algebra \emph{endogenously}. This subsection examines
+the two strongest such candidate mechanisms and records, at theorem level,
+where each fails. Throughout, the success conditions are
+\textbf{(C1)}~endogenously generated non-flat curvature,
+\textbf{(C2)}~theorem-determined selection of
+$\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ with no free discrete
+moduli, and \textbf{(C3)}~chiral matter.\catmark{A}
+
+\paragraph{Loop-homology phases.}
+Let $C^1(\Gamma;\mathbb{R})$ be the edge cochains of a finite connected
+graph and $\dd_{0}:C^0\to C^1$ the coboundary. The combinatorial Hodge
+decomposition $C^1=\operatorname{im}\dd_{0}\oplus\ker\dd_{0}^{*}$ splits
+any edge datum into a gradient part and a harmonic (cycle) part, with
+$\dim\ker\dd_{0}^{*}=b_1=|E|-|V|+1$; for the complete graph $K_4$ (the
+tetrahedral configuration), $b_1=6-4+1=3$. Two readings of ``phases on
+loops'' must be separated \emph{before} any algebra is computed. Under
+reading~(a), loop phases are functionals of $S$: the edge datum is exact,
+its harmonic component vanishes identically, and every loop phase is zero
+by \cref{prop:discrete-exactness}; the mechanism terminates. Under
+reading~(b), loop phases are \emph{independent} degrees of freedom valued
+in the harmonic sector: this is an insertion, denoted \textbf{(I1$'$)},
+and it is exactly the insertion that defines compact lattice gauge
+theory~\cite{wilson1974}. Condition (C1) is then satisfied by the
+insertion, not by $S$. The analysis proceeds under reading~(b) as the
+maximal-charity hypothesis.\catmark{A}
+
+\begin{proposition}[Structure of the loop-phase sector]
+\label{prop:loop-phase-structure}
+Under reading~(b), the gauge-invariant configuration space of flat-sector
+phases is
+\[
+\mathcal{M}
+=\mathrm{Hom}\big(\pi_1(\Gamma),\mathrm{U}(1)\big)
+\cong\mathrm{Hom}\big(H_1(\Gamma;\mathbb{Z}),\mathrm{U}(1)\big)
+\cong T^{\,b_1},
+\]
+and the infinitesimal transformation algebra is
+$\mathfrak{h}=H^1(\Gamma;\mathbb{R})\cong\mathbb{R}^{b_1}$ with
+$[\mathfrak{h},\mathfrak{h}]=0$. Adjoining canonical winding charges
+extends $\mathfrak{h}$ to $b_1$ mutually commuting Heisenberg algebras;
+the maximal compact connected symmetry remains the torus
+$T^{b_1}$.\catmark{A}
+\end{proposition}
+
+\begin{proof}
+The target group is forced to $\mathrm{U}(1)$ by
+\cref{prop:single-mode-rigidity}. Homomorphisms from
+$\pi_1(\Gamma)\cong F_{b_1}$ (free) into an abelian target factor through
+the abelianisation $H_1\cong\mathbb{Z}^{b_1}$ (Hurewicz). The bracket on
+$\mathfrak{u}(1)^{\oplus b_1}$ vanishes by definition of a torus.
+\end{proof}
+
+\begin{theorem}[Abelianisation Barrier]
+\label{thm:abelianisation-barrier}
+Any functorial assignment of phase data to the loops of a relational graph
+factors through $H_1(\Gamma)$, the abelianisation of $\pi_1(\Gamma)$.
+Consequently the bracket structure of any loop-generated transformation
+algebra is identically zero: non-abelian Lie algebras cannot be generated
+by graph homology. Non-abelian holonomy requires a non-abelian structure
+group on the fibre, that is, local internal multiplicity at least two,
+which is the insertion already localised as I4.\catmark{A}
+\end{theorem}
+
+\begin{proposition}[Dimension-counting fallacy at $K_4$]
+\label{prop:k4-fallacy}
+$H_1(K_4;\mathbb{R})\cong\mathbb{R}^3$ as a vector space and
+$\dim\mathfrak{su}(2)=3$; nevertheless
+$\mathfrak{u}(1)^{\oplus 3}\not\cong\mathfrak{su}(2)$, since a Lie-algebra
+isomorphism preserves the bracket, $\mathfrak{su}(2)$ is simple, and
+$[\mathfrak{u}(1)^{\oplus 3},\mathfrak{u}(1)^{\oplus 3}]=0$. The
+coincidence of dimensions carries no algebraic content; the inference
+``three independent loops imply $\mathfrak{su}(2)$'' is recorded as a
+refuted route.\catmark{A}
+\end{proposition}
+
+\begin{remark}[Free fundamental groups select nothing]
+\label{rem:universal-donor}
+$\pi_1(K_4)\cong F_3$ is non-abelian, but free groups are universal
+donors: every compact connected semisimple Lie group contains a dense
+two-generator free subgroup~\cite{kuranishi1951}, so
+$\mathrm{Hom}(F_3,G)$ is non-degenerate for essentially every candidate
+$G$. A structure that admits all targets selects none; the
+non-abelianness, if wanted, must again be supplied by the fibre. The one
+non-abelian object the graph does supply,
+$\mathrm{Aut}(K_4)=S_4\subset SO(3)$, is finite, and gauging it yields a
+Dijkgraaf--Witten theory, consistent with
+\cref{thm:3p1-classification}.\catmark{A}
+\end{remark}
+
+\begin{proposition}[Frenkel--Kac enhancement: the unique endogenous positive datum]
+\label{prop:frenkel-kac}
+The compact free boson in $1{+}1$ dimensions at the self-dual radius
+carries the level-one current algebra $\widehat{\mathfrak{su}}(2)_1$,
+generated by $J^3=\tfrac{i}{\sqrt{2}}\,\partial\varphi$ together with the
+weight-one vertex operators
+$J^{\pm}={:}\,e^{\pm i\sqrt{2}\,\varphi}\,{:}$~\cite{frenkelkac1980,goddardolive1986}.
+This is the only theorem-level mechanism by which a \emph{single} scalar
+generates a non-abelian algebra. Its preconditions are: (i)~target
+compactification $S\sim S+2\pi R$, an insertion modifying the primitive of
+\cref{def:scalar-primitive}; (ii)~tuning to the self-dual radius, a
+codimension-one enhanced-symmetry point; (iii)~two-dimensional conformal
+structure, with no $(3{+}1)$-dimensional analogue.\catmark{A}\ (within its
+class)
+\end{proposition}
+
+\begin{lemma}[Rank Budget]
+\label{lem:rank-budget}
+Level-one simply-laced current algebras $\widehat{\mathfrak{g}}_1$ require
+$\mathrm{rank}(\mathfrak{g})$ free bosons compactified on the root lattice
+of $\mathfrak{g}$. A single scalar therefore yields at most rank one
+($A_1$), whereas
+$\mathrm{rank}(\mathfrak{g}_{\mathrm{SM}})=2+1+1=4$. Even granting the
+two-dimensional enhancement mechanism in a four-dimensional problem, the
+scalar primitive is short by three ranks.\catmark{A}\ (within the
+Frenkel--Kac class)
+\end{lemma}
+
+\paragraph{Matrix backgrounds.}
+The complementary candidate replaces the substrate itself: coordinates are
+taken as non-commuting Hermitian matrices, as on the fuzzy
+sphere~\cite{madore1992} or in matrix models of IKKT
+type~\cite{ikkt1997}.
+
+\begin{lemma}[Primitive Enlargement]
+\label{lem:primitive-enlargement}
+A ``real scalar field'' on the matrix algebra $M_N(\mathbb{C})$ is a
+Hermitian matrix $\Phi$ with $N^2$ real components. The passage
+$S\mapsto\Phi$ enlarges the on-site representation from dimension one to
+dimension $N^2$ before any dynamics, and non-vanishing field strength
+$F\sim[X_i,X_j]+\cdots\neq 0$ is purchased by the inserted
+noncommutativity, not generated by $S$. Condition (C1) is satisfied by the
+insertion I4; the obstruction set of \cref{app:rigidity} is evaded exactly
+by abandoning the single-component hypothesis.\catmark{A}
+\end{lemma}
+
+\noindent Gauge structure on such backgrounds arises from background
+splitting: for $X_i=L_i\otimes\mathbf{1}_n+A_i$, the fluctuation theory is
+a $\mathrm{U}(n)$ gauge theory, where $n$ is the multiplicity of the
+background block, an integer modulus; block backgrounds form dynamically
+in matrix models with the corresponding
+terms~\cite{grosse2005,azuma2004,steinacker2010}.\catmark{B}
+
+\begin{proposition}[Automorphism Shadow]
+\label{prop:automorphism-shadow}
+All automorphisms of $M_N(\mathbb{C})$ are inner (Skolem--Noether), so
+$\mathrm{Aut}(M_N(\mathbb{C}))\cong PU(N)$. Any gauge group obtained from
+matrix-substrate fluctuations is the (projective) unitary group of the
+inserted algebra or of a background-selected subalgebra: the gauge
+structure is the shadow of the insertion, never of $S$.\catmark{A}
+\end{proposition}
+
+\begin{proposition}[Wedderburn Moduli]
+\label{prop:wedderburn-moduli}
+(i)~The matrix dimension $N$ is unconstrained by any theorem; commutative
+and large-$N$ limits exist for all $N$. (ii)~Spontaneous block formation
+breaks $\mathrm{U}(N)\to\prod_i\mathrm{U}(n_i)$, but the partition $(n_i)$
+depends on potential parameters and entropy, with no theorem selecting
+$(3,2,1)$~\cite{azuma2004}. (iii)~All factors so produced are complex
+unitary algebras $M_{n_i}(\mathbb{C})$; the quaternionic summand
+$\mathbb{H}\subset M_2(\mathbb{C})$ is the fixed-point algebra of an
+antilinear structure $J$ with $J^2=-1$, which the complex matrix substrate
+does not supply: choosing $J$ and its KO-dimension is exactly the
+real-structure axiom of \cref{thm:cc-classification}, external to the
+substrate. (iv)~Finite real spectral triples form a moduli space
+(Krajewski diagrams)~\cite{krajewski1998,paschkesitarz1998}: the
+Wedderburn--Artin invariants $\{(n_i,\mathbb{K}_i)\}$ with
+$\mathbb{K}_i\in\{\mathbb{R},\mathbb{C},\mathbb{H}\}$ remain free.
+(v)~The scalar $\Phi$ transforms in the adjoint and is selection-inert
+with respect to (i)--(iv). Consequently
+$\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ does not emerge
+inherently from a matrix background; it is fixed only by imposing the
+axiom system of \cref{thm:cc-classification}.\catmark{A}
+\end{proposition}
+
+\begin{remark}[A moduli-space reformulation relocates the insertion; it
+does not close it]
+\label{rem:moduli-relocation}
+One might hope to close the multiplicity gap by recasting the
+(G1)--(G4) profile as a sub-variety in the moduli space of admissible
+finite real spectral triples. This does not close the gap; it relocates
+the insertion to the discrete index data that selects \emph{which} moduli
+space exists. In the moduli formalism the space of Dirac operators is
+defined only \emph{after} fixing the algebra (with its Wedderburn
+decomposition), the bimodule (with its multiplicity matrix), and the
+structure datum including the KO-dimension $n \bmod 8$; only the Dirac
+operator then varies continuously within that fixed
+space~\cite{cacic2011}. Hence the block dimensions, the real forms
+$\mathbb{R}/\mathbb{C}/\mathbb{H}$, and the KO-dimension are theorem-fixed
+\emph{constraints} (input labels indexing the space), whereas only the
+Dirac and Yukawa data are free \emph{coordinates} within it. A sub-variety
+cut inside a fixed moduli space can constrain only the latter; it is
+structurally incapable of generating the former. The content of
+(G1)--(G3) sits in the choice of ambient moduli space, upstream of any
+sub-variety condition, which is precisely where the insertion
+reappears.\catmark{A}
+\end{remark}
+
+\subsection{Synthesis}
+\label{app:synthesis}
+
+\begin{theorem}[Insertion Necessity; statement about the current theorem corpus]
+\label{thm:insertion-necessity}
+Let the primitive data be exactly $(\Gamma,S:V\to\mathbb{R})$ with
+symmetries implemented by canonical linear transformations. Then:
+(1)~every connected compact group acts trivially on $S$
+(\cref{lem:singlet-rigidity}, \cref{cor:singlet-charge});
+(2)~every holonomy constructible from $S$ alone is exactly flat
+(\cref{prop:discrete-exactness});
+(3)~the maximal compact connected canonical symmetry of the local mode is
+$\mathrm{U}(1)$ (\cref{prop:single-mode-rigidity});
+(4)~the string-net route requires inserted fusion data and terminates in
+finite gauge structures without chirality (I1--I3);
+(5)~the noncommutative-geometric route requires inserted noncommutativity
+and an inserted axiom system, with $S$ selection-inert (I4--I7).
+Therefore no gapless ab initio derivation $S(x)\to G_{\mathrm{SM}}$ exists
+within established theorems. The earliest unavoidable manual insertion is
+the replacement of the abelian single-mode local algebra by a noncommutative
+local algebra, equivalently the enlargement of the one-dimensional real
+on-site representation to representations of dimension at least two. Every
+known route performs this replacement exogenously; no theorem performs it
+endogenously from single-boson dynamics.\catmark{A}
+\end{theorem}
+
+\begin{corollary}[Consistency with the EFT posture]
+\label{cor:eft-posture}
+Under the current theorem corpus, the only admissible role for $S$ relative
+to $G_{\mathrm{SM}}$ is that of a real singlet coupled to an externally
+supplied gauge sector, which is precisely the position the main text adopts
+(gauge sector coupled, not generated; open form
+$S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ at \catmark{D}, ONT-08). Both
+tracks bound the unknown algebra $\mathcal{A}$ from below: Track~1 by ``at
+least a unitary fusion category with a chirality-capable extension'' (none
+known), Track~2 by ``at least a noncommutative real algebra satisfying a
+Chamseddine--Connes-type axiom system''.\catmark{A}
+\end{corollary}
+
+\begin{theorem}[Gap Localisation; statement about the current theorem corpus]
+\label{thm:gap-localisation}
+Neither enhancement mechanism of \cref{app:endogenous} realises
+$S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ ab initio. The missing
+mathematical object is one and the same in both tracks: a theorem of
+\emph{dynamical noncommutativity generation with fixed invariants}, that
+is, an endogenous map from abelian single-mode dynamics on $\Gamma$ to a
+noncommutative finite real $C^{*}$-algebra $\mathcal{A}$ satisfying
+simultaneously
+\textbf{(G1)}~fibre-multiplicity generation $1\to n\ge 2$ without inserted
+variables, blocked homologically by \cref{thm:abelianisation-barrier} and
+algebraically by \cref{prop:commutative-trivial};
+\textbf{(G2)}~theorem-determined Wedderburn invariants
+$\{(1,\mathbb{C}),(1,\mathbb{H}),(3,\mathbb{C})\}$, currently free moduli
+by \cref{prop:wedderburn-moduli};
+\textbf{(G3)}~an endogenous real structure $J$ of KO-dimension~6,
+currently a choice by \cref{prop:cc-axiom-status}; and
+\textbf{(G4)}~chirality-capable matter, blocked by
+\cref{prop:chirality-obstruction}. The unique established endogenous
+enhancement (\cref{prop:frenkel-kac}) satisfies a weakened (G1) only in
+$1{+}1$ dimensions, under compactification and radius tuning, and is
+rank-bounded at one against a requirement of four
+(\cref{lem:rank-budget}). No element of the established corpus satisfies
+(G1)--(G4) jointly.\catmark{A}
+\end{theorem}
+
+\begin{remark}[Multiplicity is a condition on the fibre, not on block repetition]
+\label{rem:multiplicity-precision}
+The multiplicity condition (G1) is a statement about the \emph{non-abelian
+fibre}: at least one Wedderburn summand must have matrix dimension
+$n_i\ge 2$, so that $\mathrm{Inn}(\mathcal{A})$ is non-abelian. It is
+\emph{not} the requirement that each block dimension occur more than once,
+nor a constraint on the real structure $J$ forcing paired blocks. For a
+finite real spectral triple the real structure requires only that, for
+each bimodule summand $\mathbb{C}^{n_i}\otimes(\mathbb{C}^{n_j})^{\circ}$,
+its conjugate $\mathbb{C}^{n_j}\otimes(\mathbb{C}^{n_i})^{\circ}$ be
+present, a condition on the bimodule multiplicity matrix $V_{ij}$; an
+anti-unitary result of Wigner guarantees that an admissible $J$ exists
+already at $\dim V_{ij}=1$~\cite{vansuijlekom2019}. The Standard-Model
+algebra $\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$, in which each
+summand appears exactly once, carries a real structure of
+KO-dimension~6~\cite{ccm2007}. Consequently the Standard-Model-like
+partition \emph{satisfies} (G1): any claim that it violates a
+``multiplicity at least two'' condition because each block appears once is
+a conflation of the bimodule multiplicity matrix with block repetition and
+is rejected.\catmark{A}
+\end{remark}
+
+\begin{corollary}[Quantitative lower bounds on $\mathcal{A}$]
+\label{cor:algebra-lower-bounds}
+The obstruction set converts the open form
+$S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ (ONT-08, \catmark{D}) into
+quantitative lower bounds on any admissible candidate: $\mathcal{A}$ must
+carry (i)~local internal multiplicity at least two (non-abelian fibre);
+(ii)~rank resources at least four; (iii)~a real structure with the
+$J^2$-signs of KO-dimension~6; and (iv)~a chirality mechanism evading the
+obstruction set of \cref{prop:chirality-obstruction}. Any candidate
+failing one bound is excluded before dynamical analysis; the ledger fields
+\texttt{SCALAR\_ONLY\_COMPATIBLE} and \texttt{GROUP\_SELECTION\_MECHANISM}
+of \cref{subsec:arm1-mechanisms} remain mandatory for every
+candidate.\catmark{A/D}
+\end{corollary}
+
+\begin{governancebox}[Forbidden Inferences]
+Mechanism relevance is not framework validation: neither the string-net
+construction~\cite{levinwen2005} nor the spectral
+classification~\cite{cc2008} supports any claim that \UIDT\ derives
+$G_{\mathrm{SM}}$. Conversely, this appendix is a gap localisation, not an
+impossibility theorem for all conceivable enriched routes; no such theorem
+exists. \Cref{prop:frenkel-kac} does not license the claim that a scalar
+generates $\mathrm{SU}(2)$ in $3{+}1$ dimensions, and
+\cref{prop:wedderburn-moduli} does not license the claim that matrix
+models derive the Standard Model. $G_{\mathrm{SM}}$ is, on all examined
+routes, selected, not forced.
+\end{governancebox}
+
+\subsection{Appendix Claims Register}
+\label{app:claims-register}
+
+\begin{longtable}{p{0.08\textwidth} p{0.42\textwidth} p{0.12\textwidth} p{0.28\textwidth}}
+\caption{Appendix claims register. Classes follow the schema of \cref{subsec:governance-boundary}; falsification or downgrade conditions are stated per claim.}\\
+\toprule
+\textbf{ID} & \textbf{Claim} & \textbf{Class} & \textbf{Falsification / downgrade} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Claim} & \textbf{Class} & \textbf{Falsification / downgrade} \\
+\midrule
+\endhead
+APP-01 & Singlet rigidity (\cref{lem:singlet-rigidity}, \cref{cor:singlet-charge}). & \catmark{A} & Nontrivial continuous one-dimensional real representation of a connected compact group (impossible). \\
+APP-02 & Discrete exactness (\cref{prop:discrete-exactness}). & \catmark{A} & Cycle with non-telescoping holonomy within the construction (impossible). \\
+APP-03 & Single-mode rigidity, maximal compact $\mathrm{U}(1)$ (\cref{prop:single-mode-rigidity}). & \catmark{A} & Compact connected $K\not\subseteq\mathrm{U}(1)$ inside $SL(2,\mathbb{R})$ (impossible). \\
+APP-04 & UFC finiteness excludes exact emergent compact connected non-abelian Lie gauge groups (\cref{prop:ufc-finiteness}). & \catmark{A} & A UFC with infinitely many simples (contradiction in terms). \\
+APP-05 & Gapped $(3{+}1)$D bosonic orders carry finite gauge content (\cref{thm:3p1-classification}). & \catmark{A}\ under hypotheses & An extension of the classification admitting continuous gauge content would narrow the scope. \\
+APP-06 & No established non-abelian chiral lattice gauge construction with SM fermion content. & \catmark{B} & A rigorous construction (e.g.\ a completed symmetric-mass-generation programme) resolves I3. \\
+APP-07 & Commutative $\mathcal{A}$ yields a trivial gauge sector (\cref{prop:commutative-trivial}). & \catmark{A} & None within the stated noncommutative-geometry axioms. \\
+APP-08 & $\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ is conditional on the Chamseddine--Connes axioms; $S$ is selection-inert (\cref{thm:cc-classification}, \cref{prop:cc-axiom-status}). & \catmark{A}\ conditional & Derivation of the axioms from an independent principle would strengthen; known relaxations (Pati--Salam) confirm non-uniqueness. \\
+APP-09 & Insertion necessity (\cref{thm:insertion-necessity}). & \catmark{A}\ re current corpus & A theorem generating a UFC or a noncommutative $\mathcal{A}_F$ endogenously from single-boson data. \\
+APP-10 & $S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ as research programme (ONT-08). & \catmark{D} & Remains \catmark{D}\ until $\mathcal{A}$ is explicitly defined and externally stress-tested. \\
+APP-11 & Abelianisation Barrier: loop-generated transformation algebras have identically vanishing bracket (\cref{thm:abelianisation-barrier}, \cref{prop:loop-phase-structure}). & \catmark{A} & A functorial non-abelian bracket on graph homology (impossible: $H_1=\pi_1^{\mathrm{ab}}$). \\
+APP-12 & The $K_4$ dimension coincidence with $\mathfrak{su}(2)$ is algebraically empty (\cref{prop:k4-fallacy}). & \catmark{A} & None within the construction (bracket obstruction). \\
+APP-13 & Free fundamental groups are universal donors and select no target group (\cref{rem:universal-donor}). & \catmark{A} & A theorem restricting $\mathrm{Hom}(F_3,G)$ to a unique compact $G$. \\
+APP-14 & Frenkel--Kac enhancement is the unique endogenous datum; two-dimensional, tuned, rank-bounded at one (\cref{prop:frenkel-kac}, \cref{lem:rank-budget}). & \catmark{A}\ within its class & A $(3{+}1)$-dimensional analogue or a rank-amplification mechanism would revise the budget. \\
+APP-15 & Matrix backgrounds: curvature and multiplicity are purchased by insertion; the gauge group is the automorphism shadow $PU(N)$ (\cref{lem:primitive-enlargement}, \cref{prop:automorphism-shadow}). & \catmark{A} & None within the construction (Skolem--Noether). \\
+APP-16 & Wedderburn invariants are free moduli; $\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ is not selected by a matrix substrate (\cref{prop:wedderburn-moduli}). & \catmark{A}/\catmark{B} & A dynamical theorem fixing the Wedderburn invariants and the real structure $J$ endogenously. \\
+APP-17 & Gap localisation (G1)--(G4) and quantitative lower bounds on $\mathcal{A}$ (\cref{thm:gap-localisation}, \cref{cor:algebra-lower-bounds}). & \catmark{A}\ re current corpus / \catmark{D} & Discovery of a mechanism satisfying (G1)--(G4) jointly. \\
+\bottomrule
+\end{longtable}
+\newpage
+\paragraph{Appendix reproduction note.}
+Following the template of \cref{subsec:evidence-grammar}, the
+machine-checkable identities of this appendix are accompanied by
+executable commands. The telescoping identity of \cref{prop:discrete-exactness} was
+verified in exact rational arithmetic over one thousand randomly generated
+cycles of lengths 3--40, with residual exactly zero in every case:
+\begin{verbatim}
+python3 -c "from fractions import Fraction; import random; random.seed(7);
+ok=all(sum(S[i]-S[(i+1)%n] for i in range(n))==0
+ for n,S in ((m,[Fraction(random.randint(-10**6,10**6),
+ random.randint(1,10**3)) for _ in range(m)])
+ for m in (random.randint(3,40) for _ in range(1000)))); print(ok)"
+# -> True (1000/1000 cycles; residual exactly 0; exact arithmetic,
+#    so this certifies the identity itself, not a numerical approximation)
+\end{verbatim}
+The homology rank entering \cref{prop:loop-phase-structure} and
+\cref{prop:k4-fallacy} is likewise machine-checkable in exact integer
+arithmetic: the cycle rank of $K_4$ is
+$b_1=|E|-\mathrm{rank}\,\partial=6-3=3$,
+\begin{verbatim}
+python3 -c "import sympy as sp; B=sp.Matrix([[1,-1,0,0],[1,0,-1,0],
+[1,0,0,-1],[0,1,-1,0],[0,1,0,-1],[0,0,1,-1]]); print(B.shape[0]-B.rank())"
+# -> 3 (exact rank over the rationals; the vanishing bracket of
+#    u(1)^3 is definitional and requires no computation)
+\end{verbatim}
+The remaining \catmark{A}-level statements of this appendix are
+group-theoretic and operator-algebraic facts (maximal compact subgroups of
+$\mathbb{R}^{\times}$ and $SL(2,\mathbb{R})$; Stone--von Neumann; finiteness
+of simples in a unitary fusion category; the Hurewicz factorisation through
+$H_1$ underlying \cref{thm:abelianisation-barrier}; the Frenkel--Kac
+construction; Skolem--Noether): standard results, cited rather
+than machine-verified. \cref{thm:3p1-classification},
+\cref{thm:cc-classification}, and \cref{prop:frenkel-kac} hold under their
+stated hypotheses; their scope, not their truth, is the open
+variable.\catmark{A}
+
+%=============================================================================
+% APPENDIX B — CONNES-VACUUM ATTRACTOR PROGRAMME (PATCH 005; advisory only)
+%=============================================================================
+\newpage
+\section{Dynamical Attractors toward the Connes Vacuum: Established Inputs, Programme Requirements, and the Residual Freezing Gap}
+\label{app:connes-attractor}
+
+\begin{governancebox}[Status of This Appendix]
+This appendix is an advisory audit analysis and a \emph{programme charter},
+not a result. It does not establish, and must not be cited as establishing,
+a thermodynamic emergence of the algebra
+$\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$, a dynamical necessity of
+KO-dimension~6, or an anomaly-theoretic uniqueness of the $(1,2,3)$
+partition. Established external inputs are carried at \catmark{B};
+conditional selections at \catmark{B}\ under stated hypotheses; the
+attractor content itself as programme requirements at \catmark{D}\ or
+conjectures at \catmark{E}. The appendix operates under the gap
+localisation of \cref{thm:gap-localisation}, the lower bounds of
+\cref{cor:algebra-lower-bounds}, and the target-leakage theorem of
+\cref{prop:target-leakage}. An AI-generated research memo in the
+developmental record proposes the mechanisms surveyed here; per the corpus
+discipline of \cref{subsec:corpus-topology} (native extraction, verified
+identifiers), that memo is contextual \catmark{E}\ material and is not
+cited as evidence. The research form
+$S(x)\to\mathcal{A}\to G_{\mathrm{SM}}$ remains \catmark{D}\ (ONT-08).
+\end{governancebox}
+
+\subsection{From External Postulates to Dynamical Selection: Programme Statement}
+\label{app:b-programme}
+
+The classification of \cref{thm:cc-classification} reaches
+$\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ only through the
+externally imposed axiom set localised as insertion point I5
+(\cref{prop:cc-axiom-status}). The attractor programme asks whether each
+postulate can be replaced by a dynamical or thermodynamic selection
+principle acting on a larger configuration space, so that the Connes
+vacuum would arise as a stable attractor rather than as an axiom. The
+programme is stated here in falsification-disciplined form; none of its
+attractor claims is established, and the statement of the programme is a
+\catmark{A}-class fact about the corpus, not about nature.\catmark{A}
+
+\begin{definition}[Connes-vacuum attractor programme]
+\label{def:attractor-programme}
+The programme assigns to each external postulate of
+\cref{thm:cc-classification} a candidate dynamical replacement:
+(a)~irreducibility, replaced by condensation of a dominant connected
+sector; (b),(c)~the real structure, grading, and KO-signs, replaced by a
+stability property of charge-conjugation-symmetric configurations
+(\cref{app:b-ko6}); (d)~the Wedderburn data, replaced by free-energy
+selection on the partition moduli of \cref{prop:wedderburn-moduli}
+(\cref{app:b-condensation}); (e)~the order-one condition, replaced by the
+unresolved freezing mechanism of \cref{app:b-freezing}. Success conditions
+are (G1)--(G4) of \cref{thm:gap-localisation}; every candidate mechanism
+must additionally satisfy the lower bounds of
+\cref{cor:algebra-lower-bounds}.\catmark{D}
+\end{definition}
+
+\subsection{Matrix Condensation and the Wedderburn Moduli Problem}
+\label{app:b-condensation}
+
+\paragraph{What is established.}
+Zero-dimensional matrix ensembles of IKKT type~\cite{ikkt1997} and their
+bosonic deformations exhibit condensation transitions in which
+block-diagonal backgrounds form dynamically, breaking
+$\mathrm{U}(N)\to\prod_i\mathrm{U}(n_i)$; fuzzy-sphere backgrounds
+nucleate and dissolve in first-order transitions governed by the
+competition between the classical potential and the entropy of
+fluctuations, and off-diagonal (bifundamental) modes acquire masses
+growing with the separation of the condensed
+blocks~\cite{azuma2004,grosse2005,steinacker2010}.\catmark{B} In
+free-energy language, $F[(n_i)]=U[(n_i)]-T\,S[(n_i)]$ on the partition
+moduli: entropy-dominated regimes favour either a single dominant block or
+near-symmetric partitions, while potential-dominated regimes track the
+discrete minima of the engineered potential. In no established regime is
+the asymmetric partition $(1,2,3)$ singled out by a structural
+principle.\catmark{B}
+
+\begin{remark}[The moduli problem restated]
+\label{rem:b-moduli-restated}
+\cref{prop:wedderburn-moduli} remains binding at every temperature: the
+condensed factors are complex unitary algebras $M_{n_i}(\mathbb{C})$; the
+partition $(n_i)$ is a function of couplings, chemical potentials, and
+entropy, not of a selection theorem; and the quaternionic summand
+$\mathbb{H}$ requires the antilinear structure of \cref{app:b-ko6}, which
+the complex ensemble does not supply. Entropy maximisation is therefore
+structurally blind to the $(1,2,3)$ hierarchy, and any claim that the
+Connes algebra is the unique global thermodynamic minimum of an
+unconstrained ensemble is rejected.\catmark{A}
+\end{remark}
+
+\begin{governancebox}[Programme Requirement PR-B1: Partition Selection \catmark{D}]
+Exhibit a concrete matrix action and a coupling/temperature window in
+which the global free-energy minimiser over Wedderburn partitions is
+$(1,2,3)$, with the minimiser stable as $N\to\infty$, under the
+anti-target-leakage protocol of \cref{prop:target-leakage}: all parameters
+fixed by observables independent of the partition; the partition read out
+post hoc by a sealed evaluation; null controls run on scrambled reference
+partitions (for example $(1,2,4)$ and $(2,2,2)$), which must \emph{not} be
+selected by the same procedure. Downgrade condition: if the minimiser
+tracks engineered parameters rather than a structural principle, the
+mechanism is selection by hand and is recorded at \catmark{E}.
+\end{governancebox}
+
+\subsection{Anomaly Freedom, Unimodularity, and the Quiver Flow Conjecture}
+\label{app:b-anomaly}
+
+\paragraph{What is established.}
+Within the noncommutative-geometric Standard Model the physical gauge
+group is the unimodular unitary group of $\mathcal{A}_F$, and the
+unimodularity condition is tied to the cancellation of the chiral gauge
+anomalies of the spectral fermion content~\cite{agbm1995,cc2008}: anomaly
+freedom prunes the unitary group of an \emph{already chosen} algebra to
+$G_{\mathrm{SM}}$ up to a finite kernel; it does not select the
+algebra.\catmark{B} The configuration space on which any selection
+dynamics would act is likewise established: finite real spectral triples
+are classified combinatorially by Krajewski
+diagrams~\cite{krajewski1998,paschkesitarz1998}, and the order-one
+condition acts there as a combinatorial admissibility constraint on the
+diagram, restricting which vertex pairs the components of $D_F$ may
+connect.\catmark{A}
+
+\paragraph{Per-partition admissibility: verdict and mechanism must be
+distinguished.} Two cautions follow from a primary-source audit of
+candidate partitions, both illustrating that a correct verdict can rest on
+an incorrect stated mechanism. First, the Standard-Model-like partition
+$\mathbb{C}\oplus\mathbb{H}\oplus M_3(\mathbb{C})$ is anomaly-admissible:
+the unimodularity reading of anomaly freedom fixes the single anomaly-free
+hypercharge assignment, yielding the Standard-Model
+representation~\cite{agbm1995}. This is a property of the chosen
+representation and hypercharge, \emph{not} of the block partition alone;
+anomaly freedom is therefore not a partition-intrinsic test.\catmark{B}
+Second, among rejected test points the partition $(3,6)$ fails for a
+\emph{specific} reason: for two simple summands of matrix sizes $k$ and
+$\ell$, a non-degenerate intersection form (Poincar\'e duality) requires
+$k=\ell$ or $k=\ell\pm 1$~\cite{iss2004}; since $|3-6|=3$ this bound is
+violated, so $(3,6)$ is excluded by the intersection-form constraint, not
+by an order-one or anomaly argument.\catmark{B} The symmetric partition
+$(2,2,2)$, by contrast, is not excluded by anomaly freedom at all; the
+established obstruction to such symmetric configurations in the
+irreducible classification is the \emph{degeneracy of the fermion mass
+spectrum}~\cite{iss2004}, a dynamical-non-degeneracy criterion external to
+(G1)--(G4). Its admissibility under (G1)--(G4) proper therefore remains
+open.\catmark{D}
+
+\paragraph{What is not established.}
+No renormalisation-group flow on the space of Krajewski diagrams is
+currently defined. By the scaffold discipline of
+\cref{subsec:gferg-scaffold}, a claimed flow must specify, in advance, the
+flow equation, the regulator analogue on the discrete moduli, the
+truncation, the boundary conditions, and the failure criteria; absent
+these, renormalisation-group vocabulary on quiver space is not a
+calculation. Moreover, uniqueness manifestly fails at the level of the
+known classification: the moduli space of anomaly-consistent finite
+triples contains families beyond the Standard-Model diagram, and the
+relaxation of the order-one condition enlarges the solution set to
+Pati--Salam~\cite{ccvs2013,farnsworth2015}. Accordingly the following is
+recorded as a conjecture, not a theorem.\catmark{A}
+
+\begin{remark}[Conjecture C-B1: anomaly-constrained quiver attractor, status \catmark{E}]
+\label{rem:quiver-conjecture}
+Within the anomaly-free, order-one-admissible stratum of Krajewski
+diagrams there exists a well-defined coarse-graining flow whose unique
+stable fixed point at three summands is the $(1,2,3)$ diagram. No such
+flow is defined; no uniqueness argument exists; the conjecture inherits
+the full burden of \cref{prop:target-leakage}, since a flow whose fixed
+point is verified only against the known Standard-Model diagram predicts
+nothing.\catmark{E}
+\end{remark}
+
+\subsection{Real Structure and KO-Dimension 6: A Conditional Selection}
+\label{app:b-ko6}
+
+\paragraph{What is established, conditionally.}
+The KO-dimension of a real spectral triple is fixed modulo~8 by the sign
+triple $(\varepsilon,\varepsilon',\varepsilon'')$ in $J^2=\varepsilon$,
+$JD=\varepsilon'DJ$, $J\gamma=\varepsilon''\gamma J$; KO-dimension~6
+carries $(\varepsilon,\varepsilon',\varepsilon'')=(1,1,-1)$. Within the
+almost-commutative spectral Standard Model, imposing simultaneously
+(i)~the elimination of the fermion quadrupling of the Euclidean
+formulation and (ii)~the admissibility of Majorana mass terms for
+right-handed neutrinos selects KO-dimension~6 for the finite
+triple~\cite{barrett2007,connes2006,ccm2007}.\catmark{B} With
+$\varepsilon''=-1$ the finite Dirac operator admits the block form
+\[
+D_F=\begin{pmatrix} S & T^{*}\\[2pt] T & \bar S\end{pmatrix},
+\qquad T=T^{T},
+\]
+where $S$ contains the Dirac masses and the symmetric block $T$ couples
+right-handed neutrinos to their conjugates, enabling the seesaw
+mechanism~\cite{connes2006,ccm2007}.\catmark{B} The selection is
+\emph{conditional}: requirements (i) and (ii) are physical inputs, not
+consequences of any dynamics. Necessity of KO-dimension~6 is therefore
+necessity relative to (i) and (ii), and nothing stronger may be asserted;
+formulations such as ``absolute mathematical necessity'' or ``rigorously
+proven not to be an insertion'' are rejected wherever they appear in the
+developmental record.\catmark{A}
+
+\paragraph{What is open.}
+A dynamical origin of the real structure $J$ itself, for instance through
+a charge-conjugation-stability or orientifold-type projection of a matrix
+ensemble, is not established. The heuristic that unoriented configurations
+are entropically or energetically disfavoured on a stochastic substrate is
+exactly that, a heuristic: no defined ensemble, measure, or flow currently
+demonstrates it, and \cref{prop:wedderburn-moduli}(iii) records that the
+complex substrate does not supply $J$.\catmark{A}
+
+\begin{governancebox}[Programme Requirement PR-B2: Endogenous Real Structure \catmark{D}]
+Exhibit a substrate dynamics whose stable configurations are invariant
+under an antilinear involution $J$ with the KO-dimension-6 sign triple,
+where $J$-invariance emerges as a stability or extremality property of the
+ensemble rather than as a restriction imposed on the configuration space
+at the outset, and show that configurations without such $J$ are
+dynamically disfavoured. Downgrade condition: if $J$-invariance is imposed
+on the measure by hand (an orientifold projection inserted at step zero),
+the mechanism is an insertion and PR-B2 is not met.
+\end{governancebox}
+
+\subsection{The Residual Freezing Gap and a Spectral Falsification Protocol}
+\label{app:b-freezing}
+
+\paragraph{Layer-C declaration.}
+The deepest unresolved step of the programme is the dynamical origin of
+the bipartite order-one condition \emph{prior to} any flow: the condition
+is doing genuine selection work, since its relaxation enlarges the algebra
+to Pati--Salam~\cite{ccvs2013,farnsworth2015}, yet no mechanism explains
+why the commutant structure of an emergent geometry should freeze into the
+first-order form at all. This is recorded as an open question, not as a
+difficulty in the course of being resolved.\catmark{A}
+
+\begin{openquestion}[The freezing gap]
+\label{oq:freezing-gap}
+What dynamical or thermodynamic principle, acting on the configuration
+space of finite real spectral triples, enforces the order-one condition
+$[[D_F,a],Jb^{*}J^{-1}]=0$ as a stability or extremality property, prior
+to and independently of any imposed axiom? No candidate principle is
+currently established; the programme requirements PR-B1 and PR-B2 are
+necessary inputs to any answer but are not sufficient for it.\catmark{D}
+\end{openquestion}
+
+\paragraph{Falsification handle.}
+If a concrete attractor realisation is ever exhibited, it acquires a
+discriminating observable through the spectral statistics of the condensed
+finite Dirac operator. Random Dirac ensembles over finite spectral triples
+are an established, simulable arena~\cite{barrettglaser2016}, and with
+$Z(\beta+it)=\operatorname{Tr}e^{-(\beta+it)D_F^{2}}$ the spectral form
+factor $g(t;\beta)=\lvert Z(\beta+it)\rvert^{2}/Z(\beta)^{2}$
+distinguishes random-matrix spectral rigidity (the dip-ramp-plateau
+profile, with the symmetry class fixed by the sign triple) from Poissonian
+level statistics~\cite{cotler2017}. The protocol below is a \catmark{D}\
+proposal; no simulation or measurement of it exists for any \UIDT-relevant
+ensemble.
+
+\begin{killswitch}
+If a concrete attractor realisation (PR-B1 together with PR-B2) is
+exhibited and the spectral form factor of its condensed phase is
+incompatible with the rigidity class fixed by that realisation's own sign
+triple $(\varepsilon,\varepsilon',\varepsilon'')$, the realisation is
+falsified. If, instead, stable condensed phases are exhibited whose
+algebras lack $G_{\mathrm{SM}}$ entirely, any uniqueness reading of the
+Connes vacuum as attractor is invalidated and Conjecture C-B1 is to be
+withdrawn. Absent any realisation, ONT-08 remains \catmark{D}\ and no
+evidence class of the main text is altered by this appendix.\catmark{D}
+\end{killswitch}
+
+\subsection{Appendix B Claims Register}
+\label{app:b-claims-register}
+
+\begin{longtable}{p{0.10\textwidth} p{0.40\textwidth} p{0.12\textwidth} p{0.28\textwidth}}
+\caption{Appendix B claims register. Classes follow the schema of \cref{subsec:governance-boundary}; falsification or downgrade conditions are stated per claim.}\\
+\toprule
+\textbf{ID} & \textbf{Claim} & \textbf{Class} & \textbf{Falsification / downgrade} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Claim} & \textbf{Class} & \textbf{Falsification / downgrade} \\
+\midrule
+\endhead
+APP-B-01 & Block condensation with entropy/potential competition and massive bifundamentals is established in matrix models (\cref{app:b-condensation}). & \catmark{B} & Source audit of the cited lattice/matrix literature; downgrade on failed audit. \\
+APP-B-02 & Entropy maximisation is blind to $(1,2,3)$; no functional selects the partition (\cref{rem:b-moduli-restated}). & \catmark{A}\ re current corpus & A selection theorem satisfying PR-B1 under \cref{prop:target-leakage}. \\
+APP-B-03 & Anomaly freedom is tied to unimodularity and prunes $\mathcal{U}(\mathcal{A}_F)$ to $G_{\mathrm{SM}}$; it does not select $\mathcal{A}_F$ (\cref{app:b-anomaly}). & \catmark{B} & Source audit; a theorem deriving the algebra from anomaly data alone would supersede. \\
+APP-B-04 & The order-one condition is a combinatorial admissibility constraint on Krajewski diagrams; the anomaly-consistent stratum is non-unique (\cref{app:b-anomaly}). & \catmark{A} & Exhibition of uniqueness at three summands would revise. \\
+APP-B-05 & Quiver-attractor uniqueness is Conjecture C-B1 (\cref{rem:quiver-conjecture}). & \catmark{E} & A defined flow with regulator, truncation, boundary conditions, and a leak-free uniqueness proof would upgrade. \\
+APP-B-06 & KO-dimension 6 is selected conditionally by fermion-doubling resolution plus Majorana admissibility; necessity is relative to these inputs (\cref{app:b-ko6}). & \catmark{B}\ conditional & A dynamical derivation of inputs (i)/(ii) or of $J$ would strengthen; otherwise permanent. \\
+APP-B-07 & The dynamical origin of the order-one condition is open; the freezing gap stands (\cref{oq:freezing-gap}). & \catmark{A}/\catmark{D} & A principle answering \cref{oq:freezing-gap} under PR-B1/PR-B2 discipline. \\
+APP-B-08 & Spectral-form-factor protocol as discriminator for any future realisation (\cref{app:b-freezing}). & \catmark{D} & Executable only upon a concrete realisation; the killswitch criterion then applies. \\
+\bottomrule
+\end{longtable}
+
+\paragraph{Appendix B reproduction note.}
+The established input of \cref{app:b-anomaly} has a machine-checkable
+core: the four anomaly sums of one Standard-Model generation vanish
+identically in exact rational arithmetic for the unimodular hypercharge
+assignment
+$(Y_Q,Y_{u^c},Y_{d^c},Y_L,Y_{e^c})=(\tfrac{1}{6},-\tfrac{2}{3},\tfrac{1}{3},-\tfrac{1}{2},1)$:
+\begin{verbatim}
+python3 -c "from fractions import Fraction as F;
+Y={'Q':(F(1,6),6),'uc':(F(-2,3),3),'dc':(F(1,3),3),'L':(F(-1,2),2),
+'ec':(F(1),1)};
+print(sum(m*y**3 for y,m in Y.values()),
+ sum(m*y for y,m in Y.values()),
+ 2*Y['Q'][0]+Y['uc'][0]+Y['dc'][0],
+ 3*Y['Q'][0]+Y['L'][0])"
+# -> 0 0 0 0  ([U(1)]^3, grav^2-U(1), [SU(3)]^2-U(1), [SU(2)]^2-U(1);
+#    exact arithmetic; certifies the assignment, not any UIDT claim)
+\end{verbatim}
+This check certifies the anomaly arithmetic of the established input only;
+no attractor statement of this appendix is machine-checkable, because no
+attractor realisation exists to check.\catmark{A}
+
+\begin{governancebox}[Forbidden Inferences]
+Nothing in this appendix licenses the statements that the Connes vacuum
+emerges thermodynamically, that KO-dimension~6 is dynamically necessary,
+that anomaly cancellation selects the $(1,2,3)$ algebra, or that \UIDT\
+derives $G_{\mathrm{SM}}$. The established inputs are external literature
+results on matrix condensation, unimodularity, and conditional
+KO-dimension selection; the attractor content consists of two programme
+requirements (PR-B1, PR-B2), one conjecture (C-B1), and one open question
+(\cref{oq:freezing-gap}). \Cref{thm:gap-localisation} and
+\cref{cor:algebra-lower-bounds} remain the binding constraints, and
+emergence wording is rejected wherever it appears in the developmental
+record.
+\end{governancebox}
+
 
 %=============================================================================
 % BIBLIOGRAPHY
@@ -1865,7 +2896,7 @@ P.~Rietz, \textit{Vacuum Information Density as the Fundamental Geometric Scalar
 P.~Rietz, \textit{UIDT Framework v3.9 (parent record)}. Zenodo. DOI: \href{https://doi.org/10.5281/zenodo.17835200}{10.5281/zenodo.17835200}.
 
 \bibitem{uidt-clay}
-P.~Rietz, \textit{UIDT Clay-Submission Record}. Zenodo. DOI: \href{https://doi.org/10.5281/zenodo.18003018}{10.5281/zenodo.18003018}.
+P.~Rietz, \textit{UIDT Clay-Submission Record}. Zenodo. DOI: \href{https://doi.org/10.5281/zenodo.18003018}{10.5281/zenodo.18003018}. Historical provenance record; cited as documentation only, not as an active claim.
 
 \bibitem{bib-audit-note}
 \textbf{Bibliography audit note.} The external references below were resolved to verifiable primary sources (DOI or arXiv) in a dedicated literature audit. In keeping with the framework's evidence discipline, citation of these sources changes no \UIDT\ evidence class: external literature supports the quantitative pure-gauge benchmarks, is contested on the interpretive physics, explicitly identifies open chiral-fermion obstructions, is interpretive for the consciousness frameworks, and refutes any MeV-to-neural coupling. A small number of secondary venue/page details remain flagged for final primary confirmation before submission.
@@ -1877,6 +2908,8 @@ A.~Athenodorou, M.~Teper, ``The glueball spectrum of SU(3) gauge theory in 3+1 d
 A.~Athenodorou, M.~Teper, ``SU(N) gauge theories in 3+1 dimensions: glueball spectrum, string tensions and topology,'' JHEP \textbf{12} (2021) 082. arXiv:2106.00364.
 \bibitem{morningstar1999}
 C.~J.~Morningstar, M.~Peardon, ``The glueball spectrum from an anisotropic lattice study,'' Phys.\ Rev.\ D \textbf{60} (1999) 034509. arXiv:hep-lat/9901004.
+\bibitem{morningstar2024}
+C.~Morningstar, ``Update on Glueballs,'' PoS \textbf{LATTICE2024} (2024) 004. DOI 10.22323/1.466.0004. arXiv:2502.02547.
 \bibitem{michael1989}
 C.~Michael, M.~Teper, ``The glueball spectrum in SU(3),'' Nucl.\ Phys.\ B \textbf{314} (1989) 347.
 \bibitem{luscher2010}
@@ -1884,11 +2917,17 @@ M.~L\"uscher, ``Properties and uses of the Wilson flow in lattice QCD,'' JHEP \t
 \bibitem{borsanyi2012}
 S.~Bors\'anyi et al.\ (BMW), ``High-precision scale setting in lattice QCD,'' JHEP \textbf{09} (2012) 010. arXiv:1203.4469.
 \bibitem{chitop2025}
-``Topological susceptibility and excess kurtosis in SU(3) Yang--Mills theory,'' arXiv:2501.08217.
+S.~D\"urr, G.~Fuwa, ``Topological susceptibility and excess kurtosis in SU(3) Yang--Mills theory,'' Phys.\ Rev.\ D \textbf{113} (2026) 054508. arXiv:2501.08217.
 \bibitem{durr2007}
 S.~D\"urr, Z.~Fodor, C.~Hoelbling, T.~Kurth, ``Precision study of the SU(3) topological susceptibility in the continuum,'' arXiv:hep-lat/0612021.
 \bibitem{dallabrida2019}
 M.~Dalla Brida, A.~Ramos, ``The gradient flow coupling at high-energy and the scale of SU(3) Yang--Mills theory,'' Eur.\ Phys.\ J.\ C \textbf{79} (2019) 720. arXiv:1905.05147.
+
+% Cluster 1b: non-Abelian Casimir effect on the lattice
+\bibitem{chernodub2023}
+M.~N.~Chernodub, V.~A.~Goy, A.~V.~Molochkov, A.~S.~Tanashkin, ``Boundary states and non-Abelian Casimir effect in lattice Yang--Mills theory,'' Phys.\ Rev.\ D \textbf{108} (2023) 014515. arXiv:2302.00376.
+\bibitem{ngwenya2025}
+B.~A.~Ngwenya, A.~K.~Rothkopf, W.~A.~Horowitz, ``The Non-Abelian Casimir Effect for Plates, Symmetrical Tube and Box on the Lattice,'' arXiv:2507.21333 (2025); B.~A.~Ngwenya, ``The Casimir effect in non-Abelian gauge theories on the lattice,'' Ph.D.\ thesis, University of Cape Town (2025), arXiv:2505.02875.
 
 % Cluster 2: noncommutative geometry SM
 \bibitem{chamseddine1997}
@@ -1899,12 +2938,36 @@ A.~H.~Chamseddine, A.~Connes, ``Universal Formula for Noncommutative Geometry Ac
 A.~H.~Chamseddine, A.~Connes, M.~Marcolli, ``Gravity and the standard model with neutrino mixing,'' Adv.\ Theor.\ Math.\ Phys.\ \textbf{11} (2007) 991. arXiv:hep-th/0610241.
 \bibitem{cc2012}
 A.~H.~Chamseddine, A.~Connes, ``Resilience of the Spectral Standard Model,'' JHEP \textbf{09} (2012) 104.
+
+\bibitem{cc2006}
+A.~H.~Chamseddine, A.~Connes, ``Scale invariance in the spectral action,'' J.\ Math.\ Phys.\ \textbf{47} (2006) 063504. arXiv:hep-th/0512169.
+
+\bibitem{ccvs2013}
+A.~H.~Chamseddine, A.~Connes, W.~D.~van Suijlekom, ``Beyond the Spectral Standard Model: Emergence of Pati--Salam Unification,'' JHEP \textbf{11} (2013) 132. arXiv:1304.8050.
+
+\bibitem{connes2013}
+A.~Connes, ``On the spectral characterization of manifolds,'' J.\ Noncommut.\ Geom.\ \textbf{7} (2013) 1. arXiv:0810.2088.
 \bibitem{fuzzy1012}
 M.~Ihl, C.~Sachse, C.~S\"amann, ``Fuzzy Scalar Field Theory as Matrix Quantum Mechanics,'' JHEP \textbf{03} (2011) 091. arXiv:1012.3568. DOI 10.1007/JHEP03(2011)091. (Candidate source for the induced-matrix-structure mechanism; \catmark{D}.)
 
 % Cluster 3: string-net / topological order
 \bibitem{levinwen2005}
 M.~A.~Levin, X.-G.~Wen, ``String-net condensation: A physical mechanism for topological phases,'' Phys.\ Rev.\ B \textbf{71} (2005) 045110. arXiv:cond-mat/0404617.
+
+\bibitem{kitaev2003}
+A.~Yu.~Kitaev, ``Fault-tolerant quantum computation by anyons,'' Ann.\ Phys.\ \textbf{303} (2003) 2. arXiv:quant-ph/9707021.
+
+\bibitem{mueger2003}
+M.~M\"uger, ``From subfactors to categories and topology II: The quantum double of tensor categories and subfactors,'' J.\ Pure Appl.\ Algebra \textbf{180} (2003) 159. arXiv:math/0111205.
+
+\bibitem{eno2005}
+P.~Etingof, D.~Nikshych, V.~Ostrik, ``On fusion categories,'' Ann.\ Math.\ \textbf{162} (2005) 581. arXiv:math/0203060.
+
+\bibitem{lankongwen2018}
+T.~Lan, L.~Kong, X.-G.~Wen, ``Classification of (3+1)D bosonic topological orders: The case when pointlike excitations are all bosons,'' Phys.\ Rev.\ X \textbf{8} (2018) 021074. arXiv:1704.04221.
+
+\bibitem{lanwen2019}
+T.~Lan, X.-G.~Wen, ``Classification of (3+1)D bosonic topological orders (II): The case when some pointlike excitations are fermions,'' Phys.\ Rev.\ X \textbf{9} (2019) 021005. arXiv:1801.08530.
 \bibitem{wen2003}
 X.-G.~Wen, ``Quantum order from string-net condensations and the origin of light and massless fermions,'' Phys.\ Rev.\ D \textbf{68} (2003) 065003. arXiv:hep-th/0302201. DOI 10.1103/PhysRevD.68.065003. [Article number recertified to 065003 against APS primary metadata; the previously-circulating 024501 is a cross-contamination artifact and is incorrect.]
 \bibitem{walkerwang2012}
@@ -1944,6 +3007,16 @@ T.~Padmanabhan, ``Thermodynamical Aspects of Gravity: New insights,'' Rep.\ Prog
 E.~Verlinde, ``On the Origin of Gravity and the Laws of Newton,'' JHEP \textbf{04} (2011) 029. arXiv:1001.0785.
 \bibitem{chirco2014}
 G.~Chirco, H.~M.~Haggard, A.~Riello, C.~Rovelli, ``Spacetime thermodynamics without hidden degrees of freedom,'' Phys.\ Rev.\ D \textbf{90} (2014) 044044. arXiv:1401.5262.
+
+% Cluster 6b: information-theoretic / structural-realist prior art and emergent-gravity constraints
+\bibitem{wheeler1990}
+J.~A.~Wheeler, ``Information, Physics, Quantum: The Search for Links,'' in W.~H.~Zurek (ed.), \emph{Complexity, Entropy, and the Physics of Information}, Addison-Wesley (1990), pp.~3--28.
+\bibitem{carrollsingh2018}
+S.~M.~Carroll, A.~Singh, ``Mad-Dog Everettianism: Quantum Mechanics at Its Most Minimal,'' arXiv:1801.08132 (2018); in \emph{What is Fundamental?}, The Frontiers Collection, Springer (2019), DOI 10.1007/978-3-030-11301-8\_10.
+\bibitem{jenkins2009}
+A.~Jenkins, ``Constraints on emergent gravity,'' Int.\ J.\ Mod.\ Phys.\ D \textbf{18} (2009) 2249. arXiv:0904.0453.
+\bibitem{carlip2014}
+S.~Carlip, ``Challenges for Emergent Gravity,'' Stud.\ Hist.\ Phil.\ Sci.\ B \textbf{46} (2014) 200. arXiv:1207.2504.
 
 % Cluster 7: observer / neuroscience comparison (interpretive)
 \bibitem{friston2010}
@@ -1989,6 +3062,40 @@ N.~Dupuis et al., ``The nonperturbative functional renormalization group and its
 \bibitem{schnoerr2013}
 D.~Schnoerr, I.~Boettcher, J.~M.~Pawlowski, C.~Wetterich, ``Error estimates and specification parameters for functional renormalization,'' (2013). arXiv:1301.4169.
 
+% Appendix A endogenous-enhancement cluster (added in 004-appA-gsm; entries
+% resolved to primary sources; flagged for the regular DOI sweep)
+\bibitem{wilson1974}
+K.~G.~Wilson, ``Confinement of quarks,'' Phys.\ Rev.\ D \textbf{10} (1974) 2445. DOI 10.1103/PhysRevD.10.2445.
+\bibitem{frenkelkac1980}
+I.~B.~Frenkel, V.~G.~Kac, ``Basic representations of affine Lie algebras and dual resonance models,'' Invent.\ Math.\ \textbf{62} (1980) 23.
+\bibitem{goddardolive1986}
+P.~Goddard, D.~Olive, ``Kac--Moody and Virasoro algebras in relation to quantum physics,'' Int.\ J.\ Mod.\ Phys.\ A \textbf{1} (1986) 303.
+\bibitem{kuranishi1951}
+M.~Kuranishi, ``On everywhere dense imbedding of free groups in Lie groups,'' Nagoya Math.\ J.\ \textbf{2} (1951) 63.
+\bibitem{madore1992}
+J.~Madore, ``The fuzzy sphere,'' Class.\ Quantum Grav.\ \textbf{9} (1992) 69.
+\bibitem{ikkt1997}
+N.~Ishibashi, H.~Kawai, Y.~Kitazawa, A.~Tsuchiya, ``A large-$N$ reduced model as superstring,'' Nucl.\ Phys.\ B \textbf{498} (1997) 467. arXiv:hep-th/9612115.
+\bibitem{steinacker2010}
+H.~Steinacker, ``Emergent geometry and gravity from matrix models: an introduction,'' Class.\ Quantum Grav.\ \textbf{27} (2010) 133001. arXiv:1003.4134.
+\bibitem{krajewski1998}
+T.~Krajewski, ``Classification of finite spectral triples,'' J.\ Geom.\ Phys.\ \textbf{28} (1998) 1. arXiv:hep-th/9701081.
+\bibitem{paschkesitarz1998}
+M.~Paschke, A.~Sitarz, ``Discrete spectral triples and their symmetries,'' J.\ Math.\ Phys.\ \textbf{39} (1998) 6191. arXiv:q-alg/9612029.
+
+% Appendix B Connes-vacuum attractor cluster (added in 005-appB-connes;
+% entries resolved to primary sources; flagged for the regular DOI sweep)
+\bibitem{agbm1995}
+E.~Alvarez, J.~M.~Gracia-Bond\'ia, C.~P.~Mart\'in, ``Anomaly cancellation and the gauge group of the standard model in non-commutative geometry,'' Phys.\ Lett.\ B \textbf{364} (1995) 33. arXiv:hep-th/9506115.
+\bibitem{connes2006}
+A.~Connes, ``Noncommutative geometry and the standard model with neutrino mixing,'' JHEP \textbf{11} (2006) 081. arXiv:hep-th/0608226.
+\bibitem{barrett2007}
+J.~W.~Barrett, ``A Lorentzian version of the non-commutative geometry of the standard model of particle physics,'' J.\ Math.\ Phys.\ \textbf{48} (2007) 012303. arXiv:hep-th/0608221.
+\bibitem{barrettglaser2016}
+J.~W.~Barrett, L.~Glaser, ``Monte Carlo simulations of random non-commutative geometries,'' J.\ Phys.\ A \textbf{49} (2016) 245001. arXiv:1510.01377.
+\bibitem{cotler2017}
+J.~S.~Cotler et al., ``Black holes and random matrices,'' JHEP \textbf{05} (2017) 118. arXiv:1611.04650.
+
 % Cosmology inputs (Stratum-I, calibration only)
 \bibitem{planck2018}
 Planck Collaboration, ``Planck 2018 results. VI. Cosmological parameters,'' Astron.\ Astrophys.\ \textbf{641} (2020) A6. arXiv:1807.06209.
@@ -2001,6 +3108,18 @@ KiDS Collaboration (A.~H.~Wright et al.), ``KiDS-Legacy: Cosmological constraint
 \bibitem{des2026}
 DES Collaboration (T.~M.~C.~Abbott et al.), ``Dark Energy Survey Year 6 Results: Cosmological Constraints from Galaxy Clustering and Weak Lensing,'' arXiv:2601.14559 (2026).
 
+\bibitem{vansuijlekom2019}
+W.~D.~van Suijlekom, ``A survey of spectral models of gravity coupled to matter,'' arXiv:1904.12392 (2019); in \emph{Advances in Noncommutative Geometry}, Springer (2019).
+\bibitem{cacic2011}
+B.~\'{C}a\'{c}i\'{c}, ``Moduli spaces of Dirac operators for finite spectral triples,'' in \emph{Quantum Groups and Noncommutative Spaces}, Aspects of Mathematics \textbf{41}, Vieweg+Teubner (2011), DOI 10.1007/978-3-8348-9831-9\_2; arXiv:0902.2068.
+\bibitem{iss2004}
+B.~Iochum, T.~Sch\"{u}cker, C.~Stephan, ``On a classification of irreducible almost commutative geometries,'' J.\ Math.\ Phys.\ \textbf{45} (2004) 5003. arXiv:hep-th/0312276.
+\bibitem{furey2018}
+C.~Furey, ``$\mathrm{SU}(3)_C\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y$ as a symmetry of division algebraic ladder operators,'' Eur.\ Phys.\ J.\ C \textbf{78} (2018) 375. arXiv:1806.05209.
+\bibitem{furey2025}
+C.~Furey, ``A superalgebra within,'' Ann.\ Phys.\ (Berlin) (2025), DOI 10.1002/andp.202500229; arXiv:2505.07923.
+\bibitem{gourlay2024}
+B.~Gourlay, N.~Gresnigt, ``Three generations of standard model fermions from octonionic Clifford algebras,'' arXiv:2407.01580 (2024).
 \end{thebibliography}
 
 \end{document}
