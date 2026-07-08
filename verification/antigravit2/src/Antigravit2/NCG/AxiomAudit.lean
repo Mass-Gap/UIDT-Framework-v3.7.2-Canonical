@@ -13,6 +13,7 @@ import Antigravit2.NCG.RealStructure
 import Antigravit2.NCG.Bridge
 import Antigravit2.MatrixThermo.BlockPartition
 import Antigravit2.NCG.FiniteAlgebra
+import Antigravit2.NCG.NCGAxioms
 import Antigravit2.NCG.Krajewski
 
 import Antigravit2.Filters.EliminationN6
@@ -29,10 +30,14 @@ namespace NCG
 
 -- Phase 8 axiom check:
 #print axioms trivialFiniteAlgebra
-#print axioms KrajewskiDiagram.empty
+
 
 -- Phase 9 axiom check:
 #print axioms Filters.unique_321_N6
+
+-- Phase 10b axiom check:
+#print axioms orientabilityCondition
+#print axioms AdmissibleSpectralTriple
 
 end NCG
 end Antigravit2

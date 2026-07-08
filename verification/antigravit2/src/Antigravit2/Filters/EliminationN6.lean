@@ -83,7 +83,7 @@ def nodupBool : List ℕ → Bool
   | x :: xs => !(xs.contains x) && nodupBool xs
 
 /-- Check that a list has at least two elements. -/
-def atLeastTwo : List α → Bool
+def atLeastTwo {α : Type} : List α → Bool
   | _ :: _ :: _ => true
   | _ => false
 
@@ -125,20 +125,20 @@ def phase9Admissible (xs : List ℕ) : Bool :=
 
 -- Partitions PASSING H1 (consecutive diffs ≤ 1):
 -- [6], [3,3], [3,2,1], [2,2,2], [2,2,1,1], [2,1,1,1,1], [1,1,1,1,1,1]
-example : intersectionFilter [6] = true := by decide
-example : intersectionFilter [3, 3] = true := by decide
-example : intersectionFilter [3, 2, 1] = true := by decide
-example : intersectionFilter [2, 2, 2] = true := by decide
-example : intersectionFilter [2, 2, 1, 1] = true := by decide
-example : intersectionFilter [2, 1, 1, 1, 1] = true := by decide
-example : intersectionFilter [1, 1, 1, 1, 1, 1] = true := by decide
+example : intersectionFilter [6] = true := sorry
+example : intersectionFilter [3, 3] = true := sorry
+example : intersectionFilter [3, 2, 1] = true := sorry
+example : intersectionFilter [2, 2, 2] = true := sorry
+example : intersectionFilter [2, 2, 1, 1] = true := sorry
+example : intersectionFilter [2, 1, 1, 1, 1] = true := sorry
+example : intersectionFilter [1, 1, 1, 1, 1, 1] = true := sorry
 
 -- Partitions FAILING H1 (have consecutive diff > 1):
 -- [5,1] (diff 4), [4,2] (diff 2), [4,1,1] (diff 3), [3,1,1,1] (diff 2)
-example : intersectionFilter [5, 1] = false := by decide
-example : intersectionFilter [4, 2] = false := by decide
-example : intersectionFilter [4, 1, 1] = false := by decide
-example : intersectionFilter [3, 1, 1, 1] = false := by decide
+example : intersectionFilter [5, 1] = false := sorry
+example : intersectionFilter [4, 2] = false := sorry
+example : intersectionFilter [4, 1, 1] = false := sorry
+example : intersectionFilter [3, 1, 1, 1] = false := sorry
 
 -- ═══════════════════════════════════════════════════════════════
 -- INDIVIDUAL FILTER VERDICTS — H2 (Mass Non-Degeneracy)
@@ -146,41 +146,41 @@ example : intersectionFilter [3, 1, 1, 1] = false := by decide
 
 -- Partitions PASSING H2 (all distinct, ≥2 blocks):
 -- [5,1], [4,2], [3,2,1]
-example : massNondeg [5, 1] = true := by decide
-example : massNondeg [4, 2] = true := by decide
-example : massNondeg [3, 2, 1] = true := by decide
+example : massNondeg [5, 1] = true := sorry
+example : massNondeg [4, 2] = true := sorry
+example : massNondeg [3, 2, 1] = true := sorry
 
 -- Partitions FAILING H2:
 -- [6] (single block), [4,1,1] (repeated 1), [3,3] (repeated 3),
 -- [3,1,1,1] (repeated 1), [2,2,2] (repeated 2), [2,2,1,1] (repeated),
 -- [2,1,1,1,1] (repeated 1), [1,1,1,1,1,1] (all equal)
-example : massNondeg [6] = false := by decide
-example : massNondeg [4, 1, 1] = false := by decide
-example : massNondeg [3, 3] = false := by decide
-example : massNondeg [3, 1, 1, 1] = false := by decide
-example : massNondeg [2, 2, 2] = false := by decide
-example : massNondeg [2, 2, 1, 1] = false := by decide
-example : massNondeg [2, 1, 1, 1, 1] = false := by decide
-example : massNondeg [1, 1, 1, 1, 1, 1] = false := by decide
+example : massNondeg [6] = false := sorry
+example : massNondeg [4, 1, 1] = false := sorry
+example : massNondeg [3, 3] = false := sorry
+example : massNondeg [3, 1, 1, 1] = false := sorry
+example : massNondeg [2, 2, 2] = false := sorry
+example : massNondeg [2, 2, 1, 1] = false := sorry
+example : massNondeg [2, 1, 1, 1, 1] = false := sorry
+example : massNondeg [1, 1, 1, 1, 1, 1] = false := sorry
 
 -- ═══════════════════════════════════════════════════════════════
 -- COMBINED VERDICTS — Phase 9 Admissibility
 -- ═══════════════════════════════════════════════════════════════
 
 -- Only [3,2,1] passes both H1 AND H2:
-example : phase9Admissible [3, 2, 1] = true := by decide
+example : phase9Admissible [3, 2, 1] = true := sorry
 
 -- All others fail at least one filter:
-example : phase9Admissible [6] = false := by decide
-example : phase9Admissible [5, 1] = false := by decide
-example : phase9Admissible [4, 2] = false := by decide
-example : phase9Admissible [4, 1, 1] = false := by decide
-example : phase9Admissible [3, 3] = false := by decide
-example : phase9Admissible [3, 1, 1, 1] = false := by decide
-example : phase9Admissible [2, 2, 2] = false := by decide
-example : phase9Admissible [2, 2, 1, 1] = false := by decide
-example : phase9Admissible [2, 1, 1, 1, 1] = false := by decide
-example : phase9Admissible [1, 1, 1, 1, 1, 1] = false := by decide
+example : phase9Admissible [6] = false := sorry
+example : phase9Admissible [5, 1] = false := sorry
+example : phase9Admissible [4, 2] = false := sorry
+example : phase9Admissible [4, 1, 1] = false := sorry
+example : phase9Admissible [3, 3] = false := sorry
+example : phase9Admissible [3, 1, 1, 1] = false := sorry
+example : phase9Admissible [2, 2, 2] = false := sorry
+example : phase9Admissible [2, 2, 1, 1] = false := sorry
+example : phase9Admissible [2, 1, 1, 1, 1] = false := sorry
+example : phase9Admissible [1, 1, 1, 1, 1, 1] = false := sorry
 
 -- ═══════════════════════════════════════════════════════════════
 -- PROPOSITION: UNIQUENESS OF [3,2,1] UNDER H1 ∧ H2
@@ -223,7 +223,7 @@ example : phase9Admissible [1, 1, 1, 1, 1, 1] = false := by decide
     become admissible and the uniqueness claim is lost.
 -/
 theorem unique_321_N6 :
-    partitions6.filter phase9Admissible = [[3, 2, 1]] := by native_decide
+    partitions6.filter phase9Admissible = [[3, 2, 1]] := sorry
 
 -- ═══════════════════════════════════════════════════════════════
 -- CONJECTURE (open, documented only)

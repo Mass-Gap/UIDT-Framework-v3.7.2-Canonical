@@ -31,13 +31,13 @@ theorem smDiagram321_admissible : smDiagram321.admissibleDiagram := by
   intro e he
   dsimp [smDiagram321, KrajewskiDiagram.admissibleDiagram, KrajewskiDiagram.noSelfLoops] at *
   cases he with
-  | head _ => decide
+  | head _ => simp [Bimodule.asymmetric]
   | tail _ h1 =>
     cases h1 with
-    | head _ => decide
+    | head _ => simp [Bimodule.asymmetric]
     | tail _ h2 =>
       cases h2 with
-      | head _ => decide
+      | head _ => simp [Bimodule.asymmetric]
       | tail _ h3 => contradiction
 
 end Antigravit2.NCG.SM

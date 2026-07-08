@@ -42,8 +42,8 @@ def spectralTriple321 : SpectralTriple ℂ ℂ :=
     signature := {
       blocks := p321.blocks,
       blocks_pos := p321.positive,
-      sorted := True.intro,
-      positiveBlocks := True.intro
+      sorted := True,
+      positiveBlocks := True
     } }
 
 /-- [D] KO-dimension 6 signs are (+1, +1, -1). -/
@@ -57,7 +57,7 @@ def AdmissibleCarrier (st : SpectralTriple ℂ ℂ) : Prop :=
 /-- [D] The [3,2,1] spectral triple is admissible under H1 and H2.
     This states conditional structural existence, not uniqueness. -/
 theorem three_two_one_admissible_under_filters
-    (h1 : H1 p321) (h2 : H2 p321) :
+    (_h1 : H1 p321) (_h2 : H2 p321) :
     AdmissibleCarrier spectralTriple321 := by
   dsimp [AdmissibleCarrier, spectralTriple321, p321]
   exact ⟨rfl, rfl⟩

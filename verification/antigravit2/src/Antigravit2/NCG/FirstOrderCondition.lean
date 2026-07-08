@@ -4,10 +4,9 @@
   Project: UIDT-Framework-Canonical
 -/
 
-namespace Antigravit2.NCG
+import Mathlib.Algebra.Group.Defs
 
-/-- Endomorphism abstraction for representations. -/
-def End (H : Type _) := H → H
+namespace Antigravit2.NCG
 
 /-- Opposite algebra wrapper to strictly separate left and right actions. -/
 structure Opposite (A : Type _) where
@@ -18,16 +17,16 @@ structure Opposite (A : Type _) where
   No physical matrix assignments, pure topological data.
 -/
 structure SpectralTripleCore (A H : Type _) where
-  D : End H
-  J : End H
-  gamma : End H
-  leftRep : A → End H
-  rightRep : Opposite A → End H
+  D : H → H
+  J : H → H
+  gamma : H → H
+  leftRep : A → (H → H)
+  rightRep : Opposite A → (H → H)
 
 /--
   Commutator abstraction for endomorphisms.
 -/
-def Commute {H : Type _} (F G : End H) : Prop :=
+def Commute {H : Type _} (F G : H → H) : Prop :=
   ∀ x, F (G x) = G (F x)
 
 /--
@@ -36,7 +35,7 @@ def Commute {H : Type _} (F G : End H) : Prop :=
   Formulated purely structurally as a Prop.
 -/
 def firstOrderCondition {A H : Type _} [AddGroup H] (ST : SpectralTripleCore A H) : Prop :=
-  ∀ (a : A) (bᵒ : Opposite A),
-    Commute (fun x => ST.D (ST.leftRep a x) - ST.leftRep a (ST.D x)) (ST.rightRep bᵒ)
+  ∀ (a : A) (b_op : Opposite A),
+    Commute (fun x => ST.D (ST.leftRep a x) - ST.leftRep a (ST.D x)) (ST.rightRep b_op)
 
 end Antigravit2.NCG

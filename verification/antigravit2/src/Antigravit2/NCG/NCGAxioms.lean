@@ -12,7 +12,7 @@ namespace Antigravit2.NCG
   Order Zero Condition: left and right actions commute.
 -/
 def orderZeroCondition {A H : Type _} (ST : SpectralTripleCore A H) : Prop :=
-  ∀ (a : A) (bᵒ : Opposite A), Commute (ST.leftRep a) (ST.rightRep bᵒ)
+  ∀ (a : A) (b_op : Opposite A), Commute (ST.leftRep a) (ST.rightRep b_op)
 
 /--
   Reality Condition: Commutativity (or anti-commutativity up to signs) between J and D.
