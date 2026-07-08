@@ -24,7 +24,7 @@
 
 import Antigravit2.MatrixThermo.BlockPartition
 import Antigravit2.Filters.Admissibility
-import Mathlib.Combinatorics.Enumerative.Partition
+import Mathlib.Combinatorics.Enumerative.Partition.Basic
 import Mathlib.Tactic
 
 namespace Antigravit2

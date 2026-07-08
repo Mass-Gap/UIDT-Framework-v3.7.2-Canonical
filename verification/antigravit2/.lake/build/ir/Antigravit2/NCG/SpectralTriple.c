@@ -22,20 +22,20 @@ lean_object* lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Data_Real_Basi
 lean_object* lp_mathlib_Real_definition___lam__0_00___x40_Mathlib_Data_Real_Basic_1138242547____hygCtx___hyg_8_(lean_object*, lean_object*, lean_object*);
 lean_object* l_List_reverse___redArg(lean_object*);
 lean_object* lean_nat_mul(lean_object*, lean_object*);
-lean_object* lp_mathlib_Complex_instStarRing___lam__0(lean_object*);
 lean_object* lp_mathlib_List_filterTR_loop___at___00Multiset_filter___at___00Nat_Partition_ofSums_spec__0_spec__0(lean_object*, lean_object*);
 lean_object* l_List_MergeSort_Internal_mergeSortTR_u2082___redArg(lean_object*, lean_object*);
 uint8_t l_List_beq___at___00Lean_MacroScopesView_equalScope_spec__0(lean_object*, lean_object*);
 lean_object* lp_mathlib_List_sum___at___00Composition_sizeUpTo_spec__0(lean_object*);
 lean_object* lean_nat_mod(lean_object*, lean_object*);
+lean_object* lp_mathlib_Complex_instStarRing___lam__0(lean_object*);
 uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_totalDim(lean_object*);
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_totalDim___boxed(lean_object*);
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_numSummands(lean_object*);
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_numSummands___boxed(lean_object*);
-LEAN_EXPORT lean_object* lp_antigravit2_List_mapTR_loop___at___00Antigravit2_NCG_FiniteAlgebraSignature_algebraDim_spec__0(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_algebraDim(lean_object*);
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_totalDim(lean_object*);
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_totalDim___boxed(lean_object*);
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_numSummands(lean_object*);
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_numSummands___boxed(lean_object*);
+LEAN_EXPORT lean_object* lp_antigravit2_List_mapTR_loop___at___00Antigravit2_NCG_FiniteAlgebraSignatureOld_algebraDim_spec__0(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_algebraDim(lean_object*);
 LEAN_EXPORT uint8_t lp_antigravit2_Antigravit2_NCG_canonicalBlocks___lam__0(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_canonicalBlocks___lam__0___boxed(lean_object*, lean_object*);
 static const lean_closure_object lp_antigravit2_Antigravit2_NCG_canonicalBlocks___closed__0_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_closure_object) + sizeof(void*)*0, .m_other = 0, .m_tag = 245}, .m_fun = (void*)lp_antigravit2_Antigravit2_NCG_canonicalBlocks___lam__0___boxed, .m_arity = 2, .m_num_fixed = 0, .m_objs = {} };
@@ -83,12 +83,7 @@ LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_koSignTable___boxed(lean
 static lean_once_cell_t lp_antigravit2_Antigravit2_NCG_standardModelKODim___closed__0_once = LEAN_ONCE_CELL_INITIALIZER;
 static lean_object* lp_antigravit2_Antigravit2_NCG_standardModelKODim___closed__0;
 LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_standardModelKODim;
-static const lean_closure_object lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__0_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_closure_object) + sizeof(void*)*0, .m_other = 0, .m_tag = 245}, .m_fun = (void*)lp_mathlib_Complex_instStarRing___lam__0, .m_arity = 1, .m_num_fixed = 0, .m_objs = {} };
-static const lean_object* lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__0 = (const lean_object*)&lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__0_value;
-static lean_once_cell_t lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__1_once = LEAN_ONCE_CELL_INITIALIZER;
-static lean_object* lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__1;
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_trivialRealStruct;
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_totalDim(lean_object* v_sig_1_){
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_totalDim(lean_object* v_sig_1_){
 _start:
 {
 lean_object* v___x_2_; 
@@ -96,16 +91,16 @@ v___x_2_ = lp_mathlib_List_sum___at___00Composition_sizeUpTo_spec__0(v_sig_1_);
 return v___x_2_;
 }
 }
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_totalDim___boxed(lean_object* v_sig_3_){
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_totalDim___boxed(lean_object* v_sig_3_){
 _start:
 {
 lean_object* v_res_4_; 
-v_res_4_ = lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_totalDim(v_sig_3_);
+v_res_4_ = lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_totalDim(v_sig_3_);
 lean_dec(v_sig_3_);
 return v_res_4_;
 }
 }
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_numSummands(lean_object* v_sig_5_){
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_numSummands(lean_object* v_sig_5_){
 _start:
 {
 lean_object* v___x_6_; 
@@ -113,16 +108,16 @@ v___x_6_ = l_List_lengthTR___redArg(v_sig_5_);
 return v___x_6_;
 }
 }
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_numSummands___boxed(lean_object* v_sig_7_){
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_numSummands___boxed(lean_object* v_sig_7_){
 _start:
 {
 lean_object* v_res_8_; 
-v_res_8_ = lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_numSummands(v_sig_7_);
+v_res_8_ = lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_numSummands(v_sig_7_);
 lean_dec(v_sig_7_);
 return v_res_8_;
 }
 }
-LEAN_EXPORT lean_object* lp_antigravit2_List_mapTR_loop___at___00Antigravit2_NCG_FiniteAlgebraSignature_algebraDim_spec__0(lean_object* v_a_9_, lean_object* v_a_10_){
+LEAN_EXPORT lean_object* lp_antigravit2_List_mapTR_loop___at___00Antigravit2_NCG_FiniteAlgebraSignatureOld_algebraDim_spec__0(lean_object* v_a_9_, lean_object* v_a_10_){
 _start:
 {
 if (lean_obj_tag(v_a_9_) == 0)
@@ -183,12 +178,12 @@ goto _start;
 }
 }
 }
-LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignature_algebraDim(lean_object* v_sig_23_){
+LEAN_EXPORT lean_object* lp_antigravit2_Antigravit2_NCG_FiniteAlgebraSignatureOld_algebraDim(lean_object* v_sig_23_){
 _start:
 {
 lean_object* v___x_24_; lean_object* v___x_25_; lean_object* v___x_26_; 
 v___x_24_ = lean_box(0);
-v___x_25_ = lp_antigravit2_List_mapTR_loop___at___00Antigravit2_NCG_FiniteAlgebraSignature_algebraDim_spec__0(v_sig_23_, v___x_24_);
+v___x_25_ = lp_antigravit2_List_mapTR_loop___at___00Antigravit2_NCG_FiniteAlgebraSignatureOld_algebraDim_spec__0(v_sig_23_, v___x_24_);
 v___x_26_ = lp_mathlib_List_sum___at___00Composition_sizeUpTo_spec__0(v___x_25_);
 lean_dec(v___x_25_);
 return v___x_26_;
@@ -611,28 +606,6 @@ v___x_144_ = lean_obj_once(&lp_antigravit2_Antigravit2_NCG_standardModelKODim___
 return v___x_144_;
 }
 }
-static lean_object* _init_lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__1(void){
-_start:
-{
-lean_object* v___x_146_; lean_object* v___f_147_; lean_object* v___x_148_; 
-v___x_146_ = lean_obj_once(&lp_antigravit2_Antigravit2_NCG_koSignTable___closed__0, &lp_antigravit2_Antigravit2_NCG_koSignTable___closed__0_once, _init_lp_antigravit2_Antigravit2_NCG_koSignTable___closed__0);
-v___f_147_ = ((lean_object*)(lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__0));
-v___x_148_ = lean_alloc_ctor(0, 4, 0);
-lean_ctor_set(v___x_148_, 0, v___f_147_);
-lean_ctor_set(v___x_148_, 1, v___x_146_);
-lean_ctor_set(v___x_148_, 2, v___x_146_);
-lean_ctor_set(v___x_148_, 3, v___x_146_);
-return v___x_148_;
-}
-}
-static lean_object* _init_lp_antigravit2_Antigravit2_NCG_trivialRealStruct(void){
-_start:
-{
-lean_object* v___x_149_; 
-v___x_149_ = lean_obj_once(&lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__1, &lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__1_once, _init_lp_antigravit2_Antigravit2_NCG_trivialRealStruct___closed__1);
-return v___x_149_;
-}
-}
 lean_object* initialize_Init(uint8_t builtin);
 lean_object* initialize_Init(uint8_t builtin);
 lean_object* initialize_mathlib_Mathlib_Data_Nat_Basic(uint8_t builtin);
@@ -660,8 +633,6 @@ if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 lp_antigravit2_Antigravit2_NCG_standardModelKODim = _init_lp_antigravit2_Antigravit2_NCG_standardModelKODim();
 lean_mark_persistent(lp_antigravit2_Antigravit2_NCG_standardModelKODim);
-lp_antigravit2_Antigravit2_NCG_trivialRealStruct = _init_lp_antigravit2_Antigravit2_NCG_trivialRealStruct();
-lean_mark_persistent(lp_antigravit2_Antigravit2_NCG_trivialRealStruct);
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus

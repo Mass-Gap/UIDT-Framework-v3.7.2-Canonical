@@ -14178,6 +14178,10 @@
   ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\SpectralTriple.olean"],
   "Antigravit2.NCG.RealStructure":
   ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\RealStructure.olean"],
+  "Antigravit2.NCG.Krajewski":
+  ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\Krajewski.olean"],
+  "Antigravit2.NCG.FiniteAlgebra":
+  ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\FiniteAlgebra.olean"],
   "Antigravit2.NCG.Bridge":
   ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\Bridge.olean"],
   "Antigravit2.MatrixThermo.BlockPartition":

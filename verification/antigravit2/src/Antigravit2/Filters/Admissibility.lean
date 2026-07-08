@@ -73,12 +73,6 @@ def spread (xs : List ℕ) : ℕ :=
 lemma allEqual_cons_cons (a b : ℕ) (xs : List ℕ) :
     allEqual (a :: b :: xs) ↔ b = a ∧ allEqual (a :: xs) := by
   simp [allEqual]
-  constructor
-  · intro h; exact ⟨h b (List.mem_cons_self b xs), fun y hy => h y (List.mem_cons_of_mem b hy)⟩
-  · intro ⟨hba, hrest⟩ y hy
-    rcases List.mem_cons.mp hy with rfl | hys
-    · exact hba
-    · exact hrest y hys
 
 /-- [DEFINITIONAL] A non-empty list with all elements equal has
     allEqual iff it consists of replicated copies of its head. -/
@@ -193,7 +187,9 @@ lemma allEqual_fails_filter2 {N : ℕ} (p : BlockPartition N) (h : allEqual p.bl
 lemma spread_too_large {N : ℕ} (p : BlockPartition N) {δ : ℕ}
     (h : δ < spread p.blocks) :
     ¬ filter1 p δ := by
-  intro hf1; omega
+  intro hf1
+  dsimp [filter1] at hf1
+  omega
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DEFINITIONAL] Regression examples — spread and allEqual
@@ -212,8 +208,8 @@ example : spread [2, 2, 2] = 0 := by simp [spread, maxBlock, minBlock]
 example : allEqual [2, 2] := by simp [allEqual]
 example : allEqual [3, 3] := by simp [allEqual]
 example : allEqual [2, 2, 2] := by simp [allEqual]
-example : ¬ allEqual [2, 1] := by simp [allEqual]; omega
-example : ¬ allEqual [3, 2, 1] := by simp [allEqual]; omega
+example : ¬ allEqual [2, 1] := by simp [allEqual]
+example : ¬ allEqual [3, 2, 1] := by simp [allEqual]
 
 -- ═══════════════════════════════════════════════════════════════
 -- [DEFINITIONAL] Admissibility verdicts for test partitions
@@ -226,7 +222,7 @@ example : ¬ allEqual [3, 2, 1] := by simp [allEqual]; omega
 theorem p21_admissible : admissible p21 (δ := 1) := by
   constructor
   · simp [filter1, spread, maxBlock, minBlock, p21]
-  · simp [filter2, allEqual, p21]; omega
+  · simp [filter2, allEqual, p21]
 
 -- p22 = [2,2]: spread=0, allEqual → NOT admissible (any δ)
 theorem p22_not_admissible (δ : ℕ) : ¬ admissible p22 δ := by
@@ -250,7 +246,7 @@ theorem p222_not_admissible (δ : ℕ) : ¬ admissible p222 δ := by
 theorem p321_admissible_delta2 : admissible p321 (δ := 2) := by
   constructor
   · simp [filter1, spread, maxBlock, minBlock, p321]
-  · simp [filter2, allEqual, p321]; omega
+  · simp [filter2, allEqual, p321]
 
 -- p321 = [3,2,1]: spread=2 > 1 → NOT admissible δ=1
 theorem p321_not_admissible_delta1 : ¬ admissible p321 (δ := 1) := by
@@ -261,7 +257,7 @@ theorem p321_not_admissible_delta1 : ¬ admissible p321 (δ := 1) := by
 theorem p2211_admissible : admissible p2211 (δ := 1) := by
   constructor
   · simp [filter1, spread, maxBlock, minBlock, p2211]
-  · simp [filter2, allEqual, p2211]; omega
+  · simp [filter2, allEqual, p2211]
 
 -- ═══════════════════════════════════════════════════════════════
 -- Phase 2 epistemic status summary

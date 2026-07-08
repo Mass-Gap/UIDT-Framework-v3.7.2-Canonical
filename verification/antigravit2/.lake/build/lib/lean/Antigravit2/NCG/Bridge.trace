@@ -1,13 +1,13 @@
 {"synthetic": false,
  "schemaVersion": "2025-09-10",
  "outputs":
- {"o": ["e0981c69a63445a6.olean"],
+ {"o": ["cb81d209fbdc5f8a.olean"],
   "m": false,
-  "i": "bb47c7eb2cac38a2.ilean",
-  "c": "d48f1eda0d09517e.c"},
+  "i": "a1ee3630fea240f0.ilean",
+  "c": "941e7b55d0600077.c"},
  "log":
  [{"message":
-   ".> LEAN_PATH=C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean c:\\Users\\badbu\\.elan\\toolchains\\leanprover--lean4---v4.32.0-rc1\\bin\\lean.exe C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\Antigravit2\\NCG\\Bridge.lean -o C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\Bridge.olean -i C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\Bridge.ilean -c C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\Bridge.c --setup C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\Bridge.setup.json --json",
+   ".> LEAN_PATH=C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\packages\\mathlib\\.lake\\build\\lib\\lean;C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean c:\\Users\\badbu\\.elan\\toolchains\\leanprover--lean4---v4.32.0-rc1\\bin\\lean.exe C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\src\\Antigravit2\\NCG\\Bridge.lean -o C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\Bridge.olean -i C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\lib\\lean\\Antigravit2\\NCG\\Bridge.ilean -c C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\Bridge.c --setup C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\.lake\\build\\ir\\Antigravit2\\NCG\\Bridge.setup.json --json",
    "level": "trace"}],
  "inputs":
  [["Antigravit2.NCG.Bridge:deps",
@@ -20,8 +20,8 @@
         ["Antigravit2.MatrixThermo.BlockPartition:importAllArts",
          "16bfb0d212bf29e8"],
         ["Antigravit2.NCG.SpectralTriple transitive imports (legacy)",
-         "1187e416f79bd18f"],
-        ["Antigravit2.NCG.SpectralTriple:importAllArts", "1ee6e52fb1380f3d"],
+         "c49450c0aea75914"],
+        ["Antigravit2.NCG.SpectralTriple:importAllArts", "4f7fa0e9e4437cd1"],
         ["Mathlib.Tactic transitive imports (legacy)", "5b9c9fba06cb1eed"],
         ["Mathlib.Tactic:importAllArts", "dc05a301be08a24f"]]]]],
     ["libs",
@@ -31,11 +31,11 @@
       ["module plugins", "00000000000006bb"]]]]],
   ["Lean 4.32.0, commit b4812ae53eea93439ad5dce5a5c26591c31cb697",
    "9f30fb205c97627b"],
-  ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\Antigravit2\\NCG\\Bridge.lean",
-   "eb6a6f7ebc287d93"],
+  ["C:\\Users\\badbu\\Documents\\github\\UIDT-Framework-V3.9-UNIVERSUM_SIM\\verification\\antigravit2\\src\\Antigravit2\\NCG\\Bridge.lean",
+   "eac65a60c06cd549"],
   ["options", [["-DautoImplicit=false", "4a85acb881fd49d0"]]],
   ["isModule: false", "feefd2a0d3a1847e"],
   ["Module.name: Antigravit2.NCG.Bridge", "d88bfd388d65909f"],
   ["Package.id?: (some antigravit2)", "4ca2ed26ad21a482"],
   ["Module.leanArgs: #[]", "00000000000006bb"]],
- "depHash": "da5f2906d046db60"}
+ "depHash": "af307aed34a693b3"}
