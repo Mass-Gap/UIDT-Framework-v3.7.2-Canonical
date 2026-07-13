@@ -16,14 +16,24 @@
             (Transitiv verifiziert via `#print axioms toTrivialTriple` -> no `sorryAx`).
     Target: Phase 8 (Entwicklung spezifischer Decidability-Lemmas für Partitionen).
 
-  [ALLOWED-P10] RNC Conjecture Seed
-    Reason: The Phase 9 uniqueness proof `unique_321_N6` explicitly verifies 
-            that [3,2,1] is the sole admissible N=6 partition under H1 ∧ H2.
-            The general Relocation Necessity Conjecture (RNC) for arbitrary N 
-            remains an open structural question (staircase topologies).
-    Scope:  `unique_321_N6` itself is sorry-free (via native_decide). The 
-            conjecture merely documents the boundary of the formalization.
-    Target: Future phases mapping the RNC for higher moduli (N=10, 15).
+  [OPEN-P10] unique_321_N6 and its supporting decidability lemmas — NOT sorry-free
+    Reason: The Phase 9 uniqueness statement `unique_321_N6` asserts that [3,2,1]
+            is the sole admissible N=6 partition under H1 ∧ H2. As of 2026-07-13
+            this statement is stated but not proved: `unique_321_N6`
+            (EliminationN6.lean:226) is `:= sorry`, not `native_decide` as this
+            register previously claimed. All 33 supporting per-partition example
+            checks for `intersectionFilter`, `massNondeg`, and `phase9Admissible`
+            (EliminationN6.lean:128-183) are likewise `:= sorry`. Total: 34 open
+            `sorry` markers in EliminationN6.lean, none currently discharged.
+    Scope:  The RNC conjecture (general-N staircase claim) remains correctly
+            documented as open and out of scope for N=6. It is unaffected by
+            this correction. `#print axioms Filters.unique_321_N6` (see
+            AxiomAudit.lean:36) will report `sorryAx` until these are closed.
+    Target: Phase 9 completion — discharge via `native_decide` or exhaustive
+            `decide` over `partitions6` (finite, `p(6)=11`), then re-verify via
+            `#print axioms` before this entry may be reclassified [ALLOWED].
+    Audit:  Correction recorded 2026-07-13 (Sonnet role, mechanical hygiene,
+            S-3). See PR TKT-2026-07-13-lean-f1-sorry-register-audit.
 
   [NONE] All RealStructure.lean lemmas — sorry-free as of 2026-06-30
   [NONE] All Bridge.lean lemmas — sorry-free as of 2026-06-30
