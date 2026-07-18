@@ -31,7 +31,7 @@
   [ALLOWED-P10] List.Sorted Enumeration Regression (Enumeration.lean)
     Reason: The `List.Sorted (· ≥ ·)` decidability for partitions hangs the elaborator 
             infinitely without `native_decide` (which would introduce `Lean.ofReduceBool`). 
-    Scope:  3 instances in Enumeration.lean lines 73-75. 
+    Scope:  3 instances in Enumeration.lean lines 77-79. 
     Target: Phase 10 — Decidability optimizations for decreasing sorts.
 
   [NONE] All RealStructure.lean lemmas — sorry-free as of 2026-06-30
@@ -43,7 +43,7 @@ namespace Antigravit2
 namespace NCG
 
 -- Status: 5 instances in SpectralTriple.lean lines 98-103.
--- Status: 3 instances in Enumeration.lean lines 73-75.
+-- Status: 3 instances in Enumeration.lean lines 77-79.
 
 end NCG
 end Antigravit2
