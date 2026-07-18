@@ -125,20 +125,20 @@ def phase9Admissible (xs : List ℕ) : Bool :=
 
 -- Partitions PASSING H1 (consecutive diffs ≤ 1):
 -- [6], [3,3], [3,2,1], [2,2,2], [2,2,1,1], [2,1,1,1,1], [1,1,1,1,1,1]
-example : intersectionFilter [6] = true := sorry
-example : intersectionFilter [3, 3] = true := sorry
-example : intersectionFilter [3, 2, 1] = true := sorry
-example : intersectionFilter [2, 2, 2] = true := sorry
-example : intersectionFilter [2, 2, 1, 1] = true := sorry
-example : intersectionFilter [2, 1, 1, 1, 1] = true := sorry
-example : intersectionFilter [1, 1, 1, 1, 1, 1] = true := sorry
+example : intersectionFilter [6] = true := rfl
+example : intersectionFilter [3, 3] = true := rfl
+example : intersectionFilter [3, 2, 1] = true := rfl
+example : intersectionFilter [2, 2, 2] = true := rfl
+example : intersectionFilter [2, 2, 1, 1] = true := rfl
+example : intersectionFilter [2, 1, 1, 1, 1] = true := rfl
+example : intersectionFilter [1, 1, 1, 1, 1, 1] = true := rfl
 
 -- Partitions FAILING H1 (have consecutive diff > 1):
 -- [5,1] (diff 4), [4,2] (diff 2), [4,1,1] (diff 3), [3,1,1,1] (diff 2)
-example : intersectionFilter [5, 1] = false := sorry
-example : intersectionFilter [4, 2] = false := sorry
-example : intersectionFilter [4, 1, 1] = false := sorry
-example : intersectionFilter [3, 1, 1, 1] = false := sorry
+example : intersectionFilter [5, 1] = false := rfl
+example : intersectionFilter [4, 2] = false := rfl
+example : intersectionFilter [4, 1, 1] = false := rfl
+example : intersectionFilter [3, 1, 1, 1] = false := rfl
 
 -- ═══════════════════════════════════════════════════════════════
 -- INDIVIDUAL FILTER VERDICTS — H2 (Mass Non-Degeneracy)
@@ -146,41 +146,41 @@ example : intersectionFilter [3, 1, 1, 1] = false := sorry
 
 -- Partitions PASSING H2 (all distinct, ≥2 blocks):
 -- [5,1], [4,2], [3,2,1]
-example : massNondeg [5, 1] = true := sorry
-example : massNondeg [4, 2] = true := sorry
-example : massNondeg [3, 2, 1] = true := sorry
+example : massNondeg [5, 1] = true := rfl
+example : massNondeg [4, 2] = true := rfl
+example : massNondeg [3, 2, 1] = true := rfl
 
 -- Partitions FAILING H2:
 -- [6] (single block), [4,1,1] (repeated 1), [3,3] (repeated 3),
 -- [3,1,1,1] (repeated 1), [2,2,2] (repeated 2), [2,2,1,1] (repeated),
 -- [2,1,1,1,1] (repeated 1), [1,1,1,1,1,1] (all equal)
-example : massNondeg [6] = false := sorry
-example : massNondeg [4, 1, 1] = false := sorry
-example : massNondeg [3, 3] = false := sorry
-example : massNondeg [3, 1, 1, 1] = false := sorry
-example : massNondeg [2, 2, 2] = false := sorry
-example : massNondeg [2, 2, 1, 1] = false := sorry
-example : massNondeg [2, 1, 1, 1, 1] = false := sorry
-example : massNondeg [1, 1, 1, 1, 1, 1] = false := sorry
+example : massNondeg [6] = false := rfl
+example : massNondeg [4, 1, 1] = false := rfl
+example : massNondeg [3, 3] = false := rfl
+example : massNondeg [3, 1, 1, 1] = false := rfl
+example : massNondeg [2, 2, 2] = false := rfl
+example : massNondeg [2, 2, 1, 1] = false := rfl
+example : massNondeg [2, 1, 1, 1, 1] = false := rfl
+example : massNondeg [1, 1, 1, 1, 1, 1] = false := rfl
 
 -- ═══════════════════════════════════════════════════════════════
 -- COMBINED VERDICTS — Phase 9 Admissibility
 -- ═══════════════════════════════════════════════════════════════
 
 -- Only [3,2,1] passes both H1 AND H2:
-example : phase9Admissible [3, 2, 1] = true := sorry
+example : phase9Admissible [3, 2, 1] = true := rfl
 
 -- All others fail at least one filter:
-example : phase9Admissible [6] = false := sorry
-example : phase9Admissible [5, 1] = false := sorry
-example : phase9Admissible [4, 2] = false := sorry
-example : phase9Admissible [4, 1, 1] = false := sorry
-example : phase9Admissible [3, 3] = false := sorry
-example : phase9Admissible [3, 1, 1, 1] = false := sorry
-example : phase9Admissible [2, 2, 2] = false := sorry
-example : phase9Admissible [2, 2, 1, 1] = false := sorry
-example : phase9Admissible [2, 1, 1, 1, 1] = false := sorry
-example : phase9Admissible [1, 1, 1, 1, 1, 1] = false := sorry
+example : phase9Admissible [6] = false := rfl
+example : phase9Admissible [5, 1] = false := rfl
+example : phase9Admissible [4, 2] = false := rfl
+example : phase9Admissible [4, 1, 1] = false := rfl
+example : phase9Admissible [3, 3] = false := rfl
+example : phase9Admissible [3, 1, 1, 1] = false := rfl
+example : phase9Admissible [2, 2, 2] = false := rfl
+example : phase9Admissible [2, 2, 1, 1] = false := rfl
+example : phase9Admissible [2, 1, 1, 1, 1] = false := rfl
+example : phase9Admissible [1, 1, 1, 1, 1, 1] = false := rfl
 
 -- ═══════════════════════════════════════════════════════════════
 -- PROPOSITION: UNIQUENESS OF [3,2,1] UNDER H1 ∧ H2
@@ -223,7 +223,7 @@ example : phase9Admissible [1, 1, 1, 1, 1, 1] = false := sorry
     become admissible and the uniqueness claim is lost.
 -/
 theorem unique_321_N6 :
-    partitions6.filter phase9Admissible = [[3, 2, 1]] := sorry
+    partitions6.filter phase9Admissible = [[3, 2, 1]] := rfl
 
 -- ═══════════════════════════════════════════════════════════════
 -- CONJECTURE (open, documented only)

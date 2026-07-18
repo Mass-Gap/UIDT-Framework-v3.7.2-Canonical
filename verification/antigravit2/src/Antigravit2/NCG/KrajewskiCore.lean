@@ -5,26 +5,9 @@
 -/
 
 import Mathlib.Data.Nat.Basic
+import Antigravit2.NCG.Bimodule
 
 namespace Antigravit2.NCG
-
-/-- 
-  [D] A Bimodule represents an edge in a Krajewski diagram,
-  connecting a left block to a right block with a certain multiplicity.
-  It is a pure structural record without physical labels.
--/
-structure Bimodule where
-  leftBlock  : ℕ
-  rightBlock : ℕ
-  multiplicity : ℕ
-
-namespace Bimodule
-
-/-- [D] Derived property: A bimodule is asymmetric (chiral) if it connects distinct blocks. -/
-def asymmetric (b : Bimodule) : Prop :=
-  b.leftBlock ≠ b.rightBlock
-
-end Bimodule
 
 /--
   [D] A Krajewski Diagram classifies the finite spectral triples.

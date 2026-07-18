@@ -52,14 +52,15 @@ theorem ko_dim_six_signs :
 
 /-- [D] Admissibility wrapper for SpectralTriple. -/
 def AdmissibleCarrier (st : SpectralTriple ℂ ℂ) : Prop :=
-  st.KO_dim = 6 ∧ st.signature.blocks = [3, 2, 1]
+  st.KO_dim = 6 ∧ admissible { blocks := st.signature.blocks, sum_blocks := rfl, positive := st.signature.blocks_pos : BlockPartition st.signature.totalDim } 2
 
 /-- [D] The [3,2,1] spectral triple is admissible under H1 and H2.
     This states conditional structural existence, not uniqueness. -/
-theorem three_two_one_admissible_under_filters
-    (_h1 : H1 p321) (_h2 : H2 p321) :
+theorem three_two_one_admissible_under_filters :
     AdmissibleCarrier spectralTriple321 := by
-  dsimp [AdmissibleCarrier, spectralTriple321, p321]
-  exact ⟨rfl, rfl⟩
+  dsimp [AdmissibleCarrier, spectralTriple321, p321, admissible, filter1, filter2, allEqual]
+  refine ⟨rfl, by decide, fun h => ?_⟩
+  have h2 : 2 = 3 := h 2 (by decide)
+  contradiction
 
 end Antigravit2.NCG

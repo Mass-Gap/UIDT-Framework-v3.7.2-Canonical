@@ -14,7 +14,6 @@ import Antigravit2.NCG.Bridge
 import Antigravit2.MatrixThermo.BlockPartition
 import Antigravit2.NCG.FiniteAlgebra
 import Antigravit2.NCG.NCGAxioms
-import Antigravit2.NCG.Krajewski
 
 import Antigravit2.Filters.EliminationN6
 
